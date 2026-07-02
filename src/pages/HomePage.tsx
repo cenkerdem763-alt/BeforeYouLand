@@ -6,14 +6,13 @@ import Search from '../components/Search';
 import SEO from '../components/SEO';
 import TopicCard from '../components/TopicCard';
 import { countries } from '../data/countries';
+import { siteConfig } from '../data/config';
 import { ui, type Language } from '../data/i18n';
 import { getGuidePath, topicKeys } from '../data/routes';
 
 type HomePageProps = {
   language: Language;
 };
-
-const siteUrl = 'https://beforeyouland.com';
 
 export default function HomePage({ language }: HomePageProps) {
   const [query, setQuery] = useState('');
@@ -33,11 +32,11 @@ export default function HomePage({ language }: HomePageProps) {
       <SEO
         title={language === 'en' ? 'Country starter guides' : 'Ülke başlangıç rehberleri'}
         description={copy.subtitle}
-        canonical={`${siteUrl}/${language}`}
+        canonical={`${siteConfig.baseUrl}/${language}`}
         alternates={[
-          { hrefLang: 'en', href: `${siteUrl}/en` },
-          { hrefLang: 'tr', href: `${siteUrl}/tr` },
-          { hrefLang: 'x-default', href: `${siteUrl}/en` },
+          { hrefLang: 'en', href: `${siteConfig.baseUrl}/en` },
+          { hrefLang: 'tr', href: `${siteConfig.baseUrl}/tr` },
+          { hrefLang: 'x-default', href: `${siteConfig.baseUrl}/en` },
         ]}
       />
       <section className="border-b border-line bg-[linear-gradient(180deg,#edf7ff_0%,#ffffff_72%)]">

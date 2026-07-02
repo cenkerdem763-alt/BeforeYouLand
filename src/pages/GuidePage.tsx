@@ -1,12 +1,11 @@
 import { Navigate, useParams } from 'react-router-dom';
 import GuideLayout from '../components/GuideLayout';
 import SEO from '../components/SEO';
+import { siteConfig } from '../data/config';
 import { findCountryBySlug } from '../data/countries';
 import { findGuide } from '../data/guides';
 import { type Language } from '../data/i18n';
 import { getGuidePath, resolveTopicFromSlug } from '../data/routes';
-
-const siteUrl = 'https://beforeyouland.com';
 
 export default function GuidePage() {
   const params = useParams();
@@ -41,10 +40,10 @@ export default function GuidePage() {
       <SEO
         title={guide.title}
         description={guide.description}
-        canonical={`${siteUrl}${canonicalPath}`}
+        canonical={`${siteConfig.baseUrl}${canonicalPath}`}
         alternates={[
-          { hrefLang: language, href: `${siteUrl}${canonicalPath}` },
-          { hrefLang: otherLanguage, href: `${siteUrl}${alternatePath}` },
+          { hrefLang: language, href: `${siteConfig.baseUrl}${canonicalPath}` },
+          { hrefLang: otherLanguage, href: `${siteConfig.baseUrl}${alternatePath}` },
         ]}
         jsonLd={faqJsonLd}
       />

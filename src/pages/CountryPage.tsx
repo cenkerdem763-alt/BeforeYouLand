@@ -2,12 +2,11 @@ import { Navigate, useParams } from 'react-router-dom';
 import { AlertTriangle, AppWindow, Landmark, PhoneCall } from 'lucide-react';
 import Badge from '../components/Badge';
 import SEO from '../components/SEO';
+import { siteConfig } from '../data/config';
 import TopicCard from '../components/TopicCard';
 import { findCountryBySlug } from '../data/countries';
 import { topicLabels, ui, type Language } from '../data/i18n';
 import { getGuidePath, topicKeys } from '../data/routes';
-
-const siteUrl = 'https://beforeyouland.com';
 
 export default function CountryPage() {
   const params = useParams();
@@ -34,10 +33,10 @@ export default function CountryPage() {
       <SEO
         title={`${country.content[language].name} starter guide`}
         description={country.content[language].summary}
-        canonical={`${siteUrl}/${language}/${country.content[language].slug}`}
+        canonical={`${siteConfig.baseUrl}/${language}/${country.content[language].slug}`}
         alternates={[
-          { hrefLang: language, href: `${siteUrl}/${language}/${country.content[language].slug}` },
-          { hrefLang: otherLanguage, href: `${siteUrl}/${otherLanguage}/${country.content[otherLanguage].slug}` },
+          { hrefLang: language, href: `${siteConfig.baseUrl}/${language}/${country.content[language].slug}` },
+          { hrefLang: otherLanguage, href: `${siteConfig.baseUrl}/${otherLanguage}/${country.content[otherLanguage].slug}` },
         ]}
       />
       <section className="container-shell py-10 sm:py-14">
