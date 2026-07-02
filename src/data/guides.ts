@@ -14,10 +14,13 @@ export type Guide = {
   lastUpdated: string;
   confidence: Confidence;
   quickAnswer: string;
+  travelerOptions?: { label: string; recommendation: string }[];
+  whereToGet?: { label: string; details: string }[];
   steps: string[];
   documents: string[];
   costs: string[];
   mistakes: string[];
+  verificationNote?: string;
   links: { label: string; url: string }[];
   faq: { question: string; answer: string }[];
 };
@@ -138,9 +141,437 @@ const trGuide = (
   };
 };
 
+const georgiaSimEn: Guide = {
+  ...enGuide(
+    'georgia',
+    'sim-card',
+    'High',
+    'For most visitors, a Georgia SIM card from an official operator store is the safest balance of price, setup help and reliable mobile internet in Georgia. A Tbilisi SIM card is easy to arrange in the city center, while airport counters are best when you need data immediately after landing.',
+    [
+      'Decide whether you need only mobile data or also a local Georgian phone number for calls, deliveries, banking appointments or accommodation contacts.',
+      'Compare tourist SIM Georgia packages from official operators such as Magti, Silknet and Cellfie, then check current price and validity before buying.',
+      'Bring your passport and an unlocked phone to an airport counter, city center branch or official store.',
+      'Ask the staff to activate the SIM card, confirm the data allowance, validity period, hotspot/tethering rules and top-up method.',
+      'Test mobile internet in Georgia before leaving the counter: open a website, check balance and make sure the provider app or USSD code works.',
+    ],
+    ['Passport', 'Unlocked phone', 'Payment card or Georgian lari cash', 'Hotel name or local address if requested'],
+    [
+      'Check current price at the operator or official store before buying; package names, data limits and validity can change.',
+      'Airport SIM card counters are convenient for arrival day, but city center stores may give you more time to compare plans.',
+      'If you stay longer than a short trip, ask about top-ups, monthly bundles and whether unused data carries over.',
+    ],
+    [
+      'Buying a SIM before checking that your phone is unlocked.',
+      'Choosing only by advertised data size without checking network coverage for Tbilisi, Batumi, mountain areas or your route.',
+      'Leaving the counter before activation, data and top-up are tested.',
+      'Assuming every tourist SIM includes a local phone number, calls or SMS.',
+      'Using unofficial resellers when an official operator store is available nearby.',
+    ],
+  ),
+  title: 'Georgia SIM card guide for travelers',
+  description:
+    'Practical guide to getting a Georgia SIM card, Tbilisi SIM card or tourist SIM Georgia package with documents, where to buy, traveler types and FAQs.',
+  summary:
+    'A Georgia SIM card is usually the best choice if you want reliable mobile internet in Georgia plus a local phone number. Compare Magti, Silknet and Cellfie packages and verify current terms before buying.',
+  travelerOptions: [
+    {
+      label: 'Short trip',
+      recommendation:
+        'A tourist SIM Georgia package from the airport or a central Tbilisi store is usually the easiest option. Prioritize quick activation, enough data for maps and messaging, and clear validity dates.',
+    },
+    {
+      label: 'Long stay',
+      recommendation:
+        'Visit an official city store and compare prepaid bundles or monthly-style options. Ask how top-ups work and whether the same number can be kept for future visits.',
+    },
+    {
+      label: 'Heavy data user',
+      recommendation:
+        'Look for large data allowances, hotspot permission and good coverage where you will actually travel. Do not rely only on headline data size; verify fair-use rules and speed limits.',
+    },
+    {
+      label: 'Needs local phone number',
+      recommendation:
+        'Choose a physical SIM from a local operator rather than a data-only travel eSIM. Confirm that calls and SMS are included if you need delivery apps, banks or local contacts.',
+    },
+  ],
+  whereToGet: [
+    {
+      label: 'Airport',
+      details:
+        'Useful when you need mobile internet as soon as you land. Check current price and package validity because airport offers can differ from city stores.',
+    },
+    {
+      label: 'City center',
+      details:
+        'Tbilisi and Batumi city center branches usually give you more time to compare packages and ask setup questions.',
+    },
+    {
+      label: 'Official stores',
+      details:
+        'Official Magti, Silknet and Cellfie stores are the safest places for registration, activation support and package verification.',
+    },
+    {
+      label: 'eSIM providers',
+      details:
+        'If you do not need a Georgian phone number, compare an eSIM for Georgia before arrival. For a local number, use a physical SIM or confirm local eSIM details with the operator.',
+    },
+  ],
+  verificationNote:
+    'Last updated: 2026-07-02. Operator packages, ID requirements, coverage and tourist SIM Georgia offers may change. Always verify updated packages with Magti, Silknet, Cellfie or the provider before buying.',
+  links: [
+    { label: 'Magti', url: 'https://www.magticom.ge/en' },
+    { label: 'Silknet', url: 'https://silknet.com/' },
+    { label: 'Cellfie', url: 'https://cellfie.ge/' },
+  ],
+  faq: [
+    {
+      question: 'What is the best Georgia SIM card for tourists?',
+      answer:
+        'There is no single best option for every traveler. For short trips, choose a tourist SIM Georgia package with enough data and simple activation. For longer stays, compare operator stores in Tbilisi or Batumi and check current price, validity and top-up rules.',
+    },
+    {
+      question: 'Can I buy a Tbilisi SIM card after arriving in the city?',
+      answer:
+        'Yes. Many travelers buy a Tbilisi SIM card from official stores in central areas because it is easier to compare packages and get help with activation.',
+    },
+    {
+      question: 'Do I need a passport for a Georgia SIM card?',
+      answer:
+        'A passport is usually requested for local SIM registration. Requirements can change, so verify with the operator before purchase.',
+    },
+    {
+      question: 'Is a Georgia SIM card better than a Georgia eSIM?',
+      answer:
+        'A physical SIM is better if you need a local phone number, calls or SMS. A Georgia eSIM can be better if you only need quick data and your phone supports eSIM.',
+    },
+  ],
+};
+
+const georgiaEsimEn: Guide = {
+  ...enGuide(
+    'georgia',
+    'esim',
+    'Medium',
+    'A Georgia eSIM is the easiest way to have mobile internet in Georgia immediately after landing, especially for short trips. For long stays or when you need a local phone number, compare it with a physical Georgia SIM card from a local operator.',
+    [
+      'Confirm that your phone supports eSIM and is carrier-unlocked before buying any eSIM for Georgia.',
+      'Compare travel eSIM providers by data allowance, validity, network partner, hotspot rules and whether the plan is data-only.',
+      'Install the Georgia eSIM while you still have stable Wi-Fi, but check whether validity starts at purchase, installation or first network connection.',
+      'Keep your primary SIM active if you need SMS codes from your bank, airline or home-country services.',
+      'After landing, turn on the eSIM line, enable data roaming if the provider requires it and test mobile internet before leaving the airport.',
+    ],
+    ['eSIM-compatible unlocked phone', 'Stable Wi-Fi for installation', 'Payment card', 'Passport only if buying a local operator eSIM that requires registration'],
+    [
+      'Check current price with the eSIM provider before buying; plans and network partners can change.',
+      'Travel eSIMs are convenient but may cost more per GB than a local Georgia SIM card.',
+      'Some eSIM for Georgia plans are data-only and do not include a Georgian phone number, calls or SMS.',
+    ],
+    [
+      'Buying an eSIM before checking phone compatibility.',
+      'Activating too early when the validity period starts immediately.',
+      'Deleting the QR code or installation email before the eSIM is working.',
+      'Assuming a data-only Georgia eSIM can receive local SMS.',
+      'Not keeping airport Wi-Fi or a backup connection available for troubleshooting.',
+    ],
+  ),
+  title: 'Georgia eSIM guide for travelers',
+  description:
+    'How to choose an eSIM for Georgia, compare it with a Georgia SIM card, avoid common mistakes and verify current provider packages.',
+  summary:
+    'A Georgia eSIM is useful for instant mobile internet in Georgia without visiting a store. It is usually best for short trips and data-only needs, while a physical SIM is better if you need a local phone number.',
+  travelerOptions: [
+    {
+      label: 'Short trip',
+      recommendation:
+        'A travel eSIM for Georgia is often the fastest option. Buy before departure, install on Wi-Fi and use it for maps, messaging and ride-hailing after landing.',
+    },
+    {
+      label: 'Long stay',
+      recommendation:
+        'Use an eSIM for arrival day, then compare local Georgia SIM card packages in an official store if you need better long-term value or a local number.',
+    },
+    {
+      label: 'Heavy data user',
+      recommendation:
+        'Compare total data, speed policy, hotspot support and validity. For very high usage, check current price against local operator SIM packages.',
+    },
+    {
+      label: 'Needs local phone number',
+      recommendation:
+        'Most travel eSIMs are data-only. If you need a Georgian number for calls, SMS or local services, choose a local SIM or verify local operator eSIM options directly.',
+    },
+  ],
+  whereToGet: [
+    {
+      label: 'Airport',
+      details:
+        'You usually do not need an airport counter for a travel eSIM, but airport Wi-Fi can help if you need to finish activation after landing.',
+    },
+    {
+      label: 'City center',
+      details:
+        'If the eSIM does not meet your needs, visit a Tbilisi or Batumi operator store and compare local SIM packages.',
+    },
+    {
+      label: 'Official stores',
+      details:
+        'Ask Magti, Silknet or Cellfie directly if you want a local operator eSIM, local number or in-person troubleshooting.',
+    },
+    {
+      label: 'eSIM providers',
+      details:
+        'Travel eSIM marketplaces are convenient for pre-arrival setup. Verify coverage, network partner, refund rules and current package terms before buying.',
+    },
+  ],
+  verificationNote:
+    'Last updated: 2026-07-02. Georgia eSIM plans, prices, validity and network partners can change quickly. Verify updated packages with the eSIM provider or local operator before buying.',
+  links: [
+    { label: 'Magti', url: 'https://www.magticom.ge/en' },
+    { label: 'Silknet', url: 'https://silknet.com/' },
+    { label: 'Cellfie', url: 'https://cellfie.ge/' },
+  ],
+  faq: [
+    {
+      question: 'Is an eSIM for Georgia good for tourists?',
+      answer:
+        'Yes, if your phone supports eSIM and you mainly need data. A Georgia eSIM is convenient for maps, messaging and ride-hailing immediately after landing.',
+    },
+    {
+      question: 'Does a Georgia eSIM include a local phone number?',
+      answer:
+        'Many travel eSIM plans are data-only and do not include calls, SMS or a local Georgian number. Check the provider details before buying.',
+    },
+    {
+      question: 'Should I choose a Georgia eSIM or tourist SIM Georgia package?',
+      answer:
+        'Choose eSIM for convenience and arrival-day data. Choose a physical tourist SIM Georgia package if you need a local number, in-store help or potentially better long-stay value.',
+    },
+    {
+      question: 'Can I install my Georgia eSIM before departure?',
+      answer:
+        'Usually yes, but check when validity starts. Some plans begin when installed, while others begin at first network connection.',
+    },
+  ],
+};
+
+const georgiaSimTr: Guide = {
+  ...trGuide(
+    'georgia',
+    'sim-card',
+    'High',
+    'Çoğu ziyaretçi için resmi operatör mağazasından alınan Gürcistan sim kart, fiyat, kurulum desteği ve Gürcistan mobil internet güvenilirliği açısından en dengeli seçenektir. Tiflis sim kart şehir merkezinde kolayca alınabilir; havalimanı ise inişten hemen sonra internete ihtiyaç duyanlar için pratiktir.',
+    [
+      'Sadece internet mi, yoksa arama ve SMS için yerel Gürcistan numarası da mı gerektiğine karar verin.',
+      'Magti, Silknet ve Cellfie gibi resmi operatörlerde turist sim kart Gürcistan paketlerini karşılaştırın; satın almadan önce güncel fiyatı ve geçerlilik süresini kontrol edin.',
+      'Pasaportunuzu ve SIM kilidi olmayan telefonunuzu havalimanı standına, şehir merkezi şubesine veya resmi mağazaya götürün.',
+      'Paketin internet kotasını, süresini, hotspot kullanımını ve yükleme yöntemini görevliye teyit ettirin.',
+      'Mağazadan ayrılmadan Gürcistan mobil internet bağlantısını test edin; bir web sitesi açın, bakiyeyi kontrol edin ve uygulama ya da USSD kodunun çalıştığından emin olun.',
+    ],
+    ['Pasaport', 'SIM kilidi olmayan telefon', 'Ödeme kartı veya Gürcistan larisi nakit', 'İstenirse otel adı veya yerel adres'],
+    [
+      'Satın almadan önce operatörden güncel fiyatı kontrol edin; paket adları, internet limitleri ve süreler değişebilir.',
+      'Havalimanı SIM noktaları pratiktir; şehir merkezi mağazalarında paket karşılaştırmak için daha fazla zamanınız olabilir.',
+      'Uzun kalacaksanız yükleme seçeneklerini, aylık paketleri ve numaranın korunup korunmadığını sorun.',
+    ],
+    [
+      'Telefonun SIM kilidi olup olmadığını kontrol etmeden paket almak.',
+      'Tiflis, Batum, dağ bölgeleri veya gideceğiniz rota için kapsama alanını kontrol etmeden sadece internet kotasına bakmak.',
+      'Aktivasyon, internet ve yükleme yöntemini test etmeden mağazadan ayrılmak.',
+      'Her turist sim kart paketinde yerel numara, arama veya SMS olduğunu varsaymak.',
+      'Yakında resmi operatör mağazası varken belirsiz satıcılardan almak.',
+    ],
+  ),
+  title: 'Gürcistan sim kart rehberi',
+  description:
+    'Gürcistan sim kart, Tiflis sim kart ve turist sim kart Gürcistan seçenekleri için belge, satın alma noktası, seyahat tipi önerileri ve SSS rehberi.',
+  summary:
+    'Gürcistan sim kart, Gürcistan mobil internet yanında yerel telefon numarası da isteyenler için genellikle en pratik seçenektir. Magti, Silknet ve Cellfie paketlerini karşılaştırıp satın almadan önce güncel şartları doğrulayın.',
+  travelerOptions: [
+    {
+      label: 'Kısa seyahat',
+      recommendation:
+        'Havalimanından veya merkezi Tiflis mağazasından alınan turist sim kart Gürcistan paketi genelde en kolay seçenektir. Hızlı aktivasyon, yeterli internet ve net geçerlilik süresine bakın.',
+    },
+    {
+      label: 'Uzun kalış',
+      recommendation:
+        'Resmi şehir mağazasına gidip hazır kart veya aylık benzeri paketleri karşılaştırın. Yükleme yöntemini ve aynı numarayı daha sonra kullanıp kullanamayacağınızı sorun.',
+    },
+    {
+      label: 'Yoğun internet kullanımı',
+      recommendation:
+        'Yüksek internet kotası, hotspot izni ve seyahat edeceğiniz bölgelerde kapsama alanına bakın. Sadece görünen kota değil, adil kullanım ve hız sınırlarını da kontrol edin.',
+    },
+    {
+      label: 'Yerel telefon numarası gerekli',
+      recommendation:
+        'Data-only seyahat eSIM yerine yerel operatörden fiziksel SIM tercih edin. Teslimat, banka veya yerel iletişim için arama ve SMS’in dahil olduğunu teyit edin.',
+    },
+  ],
+  whereToGet: [
+    {
+      label: 'Havalimanı',
+      details:
+        'İnişten hemen sonra internete ihtiyaç duyuyorsanız pratiktir. Havalimanı teklifleri şehir mağazalarından farklı olabileceği için güncel fiyat ve süreyi kontrol edin.',
+    },
+    {
+      label: 'Şehir merkezi',
+      details:
+        'Tiflis ve Batum merkez şubelerinde paketleri karşılaştırmak ve kurulum soruları sormak genellikle daha rahattır.',
+    },
+    {
+      label: 'Resmi mağazalar',
+      details:
+        'Magti, Silknet ve Cellfie resmi mağazaları kayıt, aktivasyon desteği ve paket doğrulama için en güvenli noktalardır.',
+    },
+    {
+      label: 'eSIM sağlayıcıları',
+      details:
+        'Yerel numaraya ihtiyacınız yoksa gelmeden önce Gürcistan eSIM seçeneklerini karşılaştırabilirsiniz. Yerel numara için fiziksel SIM veya operatör eSIM şartlarını doğrudan kontrol edin.',
+    },
+  ],
+  verificationNote:
+    'Son güncelleme: 2026-07-02. Operatör paketleri, kimlik şartları, kapsama ve turist sim kart Gürcistan teklifleri değişebilir. Satın almadan önce Magti, Silknet, Cellfie veya ilgili sağlayıcıdan güncel paketi doğrulayın.',
+  links: [
+    { label: 'Magti', url: 'https://www.magticom.ge/en' },
+    { label: 'Silknet', url: 'https://silknet.com/' },
+    { label: 'Cellfie', url: 'https://cellfie.ge/' },
+  ],
+  faq: [
+    {
+      question: 'Turistler için en iyi Gürcistan sim kart hangisi?',
+      answer:
+        'Herkes için tek bir en iyi seçenek yoktur. Kısa seyahat için yeterli interneti ve kolay aktivasyonu olan turist sim kart Gürcistan paketi seçin. Uzun kalışta Tiflis veya Batum’daki operatör mağazalarında güncel fiyat, süre ve yükleme kurallarını karşılaştırın.',
+    },
+    {
+      question: 'Tiflis sim kart şehirde alınabilir mi?',
+      answer:
+        'Evet. Birçok kişi Tiflis sim kart alımını şehir merkezindeki resmi mağazalarda yapar; çünkü paket karşılaştırmak ve aktivasyon desteği almak daha kolaydır.',
+    },
+    {
+      question: 'Gürcistan sim kart için pasaport gerekir mi?',
+      answer:
+        'Yerel SIM kaydı için genellikle pasaport istenir. Şartlar değişebileceği için satın almadan önce operatörle doğrulayın.',
+    },
+    {
+      question: 'Gürcistan sim kart mı Gürcistan eSIM mi daha iyi?',
+      answer:
+        'Yerel numara, arama veya SMS gerekiyorsa fiziksel SIM daha uygundur. Sadece hızlı internet istiyorsanız ve telefonunuz destekliyorsa Gürcistan eSIM pratik olabilir.',
+    },
+  ],
+};
+
+const georgiaEsimTr: Guide = {
+  ...trGuide(
+    'georgia',
+    'esim',
+    'Medium',
+    'Gürcistan eSIM, özellikle kısa seyahatlerde inişten hemen sonra Gürcistan mobil internet kullanmak için en pratik yoldur. Uzun kalışta veya yerel telefon numarası gerekiyorsa fiziksel Gürcistan sim kart seçenekleriyle karşılaştırın.',
+    [
+      'Gürcistan eSIM satın almadan önce telefonunuzun eSIM desteklediğini ve operatör kilidi olmadığını kontrol edin.',
+      'Seyahat eSIM sağlayıcılarını internet kotası, geçerlilik süresi, bağlı olduğu yerel ağ, hotspot kuralları ve paketin data-only olup olmadığına göre karşılaştırın.',
+      'Gürcistan eSIM kurulumunu stabil Wi-Fi varken yapın; ancak geçerliliğin satın alma, kurulum veya ilk bağlantıda başlayıp başlamadığını kontrol edin.',
+      'Banka, havayolu veya kendi ülkenizdeki servislerden SMS kodu almanız gerekiyorsa ana SIM’inizi aktif tutun.',
+      'İnişten sonra eSIM hattını açın, sağlayıcı istiyorsa data roaming’i etkinleştirin ve havalimanından ayrılmadan interneti test edin.',
+    ],
+    ['eSIM destekli ve kilitsiz telefon', 'Kurulum için stabil Wi-Fi', 'Ödeme kartı', 'Yerel operatör eSIM’i alınıyorsa istenirse pasaport'],
+    [
+      'Satın almadan önce eSIM sağlayıcısından güncel fiyatı kontrol edin; paketler ve bağlı ağlar değişebilir.',
+      'Seyahat eSIM’leri pratiktir ancak GB başına yerel Gürcistan sim kart paketlerinden pahalı olabilir.',
+      'Bazı Gürcistan eSIM paketleri sadece internet sunar; yerel numara, arama veya SMS içermez.',
+    ],
+    [
+      'Telefon uyumluluğunu kontrol etmeden eSIM satın almak.',
+      'Geçerlilik süresi hemen başlıyorsa paketi çok erken aktive etmek.',
+      'eSIM çalışmadan QR kodunu veya kurulum e-postasını silmek.',
+      'Data-only Gürcistan eSIM ile yerel SMS alınabileceğini varsaymak.',
+      'Sorun çözmek için havalimanı Wi-Fi veya yedek bağlantı bırakmamak.',
+    ],
+  ),
+  title: 'Gürcistan eSIM rehberi',
+  description:
+    'Gürcistan eSIM seçimi, Gürcistan sim kart karşılaştırması, yaygın hatalar, seyahat tipi önerileri ve güncel paket doğrulama notları.',
+  summary:
+    'Gürcistan eSIM, mağazaya gitmeden hızlı Gürcistan mobil internet kullanmak isteyenler için uygundur. Kısa seyahat ve data-only ihtiyaçlarda pratiktir; yerel numara gerekiyorsa fiziksel SIM daha doğru olabilir.',
+  travelerOptions: [
+    {
+      label: 'Kısa seyahat',
+      recommendation:
+        'Gürcistan eSIM çoğu zaman en hızlı seçenektir. Yola çıkmadan satın alıp Wi-Fi üzerinden kurabilir, inişte harita, mesajlaşma ve araç çağırma uygulamaları için kullanabilirsiniz.',
+    },
+    {
+      label: 'Uzun kalış',
+      recommendation:
+        'Varış günü için eSIM kullanıp daha sonra resmi mağazada yerel Gürcistan sim kart paketlerini karşılaştırın. Uzun vadede yerel paketler daha uygun olabilir.',
+    },
+    {
+      label: 'Yoğun internet kullanımı',
+      recommendation:
+        'Toplam internet kotası, hız politikası, hotspot desteği ve geçerlilik süresini karşılaştırın. Çok yüksek kullanım için güncel fiyatı yerel operatör SIM paketleriyle kıyaslayın.',
+    },
+    {
+      label: 'Yerel telefon numarası gerekli',
+      recommendation:
+        'Çoğu seyahat eSIM’i data-only çalışır. Gürcistan numarası, arama veya SMS gerekiyorsa yerel SIM alın ya da operatör eSIM şartlarını doğrudan doğrulayın.',
+    },
+  ],
+  whereToGet: [
+    {
+      label: 'Havalimanı',
+      details:
+        'Seyahat eSIM için genellikle havalimanı standına gerek yoktur; ancak aktivasyonu tamamlamak gerekirse havalimanı Wi-Fi yedek bağlantı sağlar.',
+    },
+    {
+      label: 'Şehir merkezi',
+      details:
+        'eSIM ihtiyacınızı karşılamazsa Tiflis veya Batum’daki operatör mağazalarına gidip yerel SIM paketlerini karşılaştırabilirsiniz.',
+    },
+    {
+      label: 'Resmi mağazalar',
+      details:
+        'Yerel operatör eSIM’i, yerel numara veya yüz yüze destek istiyorsanız Magti, Silknet veya Cellfie mağazalarına doğrudan sorun.',
+    },
+    {
+      label: 'eSIM sağlayıcıları',
+      details:
+        'Seyahat eSIM pazar yerleri gelmeden kurulum için pratiktir. Satın almadan önce kapsama, yerel ağ, iade şartları ve güncel paket detaylarını doğrulayın.',
+    },
+  ],
+  verificationNote:
+    'Son güncelleme: 2026-07-02. Gürcistan eSIM paketleri, fiyatları, geçerlilik süresi ve bağlı ağları hızlı değişebilir. Satın almadan önce eSIM sağlayıcısı veya yerel operatörden güncel paketi doğrulayın.',
+  links: [
+    { label: 'Magti', url: 'https://www.magticom.ge/en' },
+    { label: 'Silknet', url: 'https://silknet.com/' },
+    { label: 'Cellfie', url: 'https://cellfie.ge/' },
+  ],
+  faq: [
+    {
+      question: 'Gürcistan eSIM turistler için iyi mi?',
+      answer:
+        'Telefonunuz eSIM destekliyorsa ve temel ihtiyacınız internetse evet. Gürcistan eSIM, inişten hemen sonra harita, mesajlaşma ve ulaşım uygulamaları için pratiktir.',
+    },
+    {
+      question: 'Gürcistan eSIM yerel telefon numarası verir mi?',
+      answer:
+        'Birçok seyahat eSIM paketi sadece internet sunar; arama, SMS veya yerel Gürcistan numarası içermez. Satın almadan önce sağlayıcı detaylarını kontrol edin.',
+    },
+    {
+      question: 'Gürcistan eSIM mi turist sim kart Gürcistan paketi mi?',
+      answer:
+        'Kolaylık ve inişte hızlı internet için eSIM seçin. Yerel numara, mağaza desteği veya uzun kalışta daha iyi değer istiyorsanız fiziksel turist sim kart Gürcistan paketi daha uygun olabilir.',
+    },
+    {
+      question: 'Gürcistan eSIM yola çıkmadan kurulabilir mi?',
+      answer:
+        'Genellikle kurulabilir; fakat geçerlilik süresinin ne zaman başladığını kontrol edin. Bazı paketlerde süre kurulumda, bazılarında ilk ağ bağlantısında başlar.',
+    },
+  ],
+};
+
 export const guides: Guide[] = [
-  enGuide('georgia', 'sim-card', 'High', 'Buy a tourist SIM at the airport for speed, or visit Magti, Silknet or Cellfie shops in the city for better plan comparison.', ['Compare coverage for the city where you will stay.', 'Bring your passport to the operator shop.', 'Ask for a data-focused prepaid plan and confirm hotspot use.', 'Test calls, data and top-up before leaving the counter.'], ['Passport', 'Unlocked phone', 'Local address or hotel name if requested'], ['Airport counters are convenient but may be more expensive.', 'City shops often have broader plan options.', 'Keep a small GEL cash buffer for top-ups.'], ['Buying before checking whether your phone is unlocked.', 'Leaving without testing mobile data.', 'Choosing only by price instead of coverage.']),
-  enGuide('georgia', 'esim', 'Medium', 'eSIM is convenient if your phone supports it, but local physical SIMs may still offer stronger value for long stays.', ['Check that your phone supports eSIM and is carrier-unlocked.', 'Compare travel eSIM packages before departure.', 'Install the eSIM while you still have stable Wi-Fi.', 'Keep your primary SIM available for banking codes if needed.'], ['Passport may not be needed for travel eSIMs', 'eSIM-compatible phone', 'Payment card'], ['Travel eSIMs usually cost more per GB.', 'Local operator eSIM availability can change by branch.', 'Top-ups are easiest through the provider app.'], ['Deleting the QR code before activation is complete.', 'Assuming every operator branch can issue eSIM.', 'Forgetting that some plans are data-only.']),
+  georgiaSimEn,
+  georgiaEsimEn,
   enGuide('georgia', 'bank-account', 'Medium', 'Bank accounts are possible for many visitors, but requirements vary. Expect passport checks and possible proof of address, income or purpose.', ['Shortlist major banks before arrival.', 'Book time for an in-branch visit.', 'Bring printed or digital supporting documents.', 'Ask about monthly fees, card issuance and foreign transfers.', 'Activate online banking before leaving the branch.'], ['Passport', 'Phone number', 'Local address', 'Proof of income or purpose if requested'], ['Monthly account and card fees may apply.', 'International transfer fees vary widely.', 'Premium packages are not always necessary.'], ['Arriving without a local phone number.', 'Not asking about account maintenance fees.', 'Assuming rules are identical across branches.']),
   enGuide('georgia', 'rent-apartment', 'Medium', 'For first arrival, book temporary housing first, then inspect long-term apartments in person before paying a deposit.', ['Use temporary accommodation for the first week.', 'Compare neighborhoods by commute and noise.', 'Inspect heating, water pressure, internet and building access.', 'Confirm deposit, utilities and contract term in writing.', 'Avoid paying large sums before meeting the owner or agent.'], ['Passport copy may be requested', 'Deposit funds', 'Written lease or message trail'], ['Deposits are often one month, sometimes more.', 'Utilities may be separate from rent.', 'Agent fees depend on the arrangement.'], ['Signing without checking utilities.', 'Paying before seeing the apartment.', 'Ignoring winter heating quality.']),
   enGuide('georgia', 'transport', 'High', 'Use ride-hailing for simple arrivals and a transport card or contactless payment for regular city travel where supported.', ['Install ride-hailing apps before arrival.', 'Check airport pickup zones.', 'For public transport, buy or configure the local payment method.', 'Keep small cash for backup outside central areas.'], ['Payment card', 'Phone with data', 'Transport card if needed'], ['Airport rides cost more than city trips.', 'Public transport remains the cheapest daily option.', 'Intercity marshrutka and train prices vary by route.'], ['Accepting unofficial taxi offers without agreeing price.', 'Assuming card payment works everywhere.', 'Not checking last departure times.']),
@@ -149,8 +580,8 @@ export const guides: Guide[] = [
   enGuide('serbia', 'bank-account', 'Medium', 'Banking can require more paperwork in Serbia. Prepare passport, local registration details and a clear reason for opening the account.', ['Compare banks that serve non-residents.', 'Ask what documents are required before visiting.', 'Bring proof of address or stay registration if available.', 'Review account, card and transfer fees.', 'Test mobile banking and card activation.'], ['Passport', 'Local phone number', 'Address or white card if available', 'Employment, income or purpose documents if requested'], ['Maintenance fees and transfer fees vary.', 'Card issuance may take several days.', 'Some banks charge more for non-resident services.'], ['Going without an appointment when the branch is busy.', 'Not asking about non-resident restrictions.', 'Leaving before mobile banking is fully active.']),
   enGuide('serbia', 'rent-apartment', 'Medium', 'Start with short-term accommodation, then inspect apartments and clarify registration, utilities and deposit terms before committing.', ['Pick temporary accommodation near your target area.', 'View apartments in daylight if possible.', 'Ask whether the landlord can support address registration.', 'Confirm utilities, internet and building costs.', 'Put deposit and move-in terms in writing.'], ['Passport', 'Deposit funds', 'Lease or written agreement', 'Stay registration details for longer stays'], ['Deposits commonly equal one month of rent.', 'Utilities and building fees may be separate.', 'Prices vary strongly by Belgrade neighborhood.'], ['Not discussing address registration.', 'Underestimating winter utility costs.', 'Sending deposit before verifying ownership or agency details.']),
   enGuide('serbia', 'transport', 'High', 'Belgrade is easy to navigate with buses, trams, walking and ride-hailing. Check current ticketing rules locally because systems can change.', ['Install map and ride-hailing apps.', 'Check public transport payment rules for your city.', 'Use official airport transfer or app-based rides on arrival.', 'For intercity travel, compare bus and train schedules.'], ['Phone with data', 'Payment card or local payment option', 'ID for intercity tickets when requested'], ['City transport is usually low cost.', 'Airport transfers and app rides cost more.', 'Intercity buses can be faster than trains on some routes.'], ['Using outdated ticketing advice.', 'Boarding intercity transport without checking platform changes.', 'Taking unofficial airport taxi offers.']),
-  trGuide('georgia', 'sim-card', 'High', 'Hız için havalimanında turist SIM alın; daha iyi paket karşılaştırması için şehirde Magti, Silknet veya Cellfie mağazalarına bakın.', ['Kalacağınız şehir için kapsama alanını karşılaştırın.', 'Operatör mağazasına pasaportunuzla gidin.', 'Veri ağırlıklı hazır kart paketi isteyin ve hotspot kullanımını sorun.', 'Mağazadan ayrılmadan arama, internet ve yükleme işlemini test edin.'], ['Pasaport', 'SIM kilidi olmayan telefon', 'İstenirse otel adı veya yerel adres'], ['Havalimanı tezgahları pratik ama daha pahalı olabilir.', 'Şehir mağazalarında daha fazla paket seçeneği bulunur.', 'Yükleme için az miktarda GEL nakit bulundurmak iyi olur.'], ['Telefonun SIM kilidini kontrol etmeden almak.', 'Mobil veriyi test etmeden ayrılmak.', 'Kapsama yerine sadece fiyata bakmak.']),
-  trGuide('georgia', 'esim', 'Medium', 'Telefonunuz destekliyorsa eSIM pratiktir; uzun kalışlarda yerel fiziksel SIM daha avantajlı olabilir.', ['Telefonun eSIM desteklediğini ve kilitsiz olduğunu kontrol edin.', 'Seyahat eSIM paketlerini yola çıkmadan karşılaştırın.', 'eSIM’i stabil Wi-Fi varken kurun.', 'Banka doğrulama kodları için ana SIM’inizi erişilebilir tutun.'], ['Seyahat eSIM için pasaport gerekmeyebilir', 'eSIM destekli telefon', 'Ödeme kartı'], ['Seyahat eSIM’leri GB başına daha pahalı olabilir.', 'Yerel operatör eSIM durumu şubeye göre değişebilir.', 'Yüklemeler genelde sağlayıcı uygulamasından kolaydır.'], ['Aktivasyon bitmeden QR kodunu silmek.', 'Her şubenin eSIM verdiğini varsaymak.', 'Bazı paketlerin sadece data olduğunu unutmak.']),
+  georgiaSimTr,
+  georgiaEsimTr,
   trGuide('georgia', 'bank-account', 'Medium', 'Birçok ziyaretçi için banka hesabı mümkün olabilir; pasaport kontrolü ve adres, gelir veya amaç belgesi istenebilir.', ['Gelmeden önce büyük bankaları listeleyin.', 'Şube ziyareti için zaman ayırın.', 'Destekleyici belgeleri dijital veya basılı hazırlayın.', 'Aylık ücret, kart çıkarma ve yurtdışı transfer ücretlerini sorun.', 'Şubeden ayrılmadan internet bankacılığını aktive edin.'], ['Pasaport', 'Telefon numarası', 'Yerel adres', 'İstenirse gelir veya amaç belgesi'], ['Aylık hesap ve kart ücretleri olabilir.', 'Uluslararası transfer ücretleri ciddi değişir.', 'Premium paket her zaman gerekli değildir.'], ['Yerel telefon numarası olmadan gitmek.', 'Hesap işletim ücretini sormamak.', 'Tüm şubelerde kurallar aynı sanmak.']),
   trGuide('georgia', 'rent-apartment', 'Medium', 'İlk varışta geçici konaklama ayarlayın, uzun dönem evi depozito ödemeden önce yerinde görün.', ['İlk hafta için geçici konaklama kullanın.', 'Semtleri ulaşım ve gürültüye göre karşılaştırın.', 'Isıtma, su basıncı, internet ve bina girişini kontrol edin.', 'Depozito, faturalar ve kontrat süresini yazılı netleştirin.', 'Ev sahibi veya emlakçıyla görüşmeden yüksek ödeme yapmayın.'], ['Pasaport kopyası istenebilir', 'Depozito bütçesi', 'Yazılı kira sözleşmesi veya mesaj kaydı'], ['Depozito genelde bir ay, bazen daha fazladır.', 'Faturalar kiradan ayrı olabilir.', 'Emlakçı ücreti anlaşmaya bağlıdır.'], ['Faturaları kontrol etmeden imzalamak.', 'Evi görmeden ödeme yapmak.', 'Kış ısınma kalitesini önemsememek.']),
   trGuide('georgia', 'transport', 'High', 'Varışta uygulama taksileri pratik; şehir içinde desteklenen yerlerde ulaşım kartı veya temassız ödeme kullanın.', ['Ulaşım uygulamalarını gelmeden kurun.', 'Havalimanı araç çağırma noktalarını kontrol edin.', 'Toplu taşıma için yerel ödeme yöntemini alın veya ayarlayın.', 'Merkez dışı bölgeler için az miktar nakit tutun.'], ['Ödeme kartı', 'İnternetli telefon', 'Gerekiyorsa ulaşım kartı'], ['Havalimanı yolculukları şehir içinden pahalıdır.', 'Günlük kullanımda toplu taşıma en ucuz seçenektir.', 'Şehirler arası minibüs ve tren fiyatları rotaya göre değişir.'], ['Fiyat konuşmadan resmi olmayan taksiye binmek.', 'Her yerde kart geçtiğini varsaymak.', 'Son sefer saatlerini kontrol etmemek.']),

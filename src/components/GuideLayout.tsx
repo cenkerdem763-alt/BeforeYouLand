@@ -6,6 +6,7 @@ import {
   ClipboardList,
   ExternalLink,
   HelpCircle,
+  MapPin,
   ShieldCheck,
   WalletCards,
 } from 'lucide-react';
@@ -106,6 +107,32 @@ export default function GuideLayout({ guide, country, language }: GuideLayoutPro
             <p className="mt-3 leading-7 text-muted">{guide.quickAnswer}</p>
           </section>
 
+          {guide.travelerOptions ? (
+            <Section title={labels.bestOption} icon={<CheckCircle2 className="h-5 w-5" aria-hidden="true" />}>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {guide.travelerOptions.map((option) => (
+                  <div key={option.label} className="rounded-2xl border border-line bg-slate-50 p-4">
+                    <h3 className="font-bold">{option.label}</h3>
+                    <p className="mt-2 text-sm leading-6 text-muted">{option.recommendation}</p>
+                  </div>
+                ))}
+              </div>
+            </Section>
+          ) : null}
+
+          {guide.whereToGet ? (
+            <Section title={labels.whereToGet} icon={<MapPin className="h-5 w-5" aria-hidden="true" />}>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {guide.whereToGet.map((place) => (
+                  <div key={place.label} className="rounded-2xl border border-line p-4">
+                    <h3 className="font-bold">{place.label}</h3>
+                    <p className="mt-2 text-sm leading-6 text-muted">{place.details}</p>
+                  </div>
+                ))}
+              </div>
+            </Section>
+          ) : null}
+
           <Section title={labels.steps} icon={<ClipboardList className="h-5 w-5" aria-hidden="true" />}>
             <ol className="space-y-3">
               {guide.steps.map((step, index) => (
@@ -176,6 +203,14 @@ export default function GuideLayout({ guide, country, language }: GuideLayoutPro
               ))}
             </div>
           </Section>
+
+          {guide.verificationNote ? (
+            <Section title={labels.verificationNote} icon={<CalendarDays className="h-5 w-5" aria-hidden="true" />}>
+              <p className="rounded-2xl bg-slate-50 p-4 text-sm leading-6 text-muted">
+                {guide.verificationNote}
+              </p>
+            </Section>
+          ) : null}
 
           <p className="rounded-2xl bg-slate-100 p-4 text-sm leading-6 text-muted">{labels.disclaimer}</p>
           {!isSimGuide ? (

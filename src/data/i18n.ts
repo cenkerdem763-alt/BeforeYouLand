@@ -30,6 +30,8 @@ export const ui = {
     },
     guide: {
       quickAnswer: 'Quick answer',
+      bestOption: 'Best option by traveler type',
+      whereToGet: 'Where to get it',
       steps: 'Step-by-step guide',
       documents: 'Required documents',
       costs: 'Cost notes',
@@ -40,6 +42,7 @@ export const ui = {
       confidence: 'Confidence',
       disclaimer:
         'Information can change quickly. Verify details with official sources, providers or local professionals before making decisions.',
+      verificationNote: 'Last updated and verification note',
       ctaTitle: 'Get a free personal SIM/eSIM recommendation',
       ctaText:
         'Tell us your destination, travel duration, phone model and data needs. We’ll help you find suitable SIM or eSIM options for free.',
@@ -90,6 +93,8 @@ export const ui = {
     },
     guide: {
       quickAnswer: 'Kısa cevap',
+      bestOption: 'Seyahat tipine göre en iyi seçenek',
+      whereToGet: 'Nereden alınır?',
       steps: 'Adım adım rehber',
       documents: 'Gerekli belgeler',
       costs: 'Maliyet notları',
@@ -100,6 +105,7 @@ export const ui = {
       confidence: 'Güven seviyesi',
       disclaimer:
         'Bilgiler hızlı değişebilir. Karar vermeden önce resmi kaynaklar, hizmet sağlayıcılar veya yerel uzmanlarla doğrulayın.',
+      verificationNote: 'Son güncelleme ve doğrulama notu',
       ctaTitle: 'Ücretsiz kişisel SIM/eSIM önerisi al',
       ctaText:
         'Gideceğin ülke, kalış süren, telefon modelin ve internet ihtiyacına göre sana uygun SIM veya eSIM seçeneklerini bulmana ücretsiz yardımcı olalım.',
