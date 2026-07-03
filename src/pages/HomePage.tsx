@@ -5,7 +5,7 @@ import CountryCard from '../components/CountryCard';
 import Search from '../components/Search';
 import SEO from '../components/SEO';
 import TopicCard from '../components/TopicCard';
-import { countries } from '../data/countries';
+import { countries, getCountryPath } from '../data/countries';
 import { siteConfig } from '../data/config';
 import { ui, type Language } from '../data/i18n';
 import { getGuidePath, topicKeys } from '../data/routes';
@@ -24,8 +24,8 @@ export default function HomePage({ language }: HomePageProps) {
       ),
     [language, query],
   );
-  const georgia = countries[0];
-  const georgiaPath = `/${language}/${georgia.content[language].slug}`;
+  const georgia = countries.find((country) => country.key === 'georgia') ?? countries[0];
+  const georgiaPath = getCountryPath(language, georgia);
 
   return (
     <>
@@ -78,7 +78,7 @@ export default function HomePage({ language }: HomePageProps) {
                 {filteredCountries.map((country) => (
                   <Link
                     key={country.key}
-                    to={`/${language}/${country.content[language].slug}`}
+                    to={getCountryPath(language, country)}
                     className="focus-ring flex items-center justify-between rounded-2xl border border-line bg-slate-50 px-4 py-3 text-sm font-bold transition hover:border-blue-600 hover:bg-white"
                   >
                     <span>{country.content[language].name}</span>
@@ -123,7 +123,11 @@ export default function HomePage({ language }: HomePageProps) {
             </div>
             <div className="mt-3 grid gap-3">
               {countries.map((country) => (
-                <div key={country.key} className="rounded-2xl border border-line bg-slate-50 p-4">
+                <Link
+                  key={country.key}
+                  to={getCountryPath(language, country)}
+                  className="focus-ring rounded-2xl border border-line bg-slate-50 p-4 transition hover:border-blue-600 hover:bg-white"
+                >
                   <div className="flex items-start justify-between gap-4">
                     <div>
                       <p className="text-sm font-bold">{country.content[language].name}</p>
@@ -133,7 +137,7 @@ export default function HomePage({ language }: HomePageProps) {
                       {country.flag}
                     </span>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
