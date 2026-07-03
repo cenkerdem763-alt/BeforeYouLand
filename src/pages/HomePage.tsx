@@ -111,15 +111,9 @@ export default function HomePage({ language }: HomePageProps) {
           </div>
           <div className="rounded-[2rem] border border-line bg-white p-4 shadow-soft sm:p-5">
             <div className="rounded-[1.5rem] bg-ink p-5 text-white">
-              <p className="text-sm font-bold text-green-200">BeforeYouLand MVP</p>
-              <p className="mt-3 text-3xl font-bold leading-tight">
-                {language === 'en' ? 'Answer the first week faster.' : 'İlk haftanın cevapları daha hızlı.'}
-              </p>
-              <p className="mt-3 text-sm leading-6 text-slate-300">
-                {language === 'en'
-                  ? 'Country-specific cards, practical guide pages and source-first disclaimers built for quick decisions.'
-                  : 'Hızlı kararlar için ülkeye özel kartlar, pratik rehber sayfaları ve doğrulama odaklı uyarılar.'}
-              </p>
+              <p className="text-sm font-bold text-green-200">{copy.featureLabel}</p>
+              <p className="mt-3 text-3xl font-bold leading-tight">{copy.featureTitle}</p>
+              <p className="mt-3 text-sm leading-6 text-slate-300">{copy.featureDescription}</p>
             </div>
             <div className="mt-3 grid gap-3">
               {countries.map((country) => (

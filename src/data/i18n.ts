@@ -18,8 +18,12 @@ export const ui = {
       countries: 'Countries',
       startWithGeorgia: 'Start with Georgia',
       noResults: 'No countries found.',
-      trustItems: ['Static and fast', 'No login required', 'Editable country data'],
+      trustItems: ['No login required', 'Free starter guides', 'Updated when possible'],
       cardCta: 'Explore country',
+      featureLabel: 'BeforeYouLand',
+      featureTitle: 'Your first-week essentials, simplified.',
+      featureDescription:
+        'Country-specific guides for SIM cards, eSIMs, banking, rent, transport and local basics.',
     },
     country: {
       overview: 'Arrival essentials',
@@ -81,8 +85,12 @@ export const ui = {
       countries: 'Ülkeler',
       startWithGeorgia: 'Gürcistan ile başla',
       noResults: 'Ülke bulunamadı.',
-      trustItems: ['Statik ve hızlı', 'Üyelik gerekmez', 'Düzenlenebilir ülke verisi'],
+      trustItems: ['Kayıt gerekmez', 'Ücretsiz başlangıç rehberleri', 'Mümkün oldukça güncellenir'],
       cardCta: 'Ülkeyi incele',
+      featureLabel: 'BeforeYouLand',
+      featureTitle: 'İlk hafta ihtiyaçlarını kolayca öğren.',
+      featureDescription:
+        'SIM kart, eSIM, banka, ev kiralama, ulaşım ve yerel başlangıç bilgileri tek yerde.',
     },
     country: {
       overview: 'Varış için temel bilgiler',
