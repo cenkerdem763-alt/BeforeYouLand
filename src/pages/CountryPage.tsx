@@ -24,17 +24,17 @@ export default function CountryPage() {
 
   const overview = [
     { label: 'SIM / eSIM', value: topicKeys.slice(0, 2).map((topic) => topicLabels[language][topic]).join(' + ') },
-    { label: language === 'en' ? 'Bank Account' : 'Banka Hesabı', value: country.content[language].currency },
-    { label: language === 'en' ? 'Renting' : 'Ev Kiralama', value: country.content[language].bestFor },
-    { label: language === 'en' ? 'Transport' : 'Ulaşım', value: country.content[language].capital },
+    { label: topicLabels[language]['bank-account'], value: country.content[language].currency },
+    { label: topicLabels[language]['rent-apartment'], value: country.content[language].bestFor },
+    { label: topicLabels[language].transport, value: country.content[language].capital },
     { label: labels.usefulApps, value: country.apps.join(', ') },
-    { label: labels.emergencyNumbers, value: country.emergency.join(', ') },
+    { label: labels.emergencyNumbers, value: country.emergency[language].join(', ') },
   ];
 
   return (
     <>
       <SEO
-        title={`${country.content[language].name} starter guide`}
+        title={`${country.content[language].name} ${labels.seoTitle}`}
         description={country.content[language].summary}
         canonical={`${siteConfig.baseUrl}${countryPath}`}
         alternates={[

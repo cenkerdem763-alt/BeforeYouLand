@@ -6,7 +6,7 @@ export type Country = {
   key: CountryKey;
   flag: string;
   accent: 'blue' | 'green';
-  emergency: string[];
+  emergency: Record<Language, string[]>;
   apps: string[];
   content: Record<
     Language,
@@ -27,7 +27,10 @@ export const countries: Country[] = [
     key: 'georgia',
     flag: 'GE',
     accent: 'green',
-    emergency: ['112 emergency services', 'Police, ambulance and fire through 112'],
+    emergency: {
+      en: ['112 emergency services', 'Police, ambulance and fire through 112'],
+      tr: ['112 acil yardım', 'Polis, ambulans ve itfaiye için 112'],
+    },
     apps: ['Bolt', 'Yandex Go', 'Wolt', 'Glovo', 'TBC Bank / Bank of Georgia apps'],
     content: {
       en: {
@@ -56,7 +59,10 @@ export const countries: Country[] = [
     key: 'serbia',
     flag: 'RS',
     accent: 'blue',
-    emergency: ['112 general emergency', '192 police', '194 ambulance', '193 fire'],
+    emergency: {
+      en: ['112 general emergency', '192 police', '194 ambulance', '193 fire'],
+      tr: ['112 genel acil', '192 polis', '194 ambulans', '193 itfaiye'],
+    },
     apps: ['Yandex Go', 'CarGo', 'Moovit', 'Glovo', 'Wolt', 'eUprava'],
     content: {
       en: {

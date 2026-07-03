@@ -16,7 +16,7 @@ import LeadCTA from './LeadCTA';
 import { getCountryPath, type Country } from '../data/countries';
 import type { Guide } from '../data/guides';
 import { siteConfig } from '../data/config';
-import { ui, type Language } from '../data/i18n';
+import { confidenceLabels, ui, type Language } from '../data/i18n';
 
 type GuideLayoutProps = {
   guide: Guide;
@@ -46,6 +46,7 @@ const Section = ({
 
 export default function GuideLayout({ guide, country, language }: GuideLayoutProps) {
   const labels = ui[language].guide;
+  const countryLabels = ui[language].country;
   const countryPath = getCountryPath(language, country);
   const isSimGuide = guide.topic === 'sim-card' || guide.topic === 'esim';
   const ctaTitle = isSimGuide ? labels.simCtaTitle : labels.ctaTitle;
@@ -53,6 +54,7 @@ export default function GuideLayout({ guide, country, language }: GuideLayoutPro
   const ctaNote = isSimGuide ? labels.simCtaNote : labels.ctaNote;
   const ctaSoonNote = isSimGuide ? labels.simCtaSoonNote : labels.ctaSoonNote;
   const confidenceTone = guide.confidence === 'High' ? 'green' : 'blue';
+  const confidenceLabel = confidenceLabels[language][guide.confidence];
 
   return (
     <article className="container-shell py-10 sm:py-14">
@@ -78,7 +80,7 @@ export default function GuideLayout({ guide, country, language }: GuideLayoutPro
           <Badge tone={confidenceTone}>
             <span className="inline-flex items-center gap-1.5">
               <ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" />
-              {labels.confidence}: {guide.confidence}
+              {labels.confidence}: {confidenceLabel}
             </span>
           </Badge>
         </div>
@@ -232,17 +234,17 @@ export default function GuideLayout({ guide, country, language }: GuideLayoutPro
         <aside className="h-fit rounded-2xl border border-line bg-white p-5 shadow-soft lg:sticky lg:top-24">
           <div className="flex flex-wrap gap-2">
             <Badge tone="neutral">{labels.lastUpdated}: {guide.lastUpdated}</Badge>
-            <Badge tone={confidenceTone}>{labels.confidence}: {guide.confidence}</Badge>
+            <Badge tone={confidenceTone}>{labels.confidence}: {confidenceLabel}</Badge>
           </div>
           <p className="text-sm font-bold">{country.content[language].name}</p>
           <p className="mt-2 text-sm leading-6 text-muted">{country.content[language].overview}</p>
           <dl className="mt-5 space-y-3 text-sm">
             <div>
-              <dt className="font-semibold">Capital</dt>
+              <dt className="font-semibold">{countryLabels.capital}</dt>
               <dd className="text-muted">{country.content[language].capital}</dd>
             </div>
             <div>
-              <dt className="font-semibold">Currency</dt>
+              <dt className="font-semibold">{countryLabels.currency}</dt>
               <dd className="text-muted">{country.content[language].currency}</dd>
             </div>
           </dl>

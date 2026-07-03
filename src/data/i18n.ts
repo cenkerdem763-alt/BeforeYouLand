@@ -28,9 +28,12 @@ export const ui = {
     country: {
       overview: 'Arrival essentials',
       guides: 'Guides',
+      capital: 'Capital',
+      currency: 'Currency',
       usefulApps: 'Useful Apps',
       emergencyNumbers: 'Emergency Numbers',
       readGuide: 'Read guide',
+      seoTitle: 'first-week guide',
     },
     guide: {
       quickAnswer: 'Quick answer',
@@ -54,13 +57,19 @@ export const ui = {
       ctaEyebrow: 'Free help',
       ctaNote:
         'No purchase required. Information may change, so always verify with the operator or eSIM provider.',
-      ctaSoonNote: 'Free recommendation form will be available soon.',
+      ctaSoonNote: 'Use the button to jump to the contact section below.',
       simCtaTitle: 'Get a free personal SIM/eSIM recommendation',
       simCtaText:
         'Tell us your destination, travel duration, phone model and data needs. We’ll help you find suitable SIM or eSIM options for free.',
       simCtaNote:
         'No purchase required. Information may change, so always verify with the operator or eSIM provider.',
-      simCtaSoonNote: 'Free recommendation form will be available soon.',
+      simCtaSoonNote: 'Use the button to jump to the contact section below.',
+    },
+    notFound: {
+      title: 'Page not found',
+      heading: 'Page not found',
+      text: 'The guide you are looking for may have moved.',
+      button: 'Back home',
     },
     nav: {
       brandTagline: 'First-week country guides',
@@ -95,9 +104,12 @@ export const ui = {
     country: {
       overview: 'Varış için temel bilgiler',
       guides: 'Rehberler',
+      capital: 'Başkent',
+      currency: 'Para birimi',
       usefulApps: 'Faydalı Uygulamalar',
       emergencyNumbers: 'Acil Numaralar',
       readGuide: 'Rehberi oku',
+      seoTitle: 'ilk hafta rehberi',
     },
     guide: {
       quickAnswer: 'Kısa cevap',
@@ -121,13 +133,19 @@ export const ui = {
       ctaEyebrow: 'Ücretsiz destek',
       ctaNote:
         'Satın alma zorunluluğu yok. Bilgiler değişebileceği için operatör veya eSIM sağlayıcısını kontrol etmeni öneririz.',
-      ctaSoonNote: 'Ücretsiz öneri formu yakında aktif olacak.',
+      ctaSoonNote: 'Buton seni aşağıdaki iletişim bölümüne götürür.',
       simCtaTitle: 'Ücretsiz kişisel SIM/eSIM önerisi al',
       simCtaText:
         'Gideceğin ülke, kalış süren, telefon modelin ve internet ihtiyacına göre sana uygun SIM veya eSIM seçeneklerini bulmana ücretsiz yardımcı olalım.',
       simCtaNote:
         'Satın alma zorunluluğu yok. Bilgiler değişebileceği için operatör veya eSIM sağlayıcısını kontrol etmeni öneririz.',
-      simCtaSoonNote: 'Ücretsiz öneri formu yakında aktif olacak.',
+      simCtaSoonNote: 'Buton seni aşağıdaki iletişim bölümüne götürür.',
+    },
+    notFound: {
+      title: 'Sayfa bulunamadı',
+      heading: 'Sayfa bulunamadı',
+      text: 'Aradığın rehber taşınmış olabilir.',
+      button: 'Ana sayfaya dön',
     },
     nav: {
       brandTagline: 'İlk hafta ülke rehberleri',
@@ -156,5 +174,16 @@ export const topicLabels = {
     'bank-account': 'Banka hesabı',
     'rent-apartment': 'Ev kiralama',
     transport: 'Ulaşım',
+  },
+} as const;
+
+export const confidenceLabels = {
+  en: {
+    High: 'High',
+    Medium: 'Medium',
+  },
+  tr: {
+    High: 'Yüksek',
+    Medium: 'Orta',
   },
 } as const;

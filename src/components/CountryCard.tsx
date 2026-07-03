@@ -12,8 +12,7 @@ type CountryCardProps = {
 
 export default function CountryCard({ country, language }: CountryCardProps) {
   const content = country.content[language];
-  const capitalLabel = language === 'en' ? 'Capital' : 'Başkent';
-  const currencyLabel = language === 'en' ? 'Currency' : 'Para birimi';
+  const labels = ui[language].country;
 
   return (
     <Link
@@ -42,12 +41,12 @@ export default function CountryCard({ country, language }: CountryCardProps) {
           <div className="grid grid-cols-1 gap-3 text-sm sm:grid-cols-2">
             <div className="rounded-2xl border border-line bg-white p-4">
               <MapPin className="h-4 w-4 text-blue-600" aria-hidden="true" />
-              <p className="mt-2 font-semibold text-ink">{capitalLabel}</p>
+              <p className="mt-2 font-semibold text-ink">{labels.capital}</p>
               <p className="text-muted">{content.capital}</p>
             </div>
             <div className="rounded-2xl border border-line bg-white p-4">
               <WalletCards className="h-4 w-4 text-green-700" aria-hidden="true" />
-              <p className="mt-2 font-semibold text-ink">{currencyLabel}</p>
+              <p className="mt-2 font-semibold text-ink">{labels.currency}</p>
               <p className="text-muted">{content.currency}</p>
             </div>
           </div>
