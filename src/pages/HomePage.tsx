@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
 import CountryCard from '../components/CountryCard';
+import LeadCTA from '../components/LeadCTA';
 import Search from '../components/Search';
 import SEO from '../components/SEO';
 import TopicCard from '../components/TopicCard';
@@ -31,7 +32,7 @@ export default function HomePage({ language }: HomePageProps) {
     <>
       <SEO
         title={language === 'en' ? 'Country starter guides' : 'Ülke başlangıç rehberleri'}
-        description={copy.subtitle}
+        description={siteConfig.defaultDescriptions[language]}
         canonical={`${siteConfig.baseUrl}/${language}`}
         alternates={[
           { hrefLang: 'en', href: `${siteConfig.baseUrl}/en` },
@@ -134,6 +135,9 @@ export default function HomePage({ language }: HomePageProps) {
                 </Link>
               ))}
             </div>
+            <div className="mt-3">
+              <LeadCTA country={georgia} language={language} compact />
+            </div>
           </div>
         </div>
       </section>
@@ -164,6 +168,10 @@ export default function HomePage({ language }: HomePageProps) {
             />
           ))}
         </div>
+      </section>
+
+      <section className="container-shell pb-14">
+        <LeadCTA country={georgia} language={language} />
       </section>
     </>
   );

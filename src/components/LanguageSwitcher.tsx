@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Languages } from 'lucide-react';
 import { languages, type Language } from '../data/i18n';
-import { countries, findCountryBySlug } from '../data/countries';
+import { countries, findCountryBySlug, getCountryPath } from '../data/countries';
 import { resolveTopicFromSlug, getGuidePath } from '../data/routes';
 
 const counterpart = (pathname: string, nextLanguage: Language) => {
@@ -13,10 +13,10 @@ const counterpart = (pathname: string, nextLanguage: Language) => {
   const country = findCountryBySlug(currentLanguage, parts[1]);
   if (!country) return `/${nextLanguage}`;
 
-  if (parts.length === 2) return `/${nextLanguage}/${country.content[nextLanguage].slug}`;
+  if (parts.length === 2) return getCountryPath(nextLanguage, country);
 
   const topic = resolveTopicFromSlug(currentLanguage, parts[2]);
-  if (!topic) return `/${nextLanguage}/${country.content[nextLanguage].slug}`;
+  if (!topic) return getCountryPath(nextLanguage, country);
 
   return getGuidePath(nextLanguage, country.content[nextLanguage].slug, topic);
 };

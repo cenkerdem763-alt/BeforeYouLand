@@ -1,5 +1,11 @@
 {
   "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.firstweekguide.com" }],
+      "destination": "https://firstweekguide.com/:path*",
+      "permanent": true
+    },
     { "source": "/", "destination": "/en", "permanent": false }
   ],
   "rewrites": [

@@ -8,7 +8,7 @@ export default function NotFoundPage({ language }: { language: Language }) {
     <section className="container-shell py-20">
       <SEO
         title="Page not found"
-        description="This BeforeYouLand page could not be found."
+        description={siteConfig.defaultDescriptions[language]}
         canonical={`${siteConfig.baseUrl}/${language}`}
       />
       <h1 className="text-4xl font-bold">Page not found</h1>

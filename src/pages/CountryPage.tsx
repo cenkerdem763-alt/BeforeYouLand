@@ -1,10 +1,11 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { AlertTriangle, AppWindow, Landmark, PhoneCall } from 'lucide-react';
 import Badge from '../components/Badge';
+import LeadCTA from '../components/LeadCTA';
 import SEO from '../components/SEO';
 import { siteConfig } from '../data/config';
 import TopicCard from '../components/TopicCard';
-import { findCountryBySlug } from '../data/countries';
+import { findCountryBySlug, getCountryPath } from '../data/countries';
 import { topicLabels, ui, type Language } from '../data/i18n';
 import { getGuidePath, topicKeys } from '../data/routes';
 
@@ -18,6 +19,8 @@ export default function CountryPage() {
 
   const labels = ui[language].country;
   const otherLanguage: Language = language === 'en' ? 'tr' : 'en';
+  const countryPath = getCountryPath(language, country);
+  const alternateCountryPath = getCountryPath(otherLanguage, country);
 
   const overview = [
     { label: 'SIM / eSIM', value: topicKeys.slice(0, 2).map((topic) => topicLabels[language][topic]).join(' + ') },
@@ -33,10 +36,10 @@ export default function CountryPage() {
       <SEO
         title={`${country.content[language].name} starter guide`}
         description={country.content[language].summary}
-        canonical={`${siteConfig.baseUrl}/${language}/${country.content[language].slug}`}
+        canonical={`${siteConfig.baseUrl}${countryPath}`}
         alternates={[
-          { hrefLang: language, href: `${siteConfig.baseUrl}/${language}/${country.content[language].slug}` },
-          { hrefLang: otherLanguage, href: `${siteConfig.baseUrl}/${otherLanguage}/${country.content[otherLanguage].slug}` },
+          { hrefLang: language, href: `${siteConfig.baseUrl}${countryPath}` },
+          { hrefLang: otherLanguage, href: `${siteConfig.baseUrl}${alternateCountryPath}` },
         ]}
       />
       <section className="container-shell py-10 sm:py-14">
@@ -46,6 +49,10 @@ export default function CountryPage() {
             {country.content[language].name}
           </h1>
           <p className="mt-5 text-lg leading-8 text-muted">{country.content[language].overview}</p>
+        </div>
+
+        <div className="mt-8">
+          <LeadCTA country={country} language={language} />
         </div>
 
         <section className="mt-10">

@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { siteConfig } from '../data/config';
 
 type Alternate = {
   hrefLang: string;
@@ -14,7 +15,7 @@ type SEOProps = {
 };
 
 export default function SEO({ title, description, canonical, alternates = [], jsonLd }: SEOProps) {
-  const fullTitle = `${title} | BeforeYouLand`;
+  const fullTitle = `${title} | ${siteConfig.siteName}`;
 
   return (
     <Helmet>
@@ -33,7 +34,7 @@ export default function SEO({ title, description, canonical, alternates = [], js
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonical} />
-      <meta property="og:site_name" content="BeforeYouLand" />
+      <meta property="og:site_name" content={siteConfig.siteName} />
       <meta name="twitter:card" content="summary_large_image" />
       {jsonLd ? (
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>

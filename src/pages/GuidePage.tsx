@@ -2,7 +2,7 @@ import { Navigate, useParams } from 'react-router-dom';
 import GuideLayout from '../components/GuideLayout';
 import SEO from '../components/SEO';
 import { siteConfig } from '../data/config';
-import { findCountryBySlug } from '../data/countries';
+import { findCountryBySlug, getCountryPath } from '../data/countries';
 import { findGuide } from '../data/guides';
 import { type Language } from '../data/i18n';
 import { getGuidePath, resolveTopicFromSlug } from '../data/routes';
@@ -17,7 +17,7 @@ export default function GuidePage() {
   if (!country || !topic) return <Navigate to={`/${language}`} replace />;
 
   const guide = findGuide(language, country.key, topic);
-  if (!guide) return <Navigate to={`/${language}/${country.content[language].slug}`} replace />;
+  if (!guide) return <Navigate to={getCountryPath(language, country)} replace />;
 
   const otherLanguage: Language = language === 'en' ? 'tr' : 'en';
   const canonicalPath = getGuidePath(language, country.content[language].slug, topic);

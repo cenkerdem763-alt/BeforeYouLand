@@ -12,8 +12,9 @@ import {
 } from 'lucide-react';
 import Badge from './Badge';
 import CTABox from './CTABox';
-import type { Country } from '../data/countries';
+import { getCountryPath, type Country } from '../data/countries';
 import type { Guide } from '../data/guides';
+import { siteConfig } from '../data/config';
 import { ui, type Language } from '../data/i18n';
 
 type GuideLayoutProps = {
@@ -44,7 +45,7 @@ const Section = ({
 
 export default function GuideLayout({ guide, country, language }: GuideLayoutProps) {
   const labels = ui[language].guide;
-  const countryPath = `/${language}/${country.content[language].slug}`;
+  const countryPath = getCountryPath(language, country);
   const isSimGuide = guide.topic === 'sim-card' || guide.topic === 'esim';
   const ctaTitle = isSimGuide ? labels.simCtaTitle : labels.ctaTitle;
   const ctaText = isSimGuide ? labels.simCtaText : labels.ctaText;
@@ -56,7 +57,7 @@ export default function GuideLayout({ guide, country, language }: GuideLayoutPro
     <article className="container-shell py-10 sm:py-14">
       <nav className="text-sm text-muted" aria-label="Breadcrumb">
         <Link to={`/${language}`} className="hover:text-ink">
-          BeforeYouLand
+          {siteConfig.siteName}
         </Link>
         <span className="px-2">/</span>
         <Link to={countryPath} className="hover:text-ink">

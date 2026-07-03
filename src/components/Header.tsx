@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Plane } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
+import { siteConfig } from '../data/config';
 import { ui, type Language } from '../data/i18n';
 
 const getLanguage = (pathname: string): Language => (pathname.startsWith('/tr') ? 'tr' : 'en');
@@ -17,7 +18,7 @@ export default function Header() {
             <Plane className="h-5 w-5" aria-hidden="true" />
           </span>
           <span>
-            <span className="block text-base font-bold tracking-normal">BeforeYouLand</span>
+            <span className="block text-base font-bold tracking-normal">{siteConfig.siteName}</span>
             <span className="hidden text-xs text-muted sm:block">{ui[language].nav.brandTagline}</span>
           </span>
         </Link>

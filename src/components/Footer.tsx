@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { routeList } from '../data/routes';
+import { siteConfig } from '../data/config';
 import { ui, type Language } from '../data/i18n';
 
 export default function Footer() {
@@ -13,7 +14,7 @@ export default function Footer() {
       <div className="container-shell py-10">
         <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
           <div>
-            <p className="text-lg font-bold">BeforeYouLand</p>
+            <p className="text-lg font-bold">{siteConfig.siteName}</p>
             <p className="mt-2 max-w-md text-sm leading-6 text-muted">
               {copy.description}
             </p>

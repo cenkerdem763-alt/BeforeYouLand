@@ -8,10 +8,10 @@ export const languages: Record<Language, { label: string; shortLabel: string }> 
 export const ui = {
   en: {
     home: {
-      heroTitle: 'Know what you need before you land.',
+      heroTitle: 'Your first week abroad, made simple.',
       subtitle:
-        'SIM cards, eSIMs, bank accounts, rent, transport and local essentials for every country.',
-      eyebrow: 'Practical arrival intelligence',
+        'Simple country guides for SIM cards, internet, banking, transport, housing basics and first-week essentials.',
+      eyebrow: 'Simple country guides',
       searchTitle: 'Where are you going?',
       searchPlaceholder: 'Search countries',
       popularTopics: 'Popular topics',
@@ -20,10 +20,10 @@ export const ui = {
       noResults: 'No countries found.',
       trustItems: ['No login required', 'Free starter guides', 'Updated when possible'],
       cardCta: 'Explore country',
-      featureLabel: 'BeforeYouLand',
+      featureLabel: 'First Week Guide',
       featureTitle: 'Your first-week essentials, simplified.',
       featureDescription:
-        'Country-specific guides for SIM cards, eSIMs, banking, rent, transport and local basics.',
+        'Simple country guides for SIM cards, internet, banking, transport, housing basics and first-week essentials.',
     },
     country: {
       overview: 'Arrival essentials',
@@ -63,22 +63,22 @@ export const ui = {
       simCtaSoonNote: 'Free recommendation form will be available soon.',
     },
     nav: {
-      brandTagline: 'Country starter guides',
+      brandTagline: 'First-week country guides',
       home: 'Home',
     },
     footer: {
       description:
-        'Practical, editable starter guides for first arrivals. No accounts, no noise, just the essentials.',
+        'First Week Guide helps you understand the basics before and after you land.',
       disclaimer:
         'Information can change. Always verify with official providers before purchasing or applying.',
     },
   },
   tr: {
     home: {
-      heroTitle: 'Gitmeden önce ihtiyacın olan her şeyi bil.',
+      heroTitle: 'Yurt dışındaki ilk haftanı kolaylaştır.',
       subtitle:
-        'SIM kart, eSIM, banka hesabı, ev kiralama, ulaşım ve ülkeye özel başlangıç bilgileri.',
-      eyebrow: 'Pratik varış rehberi',
+        'SIM kart, internet, banka, ulaşım, ev bulma ve ilk hafta ihtiyaçları için basit ülke rehberleri.',
+      eyebrow: 'Basit ülke rehberleri',
       searchTitle: 'Nereye gidiyorsun?',
       searchPlaceholder: 'Ülke ara',
       popularTopics: 'Popüler konular',
@@ -87,10 +87,10 @@ export const ui = {
       noResults: 'Ülke bulunamadı.',
       trustItems: ['Kayıt gerekmez', 'Ücretsiz başlangıç rehberleri', 'Mümkün oldukça güncellenir'],
       cardCta: 'Ülkeyi incele',
-      featureLabel: 'BeforeYouLand',
+      featureLabel: 'First Week Guide',
       featureTitle: 'İlk hafta ihtiyaçlarını kolayca öğren.',
       featureDescription:
-        'SIM kart, eSIM, banka, ev kiralama, ulaşım ve yerel başlangıç bilgileri tek yerde.',
+        'SIM kart, internet, banka, ulaşım, ev bulma ve ilk hafta ihtiyaçları için basit ülke rehberleri.',
     },
     country: {
       overview: 'Varış için temel bilgiler',
@@ -130,12 +130,12 @@ export const ui = {
       simCtaSoonNote: 'Ücretsiz öneri formu yakında aktif olacak.',
     },
     nav: {
-      brandTagline: 'Ülke başlangıç rehberleri',
+      brandTagline: 'İlk hafta ülke rehberleri',
       home: 'Ana sayfa',
     },
     footer: {
       description:
-        'İlk varış için pratik ve düzenlenebilir başlangıç rehberleri. Üyelik yok, kalabalık yok, sadece gereken bilgiler.',
+        'First Week Guide, gitmeden önce ve indikten sonra temel ihtiyaçlarını anlamana yardımcı olur.',
       disclaimer:
         'Bilgiler değişebilir. Satın almadan veya başvuru yapmadan önce her zaman resmi sağlayıcılardan doğrulayın.',
     },
