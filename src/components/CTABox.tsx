@@ -29,8 +29,7 @@ export default function CTABox({ title, text, button, note, soonNote, eyebrow }:
           {note ? <p className="mt-3 text-xs font-semibold leading-5 text-muted">{note}</p> : null}
         </div>
         <a
-          href="#"
-          onClick={(event) => event.preventDefault()}
+          href="#contact"
           className="focus-ring inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-green-700 px-5 py-3 text-sm font-bold text-white transition hover:bg-green-600"
         >
           <MessageCircle className="h-4 w-4" aria-hidden="true" />
