@@ -31,7 +31,7 @@ export default function HomePage({ language }: HomePageProps) {
   return (
     <>
       <SEO
-        title={language === 'en' ? 'Country starter guides' : 'Ülke başlangıç rehberleri'}
+        title={siteConfig.siteName}
         description={siteConfig.defaultDescriptions[language]}
         canonical={`${siteConfig.baseUrl}/${language}`}
         alternates={[

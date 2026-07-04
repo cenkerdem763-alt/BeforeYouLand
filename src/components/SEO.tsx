@@ -15,7 +15,8 @@ type SEOProps = {
 };
 
 export default function SEO({ title, description, canonical, alternates = [], jsonLd }: SEOProps) {
-  const fullTitle = `${title} | ${siteConfig.siteName}`;
+  const fullTitle =
+    title === siteConfig.siteName ? siteConfig.siteName : `${title} | ${siteConfig.siteName}`;
 
   return (
     <Helmet>
@@ -36,6 +37,8 @@ export default function SEO({ title, description, canonical, alternates = [], js
       <meta property="og:url" content={canonical} />
       <meta property="og:site_name" content={siteConfig.siteName} />
       <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={description} />
       {jsonLd ? (
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       ) : null}
