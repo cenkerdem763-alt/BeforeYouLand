@@ -9,31 +9,39 @@ if (!baseUrlMatch) {
 
 const baseUrl = baseUrlMatch[1].replace(/\/$/, '');
 
-const routePairs = [
-  ['/en', '/tr'],
-  ['/en/georgia', '/tr/gurcistan'],
-  ['/en/georgia/sim-card', '/tr/gurcistan/sim-kart'],
-  ['/en/georgia/esim', '/tr/gurcistan/esim'],
-  ['/en/georgia/bank-account', '/tr/gurcistan/banka-hesabi'],
-  ['/en/georgia/rent-apartment', '/tr/gurcistan/ev-kiralama'],
-  ['/en/georgia/transport', '/tr/gurcistan/ulasim'],
-  ['/en/serbia', '/tr/sirbistan'],
-  ['/en/serbia/sim-card', '/tr/sirbistan/sim-kart'],
-  ['/en/serbia/esim', '/tr/sirbistan/esim'],
-  ['/en/serbia/bank-account', '/tr/sirbistan/banka-hesabi'],
-  ['/en/serbia/rent-apartment', '/tr/sirbistan/ev-kiralama'],
-  ['/en/serbia/transport', '/tr/sirbistan/ulasim'],
+const languageOrder = ['en', 'tr', 'ru'];
+
+const routeGroups = [
+  ['/en', '/tr', '/ru'],
+  ['/en/georgia', '/tr/gurcistan', '/ru/gruziya'],
+  ['/en/georgia/sim-card', '/tr/gurcistan/sim-kart', '/ru/gruziya/sim-karta'],
+  ['/en/georgia/esim', '/tr/gurcistan/esim', '/ru/gruziya/esim'],
+  ['/en/georgia/bank-account', '/tr/gurcistan/banka-hesabi', '/ru/gruziya/bankovskiy-schet'],
+  ['/en/georgia/rent-apartment', '/tr/gurcistan/ev-kiralama', '/ru/gruziya/arenda-zhilya'],
+  ['/en/georgia/transport', '/tr/gurcistan/ulasim', '/ru/gruziya/transport'],
+  ['/en/serbia', '/tr/sirbistan', '/ru/serbiya'],
+  ['/en/serbia/sim-card', '/tr/sirbistan/sim-kart', '/ru/serbiya/sim-karta'],
+  ['/en/serbia/esim', '/tr/sirbistan/esim', '/ru/serbiya/esim'],
+  ['/en/serbia/bank-account', '/tr/sirbistan/banka-hesabi', '/ru/serbiya/bankovskiy-schet'],
+  ['/en/serbia/rent-apartment', '/tr/sirbistan/ev-kiralama', '/ru/serbiya/arenda-zhilya'],
+  ['/en/serbia/transport', '/tr/sirbistan/ulasim', '/ru/serbiya/transport'],
 ];
 
-const urls = routePairs.flatMap(([enPath, trPath], index) => {
-  const xDefault = index === 0
-    ? `<xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}${enPath}" />`
-    : '';
+const urls = routeGroups.flatMap((paths, groupIndex) => {
+  return paths.map((path, pathIndex) => {
+    const language = languageOrder[pathIndex];
+    const alternates = paths
+      .map((alternatePath, alternateIndex) => {
+        const alternateLanguage = languageOrder[alternateIndex];
+        return `<xhtml:link rel="alternate" hreflang="${alternateLanguage}" href="${baseUrl}${alternatePath}" />`;
+      })
+      .join('');
+    const xDefault = groupIndex === 0 && language === 'en'
+      ? `<xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}${path}" />`
+      : '';
 
-  return [
-    `  <url><loc>${baseUrl}${enPath}</loc><xhtml:link rel="alternate" hreflang="tr" href="${baseUrl}${trPath}" />${xDefault}</url>`,
-    `  <url><loc>${baseUrl}${trPath}</loc><xhtml:link rel="alternate" hreflang="en" href="${baseUrl}${enPath}" /></url>`,
-  ];
+    return `  <url><loc>${baseUrl}${path}</loc>${alternates}${xDefault}</url>`;
+  });
 });
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

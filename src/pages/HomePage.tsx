@@ -8,7 +8,7 @@ import SEO from '../components/SEO';
 import TopicCard from '../components/TopicCard';
 import { countries, getCountryPath } from '../data/countries';
 import { siteConfig } from '../data/config';
-import { ui, type Language } from '../data/i18n';
+import { languageCodes, languages, ui, type Language } from '../data/i18n';
 import { getGuidePath, topicKeys } from '../data/routes';
 
 type HomePageProps = {
@@ -35,8 +35,10 @@ export default function HomePage({ language }: HomePageProps) {
         description={siteConfig.defaultDescriptions[language]}
         canonical={`${siteConfig.baseUrl}/${language}`}
         alternates={[
-          { hrefLang: 'en', href: `${siteConfig.baseUrl}/en` },
-          { hrefLang: 'tr', href: `${siteConfig.baseUrl}/tr` },
+          ...languageCodes.map((alternateLanguage) => ({
+            hrefLang: alternateLanguage,
+            href: `${siteConfig.baseUrl}/${alternateLanguage}`,
+          })),
           { hrefLang: 'x-default', href: `${siteConfig.baseUrl}/en` },
         ]}
       />
@@ -102,12 +104,17 @@ export default function HomePage({ language }: HomePageProps) {
                 {copy.startWithGeorgia}
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
-              <Link
-                to={language === 'en' ? '/tr' : '/en'}
-                className="focus-ring rounded-full border border-line bg-white px-5 py-3 text-sm font-bold text-ink shadow-sm transition hover:border-blue-600"
-              >
-                {language === 'en' ? 'Türkçe' : 'English'}
-              </Link>
+              {languageCodes
+                .filter((alternateLanguage) => alternateLanguage !== language)
+                .map((alternateLanguage) => (
+                  <Link
+                    key={alternateLanguage}
+                    to={`/${alternateLanguage}`}
+                    className="focus-ring rounded-full border border-line bg-white px-5 py-3 text-sm font-bold text-ink shadow-sm transition hover:border-blue-600"
+                  >
+                    {languages[alternateLanguage].label}
+                  </Link>
+                ))}
             </div>
           </div>
           <div className="rounded-[2rem] border border-line bg-white p-4 shadow-soft sm:p-5">

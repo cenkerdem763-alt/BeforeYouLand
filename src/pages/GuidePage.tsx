@@ -4,12 +4,12 @@ import SEO from '../components/SEO';
 import { siteConfig } from '../data/config';
 import { findCountryBySlug, getCountryPath } from '../data/countries';
 import { findGuide } from '../data/guides';
-import { type Language } from '../data/i18n';
+import { languageCodes } from '../data/i18n';
 import { getGuidePath, resolveTopicFromSlug } from '../data/routes';
 
 export default function GuidePage() {
   const params = useParams();
-  const language = params.language === 'tr' ? 'tr' : params.language === 'en' ? 'en' : undefined;
+  const language = languageCodes.find((code) => code === params.language);
   if (!language || !params.countrySlug || !params.topicSlug) return <Navigate to="/en" replace />;
 
   const country = findCountryBySlug(language, params.countrySlug);
@@ -19,9 +19,7 @@ export default function GuidePage() {
   const guide = findGuide(language, country.key, topic);
   if (!guide) return <Navigate to={getCountryPath(language, country)} replace />;
 
-  const otherLanguage: Language = language === 'en' ? 'tr' : 'en';
   const canonicalPath = getGuidePath(language, country.content[language].slug, topic);
-  const alternatePath = getGuidePath(otherLanguage, country.content[otherLanguage].slug, topic);
   const faqJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -41,10 +39,10 @@ export default function GuidePage() {
         title={guide.title}
         description={guide.description}
         canonical={`${siteConfig.baseUrl}${canonicalPath}`}
-        alternates={[
-          { hrefLang: language, href: `${siteConfig.baseUrl}${canonicalPath}` },
-          { hrefLang: otherLanguage, href: `${siteConfig.baseUrl}${alternatePath}` },
-        ]}
+        alternates={languageCodes.map((alternateLanguage) => ({
+          hrefLang: alternateLanguage,
+          href: `${siteConfig.baseUrl}${getGuidePath(alternateLanguage, country.content[alternateLanguage].slug, topic)}`,
+        }))}
         jsonLd={faqJsonLd}
       />
       <GuideLayout guide={guide} country={country} language={language} />

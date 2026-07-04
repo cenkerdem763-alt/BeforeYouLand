@@ -6,21 +6,19 @@ import SEO from '../components/SEO';
 import { siteConfig } from '../data/config';
 import TopicCard from '../components/TopicCard';
 import { findCountryBySlug, getCountryPath } from '../data/countries';
-import { topicLabels, ui, type Language } from '../data/i18n';
+import { languageCodes, topicLabels, ui } from '../data/i18n';
 import { getGuidePath, topicKeys } from '../data/routes';
 
 export default function CountryPage() {
   const params = useParams();
-  const language = params.language === 'tr' ? 'tr' : params.language === 'en' ? 'en' : undefined;
+  const language = languageCodes.find((code) => code === params.language);
   if (!language || !params.countrySlug) return <Navigate to="/en" replace />;
 
   const country = findCountryBySlug(language, params.countrySlug);
   if (!country) return <Navigate to={`/${language}`} replace />;
 
   const labels = ui[language].country;
-  const otherLanguage: Language = language === 'en' ? 'tr' : 'en';
   const countryPath = getCountryPath(language, country);
-  const alternateCountryPath = getCountryPath(otherLanguage, country);
 
   const overview = [
     { label: 'SIM / eSIM', value: topicKeys.slice(0, 2).map((topic) => topicLabels[language][topic]).join(' + ') },
@@ -37,10 +35,10 @@ export default function CountryPage() {
         title={`${country.content[language].name} ${labels.seoTitle}`}
         description={country.content[language].summary}
         canonical={`${siteConfig.baseUrl}${countryPath}`}
-        alternates={[
-          { hrefLang: language, href: `${siteConfig.baseUrl}${countryPath}` },
-          { hrefLang: otherLanguage, href: `${siteConfig.baseUrl}${alternateCountryPath}` },
-        ]}
+        alternates={languageCodes.map((alternateLanguage) => ({
+          hrefLang: alternateLanguage,
+          href: `${siteConfig.baseUrl}${getCountryPath(alternateLanguage, country)}`,
+        }))}
       />
       <section className="container-shell py-10 sm:py-14">
         <div className="max-w-3xl">

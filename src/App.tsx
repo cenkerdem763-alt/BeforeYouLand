@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import CountryPage from './pages/CountryPage';
 import GuidePage from './pages/GuidePage';
 import NotFoundPage from './pages/NotFoundPage';
+import { languageCodes } from './data/i18n';
 
 export default function App() {
   return (
@@ -12,12 +13,14 @@ export default function App() {
       <Header />
       <main>
         <Routes>
-          <Route path="/en" element={<HomePage language="en" />} />
-          <Route path="/tr" element={<HomePage language="tr" />} />
+          {languageCodes.map((language) => (
+            <Route key={language} path={`/${language}`} element={<HomePage language={language} />} />
+          ))}
           <Route path="/:language/:countrySlug" element={<CountryPage />} />
           <Route path="/:language/:countrySlug/:topicSlug" element={<GuidePage />} />
-          <Route path="/en/*" element={<NotFoundPage language="en" />} />
-          <Route path="/tr/*" element={<NotFoundPage language="tr" />} />
+          {languageCodes.map((language) => (
+            <Route key={`${language}-not-found`} path={`/${language}/*`} element={<NotFoundPage language={language} />} />
+          ))}
           <Route path="*" element={<Navigate to="/en" replace />} />
         </Routes>
       </main>

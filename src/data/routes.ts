@@ -1,5 +1,5 @@
 import { countries, getCountryPath } from './countries';
-import type { Language } from './i18n';
+import { languageCodes, type Language } from './i18n';
 
 export const topicSlugs = {
   en: {
@@ -15,6 +15,13 @@ export const topicSlugs = {
     'bank-account': 'banka-hesabi',
     'rent-apartment': 'ev-kiralama',
     transport: 'ulasim',
+  },
+  ru: {
+    'sim-card': 'sim-karta',
+    esim: 'esim',
+    'bank-account': 'bankovskiy-schet',
+    'rent-apartment': 'arenda-zhilya',
+    transport: 'transport',
   },
 } as const;
 
@@ -32,10 +39,9 @@ export const resolveTopicFromSlug = (language: Language, slug: string) =>
   topicKeys.find((topic) => topicSlugs[language][topic] === slug);
 
 export const routeList = [
-  '/en',
-  '/tr',
+  ...languageCodes.map((language) => `/${language}`),
   ...countries.flatMap((country) =>
-    (['en', 'tr'] as Language[]).flatMap((language) => [
+    languageCodes.flatMap((language) => [
       getCountryPath(language, country),
       ...topicKeys.map((topic) =>
         getGuidePath(language, country.content[language].slug, topic),

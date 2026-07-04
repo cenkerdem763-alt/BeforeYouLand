@@ -5,5 +5,6 @@ export const siteConfig = {
   defaultDescriptions: {
     en: 'Simple country guides for your first week abroad.',
     tr: 'Yurt dışındaki ilk haftan için basit ülke rehberleri.',
+    ru: 'Простые гиды по странам для вашей первой недели за границей.',
   },
 } as const;

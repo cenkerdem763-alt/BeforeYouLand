@@ -30,6 +30,7 @@ export const countries: Country[] = [
     emergency: {
       en: ['112 emergency services', 'Police, ambulance and fire through 112'],
       tr: ['112 acil yardım', 'Polis, ambulans ve itfaiye için 112'],
+      ru: ['112 экстренная помощь', 'Полиция, скорая и пожарная служба через 112'],
     },
     apps: ['Bolt', 'Yandex Go', 'Wolt', 'Glovo', 'TBC Bank / Bank of Georgia apps'],
     content: {
@@ -53,6 +54,16 @@ export const countries: Country[] = [
         overview:
           'Gürcistan kısa kalışlar için genelde kolaydır; yine de SIM kaydı, kira depozitoları ve banka şartları sağlayıcıya ve şehre göre değişebilir.',
       },
+      ru: {
+        name: 'Грузия',
+        slug: 'gruziya',
+        summary: 'Практичный стартовый гид для Тбилиси, Батуми и первой недели в Грузии.',
+        capital: 'Тбилиси',
+        currency: 'Грузинский лари (GEL)',
+        bestFor: 'Гибкое пребывание, удалённая работа и поездки по региону',
+        overview:
+          'Грузия обычно понятна для коротких поездок, но регистрация SIM-карты, депозиты за жильё и требования банков могут отличаться по провайдеру и городу.',
+      },
     },
   },
   {
@@ -62,6 +73,7 @@ export const countries: Country[] = [
     emergency: {
       en: ['112 general emergency', '192 police', '194 ambulance', '193 fire'],
       tr: ['112 genel acil', '192 polis', '194 ambulans', '193 itfaiye'],
+      ru: ['112 общий экстренный номер', '192 полиция', '194 скорая помощь', '193 пожарная служба'],
     },
     apps: ['Yandex Go', 'CarGo', 'Moovit', 'Glovo', 'Wolt', 'eUprava'],
     content: {
@@ -84,6 +96,16 @@ export const countries: Country[] = [
         bestFor: 'Şehir yaşamı, bölgesel bağlantılar ve uzun kalışlar',
         overview:
           'Sırbistan şehir altyapısı güçlü bir ülkedir; ancak banka, kira ve uzun kalış işlemlerinde evrak süreçleri daha resmi olabilir.',
+      },
+      ru: {
+        name: 'Сербия',
+        slug: 'serbiya',
+        summary: 'Главное для приезда в Белград, Нови-Сад и первой недели в Сербии.',
+        capital: 'Белград',
+        currency: 'Сербский динар (RSD)',
+        bestFor: 'Городская жизнь, региональные поездки и более долгие остановки',
+        overview:
+          'В Сербии хорошая городская инфраструктура, но для банков, аренды и долгого пребывания часто нужно больше документов. Проверяйте требования заранее.',
       },
     },
   },

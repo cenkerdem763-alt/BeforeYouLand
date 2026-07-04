@@ -10,16 +10,26 @@ type LeadCTAProps = {
 
 export default function LeadCTA({ country, language, compact = false }: LeadCTAProps) {
   const countryName = country.content[language].name;
-  const title =
-    language === 'en'
-      ? `Need help with your first week in ${countryName}?`
-      : `${countryName} için ilk hafta yardıma mı ihtiyacın var?`;
-  const description =
-    language === 'en'
-      ? 'Get a simple checklist for SIM card, internet, banking, transport and housing basics.'
-      : 'SIM kart, internet, banka, ulaşım ve ev bulma gibi temel ihtiyaçları kolayca öğren.';
-  const button = language === 'en' ? 'Message us' : 'Mesaj gönder';
-  const eyebrow = language === 'en' ? 'First-week help' : 'İlk hafta desteği';
+  const title = {
+    en: `Need help with your first week in ${countryName}?`,
+    tr: `${countryName} için ilk hafta yardıma mı ihtiyacın var?`,
+    ru: `Нужна помощь с первой неделей в ${countryName}?`,
+  }[language];
+  const description = {
+    en: 'Get a simple checklist for SIM card, internet, banking, transport and housing basics.',
+    tr: 'SIM kart, internet, banka, ulaşım ve ev bulma gibi temel ihtiyaçları kolayca öğren.',
+    ru: 'Получите простой чеклист: SIM-карта, интернет, банк, транспорт и жильё.',
+  }[language];
+  const button = {
+    en: 'Message us',
+    tr: 'Mesaj gönder',
+    ru: 'Написать',
+  }[language];
+  const eyebrow = {
+    en: 'First-week help',
+    tr: 'İlk hafta desteği',
+    ru: 'Помощь в первую неделю',
+  }[language];
 
   return (
     <section

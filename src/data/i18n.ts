@@ -1,8 +1,11 @@
-export type Language = 'en' | 'tr';
+export type Language = 'en' | 'tr' | 'ru';
+
+export const languageCodes = ['en', 'tr', 'ru'] as const satisfies readonly Language[];
 
 export const languages: Record<Language, { label: string; shortLabel: string }> = {
   en: { label: 'English', shortLabel: 'EN' },
   tr: { label: 'Turkish', shortLabel: 'TR' },
+  ru: { label: 'Русский', shortLabel: 'RU' },
 };
 
 export const ui = {
@@ -158,6 +161,82 @@ export const ui = {
         'Bilgiler değişebilir. Satın almadan veya başvuru yapmadan önce her zaman resmi sağlayıcılardan doğrulayın.',
     },
   },
+  ru: {
+    home: {
+      heroTitle: 'Первая неделя за границей — проще.',
+      subtitle:
+        'Простые гиды по странам: SIM-карта, интернет, банк, транспорт, жильё и всё важное для первой недели.',
+      eyebrow: 'Простые гиды по странам',
+      searchTitle: 'Куда вы едете?',
+      searchPlaceholder: 'Поиск страны',
+      popularTopics: 'Популярные темы',
+      countries: 'Страны',
+      startWithGeorgia: 'Начать с Грузии',
+      noResults: 'Страны не найдены.',
+      trustItems: ['Без регистрации', 'Бесплатные стартовые гиды', 'Обновляется по возможности'],
+      cardCta: 'Открыть страну',
+      featureLabel: 'First Week Guide',
+      featureTitle: 'Всё важное для первой недели — просто.',
+      featureDescription:
+        'Простые гиды по странам: SIM-карта, интернет, банк, транспорт, жильё и всё важное для первой недели.',
+    },
+    country: {
+      overview: 'Главное после приезда',
+      guides: 'Гиды',
+      capital: 'Столица',
+      currency: 'Валюта',
+      usefulApps: 'Полезные приложения',
+      emergencyNumbers: 'Экстренные номера',
+      readGuide: 'Читать гид',
+      seoTitle: 'гид для первой недели',
+    },
+    guide: {
+      quickAnswer: 'Короткий ответ',
+      bestOption: 'Лучший вариант по типу поездки',
+      whereToGet: 'Где оформить',
+      steps: 'Пошаговый гид',
+      documents: 'Необходимые документы',
+      costs: 'Заметки о расходах',
+      mistakes: 'Частые ошибки',
+      links: 'Полезные ссылки',
+      faq: 'FAQ',
+      lastUpdated: 'Последнее обновление',
+      confidence: 'Уровень уверенности',
+      disclaimer:
+        'Информация может быстро меняться. Проверяйте важные детали у официальных источников, провайдеров или местных специалистов.',
+      verificationNote: 'Обновление и заметка о проверке',
+      ctaTitle: 'Получить бесплатную рекомендацию по SIM/eSIM',
+      ctaText:
+        'Расскажите страну, срок поездки, модель телефона и потребность в интернете. Мы поможем подобрать подходящие варианты SIM или eSIM бесплатно.',
+      ctaButton: 'Получить рекомендацию',
+      ctaEyebrow: 'Бесплатная помощь',
+      ctaNote:
+        'Покупка не обязательна. Информация может меняться, поэтому всегда проверяйте условия у оператора или eSIM-провайдера.',
+      ctaSoonNote: 'Кнопка ведёт к блоку контакта ниже.',
+      simCtaTitle: 'Получить бесплатную рекомендацию по SIM/eSIM',
+      simCtaText:
+        'Расскажите страну, срок поездки, модель телефона и потребность в интернете. Мы поможем подобрать подходящие варианты SIM или eSIM бесплатно.',
+      simCtaNote:
+        'Покупка не обязательна. Информация может меняться, поэтому всегда проверяйте условия у оператора или eSIM-провайдера.',
+      simCtaSoonNote: 'Кнопка ведёт к блоку контакта ниже.',
+    },
+    notFound: {
+      title: 'Страница не найдена',
+      heading: 'Страница не найдена',
+      text: 'Гид, который вы ищете, мог быть перемещён.',
+      button: 'На главную',
+    },
+    nav: {
+      brandTagline: 'Гиды по странам для первой недели',
+      home: 'Главная',
+    },
+    footer: {
+      description:
+        'First Week Guide помогает разобраться с базовыми вопросами до и после приезда.',
+      disclaimer:
+        'Информация может меняться. Всегда проверяйте детали у официальных провайдеров перед покупкой или заявкой.',
+    },
+  },
 } as const;
 
 export const topicLabels = {
@@ -175,6 +254,13 @@ export const topicLabels = {
     'rent-apartment': 'Ev kiralama',
     transport: 'Ulaşım',
   },
+  ru: {
+    'sim-card': 'SIM-карта',
+    esim: 'eSIM',
+    'bank-account': 'Банковский счёт',
+    'rent-apartment': 'Жильё',
+    transport: 'Транспорт',
+  },
 } as const;
 
 export const confidenceLabels = {
@@ -185,5 +271,9 @@ export const confidenceLabels = {
   tr: {
     High: 'Yüksek',
     Medium: 'Orta',
+  },
+  ru: {
+    High: 'Высокий',
+    Medium: 'Средний',
   },
 } as const;

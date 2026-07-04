@@ -1,11 +1,12 @@
 import { Link, useLocation } from 'react-router-dom';
 import { routeList } from '../data/routes';
 import { siteConfig } from '../data/config';
-import { ui, type Language } from '../data/i18n';
+import { languageCodes, ui, type Language } from '../data/i18n';
 
 export default function Footer() {
   const location = useLocation();
-  const language: Language = location.pathname.startsWith('/tr') ? 'tr' : 'en';
+  const language: Language =
+    languageCodes.find((languageCode) => location.pathname.startsWith(`/${languageCode}`)) ?? 'en';
   const visibleRoutes = routeList.filter((route) => route.startsWith(`/${language}`)).slice(0, 7);
   const copy = ui[language].footer;
 

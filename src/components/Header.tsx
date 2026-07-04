@@ -2,9 +2,10 @@ import { Link, useLocation } from 'react-router-dom';
 import { Plane } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
 import { siteConfig } from '../data/config';
-import { ui, type Language } from '../data/i18n';
+import { languageCodes, ui, type Language } from '../data/i18n';
 
-const getLanguage = (pathname: string): Language => (pathname.startsWith('/tr') ? 'tr' : 'en');
+const getLanguage = (pathname: string): Language =>
+  languageCodes.find((language) => pathname.startsWith(`/${language}`)) ?? 'en';
 
 export default function Header() {
   const location = useLocation();
