@@ -75,7 +75,7 @@ const enGuide = (
     costs,
     mistakes,
     links: [
-      { label: 'Government portal', url: country === 'georgia' ? 'https://www.gov.ge/' : 'https://www.srbija.gov.rs/' },
+      { label: 'Government portal', url: country === 'georgia' ? 'https://my.gov.ge/en-us' : 'https://www.srbija.gov.rs/' },
       { label: 'Tourism information', url: country === 'georgia' ? 'https://georgia.travel/' : 'https://www.serbia.travel/' },
       { label: 'Airport arrivals', url: country === 'georgia' ? 'https://tbilisiairport.com/' : 'https://beg.aero/' },
     ],
@@ -122,7 +122,7 @@ const trGuide = (
     costs,
     mistakes,
     links: [
-      { label: 'Resmi devlet portalı', url: country === 'georgia' ? 'https://www.gov.ge/' : 'https://www.srbija.gov.rs/' },
+      { label: 'Resmi devlet portalı', url: country === 'georgia' ? 'https://my.gov.ge/en-us' : 'https://www.srbija.gov.rs/' },
       { label: 'Turizm bilgileri', url: country === 'georgia' ? 'https://georgia.travel/' : 'https://www.serbia.travel/' },
       { label: 'Havalimanı bilgileri', url: country === 'georgia' ? 'https://tbilisiairport.com/' : 'https://beg.aero/' },
     ],
