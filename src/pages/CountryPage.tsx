@@ -2,6 +2,7 @@ import { Navigate, useParams } from 'react-router-dom';
 import { AlertTriangle, AppWindow, Landmark, PhoneCall } from 'lucide-react';
 import Badge from '../components/Badge';
 import EssentialAppsSection from '../components/EssentialAppsSection';
+import FirstWeekChecklistSection from '../components/FirstWeekChecklistSection';
 import LeadCTA from '../components/LeadCTA';
 import PartnerCTA from '../components/PartnerCTA';
 import SEO from '../components/SEO';
@@ -73,6 +74,8 @@ export default function CountryPage() {
         </section>
 
         <EssentialAppsSection country={country} language={language} />
+
+        <FirstWeekChecklistSection country={country} language={language} />
 
         <section className="mt-12">
           <h2 className="text-2xl font-bold">{labels.guides}</h2>

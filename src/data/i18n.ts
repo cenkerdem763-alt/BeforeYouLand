@@ -43,6 +43,10 @@ export const ui = {
       note:
         'Apps and availability can change. Always check the latest details before you rely on a service.',
     },
+    firstWeekChecklist: {
+      title: 'First-week checklist',
+      note: 'Use this as a simple starting list, then confirm details locally when you arrive.',
+    },
     support: {
       title: 'Need help with your first week?',
       text: 'Ask us about SIM cards, transport, housing, banking or useful apps.',
@@ -136,6 +140,10 @@ export const ui = {
       note:
         'Uygulamalar ve hizmetler zamanla değişebilir. Kullanmadan önce güncel bilgileri kontrol et.',
     },
+    firstWeekChecklist: {
+      title: 'İlk hafta checklist’i',
+      note: 'Bunu basit bir başlangıç listesi olarak kullan; vardığında detayları yerelde doğrula.',
+    },
     support: {
       title: 'İlk hafta için yardıma mı ihtiyacın var?',
       text: 'SIM kart, ulaşım, ev, banka veya gerekli uygulamalar hakkında bize yaz.',
@@ -228,6 +236,10 @@ export const ui = {
       title: 'Нужные приложения и сайты',
       note:
         'Приложения и услуги могут меняться. Перед использованием проверьте актуальную информацию.',
+    },
+    firstWeekChecklist: {
+      title: 'Чеклист на первую неделю',
+      note: 'Используйте это как простой стартовый список, а детали уточняйте на месте.',
     },
     support: {
       title: 'Нужна помощь с первой неделей?',
