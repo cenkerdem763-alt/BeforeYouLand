@@ -6,6 +6,7 @@ export const siteConfig = {
   baseUrl: 'https://firstweekguide.com',
   contact: {
     telegramUrl: 'https://t.me/firstweekguide',
+    telegramUsername: '@firstweekguide',
     email: contactEmail,
     emailHref: `mailto:${contactEmail}`,
     advertisingHref: `mailto:${contactEmail}?subject=Advertising%20and%20partnership%20with%20First%20Week%20Guide`,

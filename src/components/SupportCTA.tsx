@@ -8,6 +8,7 @@ type SupportCTAProps = {
 
 export default function SupportCTA({ language }: SupportCTAProps) {
   const copy = ui[language].support;
+  const contactLabels = ui[language].contact;
 
   return (
     <section className="rounded-[1.5rem] border border-green-600/20 bg-green-50 p-5 shadow-sm sm:p-6">
@@ -31,6 +32,22 @@ export default function SupportCTA({ language }: SupportCTAProps) {
         >
           <Mail className="h-4 w-4" aria-hidden="true" />
           {copy.secondaryButton}
+        </a>
+      </div>
+      <div className="mt-4 flex flex-wrap gap-2 text-xs font-bold text-green-700">
+        <a
+          href={siteConfig.contact.telegramUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="focus-ring rounded-full bg-white px-3 py-2 ring-1 ring-green-600/15 transition hover:text-green-600"
+        >
+          {contactLabels.telegram}: {siteConfig.contact.telegramUsername}
+        </a>
+        <a
+          href={siteConfig.contact.emailHref}
+          className="focus-ring rounded-full bg-white px-3 py-2 ring-1 ring-green-600/15 transition hover:text-green-600"
+        >
+          {contactLabels.email}: {siteConfig.contact.email}
         </a>
       </div>
     </section>

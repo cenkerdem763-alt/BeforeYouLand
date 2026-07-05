@@ -59,6 +59,10 @@ export const ui = {
         'Do you offer services for newcomers, expats, students or remote workers? Contact us to discuss advertising, listings or partnership opportunities.',
       button: 'Contact us',
     },
+    contact: {
+      telegram: 'Telegram',
+      email: 'Email',
+    },
     guide: {
       quickAnswer: 'Quick answer',
       bestOption: 'Best option by traveler type',
@@ -102,6 +106,7 @@ export const ui = {
     footer: {
       description:
         'First Week Guide helps you understand the basics before and after you land.',
+      contactTitle: 'Contact',
       disclaimer:
         'Information can change. Always verify with official providers before purchasing or applying.',
     },
@@ -156,6 +161,10 @@ export const ui = {
         'Yeni gelenlere, expat’lara, öğrencilere veya uzaktan çalışanlara hizmet veriyorsanız reklam, listeleme veya işbirliği için bizimle iletişime geçin.',
       button: 'İletişime geç',
     },
+    contact: {
+      telegram: 'Telegram',
+      email: 'E-posta',
+    },
     guide: {
       quickAnswer: 'Kısa cevap',
       bestOption: 'Seyahat tipine göre en iyi seçenek',
@@ -199,6 +208,7 @@ export const ui = {
     footer: {
       description:
         'First Week Guide, gitmeden önce ve indikten sonra temel ihtiyaçlarını anlamana yardımcı olur.',
+      contactTitle: 'İletişim',
       disclaimer:
         'Bilgiler değişebilir. Satın almadan veya başvuru yapmadan önce her zaman resmi sağlayıcılardan doğrulayın.',
     },
@@ -253,6 +263,10 @@ export const ui = {
         'Если вы предлагаете услуги для новичков, экспатов, студентов или удалённых работников, свяжитесь с нами для рекламы, размещения или партнёрства.',
       button: 'Связаться',
     },
+    contact: {
+      telegram: 'Telegram',
+      email: 'Email',
+    },
     guide: {
       quickAnswer: 'Короткий ответ',
       bestOption: 'Лучший вариант по типу поездки',
@@ -296,6 +310,7 @@ export const ui = {
     footer: {
       description:
         'First Week Guide помогает разобраться с базовыми вопросами до и после приезда.',
+      contactTitle: 'Контакты',
       disclaimer:
         'Информация может меняться. Всегда проверяйте детали у официальных провайдеров перед покупкой или заявкой.',
     },

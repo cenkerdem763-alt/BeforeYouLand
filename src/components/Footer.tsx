@@ -9,6 +9,7 @@ export default function Footer() {
     languageCodes.find((languageCode) => location.pathname.startsWith(`/${languageCode}`)) ?? 'en';
   const visibleRoutes = routeList.filter((route) => route.startsWith(`/${language}`)).slice(0, 7);
   const copy = ui[language].footer;
+  const contactLabels = ui[language].contact;
 
   return (
     <footer className="mt-20 border-t border-line bg-slate-50">
@@ -22,6 +23,25 @@ export default function Footer() {
             <p className="mt-4 max-w-2xl rounded-2xl border border-line bg-white p-4 text-xs font-semibold leading-5 text-muted">
               {copy.disclaimer}
             </p>
+            <div className="mt-4 rounded-2xl border border-line bg-white p-4 text-sm shadow-sm">
+              <p className="font-bold text-ink">{copy.contactTitle}</p>
+              <div className="mt-3 flex flex-wrap gap-2 text-xs font-bold text-muted">
+                <a
+                  href={siteConfig.contact.telegramUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="focus-ring rounded-full bg-slate-50 px-3 py-2 transition hover:text-blue-700"
+                >
+                  {contactLabels.telegram}: {siteConfig.contact.telegramUsername}
+                </a>
+                <a
+                  href={siteConfig.contact.emailHref}
+                  className="focus-ring rounded-full bg-slate-50 px-3 py-2 transition hover:text-blue-700"
+                >
+                  {contactLabels.email}: {siteConfig.contact.email}
+                </a>
+              </div>
+            </div>
           </div>
           <nav className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm text-muted sm:grid-cols-3">
             {visibleRoutes.map((route) => (
