@@ -1,0 +1,38 @@
+import { Mail, MessageCircle } from 'lucide-react';
+import { siteConfig } from '../data/config';
+import { ui, type Language } from '../data/i18n';
+
+type SupportCTAProps = {
+  language: Language;
+};
+
+export default function SupportCTA({ language }: SupportCTAProps) {
+  const copy = ui[language].support;
+
+  return (
+    <section className="rounded-[1.5rem] border border-green-600/20 bg-green-50 p-5 shadow-sm sm:p-6">
+      <div>
+        <h2 className="text-xl font-bold sm:text-2xl">{copy.title}</h2>
+        <p className="mt-2 text-sm leading-6 text-muted">{copy.text}</p>
+      </div>
+      <div className="mt-5 flex flex-wrap gap-3">
+        <a
+          href={siteConfig.contact.telegramUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="focus-ring inline-flex items-center justify-center gap-2 rounded-full bg-green-700 px-5 py-3 text-sm font-bold text-white transition hover:bg-green-600"
+        >
+          <MessageCircle className="h-4 w-4" aria-hidden="true" />
+          {copy.primaryButton}
+        </a>
+        <a
+          href={siteConfig.contact.emailHref}
+          className="focus-ring inline-flex items-center justify-center gap-2 rounded-full border border-line bg-white px-5 py-3 text-sm font-bold text-ink shadow-sm transition hover:border-green-600"
+        >
+          <Mail className="h-4 w-4" aria-hidden="true" />
+          {copy.secondaryButton}
+        </a>
+      </div>
+    </section>
+  );
+}

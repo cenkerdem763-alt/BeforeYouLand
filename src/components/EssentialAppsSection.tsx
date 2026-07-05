@@ -1,0 +1,63 @@
+import { ExternalLink, PanelsTopLeft } from 'lucide-react';
+import type { Country } from '../data/countries';
+import {
+  essentialApps,
+  essentialCategoryLabels,
+} from '../data/essentialApps';
+import { ui, type Language } from '../data/i18n';
+
+type EssentialAppsSectionProps = {
+  country: Country;
+  language: Language;
+};
+
+export default function EssentialAppsSection({ country, language }: EssentialAppsSectionProps) {
+  const copy = ui[language].essentialApps;
+  const categories = essentialApps[country.key];
+
+  return (
+    <section className="mt-12">
+      <div className="flex max-w-3xl items-start gap-3">
+        <span className="mt-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-blue-700">
+          <PanelsTopLeft className="h-5 w-5" aria-hidden="true" />
+        </span>
+        <div>
+          <h2 className="text-2xl font-bold">{copy.title}</h2>
+          <p className="mt-2 text-sm leading-6 text-muted">{copy.note}</p>
+        </div>
+      </div>
+
+      <div className="mt-6 grid gap-4 lg:grid-cols-2">
+        {categories.map((category) => (
+          <div key={category.key} className="rounded-2xl border border-line bg-white p-5 shadow-sm">
+            <h3 className="text-base font-bold">
+              {essentialCategoryLabels[category.key][language]}
+            </h3>
+            <div className="mt-4 grid gap-3">
+              {category.items.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="focus-ring group rounded-2xl border border-line bg-slate-50 p-4 transition hover:border-blue-600 hover:bg-white"
+                >
+                  <span className="flex items-start justify-between gap-3">
+                    <span className="font-bold text-ink">{item.name}</span>
+                    <ExternalLink
+                      className="mt-0.5 h-4 w-4 shrink-0 text-muted transition group-hover:text-blue-600"
+                      aria-hidden="true"
+                    />
+                  </span>
+                  <span className="mt-2 block text-sm leading-6 text-muted">
+                    {item.description[language]}
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}

@@ -1,8 +1,11 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { AlertTriangle, AppWindow, Landmark, PhoneCall } from 'lucide-react';
 import Badge from '../components/Badge';
+import EssentialAppsSection from '../components/EssentialAppsSection';
 import LeadCTA from '../components/LeadCTA';
+import PartnerCTA from '../components/PartnerCTA';
 import SEO from '../components/SEO';
+import SupportCTA from '../components/SupportCTA';
 import { siteConfig } from '../data/config';
 import TopicCard from '../components/TopicCard';
 import { findCountryBySlug, getCountryPath } from '../data/countries';
@@ -69,6 +72,8 @@ export default function CountryPage() {
           </div>
         </section>
 
+        <EssentialAppsSection country={country} language={language} />
+
         <section className="mt-12">
           <h2 className="text-2xl font-bold">{labels.guides}</h2>
           <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
@@ -81,6 +86,11 @@ export default function CountryPage() {
               />
             ))}
           </div>
+        </section>
+
+        <section className="mt-12 grid gap-4 lg:grid-cols-2">
+          <SupportCTA language={language} />
+          <PartnerCTA language={language} />
         </section>
       </section>
     </>

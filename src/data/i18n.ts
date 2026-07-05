@@ -38,6 +38,23 @@ export const ui = {
       readGuide: 'Read guide',
       seoTitle: 'first-week guide',
     },
+    essentialApps: {
+      title: 'Essential apps & websites',
+      note:
+        'Apps and availability can change. Always check the latest details before you rely on a service.',
+    },
+    support: {
+      title: 'Need help with your first week?',
+      text: 'Ask us about SIM cards, transport, housing, banking or useful apps.',
+      primaryButton: 'Message on Telegram',
+      secondaryButton: 'Send an email',
+    },
+    partner: {
+      title: 'Advertise or partner with First Week Guide',
+      text:
+        'Do you offer services for newcomers, expats, students or remote workers? Contact us to discuss advertising, listings or partnership opportunities.',
+      button: 'Contact us',
+    },
     guide: {
       quickAnswer: 'Quick answer',
       bestOption: 'Best option by traveler type',
@@ -114,6 +131,23 @@ export const ui = {
       readGuide: 'Rehberi oku',
       seoTitle: 'ilk hafta rehberi',
     },
+    essentialApps: {
+      title: 'Gerekli uygulamalar ve siteler',
+      note:
+        'Uygulamalar ve hizmetler zamanla değişebilir. Kullanmadan önce güncel bilgileri kontrol et.',
+    },
+    support: {
+      title: 'İlk hafta için yardıma mı ihtiyacın var?',
+      text: 'SIM kart, ulaşım, ev, banka veya gerekli uygulamalar hakkında bize yaz.',
+      primaryButton: 'Telegram’dan yaz',
+      secondaryButton: 'E-posta gönder',
+    },
+    partner: {
+      title: 'First Week Guide’da reklam veya işbirliği yapın',
+      text:
+        'Yeni gelenlere, expat’lara, öğrencilere veya uzaktan çalışanlara hizmet veriyorsanız reklam, listeleme veya işbirliği için bizimle iletişime geçin.',
+      button: 'İletişime geç',
+    },
     guide: {
       quickAnswer: 'Kısa cevap',
       bestOption: 'Seyahat tipine göre en iyi seçenek',
@@ -189,6 +223,23 @@ export const ui = {
       emergencyNumbers: 'Экстренные номера',
       readGuide: 'Читать гид',
       seoTitle: 'гид для первой недели',
+    },
+    essentialApps: {
+      title: 'Нужные приложения и сайты',
+      note:
+        'Приложения и услуги могут меняться. Перед использованием проверьте актуальную информацию.',
+    },
+    support: {
+      title: 'Нужна помощь с первой неделей?',
+      text: 'Спросите нас про SIM-карту, транспорт, жильё, банк или полезные приложения.',
+      primaryButton: 'Написать в Telegram',
+      secondaryButton: 'Отправить email',
+    },
+    partner: {
+      title: 'Реклама и партнёрство с First Week Guide',
+      text:
+        'Если вы предлагаете услуги для новичков, экспатов, студентов или удалённых работников, свяжитесь с нами для рекламы, размещения или партнёрства.',
+      button: 'Связаться',
     },
     guide: {
       quickAnswer: 'Короткий ответ',

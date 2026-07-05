@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
 import CountryCard from '../components/CountryCard';
 import LeadCTA from '../components/LeadCTA';
+import PartnerCTA from '../components/PartnerCTA';
 import Search from '../components/Search';
 import SEO from '../components/SEO';
+import SupportCTA from '../components/SupportCTA';
 import TopicCard from '../components/TopicCard';
 import { countries, getCountryPath } from '../data/countries';
 import { siteConfig } from '../data/config';
@@ -179,6 +181,11 @@ export default function HomePage({ language }: HomePageProps) {
 
       <section className="container-shell pb-14">
         <LeadCTA country={georgia} language={language} />
+      </section>
+
+      <section className="container-shell grid gap-4 pb-14 lg:grid-cols-2">
+        <SupportCTA language={language} />
+        <PartnerCTA language={language} />
       </section>
     </>
   );
