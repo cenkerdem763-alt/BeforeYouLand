@@ -27,22 +27,32 @@ body {
   @apply focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2;
 }
 
-.georgia-country-hero {
-  min-height: 360px;
+.georgia-country-page {
   background-image:
-    linear-gradient(90deg, rgba(15, 39, 66, 0.92), rgba(15, 39, 66, 0.65), rgba(15, 39, 66, 0.25)),
+    linear-gradient(rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)),
     url('/images/georgia-hero.png');
-  background-position: 44% 54%;
+  background-position: center center;
   background-size: cover;
+  background-attachment: fixed;
   background-repeat: no-repeat;
 }
 
+.georgia-country-hero {
+  min-height: 360px;
+  background-color: transparent;
+  background-image: linear-gradient(90deg, rgba(15, 39, 66, 0.92), rgba(15, 39, 66, 0.65), rgba(15, 39, 66, 0.25));
+}
+
 @media (max-width: 640px) {
+  .georgia-country-page {
+    background-position: 38% center;
+    background-size: auto 100vh;
+    background-attachment: scroll;
+    background-repeat: repeat-y;
+  }
+
   .georgia-country-hero {
     min-height: 420px;
-    background-image:
-      linear-gradient(180deg, rgba(15, 39, 66, 0.94), rgba(15, 39, 66, 0.68) 58%, rgba(15, 39, 66, 0.3)),
-      url('/images/georgia-hero.png');
-    background-position: 38% center;
+    background-image: linear-gradient(180deg, rgba(15, 39, 66, 0.94), rgba(15, 39, 66, 0.68) 58%, rgba(15, 39, 66, 0.3));
   }
 }

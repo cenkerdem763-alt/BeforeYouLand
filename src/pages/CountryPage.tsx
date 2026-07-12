@@ -112,7 +112,7 @@ export default function CountryPage() {
   };
 
   return (
-    <>
+    <div className={hasGeorgiaHero ? 'georgia-country-page' : undefined}>
       <SEO
         title={`${country.content[language].name} ${labels.seoTitle}`}
         description={country.content[language].summary}
@@ -138,7 +138,9 @@ export default function CountryPage() {
         </section>
       ) : null}
 
-      <section className={`container-shell ${hasGeorgiaHero ? 'py-10 sm:py-12' : 'py-10 sm:py-14'}`}>
+      <section
+        className={`container-shell ${hasGeorgiaHero ? 'py-10 sm:py-12' : 'py-10 sm:py-14'}`}
+      >
         {!hasGeorgiaHero ? (
           <div className="max-w-3xl">
             <Badge tone={country.accent}>{country.flag}</Badge>
@@ -229,6 +231,6 @@ export default function CountryPage() {
           <PartnerCTA language={language} />
         </section>
       </section>
-    </>
+    </div>
   );
 }
