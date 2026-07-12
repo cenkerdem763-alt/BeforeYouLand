@@ -2,18 +2,27 @@ import { Link, useLocation } from 'react-router-dom';
 import { routeList } from '../data/routes';
 import { siteConfig } from '../data/config';
 import { languageCodes, ui, type Language } from '../data/i18n';
+import PartnerCTA from './PartnerCTA';
+import SupportCTA from './SupportCTA';
 
 export default function Footer() {
   const location = useLocation();
   const language: Language =
     languageCodes.find((languageCode) => location.pathname.startsWith(`/${languageCode}`)) ?? 'en';
   const visibleRoutes = routeList.filter((route) => route.startsWith(`/${language}`)).slice(0, 7);
+  const isCountryPage = location.pathname.split('/').filter(Boolean).length === 2;
   const copy = ui[language].footer;
   const contactLabels = ui[language].contact;
 
   return (
     <footer className="mt-20 border-t border-line bg-slate-50">
       <div className="container-shell py-10">
+        {isCountryPage ? (
+          <div className="mb-10 space-y-4">
+            <SupportCTA language={language} />
+            <PartnerCTA language={language} />
+          </div>
+        ) : null}
         <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
           <div>
             <p className="text-lg font-bold">{siteConfig.siteName}</p>

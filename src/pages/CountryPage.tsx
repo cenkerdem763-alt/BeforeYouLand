@@ -15,9 +15,7 @@ import {
 import Badge from '../components/Badge';
 import EssentialAppsSection from '../components/EssentialAppsSection';
 import LeadCTA from '../components/LeadCTA';
-import PartnerCTA from '../components/PartnerCTA';
 import SEO from '../components/SEO';
-import SupportCTA from '../components/SupportCTA';
 import { siteConfig } from '../data/config';
 import TopicCard from '../components/TopicCard';
 import { findCountryBySlug, getCountryPath } from '../data/countries';
@@ -268,10 +266,6 @@ export default function CountryPage() {
           </div>
         </section>
 
-        <section className="mt-12 space-y-4">
-          <SupportCTA language={language} />
-          <PartnerCTA language={language} />
-        </section>
       </section>
     </div>
   );
