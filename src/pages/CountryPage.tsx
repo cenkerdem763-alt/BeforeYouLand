@@ -4,14 +4,16 @@ import {
   AlertTriangle,
   AppWindow,
   CarTaxiFront,
+  CheckCircle2,
+  FileText,
   Home,
   Landmark,
   PhoneCall,
+  ShieldCheck,
   Smartphone,
 } from 'lucide-react';
 import Badge from '../components/Badge';
 import EssentialAppsSection from '../components/EssentialAppsSection';
-import FirstWeekChecklistSection from '../components/FirstWeekChecklistSection';
 import LeadCTA from '../components/LeadCTA';
 import PartnerCTA from '../components/PartnerCTA';
 import SEO from '../components/SEO';
@@ -20,6 +22,10 @@ import { siteConfig } from '../data/config';
 import TopicCard from '../components/TopicCard';
 import { findCountryBySlug, getCountryPath } from '../data/countries';
 import type { EssentialCategoryKey } from '../data/essentialApps';
+import {
+  firstWeekChecklists,
+  type ChecklistCategoryKey,
+} from '../data/firstWeekChecklist';
 import { languageCodes, topicLabels, ui } from '../data/i18n';
 import { getGuidePath, topicKeys } from '../data/routes';
 
@@ -29,10 +35,25 @@ const viewDetailsLabel = {
   ru: 'Смотреть',
 } as const;
 
+const hideDetailsLabel = {
+  en: 'Hide details',
+  tr: 'Bilgileri gizle',
+  ru: 'Скрыть',
+} as const;
+
+const practicalInfoLabel = {
+  en: 'practical tips',
+  tr: 'pratik bilgi',
+  ru: 'практических совета',
+} as const;
+
 export default function CountryPage() {
   const [openAppCategories, setOpenAppCategories] = useState<Set<EssentialCategoryKey>>(
     () => new Set(),
   );
+  const [openOverviewCategories, setOpenOverviewCategories] = useState<
+    Set<ChecklistCategoryKey>
+  >(() => new Set());
   const params = useParams();
   const language = languageCodes.find((code) => code === params.language);
   if (!language || !params.countrySlug) return <Navigate to="/en" replace />;
@@ -43,58 +64,77 @@ export default function CountryPage() {
   const labels = ui[language].country;
   const countryPath = getCountryPath(language, country);
   const hasGeorgiaHero = country.key === 'georgia';
+  const checklist = firstWeekChecklists[country.key];
+  const checklistByKey = new Map(checklist.map((category) => [category.key, category]));
 
   const overview: {
     label: string;
     value: string;
     icon: typeof PhoneCall;
-    appCategory?: EssentialCategoryKey;
+    checklistCategory: ChecklistCategoryKey;
   }[] = [
     {
       label: 'SIM / eSIM',
       value: topicKeys.slice(0, 2).map((topic) => topicLabels[language][topic]).join(' + '),
       icon: Smartphone,
-      appCategory: 'simInternet',
+      checklistCategory: 'simMobile',
     },
     {
       label: topicLabels[language]['bank-account'],
       value: country.content[language].currency,
       icon: Landmark,
-      appCategory: 'bankingMoney',
+      checklistCategory: 'bankingMoney',
     },
     {
       label: topicLabels[language]['rent-apartment'],
       value: country.content[language].bestFor,
       icon: Home,
-      appCategory: 'housing',
+      checklistCategory: 'housing',
     },
     {
       label: topicLabels[language].transport,
       value: country.content[language].capital,
       icon: CarTaxiFront,
-      appCategory: 'taxiTransport',
+      checklistCategory: 'taxiTransport',
     },
     {
       label: labels.usefulApps,
       value: country.apps.join(', '),
       icon: AppWindow,
-      appCategory: 'mapsNavigation',
+      checklistCategory: 'usefulApps',
     },
     {
       label: labels.emergencyNumbers,
       value: country.emergency[language].join(', '),
       icon: AlertTriangle,
+      checklistCategory: 'emergencyNumbers',
+    },
+    {
+      label: checklistByKey.get('documents')?.title[language] ?? '',
+      value: `${checklistByKey.get('documents')?.items.length ?? 0} ${practicalInfoLabel[language]}`,
+      icon: FileText,
+      checklistCategory: 'documents',
+    },
+    {
+      label: checklistByKey.get('safetyTips')?.title[language] ?? '',
+      value: `${checklistByKey.get('safetyTips')?.items.length ?? 0} ${practicalInfoLabel[language]}`,
+      icon: ShieldCheck,
+      checklistCategory: 'safetyTips',
     },
   ];
 
-  const openAppCategory = (categoryKey: EssentialCategoryKey) => {
-    setOpenAppCategories((current) => new Set(current).add(categoryKey));
-    window.setTimeout(() => {
-      document.getElementById(`apps-${categoryKey}`)?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-    }, 0);
+  const toggleOverviewCategory = (categoryKey: ChecklistCategoryKey) => {
+    setOpenOverviewCategories((current) => {
+      const next = new Set(current);
+
+      if (next.has(categoryKey)) {
+        next.delete(categoryKey);
+      } else {
+        next.add(categoryKey);
+      }
+
+      return next;
+    });
   };
 
   const toggleAppCategory = (categoryKey: EssentialCategoryKey) => {
@@ -162,41 +202,45 @@ export default function CountryPage() {
           <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {overview.map((item) => {
               const Icon = item.icon;
-              const cardContent = (
-                <>
-                  <Icon className="h-5 w-5 text-blue-600" aria-hidden="true" />
-                  <h3 className="mt-4 font-bold">{item.label}</h3>
-                  <p className="mt-2 text-sm leading-6 text-muted">{item.value}</p>
-                  {item.appCategory ? (
-                    <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-green-700">
-                      {viewDetailsLabel[language]}
-                      <span aria-hidden="true">→</span>
-                    </span>
-                  ) : null}
-                </>
-              );
-
-              if (!item.appCategory) {
-                return (
-                  <div
-                    key={item.label}
-                    className="rounded-2xl border border-line bg-white p-5 shadow-sm"
-                  >
-                    {cardContent}
-                  </div>
-                );
-              }
-
-              const appCategory = item.appCategory;
+              const category = checklistByKey.get(item.checklistCategory);
+              const isOpen = openOverviewCategories.has(item.checklistCategory);
 
               return (
                 <button
-                  key={item.label}
+                  key={item.checklistCategory}
                   type="button"
                   className="focus-ring rounded-2xl border border-line bg-white p-5 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-green-200 hover:shadow-md"
-                  onClick={() => openAppCategory(appCategory)}
+                  aria-expanded={isOpen}
+                  onClick={() => toggleOverviewCategory(item.checklistCategory)}
                 >
-                  {cardContent}
+                  <Icon className="h-5 w-5 text-blue-600" aria-hidden="true" />
+                  <h3 className="mt-4 font-bold">{item.label}</h3>
+                  <p className="mt-2 text-sm leading-6 text-muted">{item.value}</p>
+                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-green-700">
+                    {isOpen ? hideDetailsLabel[language] : viewDetailsLabel[language]}
+                    <span
+                      className={`transition-transform ${isOpen ? 'rotate-90' : ''}`}
+                      aria-hidden="true"
+                    >
+                      →
+                    </span>
+                  </span>
+                  {isOpen && category ? (
+                    <ul className="mt-5 space-y-3 border-t border-line pt-4">
+                      {category.items.map((checklistItem) => (
+                        <li
+                          key={checklistItem[language]}
+                          className="flex gap-3 rounded-xl bg-slate-50/80 p-3 text-sm leading-6 text-muted"
+                        >
+                          <CheckCircle2
+                            className="mt-0.5 h-5 w-5 shrink-0 text-green-700"
+                            aria-hidden="true"
+                          />
+                          <span>{checklistItem[language]}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
                 </button>
               );
             })}
@@ -209,8 +253,6 @@ export default function CountryPage() {
           openCategories={openAppCategories}
           onToggleCategory={toggleAppCategory}
         />
-
-        <FirstWeekChecklistSection country={country} language={language} />
 
         <section className="mt-12">
           <h2 className="text-2xl font-bold">{labels.guides}</h2>
