@@ -42,6 +42,7 @@ export default function CountryPage() {
 
   const labels = ui[language].country;
   const countryPath = getCountryPath(language, country);
+  const hasGeorgiaHero = country.key === 'georgia';
 
   const overview: {
     label: string;
@@ -122,13 +123,31 @@ export default function CountryPage() {
         }))}
       />
       <section className="container-shell py-10 sm:py-14">
-        <div className="max-w-3xl">
-          <Badge tone={country.accent}>{country.flag}</Badge>
-          <h1 className="mt-5 text-4xl font-bold leading-tight sm:text-5xl">
-            {country.content[language].name}
-          </h1>
-          <p className="mt-5 text-lg leading-8 text-muted">{country.content[language].overview}</p>
-        </div>
+        {hasGeorgiaHero ? (
+          <div
+            className="georgia-country-hero relative overflow-hidden rounded-3xl border border-slate-900/10 bg-slate-900 px-6 py-12 shadow-xl sm:px-8 sm:py-16 lg:px-10"
+          >
+            <div className="max-w-3xl">
+              <Badge tone={country.accent}>{country.flag}</Badge>
+              <h1 className="mt-5 text-4xl font-bold leading-tight text-white sm:text-5xl">
+                {country.content[language].name}
+              </h1>
+              <p className="mt-5 text-lg leading-8 text-slate-100 sm:max-w-2xl">
+                {country.content[language].overview}
+              </p>
+            </div>
+          </div>
+        ) : (
+          <div className="max-w-3xl">
+            <Badge tone={country.accent}>{country.flag}</Badge>
+            <h1 className="mt-5 text-4xl font-bold leading-tight sm:text-5xl">
+              {country.content[language].name}
+            </h1>
+            <p className="mt-5 text-lg leading-8 text-muted">
+              {country.content[language].overview}
+            </p>
+          </div>
+        )}
 
         <div className="mt-8">
           <LeadCTA country={country} language={language} />
