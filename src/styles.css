@@ -31,7 +31,7 @@ body {
   padding-bottom: 5rem;
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)),
-    url('/images/georgia-hero.png');
+    url('/images/georgia-hero.jpg');
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
