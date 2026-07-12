@@ -11,19 +11,19 @@ export default function SupportCTA({ language }: SupportCTAProps) {
   const contactLabels = ui[language].contact;
 
   return (
-    <section className="rounded-[1.5rem] border border-green-600/20 bg-[linear-gradient(135deg,#ecfbf2_0%,#ffffff_85%)] p-5 shadow-sm sm:p-6 lg:px-8">
-      <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
+    <section className="flex h-full flex-col rounded-[1.5rem] border border-green-600/20 bg-[linear-gradient(135deg,#ecfbf2_0%,#ffffff_85%)] p-5 shadow-sm sm:p-6 lg:p-7">
+      <div className="flex h-full flex-col">
         <div className="flex items-start gap-4">
           <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-green-700 text-white shadow-sm">
             <MessageCircle className="h-5 w-5" aria-hidden="true" />
           </span>
           <div>
             <h2 className="text-xl font-bold sm:text-2xl">{copy.title}</h2>
-            <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">{copy.text}</p>
+            <p className="mt-2 text-sm leading-6 text-muted">{copy.text}</p>
           </div>
         </div>
-        <div>
-          <div className="grid gap-3 sm:flex sm:flex-wrap lg:justify-end">
+        <div className="mt-auto pt-5">
+          <div className="grid gap-3 sm:flex sm:flex-wrap">
             <a
               href={siteConfig.contact.telegramUrl}
               target="_blank"
@@ -41,7 +41,7 @@ export default function SupportCTA({ language }: SupportCTAProps) {
               {copy.secondaryButton}
             </a>
           </div>
-          <div className="mt-3 flex flex-wrap gap-2 text-xs font-bold text-green-700 lg:justify-end">
+          <div className="mt-3 flex flex-wrap gap-2 text-xs font-bold text-green-700">
             <a
               href={siteConfig.contact.telegramUrl}
               target="_blank"

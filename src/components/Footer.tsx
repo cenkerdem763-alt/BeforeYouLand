@@ -38,7 +38,7 @@ export default function Footer() {
     <footer className="mt-20 border-t border-line bg-slate-50">
       <div className="container-shell py-10">
         {isCountryPage ? (
-          <div className="mb-10 space-y-4">
+          <div className="mb-10 grid items-stretch gap-4 lg:grid-cols-2">
             <SupportCTA language={language} />
             <PartnerCTA language={language} />
           </div>

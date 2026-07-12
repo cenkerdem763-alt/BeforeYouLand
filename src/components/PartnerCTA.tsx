@@ -11,15 +11,24 @@ export default function PartnerCTA({ language }: PartnerCTAProps) {
   const contactLabels = ui[language].contact;
 
   return (
-    <section className="rounded-[1.5rem] border border-ink bg-[linear-gradient(135deg,#102033_0%,#173653_100%)] p-5 text-white shadow-soft sm:p-6 lg:px-8">
-      <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-        <div className="max-w-3xl">
+    <section className="flex h-full flex-col rounded-[1.5rem] border border-ink bg-[linear-gradient(135deg,#102033_0%,#173653_100%)] p-5 text-white shadow-soft sm:p-6 lg:p-7">
+      <div className="flex h-full flex-col">
+        <div>
           <p className="mb-2 inline-flex rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-green-200 ring-1 ring-white/10">
             First Week Guide
           </p>
-          <h2 className="text-xl font-bold sm:text-2xl">{copy.title}</h2>
+          <h2 className="text-xl font-bold leading-tight sm:text-2xl">{copy.title}</h2>
           <p className="mt-2 text-sm leading-6 text-slate-300">{copy.text}</p>
-          <div className="mt-4 flex flex-wrap gap-2 text-xs font-bold text-green-100">
+        </div>
+        <div className="mt-auto pt-5">
+          <a
+            href={siteConfig.contact.advertisingHref}
+            className="focus-ring inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-bold text-ink shadow-sm transition hover:bg-blue-50"
+          >
+            <Handshake className="h-4 w-4" aria-hidden="true" />
+            {copy.button}
+          </a>
+          <div className="mt-3 flex flex-wrap gap-2 text-xs font-bold text-green-100">
             <a
               href={siteConfig.contact.telegramUrl}
               target="_blank"
@@ -36,13 +45,6 @@ export default function PartnerCTA({ language }: PartnerCTAProps) {
             </a>
           </div>
         </div>
-        <a
-          href={siteConfig.contact.advertisingHref}
-          className="focus-ring inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-bold text-ink shadow-sm transition hover:bg-blue-50"
-        >
-          <Handshake className="h-4 w-4" aria-hidden="true" />
-          {copy.button}
-        </a>
       </div>
     </section>
   );
