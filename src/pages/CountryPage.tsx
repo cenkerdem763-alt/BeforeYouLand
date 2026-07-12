@@ -122,11 +122,9 @@ export default function CountryPage() {
           href: `${siteConfig.baseUrl}${getCountryPath(alternateLanguage, country)}`,
         }))}
       />
-      <section className="container-shell py-10 sm:py-14">
-        {hasGeorgiaHero ? (
-          <div
-            className="georgia-country-hero relative overflow-hidden rounded-3xl border border-slate-900/10 bg-slate-900 px-6 py-12 shadow-xl sm:px-8 sm:py-16 lg:px-10"
-          >
+      {hasGeorgiaHero ? (
+        <section className="georgia-country-hero bg-slate-900 py-14 sm:py-20">
+          <div className="container-shell">
             <div className="max-w-3xl">
               <Badge tone={country.accent}>{country.flag}</Badge>
               <h1 className="mt-5 text-4xl font-bold leading-tight text-white sm:text-5xl">
@@ -137,7 +135,11 @@ export default function CountryPage() {
               </p>
             </div>
           </div>
-        ) : (
+        </section>
+      ) : null}
+
+      <section className={`container-shell ${hasGeorgiaHero ? 'py-10 sm:py-12' : 'py-10 sm:py-14'}`}>
+        {!hasGeorgiaHero ? (
           <div className="max-w-3xl">
             <Badge tone={country.accent}>{country.flag}</Badge>
             <h1 className="mt-5 text-4xl font-bold leading-tight sm:text-5xl">
@@ -147,7 +149,7 @@ export default function CountryPage() {
               {country.content[language].overview}
             </p>
           </div>
-        )}
+        ) : null}
 
         <div className="mt-8">
           <LeadCTA country={country} language={language} />
