@@ -28,6 +28,7 @@ body {
 }
 
 .georgia-country-page {
+  padding-bottom: 5rem;
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)),
     url('/images/georgia-hero.png');
@@ -35,6 +36,10 @@ body {
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
+}
+
+main:has(.georgia-country-page) + footer {
+  margin-top: 0;
 }
 
 .georgia-country-hero {
