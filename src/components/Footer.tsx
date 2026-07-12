@@ -35,7 +35,7 @@ export default function Footer() {
       ];
 
   return (
-    <footer className="mt-20 border-t border-line bg-slate-50">
+    <footer className="mt-20 border-t border-white/10 bg-[linear-gradient(180deg,#0b1722_0%,#071018_100%)] text-white">
       <div className="container-shell py-10">
         {isCountryPage ? (
           <div className="mb-10 grid items-stretch gap-4 lg:grid-cols-2">
@@ -43,19 +43,19 @@ export default function Footer() {
             <PartnerCTA language={language} />
           </div>
         ) : null}
-        <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+        <div className="flex flex-col gap-8 border-t border-white/10 pt-9 md:flex-row md:items-start md:justify-between">
           <div className="max-w-2xl">
             <p className="text-lg font-bold">{siteConfig.siteName}</p>
-            <p className="mt-2 max-w-md text-sm leading-6 text-muted">
+            <p className="mt-2 max-w-md text-sm leading-6 text-slate-400">
               {copy.description}
             </p>
-            <p className="mt-5 border-l-2 border-green-600/30 pl-3 text-xs font-medium leading-5 text-muted">
+            <p className="mt-5 border-l-2 border-green-400/40 pl-3 text-xs font-medium leading-5 text-slate-400">
               {copy.disclaimer}
             </p>
           </div>
-          <nav className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm text-muted sm:grid-cols-3">
+          <nav className="grid grid-cols-2 gap-x-8 gap-y-3 text-sm text-slate-300 sm:grid-cols-3">
             {footerLinks.map((link) => (
-              <Link key={link.to} to={link.to} className="font-medium transition hover:text-ink">
+              <Link key={link.to} to={link.to} className="font-medium transition hover:text-green-300">
                 {link.label}
               </Link>
             ))}

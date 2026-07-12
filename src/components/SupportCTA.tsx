@@ -11,7 +11,7 @@ export default function SupportCTA({ language }: SupportCTAProps) {
   const contactLabels = ui[language].contact;
 
   return (
-    <section className="flex h-full flex-col rounded-[1.5rem] border border-green-600/20 bg-[linear-gradient(135deg,#ecfbf2_0%,#ffffff_85%)] p-5 shadow-sm sm:p-6 lg:p-7">
+    <section className="flex h-full flex-col rounded-[1.5rem] border border-emerald-300/15 bg-[linear-gradient(135deg,#0b2b29_0%,#102a32_100%)] p-5 text-white shadow-[0_24px_70px_rgba(0,0,0,0.28)] sm:p-6 lg:p-7">
       <div className="flex h-full flex-col">
         <div className="flex items-start gap-4">
           <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-green-700 text-white shadow-sm">
@@ -19,7 +19,7 @@ export default function SupportCTA({ language }: SupportCTAProps) {
           </span>
           <div>
             <h2 className="text-xl font-bold sm:text-2xl">{copy.title}</h2>
-            <p className="mt-2 text-sm leading-6 text-muted">{copy.text}</p>
+            <p className="mt-2 text-sm leading-6 text-slate-300">{copy.text}</p>
           </div>
         </div>
         <div className="mt-auto pt-5">
@@ -41,18 +41,18 @@ export default function SupportCTA({ language }: SupportCTAProps) {
               {copy.secondaryButton}
             </a>
           </div>
-          <div className="mt-3 flex flex-wrap gap-2 text-xs font-bold text-green-700">
+          <div className="mt-3 flex flex-wrap gap-2 text-xs font-bold text-green-100">
             <a
               href={siteConfig.contact.telegramUrl}
               target="_blank"
               rel="noreferrer"
-              className="focus-ring rounded-full bg-white px-3 py-2 ring-1 ring-green-600/15 transition hover:text-green-600"
+              className="focus-ring rounded-full bg-white/10 px-3 py-2 ring-1 ring-white/10 transition hover:bg-white/15"
             >
               {contactLabels.telegram}: {siteConfig.contact.telegramUsername}
             </a>
             <a
               href={siteConfig.contact.emailHref}
-              className="focus-ring rounded-full bg-white px-3 py-2 ring-1 ring-green-600/15 transition hover:text-green-600"
+              className="focus-ring rounded-full bg-white/10 px-3 py-2 ring-1 ring-white/10 transition hover:bg-white/15"
             >
               {contactLabels.email}: {siteConfig.contact.email}
             </a>

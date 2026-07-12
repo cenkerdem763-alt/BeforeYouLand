@@ -11,7 +11,7 @@ export default function PartnerCTA({ language }: PartnerCTAProps) {
   const contactLabels = ui[language].contact;
 
   return (
-    <section className="flex h-full flex-col rounded-[1.5rem] border border-ink bg-[linear-gradient(135deg,#102033_0%,#173653_100%)] p-5 text-white shadow-soft sm:p-6 lg:p-7">
+    <section className="flex h-full flex-col rounded-[1.5rem] border border-sky-200/15 bg-[linear-gradient(135deg,#101c2c_0%,#15334a_100%)] p-5 text-white shadow-[0_24px_70px_rgba(0,0,0,0.3)] sm:p-6 lg:p-7">
       <div className="flex h-full flex-col">
         <div>
           <p className="mb-2 inline-flex rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-green-200 ring-1 ring-white/10">
