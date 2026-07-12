@@ -268,7 +268,7 @@ export default function CountryPage() {
           </div>
         </section>
 
-        <section className="mt-12 grid gap-4 lg:grid-cols-2">
+        <section className="mt-12 space-y-4">
           <SupportCTA language={language} />
           <PartnerCTA language={language} />
         </section>
