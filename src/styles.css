@@ -30,7 +30,7 @@ body {
 .georgia-country-page {
   padding-bottom: 5rem;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)),
+    linear-gradient(rgba(247, 244, 236, 0.87), rgba(247, 244, 236, 0.87)),
     url('/images/georgia-hero.jpg');
   background-position: center center;
   background-size: cover;
@@ -43,9 +43,68 @@ main:has(.georgia-country-page) + footer {
 }
 
 .georgia-country-hero {
-  min-height: 360px;
+  display: flex;
+  min-height: 480px;
+  align-items: center;
   background-color: transparent;
-  background-image: linear-gradient(90deg, rgba(15, 39, 66, 0.92), rgba(15, 39, 66, 0.65), rgba(15, 39, 66, 0.25));
+  background-image: linear-gradient(90deg, rgba(8, 30, 49, 0.94), rgba(15, 56, 66, 0.7) 52%, rgba(8, 52, 48, 0.24));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+  box-shadow: 0 24px 70px rgba(15, 39, 66, 0.18);
+}
+
+.georgia-country-hero h1 {
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.28);
+}
+
+.georgia-country-hero p {
+  max-width: 42rem;
+  color: rgba(255, 255, 255, 0.88);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.3);
+}
+
+.georgia-country-content > section > h2,
+.georgia-country-content > section > div > div > h2 {
+  color: #0f2742;
+  letter-spacing: -0.025em;
+}
+
+.georgia-country-content .bg-white,
+.georgia-country-content .shadow-sm,
+.georgia-country-content .shadow-soft {
+  border-color: rgba(255, 255, 255, 0.7);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.8) inset,
+    0 18px 50px rgba(15, 39, 66, 0.1);
+  backdrop-filter: blur(14px);
+}
+
+.georgia-country-content .bg-white {
+  background-color: rgba(255, 255, 255, 0.88);
+}
+
+.georgia-country-content button.bg-white,
+.georgia-country-content a.bg-white {
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.georgia-country-content button.bg-white:hover,
+.georgia-country-content a.bg-white:hover {
+  border-color: rgba(8, 127, 91, 0.3);
+  box-shadow: 0 24px 60px rgba(15, 39, 66, 0.15);
+}
+
+.georgia-country-content .text-blue-600,
+.georgia-country-content .text-blue-700 {
+  color: #0f5163;
+}
+
+.georgia-country-content .text-green-700 {
+  color: #087f5b;
 }
 
 @media (max-width: 640px) {
@@ -59,5 +118,11 @@ main:has(.georgia-country-page) + footer {
   .georgia-country-hero {
     min-height: 420px;
     background-image: linear-gradient(180deg, rgba(15, 39, 66, 0.94), rgba(15, 39, 66, 0.68) 58%, rgba(15, 39, 66, 0.3));
+  }
+
+  .georgia-country-content .bg-white,
+  .georgia-country-content .shadow-sm,
+  .georgia-country-content .shadow-soft {
+    backdrop-filter: blur(10px);
   }
 }

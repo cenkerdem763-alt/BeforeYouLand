@@ -139,7 +139,7 @@ export default function CountryPage() {
       ) : null}
 
       <section
-        className={`container-shell ${hasGeorgiaHero ? 'py-10 sm:py-12' : 'py-10 sm:py-14'}`}
+        className={`container-shell ${hasGeorgiaHero ? 'georgia-country-content py-10 sm:py-14' : 'py-10 sm:py-14'}`}
       >
         {!hasGeorgiaHero ? (
           <div className="max-w-3xl">
