@@ -36,14 +36,14 @@ export default function Footer() {
 
   return (
     <footer className="mt-20 border-t border-white/10 bg-[linear-gradient(180deg,#0b1722_0%,#071018_100%)] text-white">
-      <div className="container-shell py-10">
+      <div className="container-shell py-8">
         {isCountryPage ? (
-          <div className="mb-10 grid items-stretch gap-4 lg:grid-cols-2">
+          <div className="mb-7 grid items-stretch gap-3 lg:grid-cols-2">
             <SupportCTA language={language} />
             <PartnerCTA language={language} />
           </div>
         ) : null}
-        <div className="flex flex-col gap-8 border-t border-white/10 pt-9 md:flex-row md:items-start md:justify-between">
+        <div className="flex flex-col gap-6 border-t border-white/10 pt-7 md:flex-row md:items-start md:justify-between">
           <div className="max-w-2xl">
             <p className="text-lg font-bold">{siteConfig.siteName}</p>
             <p className="mt-2 max-w-md text-sm leading-6 text-slate-400">
