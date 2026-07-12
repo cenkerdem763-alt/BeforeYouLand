@@ -11,7 +11,7 @@ export default function PartnerCTA({ language }: PartnerCTAProps) {
   const contactLabels = ui[language].contact;
 
   return (
-    <section className="rounded-[1.5rem] border border-ink bg-ink p-5 text-white shadow-soft sm:p-6">
+    <section className="rounded-[1.5rem] border border-ink bg-[linear-gradient(135deg,#102033_0%,#173653_100%)] p-5 text-white shadow-soft sm:p-6">
       <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <p className="mb-2 inline-flex rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-green-200 ring-1 ring-white/10">
@@ -38,7 +38,7 @@ export default function PartnerCTA({ language }: PartnerCTAProps) {
         </div>
         <a
           href={siteConfig.contact.advertisingHref}
-          className="focus-ring inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-bold text-ink transition hover:bg-blue-50"
+          className="focus-ring inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-bold text-ink shadow-sm transition hover:bg-blue-50"
         >
           <Handshake className="h-4 w-4" aria-hidden="true" />
           {copy.button}

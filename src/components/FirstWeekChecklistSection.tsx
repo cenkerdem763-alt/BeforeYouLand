@@ -62,15 +62,17 @@ export default function FirstWeekChecklistSection({
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-700">
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </span>
-                <div>
+                <div className="min-w-0">
                   <h3 className="font-bold">{category.title[language]}</h3>
                   <ul className="mt-3 space-y-2">
                     {category.items.map((item) => (
-                      <li key={item[language]} className="flex gap-2 text-sm leading-6 text-muted">
-                        <CheckCircle2
-                          className="mt-1 h-4 w-4 shrink-0 text-green-700"
-                          aria-hidden="true"
-                        />
+                      <li
+                        key={item[language]}
+                        className="flex gap-3 rounded-xl bg-slate-50 p-3 text-sm leading-6 text-muted"
+                      >
+                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-green-600/25 bg-white text-green-700">
+                          <CheckCircle2 className="h-3.5 w-3.5" aria-hidden="true" />
+                        </span>
                         <span>{item[language]}</span>
                       </li>
                     ))}

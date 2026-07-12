@@ -19,7 +19,13 @@ export default function CountryCard({ country, language }: CountryCardProps) {
       to={getCountryPath(language, country)}
       className="focus-ring group relative flex h-full min-h-[360px] overflow-hidden rounded-[1.75rem] border border-line bg-white shadow-soft transition hover:-translate-y-1 hover:border-blue-600"
     >
-      <div className={`absolute inset-x-0 top-0 h-28 ${country.accent === 'green' ? 'bg-green-50' : 'bg-blue-50'}`} />
+      <div
+        className={`absolute inset-x-0 top-0 h-32 ${
+          country.accent === 'green'
+            ? 'bg-[linear-gradient(135deg,#ecfbf2_0%,#ffffff_78%)]'
+            : 'bg-[linear-gradient(135deg,#edf7ff_0%,#ffffff_78%)]'
+        }`}
+      />
       <div className="relative flex h-full w-full flex-col justify-between p-5 sm:p-6">
         <div>
           <div className="flex items-center justify-between gap-3">
@@ -32,19 +38,19 @@ export default function CountryCard({ country, language }: CountryCardProps) {
           </div>
           <div className="mt-8">
             <Badge tone={country.accent}>{content.bestFor}</Badge>
-            <h3 className="mt-4 text-3xl font-bold">{content.name}</h3>
+            <h3 className="mt-4 text-3xl font-black tracking-normal">{content.name}</h3>
             <p className="mt-3 text-sm leading-6 text-muted">{content.summary}</p>
           </div>
         </div>
 
         <div className="mt-7">
           <div className="grid grid-cols-1 gap-3 text-sm sm:grid-cols-2">
-            <div className="rounded-2xl border border-line bg-white p-4">
+            <div className="rounded-2xl border border-line bg-white p-4 shadow-sm">
               <MapPin className="h-4 w-4 text-blue-600" aria-hidden="true" />
               <p className="mt-2 font-semibold text-ink">{labels.capital}</p>
               <p className="text-muted">{content.capital}</p>
             </div>
-            <div className="rounded-2xl border border-line bg-white p-4">
+            <div className="rounded-2xl border border-line bg-white p-4 shadow-sm">
               <WalletCards className="h-4 w-4 text-green-700" aria-hidden="true" />
               <p className="mt-2 font-semibold text-ink">{labels.currency}</p>
               <p className="text-muted">{content.currency}</p>
@@ -57,7 +63,7 @@ export default function CountryCard({ country, language }: CountryCardProps) {
               </span>
             ))}
           </div>
-          <p className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-blue-700">
+          <p className="mt-5 inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-2 text-sm font-bold text-blue-700 transition group-hover:bg-blue-600 group-hover:text-white">
             <BadgeCheck className="h-4 w-4" aria-hidden="true" />
             {ui[language].home.cardCta}
           </p>

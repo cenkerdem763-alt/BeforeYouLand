@@ -1,6 +1,16 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
+import {
+  AppWindow,
+  ArrowRight,
+  Bus,
+  CheckCircle2,
+  Home,
+  Landmark,
+  ShieldCheck,
+  Smartphone,
+  Sparkles,
+} from 'lucide-react';
 import CountryCard from '../components/CountryCard';
 import LeadCTA from '../components/LeadCTA';
 import PartnerCTA from '../components/PartnerCTA';
@@ -10,7 +20,7 @@ import SupportCTA from '../components/SupportCTA';
 import TopicCard from '../components/TopicCard';
 import { countries, getCountryPath } from '../data/countries';
 import { siteConfig } from '../data/config';
-import { languageCodes, languages, ui, type Language } from '../data/i18n';
+import { languageCodes, languages, topicLabels, ui, type Language } from '../data/i18n';
 import { getGuidePath, topicKeys } from '../data/routes';
 
 type HomePageProps = {
@@ -20,6 +30,13 @@ type HomePageProps = {
 export default function HomePage({ language }: HomePageProps) {
   const [query, setQuery] = useState('');
   const copy = ui[language].home;
+  const heroFeatures = [
+    { label: topicLabels[language]['sim-card'], icon: Smartphone },
+    { label: topicLabels[language].transport, icon: Bus },
+    { label: topicLabels[language]['rent-apartment'], icon: Home },
+    { label: topicLabels[language]['bank-account'], icon: Landmark },
+    { label: ui[language].country.usefulApps, icon: AppWindow },
+  ];
   const filteredCountries = useMemo(
     () =>
       countries.filter((country) =>
@@ -44,14 +61,14 @@ export default function HomePage({ language }: HomePageProps) {
           { hrefLang: 'x-default', href: `${siteConfig.baseUrl}/en` },
         ]}
       />
-      <section className="border-b border-line bg-[linear-gradient(180deg,#edf7ff_0%,#ffffff_72%)]">
+      <section className="border-b border-line bg-[radial-gradient(circle_at_top_left,#dff3ff_0%,#f7fbff_38%,#ffffff_78%)]">
         <div className="container-shell grid gap-10 py-10 sm:py-16 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
           <div>
             <p className="inline-flex items-center gap-2 rounded-full border border-green-600/15 bg-white px-3 py-2 text-xs font-bold uppercase tracking-[0.16em] text-green-700 shadow-sm">
               <ShieldCheck className="h-4 w-4" aria-hidden="true" />
               {copy.eyebrow}
             </p>
-            <h1 className="mt-4 max-w-3xl text-4xl font-bold leading-tight sm:text-6xl">
+            <h1 className="mt-4 max-w-3xl text-4xl font-black leading-[1.05] text-ink sm:text-6xl">
               {copy.heroTitle}
             </h1>
             <p className="mt-5 max-w-2xl text-lg leading-8 text-muted">{copy.subtitle}</p>
@@ -66,6 +83,22 @@ export default function HomePage({ language }: HomePageProps) {
                   {item}
                 </span>
               ))}
+            </div>
+
+            <div className="mt-5 grid max-w-2xl grid-cols-2 gap-2 sm:grid-cols-5">
+              {heroFeatures.map((item) => {
+                const Icon = item.icon;
+
+                return (
+                  <div
+                    key={item.label}
+                    className="rounded-2xl border border-line bg-white/90 p-3 shadow-sm"
+                  >
+                    <Icon className="h-4 w-4 text-blue-600" aria-hidden="true" />
+                    <p className="mt-2 text-sm font-bold leading-5 text-ink">{item.label}</p>
+                  </div>
+                );
+              })}
             </div>
 
             <div className="mt-8 max-w-2xl rounded-[1.75rem] border border-line bg-white p-4 shadow-soft sm:p-5">
@@ -84,8 +117,8 @@ export default function HomePage({ language }: HomePageProps) {
                   <Link
                     key={country.key}
                     to={getCountryPath(language, country)}
-                    className="focus-ring flex items-center justify-between rounded-2xl border border-line bg-slate-50 px-4 py-3 text-sm font-bold transition hover:border-blue-600 hover:bg-white"
-                  >
+                  className="focus-ring flex items-center justify-between rounded-2xl border border-line bg-slate-50 px-4 py-3 text-sm font-bold transition hover:border-blue-600 hover:bg-white hover:shadow-sm"
+                >
                     <span>{country.content[language].name}</span>
                     <ArrowRight className="h-4 w-4 text-muted" aria-hidden="true" />
                   </Link>
@@ -101,7 +134,7 @@ export default function HomePage({ language }: HomePageProps) {
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <Link
                 to={georgiaPath}
-                className="focus-ring inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-bold text-white transition hover:bg-blue-700"
+                className="focus-ring inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-blue-700"
               >
                 {copy.startWithGeorgia}
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -120,7 +153,7 @@ export default function HomePage({ language }: HomePageProps) {
             </div>
           </div>
           <div className="rounded-[2rem] border border-line bg-white p-4 shadow-soft sm:p-5">
-            <div className="rounded-[1.5rem] bg-ink p-5 text-white">
+            <div className="rounded-[1.5rem] bg-ink p-5 text-white shadow-sm">
               <p className="text-sm font-bold text-green-200">{copy.featureLabel}</p>
               <p className="mt-3 text-3xl font-bold leading-tight">{copy.featureTitle}</p>
               <p className="mt-3 text-sm leading-6 text-slate-300">{copy.featureDescription}</p>
@@ -130,7 +163,7 @@ export default function HomePage({ language }: HomePageProps) {
                 <Link
                   key={country.key}
                   to={getCountryPath(language, country)}
-                  className="focus-ring rounded-2xl border border-line bg-slate-50 p-4 transition hover:border-blue-600 hover:bg-white"
+                  className="focus-ring rounded-2xl border border-line bg-slate-50 p-4 transition hover:border-blue-600 hover:bg-white hover:shadow-sm"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div>

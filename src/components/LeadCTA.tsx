@@ -34,7 +34,7 @@ export default function LeadCTA({ country, language, compact = false }: LeadCTAP
   return (
     <section
       id={compact ? undefined : 'contact'}
-      className={`rounded-[1.5rem] border border-green-600/20 bg-green-50 p-5 shadow-sm ${compact ? '' : 'sm:p-6'}`}
+      className={`rounded-[1.5rem] border border-green-600/20 bg-[linear-gradient(135deg,#ecfbf2_0%,#ffffff_82%)] p-5 shadow-sm ${compact ? '' : 'sm:p-6'}`}
     >
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
@@ -46,7 +46,7 @@ export default function LeadCTA({ country, language, compact = false }: LeadCTAP
         </div>
         <a
           href="#contact"
-          className="focus-ring inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-green-700 px-5 py-3 text-sm font-bold text-white transition hover:bg-green-600"
+          className="focus-ring inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-green-700 px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-green-600"
         >
           <MessageCircle className="h-4 w-4" aria-hidden="true" />
           {button}
