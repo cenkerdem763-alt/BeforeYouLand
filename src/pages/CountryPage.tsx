@@ -1,5 +1,14 @@
+import { useState } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
-import { AlertTriangle, AppWindow, Landmark, PhoneCall } from 'lucide-react';
+import {
+  AlertTriangle,
+  AppWindow,
+  CarTaxiFront,
+  Home,
+  Landmark,
+  PhoneCall,
+  Smartphone,
+} from 'lucide-react';
 import Badge from '../components/Badge';
 import EssentialAppsSection from '../components/EssentialAppsSection';
 import FirstWeekChecklistSection from '../components/FirstWeekChecklistSection';
@@ -10,10 +19,20 @@ import SupportCTA from '../components/SupportCTA';
 import { siteConfig } from '../data/config';
 import TopicCard from '../components/TopicCard';
 import { findCountryBySlug, getCountryPath } from '../data/countries';
+import type { EssentialCategoryKey } from '../data/essentialApps';
 import { languageCodes, topicLabels, ui } from '../data/i18n';
 import { getGuidePath, topicKeys } from '../data/routes';
 
+const viewDetailsLabel = {
+  en: 'View details',
+  tr: 'Bilgileri gör',
+  ru: 'Смотреть',
+} as const;
+
 export default function CountryPage() {
+  const [openAppCategories, setOpenAppCategories] = useState<Set<EssentialCategoryKey>>(
+    () => new Set(),
+  );
   const params = useParams();
   const language = languageCodes.find((code) => code === params.language);
   if (!language || !params.countrySlug) return <Navigate to="/en" replace />;
@@ -24,14 +43,72 @@ export default function CountryPage() {
   const labels = ui[language].country;
   const countryPath = getCountryPath(language, country);
 
-  const overview = [
-    { label: 'SIM / eSIM', value: topicKeys.slice(0, 2).map((topic) => topicLabels[language][topic]).join(' + ') },
-    { label: topicLabels[language]['bank-account'], value: country.content[language].currency },
-    { label: topicLabels[language]['rent-apartment'], value: country.content[language].bestFor },
-    { label: topicLabels[language].transport, value: country.content[language].capital },
-    { label: labels.usefulApps, value: country.apps.join(', ') },
-    { label: labels.emergencyNumbers, value: country.emergency[language].join(', ') },
+  const overview: {
+    label: string;
+    value: string;
+    icon: typeof PhoneCall;
+    appCategory?: EssentialCategoryKey;
+  }[] = [
+    {
+      label: 'SIM / eSIM',
+      value: topicKeys.slice(0, 2).map((topic) => topicLabels[language][topic]).join(' + '),
+      icon: Smartphone,
+      appCategory: 'simInternet',
+    },
+    {
+      label: topicLabels[language]['bank-account'],
+      value: country.content[language].currency,
+      icon: Landmark,
+      appCategory: 'bankingMoney',
+    },
+    {
+      label: topicLabels[language]['rent-apartment'],
+      value: country.content[language].bestFor,
+      icon: Home,
+      appCategory: 'housing',
+    },
+    {
+      label: topicLabels[language].transport,
+      value: country.content[language].capital,
+      icon: CarTaxiFront,
+      appCategory: 'taxiTransport',
+    },
+    {
+      label: labels.usefulApps,
+      value: country.apps.join(', '),
+      icon: AppWindow,
+      appCategory: 'mapsNavigation',
+    },
+    {
+      label: labels.emergencyNumbers,
+      value: country.emergency[language].join(', '),
+      icon: AlertTriangle,
+    },
   ];
+
+  const openAppCategory = (categoryKey: EssentialCategoryKey) => {
+    setOpenAppCategories((current) => new Set(current).add(categoryKey));
+    window.setTimeout(() => {
+      document.getElementById(`apps-${categoryKey}`)?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }, 0);
+  };
+
+  const toggleAppCategory = (categoryKey: EssentialCategoryKey) => {
+    setOpenAppCategories((current) => {
+      const next = new Set(current);
+
+      if (next.has(categoryKey)) {
+        next.delete(categoryKey);
+      } else {
+        next.add(categoryKey);
+      }
+
+      return next;
+    });
+  };
 
   return (
     <>
@@ -60,20 +137,55 @@ export default function CountryPage() {
         <section className="mt-10">
           <h2 className="text-2xl font-bold">{labels.overview}</h2>
           <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {overview.map((item, index) => {
-              const Icon = [PhoneCall, Landmark, AlertTriangle, PhoneCall, AppWindow, AlertTriangle][index];
-              return (
-                <div key={item.label} className="rounded-2xl border border-line bg-white p-5 shadow-sm">
+            {overview.map((item) => {
+              const Icon = item.icon;
+              const cardContent = (
+                <>
                   <Icon className="h-5 w-5 text-blue-600" aria-hidden="true" />
                   <h3 className="mt-4 font-bold">{item.label}</h3>
                   <p className="mt-2 text-sm leading-6 text-muted">{item.value}</p>
-                </div>
+                  {item.appCategory ? (
+                    <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-green-700">
+                      {viewDetailsLabel[language]}
+                      <span aria-hidden="true">→</span>
+                    </span>
+                  ) : null}
+                </>
+              );
+
+              if (!item.appCategory) {
+                return (
+                  <div
+                    key={item.label}
+                    className="rounded-2xl border border-line bg-white p-5 shadow-sm"
+                  >
+                    {cardContent}
+                  </div>
+                );
+              }
+
+              const appCategory = item.appCategory;
+
+              return (
+                <button
+                  key={item.label}
+                  type="button"
+                  className="focus-ring rounded-2xl border border-line bg-white p-5 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-green-200 hover:shadow-md"
+                  onClick={() => openAppCategory(appCategory)}
+                >
+                  {cardContent}
+                </button>
               );
             })}
           </div>
         </section>
 
-        <EssentialAppsSection country={country} language={language} />
+        <EssentialAppsSection
+          country={country}
+          language={language}
+          openCategories={openAppCategories}
+          onToggleCategory={toggleAppCategory}
+        />
 
         <FirstWeekChecklistSection country={country} language={language} />
 
