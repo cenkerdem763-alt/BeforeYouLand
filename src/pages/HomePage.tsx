@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import CountryCard from '../components/CountryCard';
 import AboutTrustSection from '../components/AboutTrustSection';
+import ComparisonLinkCard from '../components/ComparisonLinkCard';
 import LeadCTA from '../components/LeadCTA';
 import PartnerCTA from '../components/PartnerCTA';
 import Search from '../components/Search';
@@ -197,6 +198,7 @@ export default function HomePage({ language }: HomePageProps) {
         {filteredCountries.length === 0 ? (
           <p className="mt-6 rounded-2xl bg-slate-50 p-5 text-muted">{copy.noResults}</p>
         ) : null}
+        <ComparisonLinkCard language={language} className="mt-6" />
       </section>
 
       <section className="container-shell pb-8">

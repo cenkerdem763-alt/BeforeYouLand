@@ -3,9 +3,11 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import CountryPage from './pages/CountryPage';
+import ComparisonPage from './pages/ComparisonPage';
 import GuidePage from './pages/GuidePage';
 import NotFoundPage from './pages/NotFoundPage';
 import { languageCodes, type Language } from './data/i18n';
+import { getComparisonPath } from './data/routes';
 
 function LocalizedNotFoundPage() {
   const params = useParams();
@@ -24,6 +26,13 @@ export default function App() {
         <Routes>
           {languageCodes.map((language) => (
             <Route key={language} path={`/${language}`} element={<HomePage language={language} />} />
+          ))}
+          {languageCodes.map((language) => (
+            <Route
+              key={`comparison-${language}`}
+              path={getComparisonPath(language)}
+              element={<ComparisonPage language={language} />}
+            />
           ))}
           <Route path="/:language/:countrySlug" element={<CountryPage />} />
           <Route path="/:language/:countrySlug/:topicSlug" element={<GuidePage />} />

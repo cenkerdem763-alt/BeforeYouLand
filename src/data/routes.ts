@@ -29,6 +29,15 @@ export type TopicKey = keyof typeof topicSlugs.en;
 
 export const topicKeys = Object.keys(topicSlugs.en) as TopicKey[];
 
+export const comparisonSlugs: Record<Language, string> = {
+  en: 'georgia-vs-serbia',
+  tr: 'gurcistan-mi-sirbistan-mi',
+  ru: 'gruziya-ili-serbiya',
+};
+
+export const getComparisonPath = (language: Language) =>
+  `/${language}/${comparisonSlugs[language]}`;
+
 export const getGuidePath = (
   language: Language,
   countrySlug: string,
@@ -40,6 +49,7 @@ export const resolveTopicFromSlug = (language: Language, slug: string) =>
 
 export const routeList = [
   ...languageCodes.map((language) => `/${language}`),
+  ...languageCodes.map((language) => getComparisonPath(language)),
   ...countries.flatMap((country) =>
     languageCodes.flatMap((language) => [
       getCountryPath(language, country),

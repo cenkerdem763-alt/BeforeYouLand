@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import Badge from '../components/Badge';
 import CommonMistakesSection from '../components/CommonMistakesSection';
+import ComparisonLinkCard from '../components/ComparisonLinkCard';
 import EssentialAppsSection from '../components/EssentialAppsSection';
 import FAQSection from '../components/FAQSection';
 import LastUpdated from '../components/LastUpdated';
@@ -310,6 +311,8 @@ export default function CountryPage() {
             ))}
           </div>
         </section>
+
+        <ComparisonLinkCard language={language} className="mt-8" />
 
       </section>
     </div>

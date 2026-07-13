@@ -2,7 +2,12 @@ import { Link, useLocation } from 'react-router-dom';
 import { Languages } from 'lucide-react';
 import { languageCodes, languages, type Language } from '../data/i18n';
 import { countries, findCountryBySlug, getCountryPath } from '../data/countries';
-import { resolveTopicFromSlug, getGuidePath } from '../data/routes';
+import {
+  comparisonSlugs,
+  getComparisonPath,
+  resolveTopicFromSlug,
+  getGuidePath,
+} from '../data/routes';
 
 const getLanguage = (pathname: string): Language =>
   languageCodes.find((language) => pathname.startsWith(`/${language}`)) ?? 'en';
@@ -12,6 +17,10 @@ const counterpart = (pathname: string, nextLanguage: Language) => {
   const currentLanguage = languageCodes.find((language) => language === parts[0]) ?? 'en';
 
   if (parts.length === 1) return `/${nextLanguage}`;
+
+  if (parts[1] === comparisonSlugs[currentLanguage]) {
+    return getComparisonPath(nextLanguage);
+  }
 
   const country = findCountryBySlug(currentLanguage, parts[1]);
   if (!country) return `/${nextLanguage}`;

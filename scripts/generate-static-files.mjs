@@ -13,6 +13,7 @@ const languageOrder = ['en', 'tr', 'ru'];
 
 const routeGroups = [
   ['/en', '/tr', '/ru'],
+  ['/en/georgia-vs-serbia', '/tr/gurcistan-mi-sirbistan-mi', '/ru/gruziya-ili-serbiya'],
   ['/en/georgia', '/tr/gurcistan', '/ru/gruziya'],
   ['/en/georgia/sim-card', '/tr/gurcistan/sim-kart', '/ru/gruziya/sim-karta'],
   ['/en/georgia/esim', '/tr/gurcistan/esim', '/ru/gruziya/esim'],
