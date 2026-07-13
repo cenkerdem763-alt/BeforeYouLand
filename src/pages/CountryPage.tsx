@@ -21,6 +21,7 @@ import LeadCTA from '../components/LeadCTA';
 import SEO from '../components/SEO';
 import { siteConfig } from '../data/config';
 import TopicCard from '../components/TopicCard';
+import VisaResidenceInsuranceSection from '../components/VisaResidenceInsuranceSection';
 import { findCountryBySlug, getCountryPath } from '../data/countries';
 import type { EssentialCategoryKey } from '../data/essentialApps';
 import {
@@ -31,6 +32,7 @@ import { languageCodes, topicLabels, ui } from '../data/i18n';
 import { getGuidePath, topicKeys } from '../data/routes';
 import { countryFaqs } from '../data/countryFaqs';
 import { commonMistakes } from '../data/commonMistakes';
+import { visaResidenceInsurance } from '../data/visaResidenceInsurance';
 
 const viewDetailsLabel = {
   en: 'View details',
@@ -71,6 +73,7 @@ export default function CountryPage() {
   const checklistByKey = new Map(checklist.map((category) => [category.key, category]));
   const faqs = countryFaqs[country.key][language];
   const mistakes = commonMistakes[country.key][language];
+  const visaContent = visaResidenceInsurance[country.key][language];
   const faqJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -283,6 +286,14 @@ export default function CountryPage() {
         />
 
         <CommonMistakesSection title={labels.commonMistakes} items={mistakes} />
+
+        <VisaResidenceInsuranceSection
+          title={labels.visaResidenceInsurance}
+          officialSourcesTitle={labels.officialSources}
+          items={visaContent.items}
+          disclaimer={visaContent.disclaimer}
+          sources={visaContent.sources}
+        />
 
         <FAQSection title={ui[language].guide.faq} items={faqs} className="mt-12" />
 
