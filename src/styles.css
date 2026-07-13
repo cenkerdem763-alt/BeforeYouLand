@@ -9,6 +9,10 @@
   color-scheme: light;
 }
 
+html {
+  background: #071018;
+}
+
 body {
   margin: 0;
   min-width: 320px;
