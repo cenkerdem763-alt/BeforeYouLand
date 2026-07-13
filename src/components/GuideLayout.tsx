@@ -5,13 +5,14 @@ import {
   CheckCircle2,
   ClipboardList,
   ExternalLink,
-  HelpCircle,
   MapPin,
   ShieldCheck,
   WalletCards,
 } from 'lucide-react';
 import Badge from './Badge';
 import CTABox from './CTABox';
+import FAQSection from './FAQSection';
+import LastUpdated from './LastUpdated';
 import LeadCTA from './LeadCTA';
 import { getCountryPath, type Country } from '../data/countries';
 import type { Guide } from '../data/guides';
@@ -71,12 +72,7 @@ export default function GuideLayout({ guide, country, language }: GuideLayoutPro
       <header className="mt-8 max-w-3xl">
         <div className="flex flex-wrap items-center gap-3">
           <Badge tone={country.accent}>{country.flag}</Badge>
-          <Badge tone="neutral">
-            <span className="inline-flex items-center gap-1.5">
-              <CalendarDays className="h-3.5 w-3.5" aria-hidden="true" />
-              {labels.lastUpdated}: {guide.lastUpdated}
-            </span>
-          </Badge>
+          <LastUpdated language={language} />
           <Badge tone={confidenceTone}>
             <span className="inline-flex items-center gap-1.5">
               <ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" />
@@ -197,16 +193,7 @@ export default function GuideLayout({ guide, country, language }: GuideLayoutPro
             </div>
           </Section>
 
-          <Section title={labels.faq} icon={<HelpCircle className="h-5 w-5" aria-hidden="true" />}>
-            <div className="space-y-3">
-              {guide.faq.map((item) => (
-                <details key={item.question} className="group rounded-2xl border border-line bg-slate-50 p-4 open:bg-white open:shadow-sm">
-                  <summary className="cursor-pointer font-semibold">{item.question}</summary>
-                  <p className="mt-3 leading-7 text-muted">{item.answer}</p>
-                </details>
-              ))}
-            </div>
-          </Section>
+          <FAQSection title={labels.faq} items={guide.faq} />
 
           {guide.verificationNote ? (
             <Section title={labels.verificationNote} icon={<CalendarDays className="h-5 w-5" aria-hidden="true" />}>
@@ -233,7 +220,7 @@ export default function GuideLayout({ guide, country, language }: GuideLayoutPro
 
         <aside className="h-fit rounded-2xl border border-line bg-white p-5 shadow-soft lg:sticky lg:top-24">
           <div className="flex flex-wrap gap-2">
-            <Badge tone="neutral">{labels.lastUpdated}: {guide.lastUpdated}</Badge>
+            <LastUpdated language={language} />
             <Badge tone={confidenceTone}>{labels.confidence}: {confidenceLabel}</Badge>
           </div>
           <p className="text-sm font-bold">{country.content[language].name}</p>

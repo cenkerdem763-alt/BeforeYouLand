@@ -72,7 +72,7 @@ export const ui = {
       costs: 'Cost notes',
       mistakes: 'Common mistakes',
       links: 'Useful links',
-      faq: 'FAQ',
+      faq: 'Frequently asked questions',
       lastUpdated: 'Last updated',
       confidence: 'Confidence',
       disclaimer:
@@ -174,7 +174,7 @@ export const ui = {
       costs: 'Maliyet notları',
       mistakes: 'Sık yapılan hatalar',
       links: 'Faydalı linkler',
-      faq: 'SSS',
+      faq: 'Sık sorulan sorular',
       lastUpdated: 'Son güncelleme',
       confidence: 'Güven seviyesi',
       disclaimer:
@@ -276,7 +276,7 @@ export const ui = {
       costs: 'Заметки о расходах',
       mistakes: 'Частые ошибки',
       links: 'Полезные ссылки',
-      faq: 'FAQ',
+      faq: 'Часто задаваемые вопросы',
       lastUpdated: 'Последнее обновление',
       confidence: 'Уровень уверенности',
       disclaimer:

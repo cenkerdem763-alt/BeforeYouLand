@@ -14,6 +14,8 @@ import {
 } from 'lucide-react';
 import Badge from '../components/Badge';
 import EssentialAppsSection from '../components/EssentialAppsSection';
+import FAQSection from '../components/FAQSection';
+import LastUpdated from '../components/LastUpdated';
 import LeadCTA from '../components/LeadCTA';
 import SEO from '../components/SEO';
 import { siteConfig } from '../data/config';
@@ -26,6 +28,7 @@ import {
 } from '../data/firstWeekChecklist';
 import { languageCodes, topicLabels, ui } from '../data/i18n';
 import { getGuidePath, topicKeys } from '../data/routes';
+import { countryFaqs } from '../data/countryFaqs';
 
 const viewDetailsLabel = {
   en: 'View details',
@@ -64,6 +67,19 @@ export default function CountryPage() {
   const hasGeorgiaHero = country.key === 'georgia';
   const checklist = firstWeekChecklists[country.key];
   const checklistByKey = new Map(checklist.map((category) => [category.key, category]));
+  const faqs = countryFaqs[country.key][language];
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  };
 
   const overview: {
     label: string;
@@ -159,6 +175,7 @@ export default function CountryPage() {
           hrefLang: alternateLanguage,
           href: `${siteConfig.baseUrl}${getCountryPath(alternateLanguage, country)}`,
         }))}
+        jsonLd={faqJsonLd}
       />
       {hasGeorgiaHero ? (
         <section className="georgia-country-hero bg-slate-900 py-14 sm:py-20">
@@ -171,6 +188,9 @@ export default function CountryPage() {
               <p className="mt-5 text-lg leading-8 text-slate-100 sm:max-w-2xl">
                 {country.content[language].overview}
               </p>
+              <div className="mt-5">
+                <LastUpdated language={language} inverse />
+              </div>
             </div>
           </div>
         </section>
@@ -188,6 +208,9 @@ export default function CountryPage() {
             <p className="mt-5 text-lg leading-8 text-muted">
               {country.content[language].overview}
             </p>
+            <div className="mt-5">
+              <LastUpdated language={language} />
+            </div>
           </div>
         ) : null}
 
@@ -255,6 +278,8 @@ export default function CountryPage() {
           openCategories={openAppCategories}
           onToggleCategory={toggleAppCategory}
         />
+
+        <FAQSection title={ui[language].guide.faq} items={faqs} className="mt-12" />
 
         <section className="mt-12">
           <h2 className="text-2xl font-bold">{labels.guides}</h2>
