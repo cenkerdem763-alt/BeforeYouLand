@@ -13,6 +13,7 @@ import {
   Smartphone,
 } from 'lucide-react';
 import Badge from '../components/Badge';
+import CommonMistakesSection from '../components/CommonMistakesSection';
 import EssentialAppsSection from '../components/EssentialAppsSection';
 import FAQSection from '../components/FAQSection';
 import LastUpdated from '../components/LastUpdated';
@@ -29,6 +30,7 @@ import {
 import { languageCodes, topicLabels, ui } from '../data/i18n';
 import { getGuidePath, topicKeys } from '../data/routes';
 import { countryFaqs } from '../data/countryFaqs';
+import { commonMistakes } from '../data/commonMistakes';
 
 const viewDetailsLabel = {
   en: 'View details',
@@ -68,6 +70,7 @@ export default function CountryPage() {
   const checklist = firstWeekChecklists[country.key];
   const checklistByKey = new Map(checklist.map((category) => [category.key, category]));
   const faqs = countryFaqs[country.key][language];
+  const mistakes = commonMistakes[country.key][language];
   const faqJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -278,6 +281,8 @@ export default function CountryPage() {
           openCategories={openAppCategories}
           onToggleCategory={toggleAppCategory}
         />
+
+        <CommonMistakesSection title={labels.commonMistakes} items={mistakes} />
 
         <FAQSection title={ui[language].guide.faq} items={faqs} className="mt-12" />
 
