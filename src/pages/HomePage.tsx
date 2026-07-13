@@ -12,6 +12,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import CountryCard from '../components/CountryCard';
+import AboutTrustSection from '../components/AboutTrustSection';
 import LeadCTA from '../components/LeadCTA';
 import PartnerCTA from '../components/PartnerCTA';
 import Search from '../components/Search';
@@ -210,6 +211,15 @@ export default function HomePage({ language }: HomePageProps) {
             />
           ))}
         </div>
+      </section>
+
+      <section className="container-shell pb-14">
+        <AboutTrustSection
+          title={copy.aboutTrust.title}
+          description={copy.aboutTrust.description}
+          trustPoints={copy.aboutTrust.points}
+          disclaimer={copy.aboutTrust.disclaimer}
+        />
       </section>
 
       <section className="container-shell pb-14">

@@ -27,6 +27,20 @@ export const ui = {
       featureTitle: 'Your first-week essentials, simplified.',
       featureDescription:
         'Simple country guides for SIM cards, internet, banking, transport, housing basics and first-week essentials.',
+      aboutTrust: {
+        title: 'About First Week Guide',
+        description:
+          'First Week Guide is a practical guide project for newcomers, students, expats and remote workers who want to understand the basics of a new country before and during their first week. We focus on useful first-week topics such as SIM cards, transport, housing, banking, essential apps, common mistakes and official-source reminders.',
+        points: [
+          'Practical first-week information',
+          'No login required',
+          'Free starter guides',
+          'Updated when possible',
+          'Official sources linked when needed',
+        ],
+        disclaimer:
+          'First Week Guide is not an official government, legal, immigration, banking or insurance service. Information can change. Always verify important decisions with official sources or qualified professionals.',
+      },
     },
     country: {
       overview: 'Arrival essentials',
@@ -132,6 +146,20 @@ export const ui = {
       featureTitle: 'İlk hafta ihtiyaçlarını kolayca öğren.',
       featureDescription:
         'SIM kart, internet, banka, ulaşım, ev bulma ve ilk hafta ihtiyaçları için basit ülke rehberleri.',
+      aboutTrust: {
+        title: 'First Week Guide hakkında',
+        description:
+          "First Week Guide; yeni bir ülkeye giden kişiler, öğrenciler, expat'lar ve uzaktan çalışanlar için hazırlanmış pratik bir rehber projesidir. SIM kart, ulaşım, ev arama, banka, gerekli uygulamalar, yaygın hatalar ve resmi kaynakları kontrol etme gibi ilk hafta ihtiyaçlarına odaklanır.",
+        points: [
+          'Pratik ilk hafta bilgileri',
+          'Kayıt gerekmez',
+          'Ücretsiz başlangıç rehberleri',
+          'Mümkün oldukça güncellenir',
+          'Gerektiğinde resmi kaynaklara yönlendirir',
+        ],
+        disclaimer:
+          'First Week Guide resmi bir devlet, hukuk, göçmenlik, banka veya sigorta hizmeti değildir. Bilgiler değişebilir. Önemli kararlar almadan önce resmi kaynakları veya yetkili uzmanları kontrol et.',
+      },
     },
     country: {
       overview: 'Varış için temel bilgiler',
@@ -237,6 +265,20 @@ export const ui = {
       featureTitle: 'Всё важное для первой недели — просто.',
       featureDescription:
         'Простые гиды по странам: SIM-карта, интернет, банк, транспорт, жильё и всё важное для первой недели.',
+      aboutTrust: {
+        title: 'О First Week Guide',
+        description:
+          'First Week Guide — это практический проект с гайдами для новичков, студентов, экспатов и удалённых работников, которые хотят разобраться с базовыми вопросами в новой стране до приезда и в первую неделю. Мы фокусируемся на SIM-картах, транспорте, жилье, банках, полезных приложениях, частых ошибках и напоминаниях проверять официальные источники.',
+        points: [
+          'Практичная информация для первой недели',
+          'Регистрация не требуется',
+          'Бесплатные стартовые гайды',
+          'Обновляется по возможности',
+          'При необходимости даются ссылки на официальные источники',
+        ],
+        disclaimer:
+          'First Week Guide не является официальной государственной, юридической, иммиграционной, банковской или страховой службой. Информация может меняться. Перед важными решениями проверяйте официальные источники или обращайтесь к квалифицированным специалистам.',
+      },
     },
     country: {
       overview: 'Главное после приезда',
