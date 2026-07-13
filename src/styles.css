@@ -32,14 +32,18 @@ body {
 }
 
 .georgia-country-page {
-  padding-bottom: 5rem;
+  background: #f7f4ec;
+}
+
+.georgia-country-page::after {
+  display: block;
+  min-height: 280px;
   background-image:
-    linear-gradient(rgba(247, 244, 236, 0.93), rgba(247, 244, 236, 0.93)),
+    linear-gradient(180deg, rgba(7, 16, 24, 0.08), rgba(7, 16, 24, 0.58)),
     url('/images/georgia-hero.jpg');
-  background-position: center center;
+  background-position: center 58%;
   background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+  content: '';
 }
 
 main:has(.georgia-country-page) + footer {
@@ -50,8 +54,13 @@ main:has(.georgia-country-page) + footer {
   display: flex;
   min-height: 480px;
   align-items: center;
-  background-color: transparent;
-  background-image: linear-gradient(90deg, rgba(8, 30, 49, 0.94), rgba(15, 56, 66, 0.7) 52%, rgba(8, 52, 48, 0.24));
+  background-color: #0b1722;
+  background-image:
+    linear-gradient(90deg, rgba(7, 16, 32, 0.9), rgba(10, 29, 47, 0.48) 48%, rgba(7, 16, 32, 0.12)),
+    url('/images/georgia-banner.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
   border-bottom: 1px solid rgba(255, 255, 255, 0.24);
   box-shadow: 0 24px 70px rgba(15, 39, 66, 0.18);
 }
@@ -113,15 +122,20 @@ main:has(.georgia-country-page) + footer {
 
 @media (max-width: 640px) {
   .georgia-country-page {
-    background-position: 38% center;
-    background-size: auto 100vh;
-    background-attachment: scroll;
-    background-repeat: repeat-y;
+    background: #f7f4ec;
+  }
+
+  .georgia-country-page::after {
+    min-height: 200px;
+    background-position: 42% center;
   }
 
   .georgia-country-hero {
     min-height: 420px;
-    background-image: linear-gradient(180deg, rgba(15, 39, 66, 0.94), rgba(15, 39, 66, 0.68) 58%, rgba(15, 39, 66, 0.3));
+    background-image:
+      linear-gradient(180deg, rgba(7, 16, 32, 0.9), rgba(10, 29, 47, 0.56) 64%, rgba(7, 16, 32, 0.28)),
+      url('/images/georgia-banner.jpg');
+    background-position: 58% center;
   }
 
   .georgia-country-content .bg-white,
