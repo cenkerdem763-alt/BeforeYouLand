@@ -77,18 +77,18 @@ export default function EssentialAppsSection({
   const categories = essentialApps[country.key];
 
   return (
-    <section className="mt-12">
+    <section className="mt-14">
       <div className="flex max-w-3xl items-start gap-3">
-        <span className="mt-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-blue-700">
+        <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-slate-800 text-white shadow-sm">
           <PanelsTopLeft className="h-5 w-5" aria-hidden="true" />
         </span>
         <div>
-          <h2 className="text-2xl font-bold">{copy.title}</h2>
-          <p className="mt-2 text-sm leading-6 text-muted">{copy.note}</p>
+          <h2 className="text-2xl font-bold tracking-tight">{copy.title}</h2>
+          <p className="mt-1.5 text-sm leading-5 text-muted">{copy.note}</p>
         </div>
       </div>
 
-      <div className="mt-6 grid gap-4 lg:grid-cols-2">
+      <div className="mt-5 grid gap-3 lg:grid-cols-2">
         {categories.map((category) => {
           const Icon = icons[category.key];
           const isOpen = openCategories.has(category.key);
@@ -98,28 +98,28 @@ export default function EssentialAppsSection({
             <div
               key={category.key}
               id={`apps-${category.key}`}
-              className="overflow-hidden rounded-2xl border border-line bg-white shadow-sm transition hover:border-blue-100 hover:shadow-md"
+              className={`overflow-hidden rounded-xl border bg-white shadow-sm transition ${isOpen ? 'border-green-600/30 shadow-md' : 'border-slate-200/80 hover:border-slate-300 hover:shadow-md'}`}
               style={{ scrollMarginTop: '6rem' }}
             >
               <button
                 type="button"
-                className="focus-ring grid w-full grid-cols-[auto_1fr_auto] items-center gap-3 p-4 text-left transition hover:bg-slate-50 sm:p-5"
+                className="focus-ring grid w-full grid-cols-[auto_1fr_auto] items-center gap-3 p-4 text-left transition hover:bg-slate-50/80"
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => onToggleCategory(category.key)}
               >
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-700">
+                <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition ${isOpen ? 'bg-green-700 text-white' : 'bg-slate-100 text-blue-700'}`}>
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <span>
-                  <span className="block text-base font-bold">
+                  <span className="block text-sm font-bold sm:text-base">
                     {essentialCategoryLabels[category.key][language]}
                   </span>
-                  <span className="mt-1 block text-sm leading-5 text-muted">
+                  <span className="mt-1 block text-xs leading-5 text-muted sm:text-sm">
                     {categoryDescriptions[category.key][language]}
                   </span>
                 </span>
-                <span className="flex h-9 w-9 items-center justify-center rounded-full border border-line bg-white text-muted">
+                <span className={`flex h-8 w-8 items-center justify-center rounded-full transition ${isOpen ? 'bg-slate-800 text-white' : 'bg-slate-100 text-muted'}`}>
                   <ChevronDown
                     className={`h-4 w-4 transition ${isOpen ? 'rotate-180 text-blue-700' : ''}`}
                     aria-hidden="true"
@@ -128,7 +128,7 @@ export default function EssentialAppsSection({
               </button>
 
               {isOpen ? (
-                <div id={panelId} className="border-t border-line bg-slate-50/80 p-3 sm:p-4">
+                <div id={panelId} className="border-t border-line bg-slate-50/90 p-3">
                   <div className="grid gap-2">
                     {category.items.map((item) => (
                       <a

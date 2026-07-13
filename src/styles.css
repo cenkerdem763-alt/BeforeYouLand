@@ -34,7 +34,7 @@ body {
 .georgia-country-page {
   padding-bottom: 5rem;
   background-image:
-    linear-gradient(rgba(247, 244, 236, 0.87), rgba(247, 244, 236, 0.87)),
+    linear-gradient(rgba(247, 244, 236, 0.93), rgba(247, 244, 236, 0.93)),
     url('/images/georgia-hero.jpg');
   background-position: center center;
   background-size: cover;

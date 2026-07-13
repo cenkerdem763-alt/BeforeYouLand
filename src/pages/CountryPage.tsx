@@ -197,7 +197,7 @@ export default function CountryPage() {
 
         <section className="mt-10">
           <h2 className="text-2xl font-bold">{labels.overview}</h2>
-          <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-5 grid gap-3 md:grid-cols-2">
             {overview.map((item) => {
               const Icon = item.icon;
               const category = checklistByKey.get(item.checklistCategory);
@@ -207,14 +207,18 @@ export default function CountryPage() {
                 <button
                   key={item.checklistCategory}
                   type="button"
-                  className="focus-ring rounded-2xl border border-line bg-white p-5 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-green-200 hover:shadow-md"
+                  className="focus-ring group flex h-full flex-col rounded-xl border border-slate-200/80 bg-white p-4 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-green-600/30 hover:shadow-md"
                   aria-expanded={isOpen}
                   onClick={() => toggleOverviewCategory(item.checklistCategory)}
                 >
-                  <Icon className="h-5 w-5 text-blue-600" aria-hidden="true" />
-                  <h3 className="mt-4 font-bold">{item.label}</h3>
-                  <p className="mt-2 text-sm leading-6 text-muted">{item.value}</p>
-                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-green-700">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100 text-blue-700 transition group-hover:bg-green-50 group-hover:text-green-700">
+                    <Icon className="h-5 w-5" aria-hidden="true" />
+                  </span>
+                  <h3 className="mt-3 font-bold leading-snug">{item.label}</h3>
+                  <p className="mt-1.5 text-sm leading-5 text-muted">{item.value}</p>
+                  <span
+                    className={`mt-4 inline-flex w-fit items-center gap-2 rounded-full px-3 py-2 text-xs font-bold text-white transition ${isOpen ? 'bg-green-700' : 'bg-slate-800 group-hover:bg-green-700'}`}
+                  >
                     {isOpen ? hideDetailsLabel[language] : viewDetailsLabel[language]}
                     <span
                       className={`transition-transform ${isOpen ? 'rotate-90' : ''}`}
@@ -224,11 +228,11 @@ export default function CountryPage() {
                     </span>
                   </span>
                   {isOpen && category ? (
-                    <ul className="mt-5 space-y-3 border-t border-line pt-4">
+                    <ul className="mt-4 space-y-2 border-t border-line pt-3">
                       {category.items.map((checklistItem) => (
                         <li
                           key={checklistItem[language]}
-                          className="flex gap-3 rounded-xl bg-slate-50/80 p-3 text-sm leading-6 text-muted"
+                          className="flex gap-2.5 rounded-lg bg-slate-50/90 p-3 text-sm leading-5 text-muted"
                         >
                           <CheckCircle2
                             className="mt-0.5 h-5 w-5 shrink-0 text-green-700"
