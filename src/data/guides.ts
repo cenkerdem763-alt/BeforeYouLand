@@ -19,6 +19,8 @@ export type Guide = {
   steps: string[];
   documents: string[];
   costs: string[];
+  mobileInternetTips?: string[];
+  simComparison?: { physicalSim: string; esim: string };
   mistakes: string[];
   verificationNote?: string;
   links: { label: string; url: string }[];
@@ -201,10 +203,10 @@ const georgiaSimEn: Guide = {
     'georgia',
     'sim-card',
     'High',
-    'For most visitors, a Georgia SIM card from an official operator store is the safest balance of price, setup help and reliable mobile internet in Georgia. A Tbilisi SIM card is easy to arrange in the city center, while airport counters are best when you need data immediately after landing.',
+    'A Georgia SIM card from an official operator store can provide setup help, mobile internet and a local number. In Tbilisi, compare airport availability with city stores and confirm current package details before buying.',
     [
       'Decide whether you need only mobile data or also a local Georgian phone number for calls, deliveries, banking appointments or accommodation contacts.',
-      'Compare tourist SIM Georgia packages from official operators such as Magti, Silknet and Cellfie, then check current price and validity before buying.',
+      'Compare prepaid or visitor packages from Magti, Silknet and Cellfie, then check the current price, validity and included services before buying.',
       'Bring your passport and an unlocked phone to an airport counter, city center branch or official store.',
       'Ask the staff to activate the SIM card, confirm the data allowance, validity period, hotspot/tethering rules and top-up method.',
       'Test mobile internet in Georgia before leaving the counter: open a website, check balance and make sure the provider app or USSD code works.',
@@ -223,16 +225,29 @@ const georgiaSimEn: Guide = {
       'Using unofficial resellers when an official operator store is available nearby.',
     ],
   ),
-  title: 'Georgia SIM card guide for travelers',
+  title: 'Georgia SIM Card Guide',
+  lastUpdated: '2026-07-14',
   description:
-    'Practical guide to getting a Georgia SIM card, Tbilisi SIM card or tourist SIM Georgia package with documents, where to buy, traveler types and FAQs.',
+    'Compare Georgia SIM card options, where to buy one in Tbilisi, required documents, mobile internet setup and current package details.',
   summary:
-    'A Georgia SIM card is usually the best choice if you want reliable mobile internet in Georgia plus a local phone number. Compare Magti, Silknet and Cellfie packages and verify current terms before buying.',
+    'A local Georgia SIM card can provide mobile internet and a Georgian phone number. Compare Magti, Silknet and Cellfie packages, then confirm coverage, validity and activation details before buying.',
+  mobileInternetTips: [
+    'Test mobile data, balance checks and top-ups before leaving the sales point.',
+    'Check coverage for Tbilisi, Batumi and any mountain or regional routes you plan to visit.',
+    'Confirm validity, renewal, speed limits, fair-use rules and whether hotspot use is allowed.',
+    'Keep access to your primary SIM if you still need verification SMS from home-country services.',
+  ],
+  simComparison: {
+    physicalSim:
+      'Useful when you need a Georgian number, calls, SMS or in-store setup support. Registration commonly requires a passport.',
+    esim:
+      'Useful for quick data on a compatible unlocked phone. Many travel eSIMs are data-only, so check whether a local number is included.',
+  },
   travelerOptions: [
     {
       label: 'Short trip',
       recommendation:
-        'A tourist SIM Georgia package from the airport or a central Tbilisi store is usually the easiest option. Prioritize quick activation, enough data for maps and messaging, and clear validity dates.',
+        'A prepaid package from the airport or a central Tbilisi store can cover maps and messaging. Prioritize simple activation, enough data and a clear validity period.',
     },
     {
       label: 'Long stay',
@@ -273,7 +288,7 @@ const georgiaSimEn: Guide = {
     },
   ],
   verificationNote:
-    'Last updated: 2026-07-02. Operator packages, ID requirements, coverage and tourist SIM Georgia offers may change. Always verify updated packages with Magti, Silknet, Cellfie or the provider before buying.',
+    'Last updated: 2026-07-14. Operator packages, ID requirements and coverage can change. Verify current details with Magti, Silknet, Cellfie or the provider before buying.',
   links: [
     { label: 'Magti', url: 'https://www.magticom.ge/en' },
     { label: 'Silknet', url: 'https://silknet.com/' },
@@ -281,24 +296,34 @@ const georgiaSimEn: Guide = {
   ],
   faq: [
     {
-      question: 'What is the best Georgia SIM card for tourists?',
+      question: 'Where can I buy a SIM card in Georgia?',
       answer:
-        'There is no single best option for every traveler. For short trips, choose a tourist SIM Georgia package with enough data and simple activation. For longer stays, compare operator stores in Tbilisi or Batumi and check current price, validity and top-up rules.',
+        'Official Magti, Silknet and Cellfie stores or authorized sales points are useful places to check. Package details can change, so confirm the current terms before buying.',
     },
     {
-      question: 'Can I buy a Tbilisi SIM card after arriving in the city?',
+      question: 'Can I buy a SIM card at Tbilisi Airport?',
       answer:
-        'Yes. Many travelers buy a Tbilisi SIM card from official stores in central areas because it is easier to compare packages and get help with activation.',
+        'SIM options may be available at the airport, but it can also help to compare official stores in the city center. Price, package and identity requirements may differ.',
     },
     {
       question: 'Do I need a passport for a Georgia SIM card?',
       answer:
-        'A passport is usually requested for local SIM registration. Requirements can change, so verify with the operator before purchase.',
+        'A passport is commonly requested for local SIM registration. Requirements can change, so check with the operator before purchasing.',
     },
     {
-      question: 'Is a Georgia SIM card better than a Georgia eSIM?',
+      question: 'Which mobile operators are commonly checked in Georgia?',
       answer:
-        'A physical SIM is better if you need a local phone number, calls or SMS. A Georgia eSIM can be better if you only need quick data and your phone supports eSIM.',
+        'Magti, Silknet and Cellfie are commonly compared. Coverage, package validity, hotspot rules and included services may vary by operator and location.',
+    },
+    {
+      question: 'Can I use an eSIM in Georgia?',
+      answer:
+        'An eSIM can be useful when you need data quickly and have a compatible unlocked phone. Check whether the plan is data-only and whether you need a local Georgian number.',
+    },
+    {
+      question: 'What should I check before buying mobile internet in Georgia?',
+      answer:
+        'Compare coverage for your route, data allowance, validity, speed or fair-use limits, hotspot support, top-up options and whether calls or SMS are included.',
     },
   ],
 };
@@ -418,7 +443,7 @@ const georgiaSimTr: Guide = {
     'Çoğu ziyaretçi için resmi operatör mağazasından alınan Gürcistan sim kart, fiyat, kurulum desteği ve Gürcistan mobil internet güvenilirliği açısından en dengeli seçenektir. Tiflis sim kart şehir merkezinde kolayca alınabilir; havalimanı ise inişten hemen sonra internete ihtiyaç duyanlar için pratiktir.',
     [
       'Sadece internet mi, yoksa arama ve SMS için yerel Gürcistan numarası da mı gerektiğine karar verin.',
-      'Magti, Silknet ve Cellfie gibi resmi operatörlerde turist sim kart Gürcistan paketlerini karşılaştırın; satın almadan önce güncel fiyatı ve geçerlilik süresini kontrol edin.',
+      'Magti, Silknet ve Cellfie gibi resmi operatörlerde hazır kart veya ziyaretçi paketlerini karşılaştırın; güncel fiyatı, süreyi ve dahil hizmetleri kontrol edin.',
       'Pasaportunuzu ve SIM kilidi olmayan telefonunuzu havalimanı standına, şehir merkezi şubesine veya resmi mağazaya götürün.',
       'Paketin internet kotasını, süresini, hotspot kullanımını ve yükleme yöntemini görevliye teyit ettirin.',
       'Mağazadan ayrılmadan Gürcistan mobil internet bağlantısını test edin; bir web sitesi açın, bakiyeyi kontrol edin ve uygulama ya da USSD kodunun çalıştığından emin olun.',
@@ -437,16 +462,29 @@ const georgiaSimTr: Guide = {
       'Yakında resmi operatör mağazası varken belirsiz satıcılardan almak.',
     ],
   ),
-  title: 'Gürcistan sim kart rehberi',
+  title: 'Gürcistan SIM Kart Rehberi',
+  lastUpdated: '2026-07-14',
   description:
-    'Gürcistan sim kart, Tiflis sim kart ve turist sim kart Gürcistan seçenekleri için belge, satın alma noktası, seyahat tipi önerileri ve SSS rehberi.',
+    'Gürcistan SIM kart seçeneklerini, Tiflis’te nereden alınacağını, gerekli belgeleri, mobil internet kurulumunu ve paket detaylarını karşılaştır.',
   summary:
-    'Gürcistan sim kart, Gürcistan mobil internet yanında yerel telefon numarası da isteyenler için genellikle en pratik seçenektir. Magti, Silknet ve Cellfie paketlerini karşılaştırıp satın almadan önce güncel şartları doğrulayın.',
+    'Yerel Gürcistan SIM kart, mobil internetle birlikte Gürcistan telefon numarası sağlayabilir. Magti, Silknet ve Cellfie paketlerini karşılaştırıp kapsama, süre ve aktivasyon ayrıntılarını doğrula.',
+  mobileInternetTips: [
+    'Satış noktasından ayrılmadan mobil interneti, bakiye sorgulamayı ve yükleme yöntemini test et.',
+    'Tiflis, Batum ve gideceğin dağlık veya bölgesel rotalar için kapsama alanını kontrol et.',
+    'Geçerlilik, yenileme, hız sınırı, adil kullanım ve hotspot kurallarını doğrula.',
+    'Kendi ülkendeki servislerden doğrulama SMS’i alacaksan ana SIM’ine erişimi koru.',
+  ],
+  simComparison: {
+    physicalSim:
+      'Gürcistan numarası, arama, SMS veya mağazada kurulum desteği gerekiyorsa kullanışlıdır. Kayıt için genellikle pasaport istenir.',
+    esim:
+      'Uyumlu ve kilitsiz telefonda hızlı internet için pratiktir. Birçok seyahat eSIM’i sadece internet sunar; yerel numarayı kontrol et.',
+  },
   travelerOptions: [
     {
       label: 'Kısa seyahat',
       recommendation:
-        'Havalimanından veya merkezi Tiflis mağazasından alınan turist sim kart Gürcistan paketi genelde en kolay seçenektir. Hızlı aktivasyon, yeterli internet ve net geçerlilik süresine bakın.',
+        'Havalimanından veya merkezi Tiflis mağazasından alınan hazır kart paketi harita ve mesajlaşma ihtiyacını karşılayabilir. Kolay aktivasyon, yeterli internet ve net geçerlilik süresine bakın.',
     },
     {
       label: 'Uzun kalış',
@@ -487,7 +525,7 @@ const georgiaSimTr: Guide = {
     },
   ],
   verificationNote:
-    'Son güncelleme: 2026-07-02. Operatör paketleri, kimlik şartları, kapsama ve turist sim kart Gürcistan teklifleri değişebilir. Satın almadan önce Magti, Silknet, Cellfie veya ilgili sağlayıcıdan güncel paketi doğrulayın.',
+    'Son güncelleme: 2026-07-14. Operatör paketleri, kimlik şartları ve kapsama değişebilir. Satın almadan önce Magti, Silknet, Cellfie veya ilgili sağlayıcıdan güncel detayları doğrula.',
   links: [
     { label: 'Magti', url: 'https://www.magticom.ge/en' },
     { label: 'Silknet', url: 'https://silknet.com/' },
@@ -495,24 +533,34 @@ const georgiaSimTr: Guide = {
   ],
   faq: [
     {
-      question: 'Turistler için en iyi Gürcistan sim kart hangisi?',
+      question: "Gürcistan'da SIM kart nereden alınır?",
       answer:
-        'Herkes için tek bir en iyi seçenek yoktur. Kısa seyahat için yeterli interneti ve kolay aktivasyonu olan turist sim kart Gürcistan paketi seçin. Uzun kalışta Tiflis veya Batum’daki operatör mağazalarında güncel fiyat, süre ve yükleme kurallarını karşılaştırın.',
+        'Magti, Silknet ve Cellfie gibi operatörlerin resmi mağazaları veya yetkili satış noktaları kontrol edilebilir. Paketler değişebileceği için almadan önce güncel detayları doğrulamak önemlidir.',
     },
     {
-      question: 'Tiflis sim kart şehirde alınabilir mi?',
+      question: "Tiflis Havalimanı'nda SIM kart alınır mı?",
       answer:
-        'Evet. Birçok kişi Tiflis sim kart alımını şehir merkezindeki resmi mağazalarda yapar; çünkü paket karşılaştırmak ve aktivasyon desteği almak daha kolaydır.',
+        'Havalimanında seçenekler bulunabilir; ancak şehir merkezindeki resmi mağazaları da karşılaştırmak faydalı olabilir. Fiyat, paket ve kimlik gereklilikleri değişebilir.',
     },
     {
-      question: 'Gürcistan sim kart için pasaport gerekir mi?',
+      question: 'Gürcistan SIM kart için pasaport gerekir mi?',
       answer:
         'Yerel SIM kaydı için genellikle pasaport istenir. Şartlar değişebileceği için satın almadan önce operatörle doğrulayın.',
     },
     {
-      question: 'Gürcistan sim kart mı Gürcistan eSIM mi daha iyi?',
+      question: "Gürcistan'da hangi mobil operatörler kontrol edilebilir?",
       answer:
-        'Yerel numara, arama veya SMS gerekiyorsa fiziksel SIM daha uygundur. Sadece hızlı internet istiyorsanız ve telefonunuz destekliyorsa Gürcistan eSIM pratik olabilir.',
+        'Magti, Silknet ve Cellfie yaygın olarak karşılaştırılır. Kapsama, paket süresi, hotspot kuralları ve dahil hizmetler operatöre ve bölgeye göre değişebilir.',
+    },
+    {
+      question: "Gürcistan'da eSIM kullanılır mı?",
+      answer:
+        'Cihazı uyumlu ve kilitsiz olan kullanıcılar eSIM seçeneklerini değerlendirebilir. Paketin sadece internet sunup sunmadığını ve yerel numaraya ihtiyaç duyup duymadığını kontrol et.',
+    },
+    {
+      question: 'Gürcistan internet hattı alırken neye dikkat edilmeli?',
+      answer:
+        'Gideceğin bölgedeki kapsama alanını, internet kotasını, geçerlilik süresini, hız veya adil kullanım sınırlarını, hotspot desteğini ve yükleme seçeneklerini karşılaştır.',
     },
   ],
 };
@@ -632,7 +680,7 @@ const serbiaSimEn: Guide = {
     'For most visitors, a Serbia SIM card from an official operator store is the most practical way to get reliable mobile internet in Serbia and a local phone number. A Belgrade SIM card is easy to arrange in the city, while airport or arrival-area options are useful if you need data immediately.',
     [
       'Decide whether you need only mobile data or also a Serbian phone number for calls, SMS, delivery apps, apartment viewings or bank appointments.',
-      'Compare tourist SIM Serbia and prepaid packages from Yettel Serbia, A1 Serbia and mts Telekom Srbija, then check current price, validity and included services before buying.',
+      'Compare prepaid and visitor packages from Yettel Serbia, A1 Serbia and mts, then check the current price, validity and included services before buying.',
       'Bring your passport and an unlocked phone to an official store, airport counter or trusted city center sales point.',
       'Ask staff to activate the SIM, confirm the data allowance, validity period, hotspot/tethering rules, top-up method and whether calls/SMS are included.',
       'Before leaving the counter, test mobile internet in Serbia by opening a website, checking balance and confirming that the operator app or top-up method works.',
@@ -647,20 +695,33 @@ const serbiaSimEn: Guide = {
       'Buying before checking that your phone is unlocked.',
       'Choosing only by advertised data size without checking coverage for Belgrade, Novi Sad, mountain areas or your travel route.',
       'Leaving the store before activation, mobile data and top-up are tested.',
-      'Assuming every tourist SIM Serbia package includes a local phone number, calls or SMS.',
+      'Assuming every visitor package includes a local phone number, calls or SMS.',
       'Using unclear resellers when an official operator store is available nearby.',
     ],
   ),
-  title: 'Serbia SIM card guide for travelers',
+  title: 'Serbia SIM Card Guide',
+  lastUpdated: '2026-07-14',
   description:
-    'Practical guide to getting a Serbia SIM card, Belgrade SIM card or tourist SIM Serbia package with documents, where to buy, traveler types and FAQs.',
+    'Compare Serbia SIM card options, where to buy one in Belgrade, required documents, mobile internet setup and current package details.',
   summary:
-    'A Serbia SIM card is usually best if you want mobile internet in Serbia plus a local phone number. Compare Yettel Serbia, A1 Serbia and mts Telekom Srbija packages and verify current terms before buying.',
+    'A local Serbia SIM card can provide mobile internet and a Serbian phone number. Compare Yettel Serbia, A1 Serbia and mts packages, then confirm coverage, validity and activation details before buying.',
+  mobileInternetTips: [
+    'Test mobile data, balance checks and the top-up method before leaving the sales point.',
+    'Check coverage for Belgrade, Novi Sad and any regional routes on your plan.',
+    'Confirm validity, renewal, speed or fair-use limits and whether hotspot use is supported.',
+    'Ask how long the number stays active if you plan to top up or return later.',
+  ],
+  simComparison: {
+    physicalSim:
+      'Useful when you need a Serbian number, calls, SMS or in-store setup support. Registration commonly requires a passport.',
+    esim:
+      'Useful for quick data on a compatible unlocked phone. Check whether the plan is data-only or includes a Serbian number.',
+  },
   travelerOptions: [
     {
       label: 'Short trip',
       recommendation:
-        'A tourist SIM Serbia or prepaid starter package is usually enough for maps, messaging and ride-hailing. Prioritize simple activation, enough data and clear validity dates.',
+        'A prepaid starter package can cover maps, messaging and ride-hailing. Prioritize simple activation, enough data and a clear validity period.',
     },
     {
       label: 'Long stay',
@@ -701,7 +762,7 @@ const serbiaSimEn: Guide = {
     },
   ],
   verificationNote:
-    'Last updated: 2026-07-02. Operator packages, registration rules, network coverage and tourist SIM Serbia offers may change. Always verify updated packages with Yettel Serbia, A1 Serbia, mts Telekom Srbija or the provider before buying.',
+    'Last updated: 2026-07-14. Operator packages, registration rules and coverage can change. Verify current details with Yettel Serbia, A1 Serbia, mts or the provider before buying.',
   links: [
     { label: 'Yettel Serbia', url: 'https://www.yettel.rs/' },
     { label: 'A1 Serbia', url: 'https://www.a1.rs/' },
@@ -709,24 +770,34 @@ const serbiaSimEn: Guide = {
   ],
   faq: [
     {
-      question: 'What is the best Serbia SIM card for tourists?',
+      question: 'Where can I buy a SIM card in Serbia?',
       answer:
-        'There is no single best option for every traveler. For short trips, choose a tourist SIM Serbia or prepaid package with enough data and easy activation. For longer stays, compare Yettel Serbia, A1 Serbia and mts Telekom Srbija in official stores.',
+        'Official Yettel Serbia, A1 Serbia and mts stores or authorized sales points are useful places to check. Confirm current package and registration details before buying.',
     },
     {
-      question: 'Can I buy a Belgrade SIM card after arriving in the city?',
+      question: 'Where can I buy a SIM card in Belgrade?',
       answer:
-        'Yes. Many travelers buy a Belgrade SIM card from official operator stores or shopping-center branches because it is easier to compare plans and get activation help.',
+        'Operator stores and authorized sales points in central areas or shopping centers can be practical. Arrival-area options may also exist, but availability can change.',
     },
     {
       question: 'Do I need a passport for a Serbia SIM card?',
       answer:
-        'A passport is commonly requested for local SIM registration. Requirements can change, so verify with the operator before buying.',
+        'A passport is commonly requested for local SIM registration. Requirements can change, so check with the operator before purchasing.',
     },
     {
-      question: 'Is a Serbia SIM card better than a Serbia eSIM?',
+      question: 'Which mobile operators are commonly checked in Serbia?',
       answer:
-        'A physical SIM is better if you need a local phone number, calls or SMS. A Serbia eSIM can be better if you only need quick data and your phone supports eSIM.',
+        'Yettel Serbia, A1 Serbia and mts are commonly compared. Coverage, package validity, hotspot rules and included services may differ.',
+    },
+    {
+      question: 'Can I use an eSIM in Serbia?',
+      answer:
+        'An eSIM can be useful for quick data if your phone is compatible and unlocked. Check whether the plan includes only data or also a Serbian number, calls or SMS.',
+    },
+    {
+      question: 'What should I check for mobile internet in Serbia?',
+      answer:
+        'Compare coverage, data allowance, validity, renewal rules, speed or fair-use limits, hotspot support and top-up options. Longer stays may need a different package.',
     },
   ],
 };
@@ -846,7 +917,7 @@ const serbiaSimTr: Guide = {
     'Çoğu ziyaretçi için resmi operatör mağazasından alınan Sırbistan sim kart, güvenilir Sırbistan mobil internet ve yerel telefon numarası için en pratik seçenektir. Belgrad sim kart şehir merkezinde kolayca alınabilir; inişte hemen internete ihtiyaç varsa havalimanı veya varış noktası seçenekleri işe yarar.',
     [
       'Sadece internet mi, yoksa arama, SMS, teslimat uygulamaları, ev görüşmeleri veya banka randevuları için Sırp telefon numarası da mı gerektiğine karar verin.',
-      'Yettel Serbia, A1 Serbia ve mts Telekom Srbija üzerinden turist sim kart Sırbistan ve hazır kart paketlerini karşılaştırın; satın almadan önce güncel fiyatı, süreyi ve dahil hizmetleri kontrol edin.',
+      'Yettel Serbia, A1 Serbia ve mts üzerinden hazır kart veya ziyaretçi paketlerini karşılaştırın; güncel fiyatı, süreyi ve dahil hizmetleri kontrol edin.',
       'Pasaportunuzu ve SIM kilidi olmayan telefonunuzu resmi mağazaya, havalimanı noktasına veya güvenilir şehir merkezi satış noktasına götürün.',
       'SIM’in aktive edildiğini, Sırbistan internet paketi kotasını, geçerlilik süresini, hotspot kurallarını, yükleme yöntemini ve arama/SMS dahil olup olmadığını teyit edin.',
       'Mağazadan ayrılmadan Sırbistan mobil internet bağlantısını test edin; bir web sitesi açın, bakiyeyi kontrol edin ve operatör uygulaması ya da yükleme yönteminin çalıştığından emin olun.',
@@ -861,20 +932,33 @@ const serbiaSimTr: Guide = {
       'Telefonun SIM kilidini kontrol etmeden paket almak.',
       'Belgrad, Novi Sad, dağ bölgeleri veya seyahat rotası için kapsama alanını kontrol etmeden sadece internet kotasına bakmak.',
       'Aktivasyon, mobil internet ve yükleme yöntemini test etmeden mağazadan ayrılmak.',
-      'Her turist sim kart Sırbistan paketinde yerel numara, arama veya SMS olduğunu varsaymak.',
+      'Her ziyaretçi paketinde yerel numara, arama veya SMS olduğunu varsaymak.',
       'Yakında resmi operatör mağazası varken belirsiz satıcılardan almak.',
     ],
   ),
-  title: 'Sırbistan sim kart rehberi',
+  title: 'Sırbistan SIM Kart Rehberi',
+  lastUpdated: '2026-07-14',
   description:
-    'Sırbistan sim kart, Belgrad sim kart ve turist sim kart Sırbistan seçenekleri için belge, satın alma noktası, seyahat tipi önerileri ve SSS rehberi.',
+    'Sırbistan SIM kart seçeneklerini, Belgrad’da nereden alınacağını, gerekli belgeleri, mobil internet kurulumunu ve paket detaylarını karşılaştır.',
   summary:
-    'Sırbistan sim kart, Sırbistan mobil internet yanında yerel telefon numarası da isteyenler için genellikle en doğru seçenektir. Yettel Serbia, A1 Serbia ve mts Telekom Srbija paketlerini karşılaştırıp güncel şartları doğrulayın.',
+    'Yerel Sırbistan SIM kart, mobil internetle birlikte Sırp telefon numarası sağlayabilir. Yettel Serbia, A1 Serbia ve mts paketlerini karşılaştırıp kapsama, süre ve aktivasyon ayrıntılarını doğrula.',
+  mobileInternetTips: [
+    'Satış noktasından ayrılmadan mobil interneti, bakiye sorgulamayı ve yükleme yöntemini test et.',
+    'Belgrad, Novi Sad ve planındaki bölgesel rotalar için kapsama alanını kontrol et.',
+    'Geçerlilik, yenileme, hız veya adil kullanım sınırları ve hotspot desteğini doğrula.',
+    'Uzun kalacak veya tekrar geleceksen numaranın ne kadar süre aktif kaldığını sor.',
+  ],
+  simComparison: {
+    physicalSim:
+      'Sırp numarası, arama, SMS veya mağazada kurulum desteği gerekiyorsa kullanışlıdır. Kayıt için genellikle pasaport istenir.',
+    esim:
+      'Uyumlu ve kilitsiz telefonda hızlı internet için pratiktir. Paketin sadece internet mi sunduğunu, Sırp numarası içerip içermediğini kontrol et.',
+  },
   travelerOptions: [
     {
       label: 'Kısa seyahat',
       recommendation:
-        'Turist sim kart Sırbistan veya hazır kart başlangıç paketi genellikle harita, mesajlaşma ve ulaşım uygulamaları için yeterlidir. Kolay aktivasyon, yeterli internet ve net geçerlilik süresine bakın.',
+        'Hazır kart başlangıç paketi harita, mesajlaşma ve ulaşım uygulamaları için yeterli olabilir. Kolay aktivasyon, yeterli internet ve net geçerlilik süresine bakın.',
     },
     {
       label: 'Uzun kalış',
@@ -915,7 +999,7 @@ const serbiaSimTr: Guide = {
     },
   ],
   verificationNote:
-    'Son güncelleme: 2026-07-02. Operatör paketleri, kayıt kuralları, kapsama ve turist sim kart Sırbistan teklifleri değişebilir. Satın almadan önce Yettel Serbia, A1 Serbia, mts Telekom Srbija veya ilgili sağlayıcıdan güncel paketi doğrulayın.',
+    'Son güncelleme: 2026-07-14. Operatör paketleri, kayıt kuralları ve kapsama değişebilir. Satın almadan önce Yettel Serbia, A1 Serbia, mts veya ilgili sağlayıcıdan güncel detayları doğrula.',
   links: [
     { label: 'Yettel Serbia', url: 'https://www.yettel.rs/' },
     { label: 'A1 Serbia', url: 'https://www.a1.rs/' },
@@ -923,24 +1007,34 @@ const serbiaSimTr: Guide = {
   ],
   faq: [
     {
-      question: 'Turistler için en iyi Sırbistan sim kart hangisi?',
+      question: "Sırbistan'da SIM kart için hangi operatörler var?",
       answer:
-        'Herkes için tek bir en iyi seçenek yoktur. Kısa seyahat için yeterli internet ve kolay aktivasyon sunan turist sim kart Sırbistan veya hazır kart paketi seçin. Uzun kalışta Yettel Serbia, A1 Serbia ve mts Telekom Srbija seçeneklerini resmi mağazalarda karşılaştırın.',
+        'Yettel Serbia, A1 Serbia ve mts gibi operatörler başlangıç için kontrol edilebilir. Paketler ve şartlar değişebileceği için güncel bilgileri operatörlerden doğrulamak önemlidir.',
     },
     {
-      question: 'Belgrad sim kart şehirde alınabilir mi?',
+      question: "Belgrad'da SIM kart nereden alınır?",
       answer:
-        'Evet. Birçok gezgin Belgrad sim kart alımını resmi operatör mağazalarında veya alışveriş merkezi şubelerinde yapar; çünkü paket karşılaştırmak ve aktivasyon desteği almak daha kolaydır.',
+        'Belgrad’da operatör mağazaları, yetkili satış noktaları ve bazı alışveriş merkezi şubeleri kontrol edilebilir. Pasaport veya kimlik gereklilikleri değişebilir.',
     },
     {
-      question: 'Sırbistan sim kart için pasaport gerekir mi?',
+      question: 'Sırbistan SIM kart için pasaport gerekir mi?',
       answer:
         'Yerel SIM kaydı için genellikle pasaport istenir. Şartlar değişebileceği için satın almadan önce operatörle doğrulayın.',
     },
     {
-      question: 'Sırbistan sim kart mı Sırbistan eSIM mi daha iyi?',
+      question: "Sırbistan'da eSIM kullanılabilir mi?",
       answer:
-        'Yerel numara, arama veya SMS gerekiyorsa fiziksel SIM daha uygundur. Sadece hızlı internet istiyorsanız ve telefonunuz destekliyorsa Sırbistan eSIM pratik olabilir.',
+        'Uyumlu ve kilitsiz telefonlarda eSIM hızlı internet için değerlendirilebilir. Paketin yalnızca internet sunup sunmadığını ve Sırp telefon numarası içerip içermediğini kontrol et.',
+    },
+    {
+      question: "Sırbistan'da mobil internet için neye dikkat edilmeli?",
+      answer:
+        'İlk hafta için kapsama alanı, internet paketi, kullanım süresi, yenileme şartları, hotspot desteği ve yükleme seçenekleri karşılaştırılabilir.',
+    },
+    {
+      question: 'Havalimanından mı, şehirden mi SIM kart alınmalı?',
+      answer:
+        'Havalimanı veya varış noktası hemen bağlantı için pratik olabilir. Şehirdeki resmi mağazalar ise paketleri daha sakin karşılaştırmaya yardımcı olabilir; bulunabilirlik değişebilir.',
     },
   ],
 };
@@ -1052,6 +1146,266 @@ const serbiaEsimTr: Guide = {
   ],
 };
 
+const georgiaSimRu: Guide = {
+  ...ruGuide(
+    'georgia',
+    'sim-card',
+    'High',
+    'SIM-карту в Грузии удобно покупать в официальном салоне оператора. В Тбилиси и Батуми можно сравнить Magti, Silknet и Cellfie, уточнить условия пакета и проверить мобильный интернет до ухода из салона.',
+    [
+      'Решите, нужен ли вам только мобильный интернет или также грузинский номер для звонков, SMS и местных сервисов.',
+      'Сравните актуальные пакеты Magti, Silknet и Cellfie по покрытию, сроку действия и включённым услугам.',
+      'Возьмите паспорт и разблокированный телефон в официальный салон, городскую точку продаж или стойку в аэропорту.',
+      'Попросите сотрудника активировать SIM-карту и объяснить пополнение, проверку баланса и условия раздачи интернета.',
+      'До ухода откройте сайт, проверьте баланс и убедитесь, что мобильный интернет работает.',
+    ],
+    ['Паспорт', 'Разблокированный телефон', 'Банковская карта или наличные в лари', 'Адрес отеля или проживания, если попросят'],
+    [
+      'Перед покупкой уточните объём интернета, срок действия и правила продления — пакеты могут меняться.',
+      'Проверьте покрытие не только в Тбилиси, но и в других местах по вашему маршруту.',
+      'Уточните наличие местного номера, звонков, SMS, раздачи интернета и удобного способа пополнения.',
+    ],
+    [
+      'Покупать SIM-карту, не проверив блокировку телефона.',
+      'Выбирать пакет только по объёму трафика, не проверяя покрытие и срок действия.',
+      'Уходить до активации и проверки мобильного интернета.',
+      'Считать, что любой пакет включает местный номер, звонки и SMS.',
+      'Покупать у случайного продавца, когда рядом есть официальный салон.',
+    ],
+  ),
+  title: 'SIM-карта в Грузии',
+  description:
+    'Как купить SIM-карту в Грузии и Тбилиси: операторы, документы, аэропорт или город, мобильный интернет, eSIM и советы на первую неделю.',
+  summary:
+    'Местная SIM-карта может дать мобильный интернет в Грузии и грузинский номер. Сравните Magti, Silknet и Cellfie, затем уточните покрытие, срок действия и активацию.',
+  mobileInternetTips: [
+    'До ухода из точки продаж проверьте интернет, баланс и способ пополнения.',
+    'Уточните покрытие в Тбилиси, Батуми и на горных или региональных маршрутах.',
+    'Проверьте срок действия, продление, ограничения скорости и возможность раздачи интернета.',
+    'Сохраните доступ к основной SIM-карте, если нужны коды из банков или сервисов вашей страны.',
+  ],
+  simComparison: {
+    physicalSim:
+      'Подходит, если нужны грузинский номер, звонки, SMS или помощь в салоне. Для регистрации обычно нужен паспорт.',
+    esim:
+      'Подходит для быстрого интернета на совместимом разблокированном телефоне. Многие туристические eSIM работают только с передачей данных.',
+  },
+  lastUpdated: '2026-07-14',
+  travelerOptions: [
+    {
+      label: 'Короткая поездка',
+      recommendation:
+        'Для карт, мессенджеров и такси может хватить предоплаченного пакета с понятным сроком действия. Сравните актуальные условия перед покупкой.',
+    },
+    {
+      label: 'Долгое пребывание',
+      recommendation:
+        'В официальном салоне уточните регулярные пакеты, способы пополнения и срок активности номера.',
+    },
+    {
+      label: 'Много мобильного интернета',
+      recommendation:
+        'Сравните объём трафика, покрытие по маршруту, ограничения скорости, раздачу интернета и правила справедливого использования.',
+    },
+    {
+      label: 'Нужен местный номер',
+      recommendation:
+        'Физическая SIM-карта местного оператора может быть удобнее туристической eSIM. Уточните, входят ли звонки и SMS.',
+    },
+  ],
+  whereToGet: [
+    {
+      label: 'Аэропорт',
+      details:
+        'Подходит, если интернет нужен сразу после прилёта. Ассортимент и условия могут отличаться от городских салонов.',
+    },
+    {
+      label: 'Центр города',
+      details:
+        'В Тбилиси и Батуми обычно проще спокойно сравнить пакеты и получить помощь с настройкой.',
+    },
+    {
+      label: 'Официальные салоны',
+      details:
+        'Салоны Magti, Silknet и Cellfie удобны для регистрации, активации и проверки актуальных условий.',
+    },
+    {
+      label: 'eSIM',
+      details:
+        'eSIM может подойти для быстрого доступа к интернету. Проверьте совместимость телефона, наличие местного номера и условия пакета.',
+    },
+  ],
+  verificationNote:
+    'Обновлено: 2026-07-14. Пакеты, требования к документам и покрытие могут меняться. Перед покупкой проверьте актуальные условия у Magti, Silknet, Cellfie или выбранного провайдера.',
+  links: [
+    { label: 'Magti', url: 'https://www.magticom.ge/en' },
+    { label: 'Silknet', url: 'https://silknet.com/' },
+    { label: 'Cellfie', url: 'https://cellfie.ge/' },
+  ],
+  faq: [
+    {
+      question: 'Где купить SIM-карту в Грузии?',
+      answer:
+        'Можно проверить официальные салоны и авторизованные точки Magti, Silknet и Cellfie. Перед покупкой уточните актуальный пакет и условия регистрации.',
+    },
+    {
+      question: 'Можно ли купить SIM-карту в аэропорту Тбилиси?',
+      answer:
+        'В аэропорту могут быть точки продаж, но полезно также сравнить официальные салоны в городе. Цена, набор услуг и требования к документам могут отличаться.',
+    },
+    {
+      question: 'Нужен ли паспорт для SIM-карты в Грузии?',
+      answer:
+        'Для регистрации местной SIM-карты обычно просят паспорт. Требования могут меняться, поэтому уточните их у оператора.',
+    },
+    {
+      question: 'Каких операторов обычно сравнивают в Грузии?',
+      answer:
+        'Часто сравнивают Magti, Silknet и Cellfie. Покрытие, срок действия, раздача интернета и включённые услуги могут различаться.',
+    },
+    {
+      question: 'Можно ли использовать eSIM в Грузии?',
+      answer:
+        'eSIM может быть удобна для быстрого подключения, если телефон совместим и разблокирован. Проверьте, нужен ли вам местный номер или достаточно передачи данных.',
+    },
+    {
+      question: 'Что проверить перед покупкой мобильного интернета в Грузии?',
+      answer:
+        'Сравните покрытие по маршруту, объём трафика, срок действия, ограничения скорости, раздачу интернета, пополнение и наличие звонков или SMS.',
+    },
+  ],
+};
+
+const serbiaSimRu: Guide = {
+  ...ruGuide(
+    'serbia',
+    'sim-card',
+    'High',
+    'SIM-карту в Сербии удобно покупать в официальном салоне оператора. В Белграде и Нови-Саде можно сравнить Yettel Serbia, A1 Serbia и mts, уточнить регистрацию и проверить мобильный интернет на месте.',
+    [
+      'Решите, нужен ли только интернет или также сербский номер для звонков, SMS, доставки и местных сервисов.',
+      'Сравните актуальные пакеты Yettel Serbia, A1 Serbia и mts по покрытию, сроку действия и включённым услугам.',
+      'Возьмите паспорт и разблокированный телефон в официальный салон или авторизованную точку продаж.',
+      'Попросите активировать SIM-карту и объяснить пополнение, продление, проверку баланса и раздачу интернета.',
+      'До ухода проверьте мобильный интернет, баланс и способ пополнения.',
+    ],
+    ['Паспорт', 'Разблокированный телефон', 'Банковская карта или наличные в динарах', 'Адрес проживания, если попросят'],
+    [
+      'Уточните объём интернета, срок действия, продление и правила сохранения номера — условия могут меняться.',
+      'Проверьте покрытие в Белграде, Нови-Саде и других местах по вашему маршруту.',
+      'Сравните раздачу интернета, ограничения скорости, звонки, SMS и способы пополнения.',
+    ],
+    [
+      'Покупать SIM-карту, не проверив блокировку телефона.',
+      'Выбирать пакет без проверки покрытия и срока действия.',
+      'Уходить до активации и теста мобильного интернета.',
+      'Считать, что любой пакет включает местный номер, звонки и SMS.',
+      'Покупать у неясного продавца вместо официальной точки.',
+    ],
+  ),
+  title: 'SIM-карта в Сербии',
+  description:
+    'Как купить SIM-карту в Сербии и Белграде: операторы, документы, аэропорт или город, мобильный интернет, eSIM и советы на первую неделю.',
+  summary:
+    'Местная SIM-карта может дать мобильный интернет в Сербии и сербский номер. Сравните Yettel Serbia, A1 Serbia и mts, затем уточните покрытие, срок действия и активацию.',
+  mobileInternetTips: [
+    'До ухода из точки продаж проверьте интернет, баланс и способ пополнения.',
+    'Уточните покрытие в Белграде, Нови-Саде и на региональных маршрутах.',
+    'Проверьте срок действия, продление, ограничения скорости и возможность раздачи интернета.',
+    'Если планируете долгое пребывание или повторный приезд, спросите о сроке активности номера.',
+  ],
+  simComparison: {
+    physicalSim:
+      'Подходит, если нужны сербский номер, звонки, SMS или помощь в салоне. Для регистрации обычно нужен паспорт.',
+    esim:
+      'Подходит для быстрого интернета на совместимом разблокированном телефоне. Проверьте, включает ли пакет сербский номер или только передачу данных.',
+  },
+  lastUpdated: '2026-07-14',
+  travelerOptions: [
+    {
+      label: 'Короткая поездка',
+      recommendation:
+        'Для карт, мессенджеров и такси может хватить предоплаченного стартового пакета. Проверьте объём интернета и срок действия.',
+    },
+    {
+      label: 'Долгое пребывание',
+      recommendation:
+        'В официальном салоне уточните регулярные предоплаченные пакеты, пополнение и срок активности номера.',
+    },
+    {
+      label: 'Много мобильного интернета',
+      recommendation:
+        'Сравните объём трафика, покрытие, ограничения скорости, раздачу интернета и правила справедливого использования.',
+    },
+    {
+      label: 'Нужен местный номер',
+      recommendation:
+        'Физическая SIM-карта местного оператора может быть удобнее туристической eSIM. Проверьте наличие звонков и SMS.',
+    },
+  ],
+  whereToGet: [
+    {
+      label: 'Аэропорт или зона прилёта',
+      details:
+        'Может быть удобно для подключения сразу после прилёта, но доступность и условия стоит проверить заранее.',
+    },
+    {
+      label: 'Белград',
+      details:
+        'В центре города и торговых центрах можно найти салоны операторов и спокойно сравнить пакеты.',
+    },
+    {
+      label: 'Официальные салоны',
+      details:
+        'Салоны Yettel Serbia, A1 Serbia и mts удобны для регистрации, активации и проверки актуальных условий.',
+    },
+    {
+      label: 'eSIM',
+      details:
+        'eSIM может подойти для быстрого интернета. Проверьте совместимость телефона и наличие сербского номера, звонков или SMS.',
+    },
+  ],
+  verificationNote:
+    'Обновлено: 2026-07-14. Пакеты, правила регистрации и покрытие могут меняться. Перед покупкой проверьте актуальные условия у Yettel Serbia, A1 Serbia, mts или выбранного провайдера.',
+  links: [
+    { label: 'Yettel Serbia', url: 'https://www.yettel.rs/' },
+    { label: 'A1 Serbia', url: 'https://www.a1.rs/' },
+    { label: 'mts', url: 'https://mts.rs/' },
+  ],
+  faq: [
+    {
+      question: 'Где купить SIM-карту в Сербии?',
+      answer:
+        'Можно проверить официальные салоны и авторизованные точки Yettel Serbia, A1 Serbia и mts. Уточните актуальные пакеты и правила регистрации.',
+    },
+    {
+      question: 'Где купить SIM-карту в Белграде?',
+      answer:
+        'Салоны операторов и авторизованные точки есть в центральных районах и торговых центрах. Доступность конкретных пакетов может меняться.',
+    },
+    {
+      question: 'Нужен ли паспорт для SIM-карты в Сербии?',
+      answer:
+        'Для регистрации местной SIM-карты обычно просят паспорт. Перед покупкой лучше уточнить актуальные требования у оператора.',
+    },
+    {
+      question: 'Каких операторов обычно сравнивают в Сербии?',
+      answer:
+        'Часто сравнивают Yettel Serbia, A1 Serbia и mts. Покрытие, срок действия, раздача интернета и включённые услуги могут различаться.',
+    },
+    {
+      question: 'Можно ли использовать eSIM в Сербии?',
+      answer:
+        'eSIM может быть удобна для быстрого подключения на совместимом разблокированном телефоне. Проверьте, включает ли пакет только интернет или также сербский номер.',
+    },
+    {
+      question: 'Что проверить при выборе мобильного интернета в Сербии?',
+      answer:
+        'Сравните покрытие, объём трафика, срок действия, продление, ограничения скорости, раздачу интернета и способы пополнения.',
+    },
+  ],
+};
+
 export const guides: Guide[] = [
   georgiaSimEn,
   georgiaEsimEn,
@@ -1073,12 +1427,12 @@ export const guides: Guide[] = [
   trGuide('serbia', 'bank-account', 'Medium', 'Sırbistan’da bankacılık daha fazla evrak gerektirebilir. Pasaport, yerel kayıt bilgisi ve hesap açma amacınızı hazırlayın.', ['Yabancılarla çalışan bankaları karşılaştırın.', 'Şubeye gitmeden önce belge listesini sorun.', 'Varsa adres veya konaklama kayıt belgesini getirin.', 'Hesap, kart ve transfer ücretlerini inceleyin.', 'Mobil bankacılık ve kart aktivasyonunu test edin.'], ['Pasaport', 'Yerel telefon numarası', 'Varsa adres veya white card', 'İstenirse iş, gelir veya amaç belgeleri'], ['Hesap işletim ve transfer ücretleri değişir.', 'Kart basımı birkaç gün sürebilir.', 'Bazı bankalar yabancılar için daha yüksek ücret alabilir.'], ['Yoğun şubeye randevusuz gitmek.', 'Yabancı müşteri kısıtlarını sormamak.', 'Mobil bankacılık aktif olmadan ayrılmak.']),
   trGuide('serbia', 'rent-apartment', 'Medium', 'Kısa dönem konaklamayla başlayın; daireleri yerinde görün ve kayıt, faturalar, depozito şartlarını netleştirin.', ['Hedef bölgenize yakın geçici konaklama seçin.', 'Mümkünse daireyi gündüz görün.', 'Ev sahibinin adres kaydına destek verip vermediğini sorun.', 'Faturalar, internet ve bina giderlerini netleştirin.', 'Depozito ve taşınma şartlarını yazılı tutun.'], ['Pasaport', 'Depozito bütçesi', 'Kira sözleşmesi veya yazılı anlaşma', 'Uzun kalış için kayıt bilgileri'], ['Depozito çoğu zaman bir aylık kiradır.', 'Faturalar ve bina giderleri ayrı olabilir.', 'Belgrad semtlerine göre fiyatlar çok değişir.'], ['Adres kaydını konuşmamak.', 'Kış fatura maliyetini düşük tahmin etmek.', 'Mülk veya emlakçı bilgilerini doğrulamadan depozito göndermek.']),
   trGuide('serbia', 'transport', 'High', 'Belgrad’da otobüs, tramvay, yürüyüş ve araç çağırma uygulamalarıyla ulaşım kolaydır. Bilet sistemi değişebileceği için güncel kuralları yerelde kontrol edin.', ['Harita ve araç çağırma uygulamalarını kurun.', 'Bulunduğunuz şehir için toplu taşıma ödeme kurallarını kontrol edin.', 'Varışta resmi havalimanı transferi veya uygulama aracı kullanın.', 'Şehirler arası için otobüs ve tren saatlerini karşılaştırın.'], ['İnternetli telefon', 'Ödeme kartı veya yerel ödeme seçeneği', 'Şehirler arası bilet için istenirse kimlik'], ['Şehir içi ulaşım genelde düşük maliyetlidir.', 'Havalimanı transferleri ve uygulama yolculukları daha pahalıdır.', 'Bazı rotalarda şehirler arası otobüs trenden hızlı olabilir.'], ['Eski bilet bilgisine güvenmek.', 'Peron değişikliklerini kontrol etmeden binmek.', 'Resmi olmayan havalimanı taksisine binmek.']),
-  ruGuide('georgia', 'sim-card', 'High', 'Для большинства поездок удобнее всего купить SIM-карту у официального оператора после приезда. Нужны паспорт, разблокированный телефон и проверка интернета до ухода из магазина.', ['Решите, нужен ли только интернет или ещё местный номер.', 'Сравните пакеты Magti, Silknet и Cellfie перед покупкой.', 'Возьмите паспорт и разблокированный телефон.', 'Попросите сотрудника активировать SIM-карту и объяснить срок действия пакета.', 'Проверьте интернет, баланс и пополнение до ухода из точки продаж.'], ['Паспорт', 'Разблокированный телефон', 'Банковская карта или наличные', 'Адрес проживания, если попросят'], ['Пакеты и цены могут меняться.', 'В аэропорту удобно, но в городе часто проще сравнить варианты.', 'Для долгого пребывания уточните условия пополнения.'], ['Покупать SIM без проверки, что телефон разблокирован.', 'Уходить до активации и теста интернета.', 'Не уточнять срок действия пакета.']),
+  georgiaSimRu,
   ruGuide('georgia', 'esim', 'High', 'eSIM удобна, если телефон её поддерживает и нужен интернет сразу после посадки. Для местного номера или долгого пребывания сравните её с физической SIM-картой.', ['Проверьте поддержку eSIM в телефоне.', 'Купите и установите eSIM до вылета по Wi-Fi.', 'Сохраните QR-код или инструкцию активации.', 'После посадки включите eSIM и передачу данных.', 'Проверьте карты и мессенджеры до выхода из аэропорта.'], ['Телефон с поддержкой eSIM', 'Wi-Fi для установки', 'Банковская карта', 'Инструкция от провайдера'], ['Пакеты eSIM часто стоят дороже местной SIM.', 'Некоторые eSIM дают только интернет без местного номера.', 'Срок действия может начинаться при установке или первом подключении.'], ['Покупать eSIM без проверки совместимости телефона.', 'Удалять eSIM до конца поездки.', 'Не проверять, когда начинается срок действия.']),
   ruGuide('georgia', 'bank-account', 'Medium', 'Открыть счёт возможно для многих приезжих, но требования отличаются по банку и отделению. Готовьте паспорт, местный номер и объяснение цели счёта.', ['Сравните крупные банки до визита.', 'Выделите время на посещение отделения.', 'Подготовьте паспорт, номер телефона и адрес.', 'Спросите про комиссии, карту и переводы.', 'Активируйте онлайн-банк до ухода из отделения.'], ['Паспорт', 'Местный номер телефона', 'Местный адрес', 'Документы о доходе или цели, если попросят'], ['Могут быть ежемесячные комиссии.', 'Стоимость карты и переводов отличается.', 'Премиальные пакеты не всегда нужны.'], ['Идти без местного номера.', 'Не спрашивать про комиссии.', 'Думать, что правила одинаковые во всех отделениях.']),
   ruGuide('georgia', 'rent-apartment', 'Medium', 'На первую неделю лучше взять временное жильё, а долгосрочную квартиру смотреть лично до оплаты депозита.', ['Забронируйте временное жильё на первые дни.', 'Сравните районы по транспорту и шуму.', 'Проверьте отопление, воду, интернет и вход в дом.', 'Запишите депозит, коммунальные и срок аренды.', 'Не переводите крупные суммы до просмотра и проверки владельца.'], ['Паспорт или копия паспорта', 'Деньги на депозит', 'Договор или переписка с условиями'], ['Депозит часто равен одному месяцу.', 'Коммунальные могут оплачиваться отдельно.', 'Комиссия агента зависит от ситуации.'], ['Подписывать без проверки коммунальных.', 'Платить до просмотра квартиры.', 'Не учитывать качество отопления зимой.']),
   ruGuide('georgia', 'transport', 'High', 'Для приезда удобны приложения такси, а для регулярных поездок пригодятся транспортная карта или бесконтактная оплата там, где она доступна.', ['Установите приложения такси до приезда.', 'Проверьте зоны посадки в аэропорту.', 'Уточните способ оплаты общественного транспорта.', 'Держите немного наличных для районов вне центра.', 'Сравните варианты междугородних поездок заранее.'], ['Телефон с интернетом', 'Банковская карта', 'Транспортная карта, если нужна'], ['Поездки из аэропорта дороже городских.', 'Общественный транспорт обычно самый дешёвый.', 'Междугородние цены зависят от маршрута.'], ['Садиться в неофициальное такси без цены.', 'Думать, что карта работает везде.', 'Не проверять последние рейсы.']),
-  ruGuide('serbia', 'sim-card', 'High', 'Туристическую SIM-карту в Сербии проще купить у официального оператора. Возьмите паспорт и проверьте интернет до ухода из точки продаж.', ['Решите, нужен ли только интернет или местный номер.', 'Сравните пакеты Yettel, A1 и mts.', 'Возьмите паспорт и разблокированный телефон.', 'Попросите активировать SIM-карту на месте.', 'Проверьте интернет, баланс и пополнение.'], ['Паспорт', 'Разблокированный телефон', 'Банковская карта или наличные', 'Адрес проживания, если попросят'], ['Пакеты и цены меняются.', 'Аэропорт удобен для первого дня, городские точки дают больше времени на выбор.', 'Для долгого пребывания уточните пополнения и месячные пакеты.'], ['Покупать SIM у случайного продавца.', 'Не проверять покрытие для своего маршрута.', 'Уходить до активации.']),
+  serbiaSimRu,
   ruGuide('serbia', 'esim', 'High', 'eSIM подходит, если нужен интернет сразу после приезда и телефон поддерживает eSIM. Для местного номера лучше сравнить с физической SIM-картой.', ['Проверьте поддержку eSIM.', 'Купите eSIM до поездки и установите по Wi-Fi.', 'Сохраните инструкцию активации.', 'После посадки включите линию eSIM.', 'Проверьте карты и мессенджеры.'], ['Телефон с поддержкой eSIM', 'Wi-Fi для установки', 'Банковская карта', 'Инструкция провайдера'], ['eSIM часто дороже местной SIM.', 'Многие eSIM дают только интернет.', 'Срок действия зависит от условий пакета.'], ['Не проверять совместимость телефона.', 'Удалять eSIM во время поездки.', 'Не уточнять срок действия.']),
   ruGuide('serbia', 'bank-account', 'Medium', 'Банк в Сербии может попросить больше документов. Подготовьте паспорт, местную регистрацию или адрес и понятную цель открытия счёта.', ['Сравните банки для нерезидентов.', 'Уточните список документов до визита.', 'Возьмите паспорт, номер телефона и адрес.', 'Спросите про обслуживание, карту и переводы.', 'Проверьте мобильный банк перед уходом.'], ['Паспорт', 'Местный номер телефона', 'Адрес или регистрация, если есть', 'Документы о доходе или цели, если попросят'], ['Комиссии отличаются по банкам.', 'Выпуск карты может занять несколько дней.', 'Для нерезидентов условия могут быть дороже.'], ['Идти без уточнения документов.', 'Не спрашивать про ограничения для нерезидентов.', 'Уходить до активации мобильного банка.']),
   ruGuide('serbia', 'rent-apartment', 'Medium', 'Начните с краткосрочного жилья, затем смотрите квартиры лично и заранее уточняйте регистрацию, коммунальные и депозит.', ['Выберите временное жильё рядом с нужным районом.', 'Смотрите квартиры при дневном свете.', 'Спросите, поможет ли владелец с регистрацией адреса.', 'Уточните коммунальные, интернет и расходы дома.', 'Запишите депозит и условия заезда.'], ['Паспорт', 'Деньги на депозит', 'Договор или письменные условия', 'Данные регистрации для долгого пребывания'], ['Депозит часто равен одному месяцу.', 'Коммунальные и расходы дома могут быть отдельно.', 'Цены сильно зависят от района Белграда.'], ['Не обсуждать регистрацию адреса.', 'Недооценить зимние коммунальные.', 'Отправлять депозит без проверки владельца.']),
