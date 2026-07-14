@@ -16,6 +16,9 @@ export type Guide = {
   quickAnswer: string;
   travelerOptions?: { label: string; recommendation: string }[];
   whereToGet?: { label: string; details: string }[];
+  housingSources?: { label: string; details: string }[];
+  housingChecks?: string[];
+  locationTransportTips?: string[];
   steps: string[];
   documents: string[];
   costs: string[];
@@ -2112,36 +2115,438 @@ const serbiaTransportRu: Guide = {
   ],
 };
 
+const georgiaHousingEn: Guide = {
+  ...enGuide(
+    'georgia',
+    'rent-apartment',
+    'Medium',
+    'For your first week, start with flexible short-term accommodation and compare long-term listings only after checking the apartment, neighborhood, transport and written terms.',
+    [
+      'Book a flexible place for the first few days so you can view longer-term options without rushing.',
+      'Compare MyHome.ge, SS.ge and relevant local Facebook groups to understand current availability.',
+      'Shortlist homes by commute, nearby transport, heating, internet and building access—not photos alone.',
+      'View the property, confirm who you are dealing with and ask for all payment and move-in terms in writing.',
+      'Keep copies of the listing, messages and any agreement, and check current details before paying.',
+    ],
+    ['Passport or ID copy if requested', 'A realistic move-in budget', 'A written list of questions', 'Translation help if the terms are unclear'],
+    [
+      'Confirm the deposit amount, return conditions and payment method in writing before agreeing.',
+      'Ask which utilities, internet or building charges are included and how bills are calculated.',
+      'Clarify the rental term, notice expectations, move-in date and any agent fee; arrangements can vary.',
+      'Use a message trail or written agreement and review every term you do not understand.',
+    ],
+    [
+      'Paying before viewing the apartment or verifying the owner or agent.',
+      'Choosing from photos without checking heating, water, noise and building access.',
+      'Ignoring the daily route to work, study or central transport connections.',
+      'Leaving deposit, utilities, notice or move-in conditions as verbal promises only.',
+      'Relying on one listing source or assuming an old listing is still available.',
+    ],
+  ),
+  title: 'Georgia Housing Guide',
+  description: 'A practical Georgia housing guide covering rental websites, Tbilisi apartment searches, viewing checks, deposits, contracts and first-week tips.',
+  summary: 'Renting in Georgia is easier when you compare several housing websites, inspect homes in person and confirm the deposit, bills and rental terms in writing. Start flexibly, then choose a location that works for your daily travel.',
+  lastUpdated: '2026-07-15',
+  travelerOptions: [
+    { label: 'Short-term stay', recommendation: 'Useful for the first days while you learn the area and arrange viewings. Check cancellation, check-in and extension terms.' },
+    { label: 'Longer rental', recommendation: 'Can suit a settled routine, but inspect the home and neighborhood first and review the written terms carefully.' },
+  ],
+  housingSources: [
+    { label: 'MyHome.ge', details: 'A commonly checked property website in Georgia. Compare listing dates, map locations, details and contact information.' },
+    { label: 'SS.ge', details: 'Another commonly checked source for housing listings. Availability and terms can change, so confirm them directly.' },
+    { label: 'Facebook groups', details: 'Local and newcomer groups may have direct listings. Check how recent the post is and verify the person and property carefully.' },
+    { label: 'Local agents or direct listings', details: 'These can provide more options, but clarify who the agent represents, any fee and the written terms before paying.' },
+  ],
+  housingChecks: [
+    'Confirm the exact address and view the apartment in person or through a live viewing you trust.',
+    'Test heating or cooling, hot water, water pressure, windows, locks, appliances and internet options.',
+    'Ask about typical utility and building charges, what is included and whether any previous balance remains.',
+    'Check the condition of furniture and equipment and record agreed repairs or inventory in writing.',
+  ],
+  locationTransportTips: [
+    'In Tbilisi, compare the walk to a metro station or bus connection with the actual commute you expect to make.',
+    'Check daytime and evening access, nearby groceries and street or building noise before deciding.',
+    'A lower-cost-looking listing farther away may add travel time; compare the full daily routine, not only the address.',
+  ],
+  verificationNote: 'Last updated: 2026-07-15. Listings, availability, fees and rental terms can change. Recheck the current advertisement and written conditions before making a decision.',
+  links: [
+    { label: 'MyHome.ge', url: 'https://www.myhome.ge/en/' },
+    { label: 'SS.ge', url: 'https://home.ss.ge/en/real-estate' },
+    { label: 'Facebook Groups', url: 'https://www.facebook.com/groups/' },
+  ],
+  faq: [
+    { question: 'Where should I start looking for housing in Georgia?', answer: 'MyHome.ge, SS.ge and relevant local Facebook groups are useful starting points. Compare listing details, location, transport access and terms, then confirm current availability directly.' },
+    { question: 'What should I check when looking for an apartment in Tbilisi?', answer: 'Check the neighborhood, daily transport, heating, water, internet, utilities, deposit and written rental terms. Verify who is offering the property and avoid rushing into payment.' },
+    { question: 'Is a short-term stay or longer rental more practical in Georgia?', answer: 'A short-term stay can give you flexibility during the first week. If you plan a longer rental, viewing the area and comparing written terms first can help.' },
+    { question: 'Can I use local agents or direct listings?', answer: 'Yes, they are commonly checked options, but clarify identity, any agent fee, payment expectations and rental terms. Keep the important details in writing.' },
+  ],
+};
+
+const serbiaHousingEn: Guide = {
+  ...enGuide(
+    'serbia',
+    'rent-apartment',
+    'Medium',
+    'Start with flexible accommodation, then compare Serbian housing websites and inspect longer-term options before agreeing to a deposit or rental terms.',
+    [
+      'Use short-term accommodation for your first days so you can compare neighborhoods without pressure.',
+      'Check 4zida, Halo Oglasi, Nekretnine.rs and relevant local Facebook groups for current listings.',
+      'Shortlist homes by commute, public transport, building condition, heating and total household costs.',
+      'View the property, verify the person or agency and clarify registration-related questions for your situation.',
+      'Put the deposit, bills, move-in condition and other important terms in writing before paying.',
+    ],
+    ['Passport or ID copy if requested', 'A realistic move-in budget', 'A written list of questions', 'Translation help if the terms are unclear'],
+    [
+      'Confirm the deposit, return conditions and payment method in writing; arrangements differ.',
+      'Ask how utilities, internet, heating and building charges are calculated and paid.',
+      'Clarify the rental period, notice expectations, move-in date and any agency fee before agreeing.',
+      'If address registration matters for your stay, ask what the owner can provide and verify current requirements separately.',
+    ],
+    [
+      'Sending money before viewing the home or checking the owner or agency details.',
+      'Focusing on photos while overlooking heating, building condition, bills or noise.',
+      'Choosing a Belgrade neighborhood without testing the daily transport route.',
+      'Leaving the deposit, utilities, registration discussion or notice terms unwritten.',
+      'Relying on one website or assuming an older advertisement is still current.',
+    ],
+  ),
+  title: 'Serbia Housing Guide',
+  description: 'A practical Serbia housing guide covering rental websites, Belgrade apartment searches, viewing checks, deposits, contracts and first-week tips.',
+  summary: 'Renting in Serbia is easier when you compare several housing websites, inspect the apartment and building, and confirm bills, deposits and rental terms in writing. Check how the location fits your daily route before committing.',
+  lastUpdated: '2026-07-15',
+  travelerOptions: [
+    { label: 'Short-term stay', recommendation: 'Offers flexibility while you compare Belgrade neighborhoods or other locations. Review check-in, cancellation and extension terms.' },
+    { label: 'Longer rental', recommendation: 'May suit a stable routine, but check the apartment, building, total costs and written conditions before agreeing.' },
+  ],
+  housingSources: [
+    { label: '4zida', details: 'A commonly checked Serbian property website. Compare dates, map locations, listing details and contact information.' },
+    { label: 'Halo Oglasi', details: 'A broad classifieds website with housing listings. Confirm that the advertisement and its terms are still current.' },
+    { label: 'Nekretnine.rs', details: 'Another commonly checked housing source. Compare the same area across several listings for context.' },
+    { label: 'Facebook groups and local contacts', details: 'Groups, agents and direct listings can add options, but verify identities, fees, property details and written terms carefully.' },
+  ],
+  housingChecks: [
+    'Confirm the address and view the apartment and shared building areas before agreeing.',
+    'Check heating, hot water, windows, locks, appliances, internet options and signs of damp or damage.',
+    'Ask for a clear explanation of utilities, heating and building charges and whether old balances exist.',
+    'Record furniture condition, meter readings and any agreed repair or move-in detail in writing.',
+  ],
+  locationTransportTips: [
+    'In Belgrade, test the route to work, study or the center at the time you expect to travel.',
+    'Check nearby bus, tram or other current transport connections and the walking conditions around the building.',
+    'Compare groceries, evening access, noise and the full commute rather than choosing by district name alone.',
+  ],
+  verificationNote: 'Last updated: 2026-07-15. Listings, availability, fees, registration procedures and rental terms can change. Verify current details before deciding.',
+  links: [
+    { label: '4zida', url: 'https://www.4zida.rs/' },
+    { label: 'Halo Oglasi', url: 'https://www.halooglasi.com/nekretnine' },
+    { label: 'Nekretnine.rs', url: 'https://www.nekretnine.rs/' },
+  ],
+  faq: [
+    { question: 'Where should I start looking for housing in Serbia?', answer: '4zida, Halo Oglasi, Nekretnine.rs and relevant local Facebook groups are commonly checked starting points. Compare location, transport, deposit and written terms.' },
+    { question: 'What should I check when looking for an apartment in Belgrade?', answer: 'Check the neighborhood, transport, building condition, heating, bills, deposit and rental terms. View the property and verify the person or agency before paying.' },
+    { question: 'Can I use Facebook groups for rentals in Serbia?', answer: 'Local groups can be useful for finding leads, but check whether the post is current and verify the person, property, fees and terms carefully.' },
+    { question: 'Should I ask about address registration before renting?', answer: 'If registration is relevant to your stay, ask what documentation or cooperation the owner can provide. Requirements can vary, so verify current rules with an official source.' },
+  ],
+};
+
+const georgiaHousingTr: Guide = {
+  ...trGuide(
+    'georgia',
+    'rent-apartment',
+    'Medium',
+    'İlk hafta için esnek bir konaklama ayarlayıp uzun dönem Gürcistan kiralık ev ilanlarını; evi, semti, ulaşımı ve yazılı şartları kontrol ettikten sonra değerlendirmek daha güvenli bir başlangıç olabilir.',
+    [
+      'İlk günler için esnek bir konaklama ayarlayarak uzun dönem seçenekleri acele etmeden yerinde görün.',
+      'Güncel ilanları anlamak için MyHome.ge, SS.ge ve ilgili yerel Facebook gruplarını karşılaştırın.',
+      'Evleri yalnızca fotoğraflara göre değil; ulaşım, ısınma, internet, gürültü ve bina girişine göre eleyin.',
+      'Evi görün, görüştüğünüz kişi veya emlakçıyı kontrol edin ve ödeme ile taşınma şartlarını yazılı isteyin.',
+      'İlanın, mesajların ve anlaşmanın kopyalarını saklayın; ödeme öncesinde güncel detayları tekrar doğrulayın.',
+    ],
+    ['İstenirse pasaport veya kimlik kopyası', 'Gerçekçi bir taşınma bütçesi', 'Yazılı soru listesi', 'Şartlar anlaşılmıyorsa çeviri desteği'],
+    [
+      'Depozito tutarını, iade şartlarını ve ödeme yöntemini anlaşmadan önce yazılı netleştirin.',
+      'Fatura, internet ve bina giderlerinden hangilerinin dahil olduğunu ve nasıl hesaplandığını sorun.',
+      'Kira süresi, bildirim beklentisi, taşınma tarihi ve varsa emlakçı ücretini netleştirin; uygulamalar değişebilir.',
+      'Önemli şartları mesaj veya sözleşmeyle kayda alın ve anlamadığınız maddeleri dikkatlice inceleyin.',
+    ],
+    [
+      'Evi görmeden veya ev sahibi ya da emlakçı bilgisini doğrulamadan ödeme yapmak.',
+      'Isınma, su, gürültü ve bina erişimini kontrol etmeden fotoğraflara göre karar vermek.',
+      'İş, okul veya merkezi ulaşım noktalarına günlük rotayı hesaba katmamak.',
+      'Depozito, faturalar, bildirim ve taşınma şartlarını yalnızca sözlü bırakmak.',
+      'Tek bir ilan kaynağına güvenmek veya eski bir ilanın hâlâ uygun olduğunu varsaymak.',
+    ],
+  ),
+  title: 'Gürcistan Ev Kiralama Rehberi',
+  description: 'Gürcistan ev kiralama ve Tiflis ev arama rehberi: kiralık ev siteleri, konum, ulaşım, ev kontrolü, depozito, sözleşme ve ilk hafta ipuçları.',
+  summary: 'Gürcistan ev kiralama sürecinde birkaç ilan kaynağını karşılaştırmak, evi yerinde görmek ve depozito, faturalar ile kira şartlarını yazılı netleştirmek faydalıdır. Önce esnek konaklayıp günlük ulaşımınıza uygun bölgeyi seçin.',
+  lastUpdated: '2026-07-15',
+  travelerOptions: [
+    { label: 'Kısa süreli konaklama', recommendation: 'İlk günlerde bölgeyi tanımak ve evleri görmek için esneklik sağlar. İptal, giriş ve uzatma şartlarını kontrol edin.' },
+    { label: 'Uzun dönem kiralama', recommendation: 'Düzenli yaşam için uygun olabilir; anlaşmadan önce evi, semti, toplam giderleri ve yazılı şartları inceleyin.' },
+  ],
+  housingSources: [
+    { label: 'MyHome.ge', details: 'Gürcistan’da yaygın kontrol edilen emlak sitelerinden biridir. İlan tarihini, harita konumunu, detayları ve iletişim bilgisini karşılaştırın.' },
+    { label: 'SS.ge', details: 'Konut ilanları için sık kontrol edilen başka bir kaynaktır. İlanın güncelliğini ve şartlarını doğrudan doğrulayın.' },
+    { label: 'Facebook grupları', details: 'Yerel ve yeni gelenlere yönelik gruplarda doğrudan ilanlar olabilir. Gönderinin güncelliğini ve kişiyi dikkatlice kontrol edin.' },
+    { label: 'Yerel emlakçılar veya doğrudan ilanlar', details: 'Daha fazla seçenek sağlayabilir; ödeme öncesinde emlakçı rolünü, varsa ücreti ve yazılı şartları netleştirin.' },
+  ],
+  housingChecks: [
+    'Açık adresi teyit edin ve evi yerinde ya da güvendiğiniz canlı bir görüntülü görüşmeyle görün.',
+    'Isıtma veya soğutma, sıcak su, su basıncı, pencere, kilit, cihazlar ve internet seçeneklerini kontrol edin.',
+    'Fatura ve bina giderlerinin nasıl hesaplandığını, nelerin dahil olduğunu ve eski borç bulunup bulunmadığını sorun.',
+    'Eşya durumunu ve kararlaştırılan tamir ya da envanter detaylarını yazılı kayda alın.',
+  ],
+  locationTransportTips: [
+    'Tiflis ev kiralama seçeneklerinde metro veya otobüs durağına yürüyüşü, yapacağınız gerçek günlük rotayla birlikte değerlendirin.',
+    'Karar vermeden önce gündüz ve akşam erişimini, yakındaki marketleri, sokak ve bina gürültüsünü kontrol edin.',
+    'Uzaktaki bir ilan yolculuk süresini artırabilir; yalnızca adrese değil bütün günlük düzene bakın.',
+  ],
+  verificationNote: 'Son güncelleme: 2026-07-15. İlanlar, müsaitlik, ücretler ve kiralama şartları değişebilir. Karar vermeden önce güncel ilanı ve yazılı koşulları yeniden kontrol edin.',
+  links: [
+    { label: 'MyHome.ge', url: 'https://www.myhome.ge/en/' },
+    { label: 'SS.ge', url: 'https://home.ss.ge/en/real-estate' },
+    { label: 'Facebook Grupları', url: 'https://www.facebook.com/groups/' },
+  ],
+  faq: [
+    { question: 'Gürcistan’da ev kiralamaya nereden başlanır?', answer: 'MyHome.ge, SS.ge ve yerel Facebook grupları başlangıç için kontrol edilebilir. İlan detaylarını, konumu, ulaşımı ve şartları dikkatlice karşılaştırmak faydalıdır.' },
+    { question: 'Tiflis’te ev ararken nelere dikkat edilmeli?', answer: 'Konum, ulaşım erişimi, ısınma, depozito, sözleşme şartları, faturalar ve ilanı veren kişinin bilgileri kontrol edilmelidir. Acele karar vermemek daha güvenli olabilir.' },
+    { question: 'Gürcistan’da kısa süreli konaklama mı uzun süreli kiralama mı daha mantıklı?', answer: 'İlk hafta için kısa süreli konaklama daha esnek olabilir. Uzun süreli kiralama düşünüyorsanız bölgeyi görüp şartları karşılaştırmak faydalıdır.' },
+    { question: 'Yerel emlakçı veya doğrudan ilan kullanılabilir mi?', answer: 'Bu seçenekler değerlendirilebilir; ancak kişi veya kurum bilgilerini, varsa emlakçı ücretini, ödeme beklentisini ve yazılı kira şartlarını dikkatlice kontrol etmek gerekir.' },
+  ],
+};
+
+const serbiaHousingTr: Guide = {
+  ...trGuide(
+    'serbia',
+    'rent-apartment',
+    'Medium',
+    'İlk günlerde esnek konaklayın; ardından Sırbistan kiralık ev sitelerini karşılaştırıp uzun dönem evi, binayı, ulaşımı ve yazılı şartları kontrol ederek karar verin.',
+    [
+      'Semtleri baskı altında kalmadan karşılaştırmak için ilk günlerde kısa süreli konaklama kullanın.',
+      'Güncel ilanlar için 4zida, Halo Oglasi, Nekretnine.rs ve ilgili yerel Facebook gruplarını kontrol edin.',
+      'Evleri günlük ulaşım, bina durumu, ısınma, internet ve toplam giderlere göre eleyin.',
+      'Evi görün, kişi veya emlakçı bilgisini kontrol edin ve durumunuza göre adres kaydıyla ilgili soruları sorun.',
+      'Ödeme öncesinde depozito, faturalar, taşınma durumu ve diğer önemli şartları yazılı hale getirin.',
+    ],
+    ['İstenirse pasaport veya kimlik kopyası', 'Gerçekçi bir taşınma bütçesi', 'Yazılı soru listesi', 'Şartlar anlaşılmıyorsa çeviri desteği'],
+    [
+      'Depozitoyu, iade şartlarını ve ödeme yöntemini yazılı netleştirin; uygulamalar değişebilir.',
+      'Faturaların, internetin, ısınmanın ve bina giderlerinin nasıl hesaplanıp ödendiğini sorun.',
+      'Kira süresi, bildirim beklentisi, taşınma tarihi ve varsa emlakçı ücretini anlaşmadan önce netleştirin.',
+      'Adres kaydı sizin için gerekliyse ev sahibinin ne sağlayabileceğini sorun ve güncel şartları ayrıca doğrulayın.',
+    ],
+    [
+      'Evi görmeden veya ev sahibi ya da emlakçı bilgisini kontrol etmeden para göndermek.',
+      'Isınma, bina durumu, faturalar ve gürültü yerine yalnızca fotoğraflara odaklanmak.',
+      'Belgrad’da günlük ulaşım rotasını denemeden semt seçmek.',
+      'Depozito, faturalar, kayıt konuşması veya bildirim şartlarını yazısız bırakmak.',
+      'Tek bir siteye güvenmek veya eski bir ilanın hâlâ güncel olduğunu varsaymak.',
+    ],
+  ),
+  title: 'Sırbistan Ev Kiralama Rehberi',
+  description: 'Sırbistan ev kiralama ve Belgrad ev arama rehberi: konut siteleri, konum, ulaşım, ev kontrolü, depozito, sözleşme ve ilk hafta ipuçları.',
+  summary: 'Sırbistan ev kiralama sürecinde birkaç konut sitesini karşılaştırmak, daireyi ve binayı görmek, fatura, depozito ve kira şartlarını yazılı netleştirmek faydalıdır. Karar vermeden önce konumun günlük rotanıza uygunluğunu kontrol edin.',
+  lastUpdated: '2026-07-15',
+  travelerOptions: [
+    { label: 'Kısa süreli konaklama', recommendation: 'Belgrad semtlerini veya diğer bölgeleri karşılaştırırken esneklik sağlar. Giriş, iptal ve uzatma şartlarını inceleyin.' },
+    { label: 'Uzun dönem kiralama', recommendation: 'Düzenli yaşam için uygun olabilir; evi, binayı, toplam giderleri ve yazılı koşulları kontrol ederek karar verin.' },
+  ],
+  housingSources: [
+    { label: '4zida', details: 'Sırbistan’da yaygın kontrol edilen emlak sitelerinden biridir. Tarih, harita konumu, ilan detayları ve iletişim bilgisini karşılaştırın.' },
+    { label: 'Halo Oglasi', details: 'Konut ilanları da bulunan geniş bir ilan sitesidir. İlanın ve şartların hâlâ güncel olduğunu teyit edin.' },
+    { label: 'Nekretnine.rs', details: 'Sık kontrol edilen başka bir konut kaynağıdır. Aynı bölgedeki farklı ilanları karşılaştırmak faydalı olabilir.' },
+    { label: 'Facebook grupları ve yerel bağlantılar', details: 'Gruplar, emlakçılar ve doğrudan ilanlar seçenek sağlayabilir; kişi, ücret, ev ve yazılı şartları dikkatlice doğrulayın.' },
+  ],
+  housingChecks: [
+    'Açık adresi doğrulayın; daireyi ve binanın ortak alanlarını anlaşmadan önce görün.',
+    'Isıtma, sıcak su, pencere, kilit, cihazlar, internet seçenekleri ile nem veya hasar izlerini kontrol edin.',
+    'Fatura, ısınma ve bina giderlerinin açık dökümünü ve eski borç bulunup bulunmadığını sorun.',
+    'Eşya durumunu, sayaçları ve kararlaştırılan tamir ya da taşınma detaylarını yazılı kayda alın.',
+  ],
+  locationTransportTips: [
+    'Belgrad ev kiralama seçeneklerinde işe, okula veya merkeze rotayı yolculuk yapacağınız saatlerde kontrol edin.',
+    'Yakındaki otobüs, tramvay veya diğer güncel ulaşım bağlantılarını ve bina çevresindeki yürüyüş koşullarını inceleyin.',
+    'Yalnızca semt adına göre karar vermek yerine market, akşam erişimi, gürültü ve toplam yolculuğu karşılaştırın.',
+  ],
+  verificationNote: 'Son güncelleme: 2026-07-15. İlanlar, müsaitlik, ücretler, kayıt uygulamaları ve kira şartları değişebilir. Karar vermeden önce güncel detayları doğrulayın.',
+  links: [
+    { label: '4zida', url: 'https://www.4zida.rs/' },
+    { label: 'Halo Oglasi', url: 'https://www.halooglasi.com/nekretnine' },
+    { label: 'Nekretnine.rs', url: 'https://www.nekretnine.rs/' },
+  ],
+  faq: [
+    { question: 'Sırbistan’da ev kiralamaya nereden başlanır?', answer: '4zida, Halo Oglasi, Nekretnine.rs ve yerel Facebook grupları başlangıç için incelenebilir. Konum, ulaşım, depozito ve sözleşme şartlarını kontrol etmek önemlidir.' },
+    { question: 'Belgrad’da ev ararken nelere dikkat edilmeli?', answer: 'Mahalle, ulaşım, bina durumu, ısınma, fatura detayları, depozito ve kira şartları dikkatlice kontrol edilmelidir. İlan detaylarını karşılaştırmak faydalı olabilir.' },
+    { question: 'Sırbistan’da kiralık ev için Facebook grupları kullanılabilir mi?', answer: 'Yerel gruplar başlangıç için faydalı olabilir; ancak ilanların güncelliğini, şartları ve kişi veya kurum bilgilerini dikkatlice kontrol etmek gerekir.' },
+    { question: 'Ev kiralamadan önce adres kaydı sorulmalı mı?', answer: 'Kalış durumunuz için adres kaydı önemliyse ev sahibinin sağlayabileceği belge veya desteği sorun. Şartlar değişebileceğinden güncel resmi bilgileri ayrıca kontrol edin.' },
+  ],
+};
+
+const georgiaHousingRu: Guide = {
+  ...ruGuide(
+    'georgia',
+    'rent-apartment',
+    'Medium',
+    'На первую неделю удобно выбрать гибкое краткосрочное жильё, а долгосрочную аренду рассматривать после проверки квартиры, района, транспорта и письменных условий.',
+    [
+      'Забронируйте гибкое жильё на первые дни, чтобы смотреть долгосрочные варианты без спешки.',
+      'Сравните актуальные объявления на MyHome.ge, SS.ge и в подходящих местных группах Facebook.',
+      'Отбирайте квартиры не только по фото, но и по дороге, отоплению, интернету, шуму и доступу в дом.',
+      'Осмотрите жильё, проверьте владельца или агента и запросите условия оплаты и въезда в письменном виде.',
+      'Сохраните объявление, переписку и соглашение, а перед оплатой повторно проверьте актуальные детали.',
+    ],
+    ['Копия паспорта или ID, если попросят', 'Реалистичный бюджет на въезд', 'Письменный список вопросов', 'Помощь с переводом непонятных условий'],
+    [
+      'До согласия письменно уточните сумму депозита, условия возврата и способ оплаты.',
+      'Спросите, какие коммунальные, интернет и расходы дома включены и как рассчитываются счета.',
+      'Уточните срок аренды, порядок уведомления, дату въезда и комиссию агента, если она есть.',
+      'Сохраняйте важные условия в переписке или договоре и внимательно разбирайте непонятные пункты.',
+    ],
+    [
+      'Платить до просмотра квартиры или проверки владельца либо агента.',
+      'Выбирать по фото, не проверив отопление, воду, шум и доступ в дом.',
+      'Не учитывать ежедневный маршрут до работы, учёбы или транспорта.',
+      'Оставлять депозит, счета, уведомление и условия въезда только на словах.',
+      'Полагаться на один сайт или считать старое объявление актуальным.',
+    ],
+  ),
+  title: 'Аренда жилья в Грузии',
+  description: 'Практичный гид по аренде жилья в Грузии: сайты аренды, поиск квартиры в Тбилиси, проверка района, депозит, договор и советы на первую неделю.',
+  summary: 'Аренда жилья в Грузии проще, если сравнивать несколько сайтов, лично осматривать квартиру и письменно уточнять депозит, счета и условия. Сначала выберите гибкое жильё, затем оцените район с учётом ежедневных поездок.',
+  lastUpdated: '2026-07-15',
+  travelerOptions: [
+    { label: 'Краткосрочное жильё', recommendation: 'Даёт гибкость в первые дни, пока вы изучаете районы и ходите на просмотры. Проверьте условия отмены, въезда и продления.' },
+    { label: 'Долгосрочная аренда', recommendation: 'Подходит для стабильного быта, но сначала осмотрите жильё и район и внимательно прочитайте письменные условия.' },
+  ],
+  housingSources: [
+    { label: 'MyHome.ge', details: 'Один из часто проверяемых сайтов жилья в Грузии. Сравнивайте дату, расположение на карте, детали и контакты.' },
+    { label: 'SS.ge', details: 'Ещё один распространённый источник объявлений. Наличие и условия могут меняться — уточняйте их напрямую.' },
+    { label: 'Группы Facebook', details: 'В местных группах бывают прямые объявления. Проверяйте дату публикации, человека и объект особенно внимательно.' },
+    { label: 'Местные агенты и прямые объявления', details: 'Могут расширить выбор, но до оплаты уточните роль агента, комиссию и все письменные условия.' },
+  ],
+  housingChecks: [
+    'Подтвердите точный адрес и осмотрите квартиру лично либо по видеосвязи с человеком, которому доверяете.',
+    'Проверьте отопление или охлаждение, горячую воду, напор, окна, замки, технику и варианты интернета.',
+    'Узнайте, как рассчитываются коммунальные и расходы дома, что включено и нет ли старой задолженности.',
+    'Зафиксируйте состояние мебели, согласованный ремонт и список имущества письменно.',
+  ],
+  locationTransportTips: [
+    'При аренде квартиры в Тбилиси сравните путь до метро или автобуса с реальным ежедневным маршрутом.',
+    'Проверьте доступ днём и вечером, ближайшие магазины, шум улицы и дома.',
+    'Удалённое объявление может увеличить время в пути — оценивайте весь распорядок, а не только адрес.',
+  ],
+  verificationNote: 'Последнее обновление: 2026-07-15. Объявления, наличие, комиссии и условия аренды могут меняться. Перед решением заново проверьте объявление и письменные условия.',
+  links: [
+    { label: 'MyHome.ge', url: 'https://www.myhome.ge/en/' },
+    { label: 'SS.ge', url: 'https://home.ss.ge/en/real-estate' },
+    { label: 'Группы Facebook', url: 'https://www.facebook.com/groups/' },
+  ],
+  faq: [
+    { question: 'Где начать поиск жилья в Грузии?', answer: 'Для начала можно проверить MyHome.ge, SS.ge и подходящие местные группы Facebook. Сравнивайте описание, расположение, транспорт и условия и уточняйте актуальное наличие.' },
+    { question: 'Что проверить при аренде квартиры в Тбилиси?', answer: 'Проверьте район, транспорт, отопление, воду, интернет, коммунальные, депозит и письменные условия. До оплаты также важно проверить владельца или агента.' },
+    { question: 'Что выбрать в Грузии: краткосрочное жильё или долгосрочную аренду?', answer: 'Краткосрочное жильё может дать больше гибкости на первую неделю. Для долгосрочной аренды полезно сначала увидеть район и сравнить письменные условия.' },
+    { question: 'Можно ли искать через местных агентов или прямые объявления?', answer: 'Да, но внимательно проверяйте человека или компанию, возможную комиссию, порядок оплаты и письменные условия аренды.' },
+  ],
+};
+
+const serbiaHousingRu: Guide = {
+  ...ruGuide(
+    'serbia',
+    'rent-apartment',
+    'Medium',
+    'Начните с гибкого краткосрочного жилья, затем сравните сербские сайты и осмотрите долгосрочные варианты до согласия на депозит и условия аренды.',
+    [
+      'На первые дни выберите краткосрочное жильё, чтобы сравнить районы без спешки.',
+      'Проверяйте актуальные объявления на 4zida, Halo Oglasi, Nekretnine.rs и в местных группах Facebook.',
+      'Отбирайте варианты по дороге, транспорту, состоянию дома, отоплению и общим расходам.',
+      'Осмотрите объект, проверьте человека или агентство и задайте важные для вас вопросы о регистрации адреса.',
+      'До оплаты запишите депозит, счета, состояние при въезде и другие важные условия.',
+    ],
+    ['Копия паспорта или ID, если попросят', 'Реалистичный бюджет на въезд', 'Письменный список вопросов', 'Помощь с переводом непонятных условий'],
+    [
+      'Письменно уточните депозит, условия возврата и способ оплаты — договорённости отличаются.',
+      'Спросите, как рассчитываются и оплачиваются коммунальные, интернет, отопление и расходы дома.',
+      'До согласия уточните срок аренды, порядок уведомления, дату въезда и комиссию агентства, если она есть.',
+      'Если для вашего пребывания важна регистрация адреса, спросите, что может предоставить владелец, и отдельно проверьте актуальные требования.',
+    ],
+    [
+      'Переводить деньги до просмотра жилья или проверки владельца либо агентства.',
+      'Смотреть только на фото, пропуская отопление, состояние дома, счета и шум.',
+      'Выбирать район Белграда, не проверив ежедневный транспортный маршрут.',
+      'Не записывать депозит, счета, обсуждение регистрации или порядок уведомления.',
+      'Полагаться на один сайт или считать старое объявление актуальным.',
+    ],
+  ),
+  title: 'Аренда жилья в Сербии',
+  description: 'Практичный гид по аренде жилья в Сербии: сайты аренды, поиск квартиры в Белграде, проверка дома, депозит, договор и советы на первую неделю.',
+  summary: 'Аренда жилья в Сербии проще, если сравнивать несколько сайтов, осматривать квартиру и дом и письменно уточнять счета, депозит и условия. До решения проверьте, подходит ли расположение для ежедневных поездок.',
+  lastUpdated: '2026-07-15',
+  travelerOptions: [
+    { label: 'Краткосрочное жильё', recommendation: 'Даёт гибкость, пока вы сравниваете районы Белграда или другие места. Проверьте въезд, отмену и продление.' },
+    { label: 'Долгосрочная аренда', recommendation: 'Может подойти для стабильного быта, но сначала проверьте квартиру, дом, общие расходы и письменные условия.' },
+  ],
+  housingSources: [
+    { label: '4zida', details: 'Один из часто проверяемых сайтов недвижимости в Сербии. Сравнивайте дату, карту, описание и контакты.' },
+    { label: 'Halo Oglasi', details: 'Крупный сайт объявлений с разделом жилья. Подтвердите, что объявление и его условия ещё актуальны.' },
+    { label: 'Nekretnine.rs', details: 'Ещё один распространённый источник жилья. Сравнивайте несколько объявлений в одном районе.' },
+    { label: 'Группы Facebook и местные контакты', details: 'Группы, агенты и прямые объявления расширяют выбор, но тщательно проверяйте человека, комиссию, жильё и письменные условия.' },
+  ],
+  housingChecks: [
+    'Подтвердите адрес и осмотрите квартиру и общие части дома до согласия.',
+    'Проверьте отопление, горячую воду, окна, замки, технику, интернет, следы сырости или повреждений.',
+    'Попросите объяснить коммунальные, отопление и расходы дома и уточните, нет ли старой задолженности.',
+    'Письменно зафиксируйте состояние мебели, показания счётчиков и согласованный ремонт.',
+  ],
+  locationTransportTips: [
+    'При аренде квартиры в Белграде проверьте дорогу до работы, учёбы или центра в нужное время суток.',
+    'Посмотрите ближайшие автобусные, трамвайные и другие актуальные маршруты и удобство подхода к дому.',
+    'Сравните магазины, вечерний доступ, шум и всю дорогу, а не только название района.',
+  ],
+  verificationNote: 'Последнее обновление: 2026-07-15. Объявления, наличие, комиссии, регистрационные процедуры и условия аренды могут меняться. Проверяйте актуальные детали.',
+  links: [
+    { label: '4zida', url: 'https://www.4zida.rs/' },
+    { label: 'Halo Oglasi', url: 'https://www.halooglasi.com/nekretnine' },
+    { label: 'Nekretnine.rs', url: 'https://www.nekretnine.rs/' },
+  ],
+  faq: [
+    { question: 'Где начать поиск жилья в Сербии?', answer: 'Для начала часто проверяют 4zida, Halo Oglasi, Nekretnine.rs и подходящие местные группы Facebook. Сравнивайте расположение, транспорт, депозит и письменные условия.' },
+    { question: 'Что проверить при аренде квартиры в Белграде?', answer: 'Проверьте район, транспорт, состояние дома, отопление, счета, депозит и условия аренды. Осмотрите жильё и проверьте человека или агентство до оплаты.' },
+    { question: 'Можно ли искать аренду в Сербии через группы Facebook?', answer: 'Местные группы могут быть полезны, но важно проверить актуальность публикации, человека или компанию, объект, комиссии и условия.' },
+    { question: 'Нужно ли спрашивать о регистрации адреса до аренды?', answer: 'Если регистрация важна для вашего пребывания, спросите, какие документы или помощь может предоставить владелец. Актуальные требования проверяйте по официальным источникам.' },
+  ],
+};
+
 export const guides: Guide[] = [
   georgiaSimEn,
   georgiaEsimEn,
   enGuide('georgia', 'bank-account', 'Medium', 'Bank accounts are possible for many visitors, but requirements vary. Expect passport checks and possible proof of address, income or purpose.', ['Shortlist major banks before arrival.', 'Book time for an in-branch visit.', 'Bring printed or digital supporting documents.', 'Ask about monthly fees, card issuance and foreign transfers.', 'Activate online banking before leaving the branch.'], ['Passport', 'Phone number', 'Local address', 'Proof of income or purpose if requested'], ['Monthly account and card fees may apply.', 'International transfer fees vary widely.', 'Premium packages are not always necessary.'], ['Arriving without a local phone number.', 'Not asking about account maintenance fees.', 'Assuming rules are identical across branches.']),
-  enGuide('georgia', 'rent-apartment', 'Medium', 'For first arrival, book temporary housing first, then inspect long-term apartments in person before paying a deposit.', ['Use temporary accommodation for the first week.', 'Compare neighborhoods by commute and noise.', 'Inspect heating, water pressure, internet and building access.', 'Confirm deposit, utilities and contract term in writing.', 'Avoid paying large sums before meeting the owner or agent.'], ['Passport copy may be requested', 'Deposit funds', 'Written lease or message trail'], ['Deposits are often one month, sometimes more.', 'Utilities may be separate from rent.', 'Agent fees depend on the arrangement.'], ['Signing without checking utilities.', 'Paying before seeing the apartment.', 'Ignoring winter heating quality.']),
+  georgiaHousingEn,
   georgiaTransportEn,
   serbiaSimEn,
   serbiaEsimEn,
   enGuide('serbia', 'bank-account', 'Medium', 'Banking can require more paperwork in Serbia. Prepare passport, local registration details and a clear reason for opening the account.', ['Compare banks that serve non-residents.', 'Ask what documents are required before visiting.', 'Bring proof of address or stay registration if available.', 'Review account, card and transfer fees.', 'Test mobile banking and card activation.'], ['Passport', 'Local phone number', 'Address or white card if available', 'Employment, income or purpose documents if requested'], ['Maintenance fees and transfer fees vary.', 'Card issuance may take several days.', 'Some banks charge more for non-resident services.'], ['Going without an appointment when the branch is busy.', 'Not asking about non-resident restrictions.', 'Leaving before mobile banking is fully active.']),
-  enGuide('serbia', 'rent-apartment', 'Medium', 'Start with short-term accommodation, then inspect apartments and clarify registration, utilities and deposit terms before committing.', ['Pick temporary accommodation near your target area.', 'View apartments in daylight if possible.', 'Ask whether the landlord can support address registration.', 'Confirm utilities, internet and building costs.', 'Put deposit and move-in terms in writing.'], ['Passport', 'Deposit funds', 'Lease or written agreement', 'Stay registration details for longer stays'], ['Deposits commonly equal one month of rent.', 'Utilities and building fees may be separate.', 'Prices vary strongly by Belgrade neighborhood.'], ['Not discussing address registration.', 'Underestimating winter utility costs.', 'Sending deposit before verifying ownership or agency details.']),
+  serbiaHousingEn,
   serbiaTransportEn,
   georgiaSimTr,
   georgiaEsimTr,
   trGuide('georgia', 'bank-account', 'Medium', 'Birçok ziyaretçi için banka hesabı mümkün olabilir; pasaport kontrolü ve adres, gelir veya amaç belgesi istenebilir.', ['Gelmeden önce büyük bankaları listeleyin.', 'Şube ziyareti için zaman ayırın.', 'Destekleyici belgeleri dijital veya basılı hazırlayın.', 'Aylık ücret, kart çıkarma ve yurtdışı transfer ücretlerini sorun.', 'Şubeden ayrılmadan internet bankacılığını aktive edin.'], ['Pasaport', 'Telefon numarası', 'Yerel adres', 'İstenirse gelir veya amaç belgesi'], ['Aylık hesap ve kart ücretleri olabilir.', 'Uluslararası transfer ücretleri ciddi değişir.', 'Premium paket her zaman gerekli değildir.'], ['Yerel telefon numarası olmadan gitmek.', 'Hesap işletim ücretini sormamak.', 'Tüm şubelerde kurallar aynı sanmak.']),
-  trGuide('georgia', 'rent-apartment', 'Medium', 'İlk varışta geçici konaklama ayarlayın, uzun dönem evi depozito ödemeden önce yerinde görün.', ['İlk hafta için geçici konaklama kullanın.', 'Semtleri ulaşım ve gürültüye göre karşılaştırın.', 'Isıtma, su basıncı, internet ve bina girişini kontrol edin.', 'Depozito, faturalar ve kontrat süresini yazılı netleştirin.', 'Ev sahibi veya emlakçıyla görüşmeden yüksek ödeme yapmayın.'], ['Pasaport kopyası istenebilir', 'Depozito bütçesi', 'Yazılı kira sözleşmesi veya mesaj kaydı'], ['Depozito genelde bir ay, bazen daha fazladır.', 'Faturalar kiradan ayrı olabilir.', 'Emlakçı ücreti anlaşmaya bağlıdır.'], ['Faturaları kontrol etmeden imzalamak.', 'Evi görmeden ödeme yapmak.', 'Kış ısınma kalitesini önemsememek.']),
+  georgiaHousingTr,
   georgiaTransportTr,
   serbiaSimTr,
   serbiaEsimTr,
   trGuide('serbia', 'bank-account', 'Medium', 'Sırbistan’da bankacılık daha fazla evrak gerektirebilir. Pasaport, yerel kayıt bilgisi ve hesap açma amacınızı hazırlayın.', ['Yabancılarla çalışan bankaları karşılaştırın.', 'Şubeye gitmeden önce belge listesini sorun.', 'Varsa adres veya konaklama kayıt belgesini getirin.', 'Hesap, kart ve transfer ücretlerini inceleyin.', 'Mobil bankacılık ve kart aktivasyonunu test edin.'], ['Pasaport', 'Yerel telefon numarası', 'Varsa adres veya white card', 'İstenirse iş, gelir veya amaç belgeleri'], ['Hesap işletim ve transfer ücretleri değişir.', 'Kart basımı birkaç gün sürebilir.', 'Bazı bankalar yabancılar için daha yüksek ücret alabilir.'], ['Yoğun şubeye randevusuz gitmek.', 'Yabancı müşteri kısıtlarını sormamak.', 'Mobil bankacılık aktif olmadan ayrılmak.']),
-  trGuide('serbia', 'rent-apartment', 'Medium', 'Kısa dönem konaklamayla başlayın; daireleri yerinde görün ve kayıt, faturalar, depozito şartlarını netleştirin.', ['Hedef bölgenize yakın geçici konaklama seçin.', 'Mümkünse daireyi gündüz görün.', 'Ev sahibinin adres kaydına destek verip vermediğini sorun.', 'Faturalar, internet ve bina giderlerini netleştirin.', 'Depozito ve taşınma şartlarını yazılı tutun.'], ['Pasaport', 'Depozito bütçesi', 'Kira sözleşmesi veya yazılı anlaşma', 'Uzun kalış için kayıt bilgileri'], ['Depozito çoğu zaman bir aylık kiradır.', 'Faturalar ve bina giderleri ayrı olabilir.', 'Belgrad semtlerine göre fiyatlar çok değişir.'], ['Adres kaydını konuşmamak.', 'Kış fatura maliyetini düşük tahmin etmek.', 'Mülk veya emlakçı bilgilerini doğrulamadan depozito göndermek.']),
+  serbiaHousingTr,
   serbiaTransportTr,
   georgiaSimRu,
   ruGuide('georgia', 'esim', 'High', 'eSIM удобна, если телефон её поддерживает и нужен интернет сразу после посадки. Для местного номера или долгого пребывания сравните её с физической SIM-картой.', ['Проверьте поддержку eSIM в телефоне.', 'Купите и установите eSIM до вылета по Wi-Fi.', 'Сохраните QR-код или инструкцию активации.', 'После посадки включите eSIM и передачу данных.', 'Проверьте карты и мессенджеры до выхода из аэропорта.'], ['Телефон с поддержкой eSIM', 'Wi-Fi для установки', 'Банковская карта', 'Инструкция от провайдера'], ['Пакеты eSIM часто стоят дороже местной SIM.', 'Некоторые eSIM дают только интернет без местного номера.', 'Срок действия может начинаться при установке или первом подключении.'], ['Покупать eSIM без проверки совместимости телефона.', 'Удалять eSIM до конца поездки.', 'Не проверять, когда начинается срок действия.']),
   ruGuide('georgia', 'bank-account', 'Medium', 'Открыть счёт возможно для многих приезжих, но требования отличаются по банку и отделению. Готовьте паспорт, местный номер и объяснение цели счёта.', ['Сравните крупные банки до визита.', 'Выделите время на посещение отделения.', 'Подготовьте паспорт, номер телефона и адрес.', 'Спросите про комиссии, карту и переводы.', 'Активируйте онлайн-банк до ухода из отделения.'], ['Паспорт', 'Местный номер телефона', 'Местный адрес', 'Документы о доходе или цели, если попросят'], ['Могут быть ежемесячные комиссии.', 'Стоимость карты и переводов отличается.', 'Премиальные пакеты не всегда нужны.'], ['Идти без местного номера.', 'Не спрашивать про комиссии.', 'Думать, что правила одинаковые во всех отделениях.']),
-  ruGuide('georgia', 'rent-apartment', 'Medium', 'На первую неделю лучше взять временное жильё, а долгосрочную квартиру смотреть лично до оплаты депозита.', ['Забронируйте временное жильё на первые дни.', 'Сравните районы по транспорту и шуму.', 'Проверьте отопление, воду, интернет и вход в дом.', 'Запишите депозит, коммунальные и срок аренды.', 'Не переводите крупные суммы до просмотра и проверки владельца.'], ['Паспорт или копия паспорта', 'Деньги на депозит', 'Договор или переписка с условиями'], ['Депозит часто равен одному месяцу.', 'Коммунальные могут оплачиваться отдельно.', 'Комиссия агента зависит от ситуации.'], ['Подписывать без проверки коммунальных.', 'Платить до просмотра квартиры.', 'Не учитывать качество отопления зимой.']),
+  georgiaHousingRu,
   georgiaTransportRu,
   serbiaSimRu,
   ruGuide('serbia', 'esim', 'High', 'eSIM подходит, если нужен интернет сразу после приезда и телефон поддерживает eSIM. Для местного номера лучше сравнить с физической SIM-картой.', ['Проверьте поддержку eSIM.', 'Купите eSIM до поездки и установите по Wi-Fi.', 'Сохраните инструкцию активации.', 'После посадки включите линию eSIM.', 'Проверьте карты и мессенджеры.'], ['Телефон с поддержкой eSIM', 'Wi-Fi для установки', 'Банковская карта', 'Инструкция провайдера'], ['eSIM часто дороже местной SIM.', 'Многие eSIM дают только интернет.', 'Срок действия зависит от условий пакета.'], ['Не проверять совместимость телефона.', 'Удалять eSIM во время поездки.', 'Не уточнять срок действия.']),
   ruGuide('serbia', 'bank-account', 'Medium', 'Банк в Сербии может попросить больше документов. Подготовьте паспорт, местную регистрацию или адрес и понятную цель открытия счёта.', ['Сравните банки для нерезидентов.', 'Уточните список документов до визита.', 'Возьмите паспорт, номер телефона и адрес.', 'Спросите про обслуживание, карту и переводы.', 'Проверьте мобильный банк перед уходом.'], ['Паспорт', 'Местный номер телефона', 'Адрес или регистрация, если есть', 'Документы о доходе или цели, если попросят'], ['Комиссии отличаются по банкам.', 'Выпуск карты может занять несколько дней.', 'Для нерезидентов условия могут быть дороже.'], ['Идти без уточнения документов.', 'Не спрашивать про ограничения для нерезидентов.', 'Уходить до активации мобильного банка.']),
-  ruGuide('serbia', 'rent-apartment', 'Medium', 'Начните с краткосрочного жилья, затем смотрите квартиры лично и заранее уточняйте регистрацию, коммунальные и депозит.', ['Выберите временное жильё рядом с нужным районом.', 'Смотрите квартиры при дневном свете.', 'Спросите, поможет ли владелец с регистрацией адреса.', 'Уточните коммунальные, интернет и расходы дома.', 'Запишите депозит и условия заезда.'], ['Паспорт', 'Деньги на депозит', 'Договор или письменные условия', 'Данные регистрации для долгого пребывания'], ['Депозит часто равен одному месяцу.', 'Коммунальные и расходы дома могут быть отдельно.', 'Цены сильно зависят от района Белграда.'], ['Не обсуждать регистрацию адреса.', 'Недооценить зимние коммунальные.', 'Отправлять депозит без проверки владельца.']),
+  serbiaHousingRu,
   serbiaTransportRu,
 ];
 
