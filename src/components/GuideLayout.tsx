@@ -2,11 +2,16 @@ import { Link } from 'react-router-dom';
 import {
   AlertCircle,
   ArrowRight,
+  Bus,
   CalendarDays,
+  CarTaxiFront,
   CheckCircle2,
   ClipboardList,
   ExternalLink,
+  Luggage,
+  Map,
   MapPin,
+  PlaneLanding,
   ShieldCheck,
   Smartphone,
   WalletCards,
@@ -55,6 +60,7 @@ export default function GuideLayout({ guide, country, language }: GuideLayoutPro
   const countryPath = getCountryPath(language, country);
   const isSimGuide = guide.topic === 'sim-card' || guide.topic === 'esim';
   const isPhysicalSimGuide = guide.topic === 'sim-card';
+  const isTransportGuide = guide.topic === 'transport';
   const ctaTitle = isSimGuide ? labels.simCtaTitle : labels.ctaTitle;
   const ctaText = isSimGuide ? labels.simCtaText : labels.ctaText;
   const ctaNote = isSimGuide ? labels.simCtaNote : labels.ctaNote;
@@ -138,7 +144,53 @@ export default function GuideLayout({ guide, country, language }: GuideLayoutPro
             </Section>
           ) : null}
 
-          <Section title={isPhysicalSimGuide ? labels.simFirstWeekTips : labels.steps} icon={<ClipboardList className="h-5 w-5" aria-hidden="true" />}>
+          {isTransportGuide && guide.transportApps ? (
+            <Section title={labels.transportApps} icon={<CarTaxiFront className="h-5 w-5" aria-hidden="true" />}>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {guide.transportApps.map((app) => (
+                  <div key={app.label} className="rounded-2xl border border-line p-4">
+                    <h3 className="font-bold">{app.label}</h3>
+                    <p className="mt-2 text-sm leading-6 text-muted">{app.details}</p>
+                  </div>
+                ))}
+              </div>
+            </Section>
+          ) : null}
+
+          {isTransportGuide && guide.publicTransportTips ? (
+            <Section title={labels.publicTransportBasics} icon={<Bus className="h-5 w-5" aria-hidden="true" />}>
+              <ul className="space-y-3 text-muted">
+                {guide.publicTransportTips.map((tip) => (
+                  <li key={tip} className="rounded-2xl bg-slate-50 p-4 leading-7">{tip}</li>
+                ))}
+              </ul>
+            </Section>
+          ) : null}
+
+          {isTransportGuide && guide.airportToCityTips ? (
+            <Section title={labels.airportToCity} icon={<PlaneLanding className="h-5 w-5" aria-hidden="true" />}>
+              <ul className="space-y-3 text-muted">
+                {guide.airportToCityTips.map((tip) => (
+                  <li key={tip} className="rounded-2xl border border-line p-4 leading-7">{tip}</li>
+                ))}
+              </ul>
+            </Section>
+          ) : null}
+
+          {isTransportGuide && guide.navigationApps ? (
+            <Section title={labels.mapsNavigation} icon={<Map className="h-5 w-5" aria-hidden="true" />}>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {guide.navigationApps.map((app) => (
+                  <div key={app.label} className="rounded-2xl border border-line p-4">
+                    <h3 className="font-bold">{app.label}</h3>
+                    <p className="mt-2 text-sm leading-6 text-muted">{app.details}</p>
+                  </div>
+                ))}
+              </div>
+            </Section>
+          ) : null}
+
+          <Section title={isPhysicalSimGuide ? labels.simFirstWeekTips : isTransportGuide ? labels.transportFirstWeekTips : labels.steps} icon={<ClipboardList className="h-5 w-5" aria-hidden="true" />}>
             <ol className="space-y-3">
               {guide.steps.map((step, index) => (
                 <li key={step} className="flex gap-3 rounded-2xl bg-slate-50 p-4 text-muted">
@@ -151,7 +203,7 @@ export default function GuideLayout({ guide, country, language }: GuideLayoutPro
             </ol>
           </Section>
 
-          <Section title={labels.documents} icon={<ShieldCheck className="h-5 w-5" aria-hidden="true" />}>
+          <Section title={isTransportGuide ? labels.prepareBeforeArrival : labels.documents} icon={isTransportGuide ? <Luggage className="h-5 w-5" aria-hidden="true" /> : <ShieldCheck className="h-5 w-5" aria-hidden="true" />}>
             <ul className="grid gap-3 sm:grid-cols-2">
               {guide.documents.map((item) => (
                 <li key={item} className="rounded-2xl border border-line p-4 text-sm font-semibold">
@@ -161,7 +213,7 @@ export default function GuideLayout({ guide, country, language }: GuideLayoutPro
             </ul>
           </Section>
 
-          <Section title={isPhysicalSimGuide ? labels.simPackageChecks : labels.costs} icon={<WalletCards className="h-5 w-5" aria-hidden="true" />}>
+          <Section title={isPhysicalSimGuide ? labels.simPackageChecks : isTransportGuide ? labels.transportChecks : labels.costs} icon={<WalletCards className="h-5 w-5" aria-hidden="true" />}>
             <ul className="space-y-3 text-muted">
               {guide.costs.map((item) => (
                 <li key={item} className="rounded-2xl bg-slate-50 p-4 leading-7">
@@ -228,6 +280,40 @@ export default function GuideLayout({ guide, country, language }: GuideLayoutPro
                   {
                     to: `${countryPath}#apps-simInternet`,
                     label: labels.usefulAppsSection,
+                  },
+                ].map((link) => (
+                  <Link
+                    key={link.to}
+                    to={link.to}
+                    className="focus-ring group flex items-center justify-between gap-3 rounded-2xl border border-line p-4 text-sm font-semibold transition hover:border-blue-600"
+                  >
+                    {link.label}
+                    <ArrowRight className="h-4 w-4 shrink-0 text-muted transition group-hover:translate-x-0.5" aria-hidden="true" />
+                  </Link>
+                ))}
+              </div>
+            </Section>
+          ) : null}
+
+          {isTransportGuide ? (
+            <Section title={labels.relatedGuides} icon={<ArrowRight className="h-5 w-5" aria-hidden="true" />}>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {[
+                  {
+                    to: countryPath,
+                    label: `${country.content[language].name} · ${labels.countryGuide}`,
+                  },
+                  {
+                    to: getGuidePath(language, country.content[language].slug, 'sim-card'),
+                    label: topicLabels[language]['sim-card'],
+                  },
+                  {
+                    to: getGuidePath(language, country.content[language].slug, 'rent-apartment'),
+                    label: topicLabels[language]['rent-apartment'],
+                  },
+                  {
+                    to: `${countryPath}#apps-taxiTransport`,
+                    label: labels.transportAppsSection,
                   },
                 ].map((link) => (
                   <Link

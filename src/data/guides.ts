@@ -21,6 +21,10 @@ export type Guide = {
   costs: string[];
   mobileInternetTips?: string[];
   simComparison?: { physicalSim: string; esim: string };
+  transportApps?: { label: string; details: string }[];
+  publicTransportTips?: string[];
+  airportToCityTips?: string[];
+  navigationApps?: { label: string; details: string }[];
   mistakes: string[];
   verificationNote?: string;
   links: { label: string; url: string }[];
@@ -1406,37 +1410,739 @@ const serbiaSimRu: Guide = {
   ],
 };
 
+const georgiaTransportEn: Guide = {
+  ...enGuide(
+    'georgia',
+    'transport',
+    'High',
+    'For a practical first week in Georgia, set up mobile data, save your accommodation address and keep more than one taxi and map app available. In Tbilisi, compare Bolt, Yandex Go and Maxim, and check current TTC information for public transport.',
+    [
+      'Install taxi, public transport and map apps while you still have reliable Wi-Fi.',
+      'Save your accommodation address in Georgian and English, plus a map pin for the entrance.',
+      'Check airport pickup zones and current public transport options before landing.',
+      'Confirm how tickets or contactless payments work in the city you are visiting.',
+      'Download an offline map and keep a backup payment method for the first day.',
+    ],
+    ['Phone with mobile data', 'Accommodation address and map pin', 'Payment card plus a small cash backup', 'Offline map or saved route'],
+    [
+      'App availability, pickup zones and accepted payment methods can change; check them before each important trip.',
+      'Public transport schedules and ticket rules may differ by city and time of day.',
+      'For regional or late-night journeys, check the return route and last departure before leaving.',
+    ],
+    [
+      'Accepting an unmetered or unofficial taxi without checking the route and expected fare.',
+      'Relying on only one ride or navigation app when availability changes.',
+      'Leaving the airport without confirming the correct pickup point or accommodation pin.',
+      'Assuming the same ticket or payment method works across every Georgian city.',
+      'Starting a late journey without checking the final public transport departure.',
+    ],
+  ),
+  title: 'Georgia Transport Guide',
+  description:
+    'Georgia transport guide for Tbilisi taxi apps, public transport, airport-to-city options, maps and practical first-week travel tips.',
+  summary:
+    'Getting around Georgia is easier when mobile internet, taxi apps and offline navigation are ready before arrival. Compare current options for Tbilisi and each city on your route.',
+  lastUpdated: '2026-07-14',
+  transportApps: [
+    {
+      label: 'Bolt',
+      details:
+        'Commonly used for city rides and airport transfers. Check the pickup point, route, payment method and current fare in the app.',
+    },
+    {
+      label: 'Yandex Go',
+      details:
+        'Useful as another app-based ride option. Availability and payment methods can vary by city and account.',
+    },
+    {
+      label: 'Maxim',
+      details:
+        'Can be compared as an additional taxi app in some areas. Confirm the vehicle and route before starting the trip.',
+    },
+  ],
+  publicTransportTips: [
+    'Tbilisi Transport Company (TTC) is useful for checking local routes and transport updates.',
+    'Metro, bus and other payment rules can change, so confirm current ticket or contactless options locally.',
+    'Service frequency may be lower late at night, on holidays or outside central areas.',
+  ],
+  airportToCityTips: [
+    'Before landing, save the exact accommodation address and check the airport pickup area for your chosen app.',
+    'Compare app-based rides, official airport options and current public transport information before deciding.',
+    'If you arrive without mobile data, use airport Wi-Fi long enough to confirm the route and meeting point.',
+  ],
+  navigationApps: [
+    {
+      label: 'Google Maps',
+      details: 'Useful for places, walking routes and general route planning. Transit details should be checked against current local information.',
+    },
+    {
+      label: 'Yandex Maps',
+      details: 'Helpful for comparing local search results, traffic and navigation options.',
+    },
+    {
+      label: 'Organic Maps',
+      details: 'Useful for downloadable offline maps when mobile coverage is limited.',
+    },
+    {
+      label: 'Maps.me',
+      details: 'Another offline-map option to prepare before arrival; check downloaded regions before leaving Wi-Fi.',
+    },
+  ],
+  verificationNote:
+    'Last updated: 2026-07-14. App availability, pickup zones, schedules and ticket rules can change. Check TTC, the airport, your chosen app and current local sources before travelling.',
+  links: [
+    { label: 'Tbilisi Transport / TTC', url: 'https://ttc.com.ge/en' },
+    { label: 'Tbilisi Airport', url: 'https://tbilisiairport.com/' },
+    { label: 'Bolt Georgia', url: 'https://bolt.eu/en-ge/' },
+  ],
+  faq: [
+    {
+      question: 'Which taxi apps are commonly used in Tbilisi?',
+      answer:
+        'Bolt, Yandex Go and Maxim are commonly checked for rides in Tbilisi. Availability, pickup points and fares can change, so compare the current app details.',
+    },
+    {
+      question: 'What should I prepare for transport in my first week in Georgia?',
+      answer:
+        'Prepare mobile internet, your accommodation address, at least two map or taxi apps, an offline map and a backup payment method.',
+    },
+    {
+      question: 'How can I get from Tbilisi Airport to the city?',
+      answer:
+        'Check app-based taxis, official airport options and current public transport information before arrival. Confirm the pickup point and exact destination first.',
+    },
+    {
+      question: 'How does public transport work in Tbilisi?',
+      answer:
+        'Tbilisi has metro and bus services, but payment and ticket details can change. TTC and current local information are useful places to verify routes and rules.',
+    },
+    {
+      question: 'Which map apps can help in Georgia?',
+      answer:
+        'Google Maps and Yandex Maps can help with navigation, while Organic Maps or Maps.me can provide an offline backup. Compare routes when details matter.',
+    },
+    {
+      question: 'Is mobile internet important for transport in Georgia?',
+      answer:
+        'It can help with ride requests, route checks, translations and messages. Downloading an offline map is still useful when coverage or data is limited.',
+    },
+  ],
+};
+
+const serbiaTransportEn: Guide = {
+  ...enGuide(
+    'serbia',
+    'transport',
+    'High',
+    'For a practical first week in Serbia, prepare mobile data, save your address and check both ride apps and public transport options. In Belgrade, compare Yandex Go, CarGo and local taxi services such as Pink Taxi.',
+    [
+      'Install ride, public transport and map apps before arrival.',
+      'Save your accommodation address, entrance details and a map pin.',
+      'Check current Belgrade Airport pickup, taxi and public transport information.',
+      'Verify local ticket and payment rules instead of relying on older travel advice.',
+      'Download an offline map and check the return route before late or regional trips.',
+    ],
+    ['Phone with mobile data', 'Accommodation address and map pin', 'Payment card plus a cash backup', 'Offline map or saved route'],
+    [
+      'Ride-app availability, airport meeting points and payment methods can change.',
+      'Belgrade public transport routes and ticket rules should be checked with current local sources.',
+      'For intercity trips, verify the station, platform, schedule and return option before departure.',
+    ],
+    [
+      'Taking an unofficial airport taxi without checking the vehicle, route or fare method.',
+      'Using old information about public transport payment or ticket rules.',
+      'Relying on only one ride or navigation app when availability changes.',
+      'Confusing the airport pickup point or entering an incomplete accommodation address.',
+      'Starting an intercity or late-night trip without checking the return schedule.',
+    ],
+  ),
+  title: 'Serbia Transport Guide',
+  description:
+    'Serbia transport guide for Belgrade taxi apps, public transport, airport-to-city options, maps and practical first-week travel tips.',
+  summary:
+    'Getting around Serbia is easier when mobile internet, current Belgrade transport information and backup navigation are ready before arrival.',
+  lastUpdated: '2026-07-14',
+  transportApps: [
+    {
+      label: 'Yandex Go',
+      details:
+        'Commonly checked for app-based rides. Confirm the pickup point, route, payment method and current fare in the app.',
+    },
+    {
+      label: 'CarGo',
+      details:
+        'Useful as another app-based option in Belgrade. Availability and account requirements can change.',
+    },
+    {
+      label: 'Pink Taxi',
+      details:
+        'A local taxi service that can be kept as another option. Confirm current booking methods and vehicle details.',
+    },
+  ],
+  publicTransportTips: [
+    'Public Transport Belgrade and current city sources can help verify routes and service updates.',
+    'Moovit may help with bus, tram and walking connections, but important journeys should be checked against current local information.',
+    'Ticket and payment rules can change, so avoid relying on screenshots or older articles.',
+  ],
+  airportToCityTips: [
+    'Save your accommodation address and check the current airport pickup or meeting point before landing.',
+    'Compare app-based rides, official taxi arrangements, transfers and available public transport.',
+    'Use airport Wi-Fi to confirm the vehicle, route and destination if your mobile data is not ready.',
+  ],
+  navigationApps: [
+    {
+      label: 'Google Maps',
+      details: 'Useful for places, walking and general route planning. Check public transport details against current local sources.',
+    },
+    {
+      label: 'Yandex Maps',
+      details: 'Helpful for comparing local search, traffic and navigation results.',
+    },
+    {
+      label: 'Moovit',
+      details: 'Useful for planning Belgrade public transport connections and walking segments.',
+    },
+  ],
+  verificationNote:
+    'Last updated: 2026-07-14. App availability, airport arrangements, schedules and ticket rules can change. Check Belgrade Airport, city transport sources and your chosen app before travelling.',
+  links: [
+    { label: 'Public Transport Belgrade', url: 'https://www.gsp.rs/' },
+    { label: 'Belgrade Airport', url: 'https://beg.aero/' },
+    { label: 'CarGo', url: 'https://appcargo.com/' },
+  ],
+  faq: [
+    {
+      question: 'Which transport apps can help in Belgrade?',
+      answer:
+        'Moovit, Google Maps and current local transport sources can help with routes. For rides, Yandex Go, CarGo and local taxi services such as Pink Taxi can be checked.',
+    },
+    {
+      question: 'What should I prepare for transport in my first week in Serbia?',
+      answer:
+        'Prepare mobile internet, your accommodation address, map and ride apps, an offline backup and current public transport information.',
+    },
+    {
+      question: 'How can I get from Belgrade Airport to the city?',
+      answer:
+        'Compare current taxi, ride-app, transfer and public transport options before arrival. Confirm the pickup point, vehicle and destination before leaving.',
+    },
+    {
+      question: 'How does public transport work in Belgrade?',
+      answer:
+        'Belgrade uses buses, trams and other city services. Routes, payment and ticket rules can change, so verify them with current local sources.',
+    },
+    {
+      question: 'Which taxi services are commonly checked in Serbia?',
+      answer:
+        'Yandex Go, CarGo and local taxi services such as Pink Taxi are commonly checked in Belgrade. Availability and booking methods can vary.',
+    },
+    {
+      question: 'Which map apps can help in Serbia?',
+      answer:
+        'Google Maps, Yandex Maps and Moovit can help with navigation and route planning. Keeping an offline map is useful as a backup.',
+    },
+  ],
+};
+
+const georgiaTransportTr: Guide = {
+  ...trGuide(
+    'georgia',
+    'transport',
+    'High',
+    "Gürcistan'daki ilk hafta için mobil interneti hazırla, konaklama adresini kaydet ve birden fazla taksi ile harita uygulaması bulundur. Tiflis'te Bolt, Yandex Go ve Maxim seçeneklerini karşılaştır; toplu taşıma için güncel TTC bilgilerini kontrol et.",
+    [
+      'Taksi, toplu taşıma ve harita uygulamalarını güvenilir Wi-Fi varken kur.',
+      'Konaklama adresini Gürcüce ve İngilizce olarak, bina girişinin harita piniyle birlikte kaydet.',
+      'İnmeden önce havalimanı biniş noktalarını ve güncel toplu taşıma seçeneklerini kontrol et.',
+      'Bulunduğun şehirde bilet veya temassız ödeme sisteminin nasıl çalıştığını doğrula.',
+      'Çevrimdışı harita indir ve ilk gün için yedek ödeme yöntemi bulundur.',
+    ],
+    ['Mobil internetli telefon', 'Konaklama adresi ve harita pini', 'Ödeme kartı ve küçük nakit yedeği', 'Çevrimdışı harita veya kayıtlı rota'],
+    [
+      'Uygulama uygunluğu, biniş noktaları ve ödeme yöntemleri değişebilir; önemli yolculuklardan önce kontrol et.',
+      'Toplu taşıma saatleri ve bilet kuralları şehre ve günün saatine göre farklı olabilir.',
+      'Bölgesel veya gece yolculuklarında dönüş rotasını ve son seferi önceden doğrula.',
+    ],
+    [
+      'Rotayı ve ücret yöntemini kontrol etmeden resmi olmayan taksiye binmek.',
+      'Müsaitlik değiştiğinde yalnızca tek bir taksi veya harita uygulamasına güvenmek.',
+      'Doğru biniş noktasını ve konaklama pinini netleştirmeden havalimanından ayrılmak.',
+      'Aynı bilet veya ödeme yönteminin tüm Gürcistan şehirlerinde çalıştığını varsaymak.',
+      'Son toplu taşıma seferini kontrol etmeden geç saatte yola çıkmak.',
+    ],
+  ),
+  title: 'Gürcistan Ulaşım Rehberi',
+  description:
+    'Tiflis ulaşım ve taksi uygulamaları, toplu taşıma, havalimanından merkeze ulaşım, haritalar ve ilk hafta ipuçları için Gürcistan ulaşım rehberi.',
+  summary:
+    'Gürcistan ulaşımını kolaylaştırmak için mobil interneti, taksi uygulamalarını ve çevrimdışı haritayı gelmeden hazırla. Tiflis ve rotandaki şehirler için güncel seçenekleri karşılaştır.',
+  lastUpdated: '2026-07-14',
+  transportApps: [
+    {
+      label: 'Bolt',
+      details:
+        'Şehir içi ve havalimanı yolculuklarında sık kullanılır. Biniş noktasını, rotayı, ödeme yöntemini ve uygulamadaki güncel ücreti kontrol et.',
+    },
+    {
+      label: 'Yandex Go',
+      details:
+        'Ek bir uygulamalı ulaşım seçeneği olarak karşılaştırılabilir. Müsaitlik ve ödeme yöntemleri şehre ve hesaba göre değişebilir.',
+    },
+    {
+      label: 'Maxim',
+      details:
+        'Bazı bölgelerde ek bir taksi uygulaması olarak kontrol edilebilir. Yolculuk başlamadan araç ve rotayı doğrula.',
+    },
+  ],
+  publicTransportTips: [
+    'Tbilisi Transport Company (TTC), yerel hatları ve ulaşım güncellemelerini kontrol etmek için kullanılabilir.',
+    'Metro, otobüs ve diğer ödeme kuralları değişebileceği için güncel bilet veya temassız ödeme seçeneklerini yerelde doğrula.',
+    'Gece, tatil günleri ve merkez dışı bölgelerde sefer sıklığı azalabilir.',
+  ],
+  airportToCityTips: [
+    'İnmeden önce konaklama adresini kaydet ve kullanacağın uygulamanın havalimanı biniş alanını kontrol et.',
+    'Uygulama araçlarını, resmi havalimanı seçeneklerini ve güncel toplu taşıma bilgisini karşılaştır.',
+    'Mobil internetin hazır değilse rota ve buluşma noktasını doğrulamak için havalimanı Wi-Fi bağlantısını kullan.',
+  ],
+  navigationApps: [
+    {
+      label: 'Google Maps',
+      details: 'Mekanlar, yürüyüş ve genel rota planı için faydalıdır. Toplu taşıma detaylarını güncel yerel bilgilerle karşılaştır.',
+    },
+    {
+      label: 'Yandex Maps',
+      details: 'Yerel arama, trafik ve navigasyon sonuçlarını karşılaştırmaya yardımcı olabilir.',
+    },
+    {
+      label: 'Organic Maps',
+      details: 'Mobil kapsamanın sınırlı olduğu yerler için indirilebilir çevrimdışı harita sunar.',
+    },
+    {
+      label: 'Maps.me',
+      details: 'Gelmeden hazırlanabilecek başka bir çevrimdışı harita seçeneğidir; Wi-Fi’dan ayrılmadan bölgeyi indir.',
+    },
+  ],
+  verificationNote:
+    'Son güncelleme: 2026-07-14. Uygulama uygunluğu, biniş alanları, seferler ve bilet kuralları değişebilir. Yola çıkmadan TTC, havalimanı, seçtiğin uygulama ve güncel yerel kaynakları kontrol et.',
+  links: [
+    { label: 'Tbilisi Transport / TTC', url: 'https://ttc.com.ge/en' },
+    { label: 'Tiflis Havalimanı', url: 'https://tbilisiairport.com/' },
+    { label: 'Bolt Gürcistan', url: 'https://bolt.eu/en-ge/' },
+  ],
+  faq: [
+    {
+      question: "Tiflis'te taksi için hangi uygulamalar kullanılır?",
+      answer:
+        "Bolt, Yandex Go ve Maxim gibi uygulamalar Tiflis'te ulaşım için kontrol edilebilir. Uygunluk, biniş noktaları ve ücretler zamana göre değişebilir.",
+    },
+    {
+      question: "Gürcistan'da ilk hafta ulaşım için ne hazırlamalıyım?",
+      answer:
+        'Mobil internet, konaklama adresi, birkaç taksi ve harita uygulaması, çevrimdışı harita ve yedek ödeme yöntemi hazırlamak faydalı olabilir.',
+    },
+    {
+      question: "Tiflis Havalimanı'ndan merkeze nasıl gidilir?",
+      answer:
+        'Gelmeden önce uygulamalı taksi, resmi havalimanı ve güncel toplu taşıma seçeneklerini karşılaştır. Biniş noktasını ve tam adresi doğrula.',
+    },
+    {
+      question: "Tiflis'te toplu taşıma nasıl kullanılır?",
+      answer:
+        'Tiflis’te metro ve otobüs hizmetleri bulunur. Bilet ve ödeme ayrıntıları değişebileceği için TTC ve güncel yerel kaynaklardan doğrulama yap.',
+    },
+    {
+      question: "Gürcistan'da hangi harita uygulamaları kullanılabilir?",
+      answer:
+        'Google Maps ve Yandex Maps navigasyona yardımcı olabilir. Organic Maps veya Maps.me ise çevrimdışı yedek olarak kullanılabilir.',
+    },
+    {
+      question: "Gürcistan'da ulaşım için mobil internet gerekli mi?",
+      answer:
+        'Araç çağırma, rota, çeviri ve mesajlaşma için mobil internet yardımcı olabilir. Kapsama veya internet sınırlıysa çevrimdışı harita faydalıdır.',
+    },
+  ],
+};
+
+const serbiaTransportTr: Guide = {
+  ...trGuide(
+    'serbia',
+    'transport',
+    'High',
+    "Sırbistan'daki ilk hafta için mobil interneti hazırla, adresini kaydet ve hem araç çağırma hem toplu taşıma seçeneklerini kontrol et. Belgrad'da Yandex Go, CarGo ve Pink Taxi gibi yerel seçenekler karşılaştırılabilir.",
+    [
+      'Araç çağırma, toplu taşıma ve harita uygulamalarını gelmeden kur.',
+      'Konaklama adresini, bina girişini ve harita pinini kaydet.',
+      'Belgrad Havalimanı için güncel biniş, taksi ve toplu taşıma bilgilerini kontrol et.',
+      'Eski gezi yazılarına güvenmek yerine güncel bilet ve ödeme kurallarını doğrula.',
+      'Çevrimdışı harita indir; gece veya şehirler arası yolculuklarda dönüş rotasını kontrol et.',
+    ],
+    ['Mobil internetli telefon', 'Konaklama adresi ve harita pini', 'Ödeme kartı ve nakit yedeği', 'Çevrimdışı harita veya kayıtlı rota'],
+    [
+      'Araç uygulaması müsaitliği, havalimanı buluşma noktaları ve ödeme yöntemleri değişebilir.',
+      'Belgrad toplu taşıma hatları ve bilet kuralları güncel yerel kaynaklardan kontrol edilmelidir.',
+      'Şehirler arası yolculukta istasyonu, peronu, seferi ve dönüş seçeneğini doğrula.',
+    ],
+    [
+      'Aracı, rotayı veya ücret yöntemini kontrol etmeden resmi olmayan havalimanı taksisine binmek.',
+      'Toplu taşıma ödeme ve bilet sistemi için eski bilgilere güvenmek.',
+      'Müsaitlik değiştiğinde yalnızca tek bir taksi veya navigasyon uygulamasına güvenmek.',
+      'Havalimanı biniş noktasını karıştırmak veya eksik konaklama adresi girmek.',
+      'Dönüş seferini kontrol etmeden gece veya şehirler arası yolculuğa başlamak.',
+    ],
+  ),
+  title: 'Sırbistan Ulaşım Rehberi',
+  description:
+    'Belgrad ulaşım ve taksi uygulamaları, toplu taşıma, havalimanından merkeze ulaşım, haritalar ve ilk hafta ipuçları için Sırbistan ulaşım rehberi.',
+  summary:
+    'Sırbistan ulaşımını kolaylaştırmak için mobil interneti, güncel Belgrad ulaşım bilgisini ve yedek navigasyonu gelmeden hazırla.',
+  lastUpdated: '2026-07-14',
+  transportApps: [
+    {
+      label: 'Yandex Go',
+      details:
+        'Uygulamalı yolculuklar için sık kontrol edilir. Biniş noktasını, rotayı, ödeme yöntemini ve güncel ücreti uygulamada doğrula.',
+    },
+    {
+      label: 'CarGo',
+      details:
+        'Belgrad’da ek bir uygulamalı seçenek olarak kullanılabilir. Müsaitlik ve hesap şartları değişebilir.',
+    },
+    {
+      label: 'Pink Taxi',
+      details:
+        'Yerel taksi seçeneği olarak elde tutulabilir. Güncel rezervasyon yöntemini ve araç bilgilerini doğrula.',
+    },
+  ],
+  publicTransportTips: [
+    'Public Transport Belgrade ve güncel şehir kaynakları hatları ve sefer değişikliklerini doğrulamaya yardımcı olabilir.',
+    'Moovit otobüs, tramvay ve yürüyüş bağlantıları için kullanılabilir; önemli yolculukları güncel yerel bilgilerle karşılaştır.',
+    'Bilet ve ödeme kuralları değişebileceği için eski ekran görüntülerine veya yazılara güvenme.',
+  ],
+  airportToCityTips: [
+    'İnmeden önce konaklama adresini kaydet ve güncel havalimanı biniş veya buluşma noktasını kontrol et.',
+    'Uygulama araçlarını, resmi taksi düzenini, transferleri ve mevcut toplu taşımayı karşılaştır.',
+    'Mobil internet hazır değilse araç, rota ve adresi doğrulamak için havalimanı Wi-Fi bağlantısını kullan.',
+  ],
+  navigationApps: [
+    {
+      label: 'Google Maps',
+      details: 'Mekanlar, yürüyüş ve genel rota planı için faydalıdır. Toplu taşıma detaylarını güncel yerel kaynaklarla karşılaştır.',
+    },
+    {
+      label: 'Yandex Maps',
+      details: 'Yerel arama, trafik ve navigasyon sonuçlarını karşılaştırmaya yardımcı olabilir.',
+    },
+    {
+      label: 'Moovit',
+      details: 'Belgrad toplu taşıma bağlantılarını ve yürüyüş bölümlerini planlamak için kullanılabilir.',
+    },
+  ],
+  verificationNote:
+    'Son güncelleme: 2026-07-14. Uygulama uygunluğu, havalimanı düzeni, seferler ve bilet kuralları değişebilir. Yola çıkmadan Belgrad Havalimanı, şehir ulaşım kaynakları ve seçtiğin uygulamayı kontrol et.',
+  links: [
+    { label: 'Public Transport Belgrade', url: 'https://www.gsp.rs/' },
+    { label: 'Belgrad Havalimanı', url: 'https://beg.aero/' },
+    { label: 'CarGo', url: 'https://appcargo.com/' },
+  ],
+  faq: [
+    {
+      question: "Belgrad'da ulaşım için hangi uygulamalar kullanılabilir?",
+      answer:
+        'Moovit, Google Maps ve güncel yerel toplu taşıma kaynakları rota planına yardımcı olabilir. Taksi için Yandex Go, CarGo veya Pink Taxi kontrol edilebilir.',
+    },
+    {
+      question: "Sırbistan'da ilk hafta ulaşım için ne hazırlamalıyım?",
+      answer:
+        'Mobil internet, konaklama adresi, harita ve araç uygulamaları, çevrimdışı yedek ve güncel toplu taşıma bilgisi hazırlamak faydalı olabilir.',
+    },
+    {
+      question: "Belgrad Havalimanı'ndan merkeze nasıl gidilir?",
+      answer:
+        'Gelmeden önce güncel taksi, araç uygulaması, transfer ve toplu taşıma seçeneklerini karşılaştır. Aracı, biniş noktasını ve adresi doğrula.',
+    },
+    {
+      question: "Belgrad'da toplu taşıma nasıl kullanılır?",
+      answer:
+        'Belgrad’da otobüs, tramvay ve diğer şehir hizmetleri bulunur. Hatlar, ödeme ve bilet kuralları değişebileceği için güncel yerel kaynakları kontrol et.',
+    },
+    {
+      question: "Sırbistan'da hangi taksi hizmetleri kontrol edilebilir?",
+      answer:
+        'Belgrad’da Yandex Go, CarGo ve Pink Taxi gibi yerel seçenekler karşılaştırılabilir. Müsaitlik ve rezervasyon yöntemleri değişebilir.',
+    },
+    {
+      question: "Sırbistan'da hangi harita uygulamaları kullanılabilir?",
+      answer:
+        'Google Maps, Yandex Maps ve Moovit rota planına yardımcı olabilir. Çevrimdışı harita bulundurmak da faydalıdır.',
+    },
+  ],
+};
+
+const georgiaTransportRu: Guide = {
+  ...ruGuide(
+    'georgia',
+    'transport',
+    'High',
+    'Для первой недели в Грузии подготовьте мобильный интернет, сохраните адрес жилья и установите несколько приложений такси и карт. В Тбилиси можно сравнить Bolt, Yandex Go и Maxim, а маршруты транспорта проверить через актуальные данные TTC.',
+    [
+      'Установите приложения такси, транспорта и карт при стабильном Wi-Fi.',
+      'Сохраните адрес жилья на грузинском и английском, а также точку входа на карте.',
+      'До прилёта проверьте зоны посадки в аэропорту и актуальные варианты транспорта.',
+      'Уточните действующие правила билетов и бесконтактной оплаты в нужном городе.',
+      'Загрузите офлайн-карту и подготовьте запасной способ оплаты.',
+    ],
+    ['Телефон с мобильным интернетом', 'Адрес жилья и точка на карте', 'Банковская карта и небольшой запас наличных', 'Офлайн-карта или сохранённый маршрут'],
+    [
+      'Доступность приложений, зоны посадки и способы оплаты могут меняться.',
+      'Расписание и правила билетов зависят от города и времени суток.',
+      'Перед поздней или региональной поездкой проверьте обратный маршрут и последний рейс.',
+    ],
+    [
+      'Садиться в неофициальное такси без проверки маршрута и способа расчёта.',
+      'Полагаться только на одно приложение такси или навигации.',
+      'Уезжать из аэропорта, не уточнив место посадки и точный адрес.',
+      'Считать, что один способ оплаты работает во всех городах Грузии.',
+      'Начинать позднюю поездку, не проверив последний транспорт.',
+    ],
+  ),
+  title: 'Транспорт в Грузии',
+  description:
+    'Транспорт в Грузии и Тбилиси: приложения такси, общественный транспорт, дорога из аэропорта, карты и советы на первую неделю.',
+  summary:
+    'Перед приездом подготовьте мобильный интернет, приложения такси и офлайн-навигацию. Для Тбилиси и других городов по маршруту проверяйте актуальные условия.',
+  lastUpdated: '2026-07-14',
+  transportApps: [
+    {
+      label: 'Bolt',
+      details:
+        'Часто используют для городских поездок и трансфера из аэропорта. Проверьте место посадки, маршрут, оплату и текущую стоимость в приложении.',
+    },
+    {
+      label: 'Yandex Go',
+      details:
+        'Можно сравнить как дополнительный вариант поездки. Доступность и способы оплаты зависят от города и аккаунта.',
+    },
+    {
+      label: 'Maxim',
+      details:
+        'Может быть дополнительным приложением такси в некоторых районах. До поездки проверьте автомобиль и маршрут.',
+    },
+  ],
+  publicTransportTips: [
+    'Tbilisi Transport Company (TTC) помогает проверять городские маршруты и обновления.',
+    'Правила оплаты метро и автобусов могут меняться — уточняйте актуальные билеты и бесконтактную оплату.',
+    'Поздно вечером, в праздники и за пределами центра интервалы могут быть больше.',
+  ],
+  airportToCityTips: [
+    'До прилёта сохраните адрес жилья и проверьте зону посадки выбранного приложения.',
+    'Сравните поездки через приложения, официальные варианты аэропорта и актуальный общественный транспорт.',
+    'Если мобильный интернет ещё не работает, используйте Wi-Fi аэропорта для проверки маршрута и места встречи.',
+  ],
+  navigationApps: [
+    {
+      label: 'Google Maps',
+      details: 'Подходит для поиска мест, пеших маршрутов и общего планирования. Транспортные детали сверяйте с местными данными.',
+    },
+    {
+      label: 'Yandex Maps',
+      details: 'Полезно для сравнения локального поиска, пробок и навигации.',
+    },
+    {
+      label: 'Organic Maps',
+      details: 'Позволяет заранее скачать офлайн-карту для мест с нестабильной связью.',
+    },
+    {
+      label: 'Maps.me',
+      details: 'Ещё один вариант офлайн-карт; загрузите нужный регион до выхода из Wi-Fi.',
+    },
+  ],
+  verificationNote:
+    'Обновлено: 2026-07-14. Доступность приложений, зоны посадки, расписание и правила билетов могут меняться. Проверяйте TTC, аэропорт, выбранное приложение и актуальные местные источники.',
+  links: [
+    { label: 'Tbilisi Transport / TTC', url: 'https://ttc.com.ge/en' },
+    { label: 'Аэропорт Тбилиси', url: 'https://tbilisiairport.com/' },
+    { label: 'Bolt Georgia', url: 'https://bolt.eu/en-ge/' },
+  ],
+  faq: [
+    {
+      question: 'Какие приложения такси используют в Тбилиси?',
+      answer:
+        'В Тбилиси часто проверяют Bolt, Yandex Go и Maxim. Доступность машин, зоны посадки и стоимость могут меняться.',
+    },
+    {
+      question: 'Что подготовить для поездок в первую неделю в Грузии?',
+      answer:
+        'Подготовьте мобильный интернет, адрес жилья, несколько приложений такси и карт, офлайн-карту и запасной способ оплаты.',
+    },
+    {
+      question: 'Как добраться из аэропорта Тбилиси в центр?',
+      answer:
+        'До прилёта сравните такси через приложения, официальные варианты аэропорта и актуальный общественный транспорт. Уточните место посадки и адрес.',
+    },
+    {
+      question: 'Как пользоваться общественным транспортом в Тбилиси?',
+      answer:
+        'В Тбилиси работают метро и автобусы. Маршруты, билеты и способы оплаты могут меняться, поэтому проверяйте TTC и местные источники.',
+    },
+    {
+      question: 'Какие карты пригодятся в Грузии?',
+      answer:
+        'Google Maps и Yandex Maps помогают с навигацией, а Organic Maps или Maps.me можно использовать как офлайн-запас.',
+    },
+    {
+      question: 'Нужен ли мобильный интернет для транспорта в Грузии?',
+      answer:
+        'Он помогает заказывать поездки, проверять маршруты, переводить адреса и писать сообщения. Офлайн-карта пригодится при слабой связи.',
+    },
+  ],
+};
+
+const serbiaTransportRu: Guide = {
+  ...ruGuide(
+    'serbia',
+    'transport',
+    'High',
+    'Для первой недели в Сербии подготовьте мобильный интернет, сохраните адрес и проверьте приложения для поездок и общественного транспорта. В Белграде можно сравнить Yandex Go, CarGo и местные службы, например Pink Taxi.',
+    [
+      'Установите приложения поездок, транспорта и карт до приезда.',
+      'Сохраните адрес жилья, данные входа и точку на карте.',
+      'Проверьте актуальные зоны посадки, такси и транспорт в аэропорту Белграда.',
+      'Уточните действующие билеты и оплату вместо старых советов из интернета.',
+      'Загрузите офлайн-карту и проверьте обратный маршрут для поздних или междугородних поездок.',
+    ],
+    ['Телефон с мобильным интернетом', 'Адрес жилья и точка на карте', 'Банковская карта и запас наличных', 'Офлайн-карта или сохранённый маршрут'],
+    [
+      'Доступность приложений, места встречи в аэропорту и способы оплаты могут меняться.',
+      'Маршруты и правила билетов в Белграде проверяйте по актуальным городским источникам.',
+      'Для междугородней поездки уточните вокзал, платформу, расписание и обратный рейс.',
+    ],
+    [
+      'Садиться в неофициальное такси в аэропорту без проверки машины, маршрута и оплаты.',
+      'Пользоваться устаревшей информацией о билетах и оплате транспорта.',
+      'Полагаться только на одно приложение поездок или навигации.',
+      'Перепутать место посадки в аэропорту или указать неполный адрес.',
+      'Начинать позднюю или междугороднюю поездку без проверки обратного расписания.',
+    ],
+  ),
+  title: 'Транспорт в Сербии',
+  description:
+    'Транспорт в Сербии и Белграде: приложения такси, общественный транспорт, дорога из аэропорта, карты и советы на первую неделю.',
+  summary:
+    'Перед приездом подготовьте мобильный интернет, актуальные данные транспорта Белграда и запасную навигацию.',
+  lastUpdated: '2026-07-14',
+  transportApps: [
+    {
+      label: 'Yandex Go',
+      details:
+        'Часто проверяют для поездок через приложение. Уточните место посадки, маршрут, оплату и текущую стоимость.',
+    },
+    {
+      label: 'CarGo',
+      details:
+        'Можно использовать как дополнительный вариант в Белграде. Доступность и требования аккаунта могут меняться.',
+    },
+    {
+      label: 'Pink Taxi',
+      details:
+        'Местная служба такси, которую можно держать как запасной вариант. Проверьте актуальный способ заказа и данные машины.',
+    },
+  ],
+  publicTransportTips: [
+    'Public Transport Belgrade и актуальные городские источники помогают проверять маршруты и изменения.',
+    'Moovit может помочь с автобусами, трамваями и пешими пересадками, но важный маршрут лучше сверить.',
+    'Правила билетов и оплаты могут меняться — не полагайтесь на старые статьи и скриншоты.',
+  ],
+  airportToCityTips: [
+    'До прилёта сохраните адрес жилья и проверьте актуальное место посадки или встречи.',
+    'Сравните поездки через приложения, официальное такси, трансфер и доступный общественный транспорт.',
+    'Если мобильный интернет не готов, используйте Wi-Fi аэропорта для проверки машины, маршрута и адреса.',
+  ],
+  navigationApps: [
+    {
+      label: 'Google Maps',
+      details: 'Подходит для мест, пеших маршрутов и общего планирования. Транспортные детали сверяйте с местными источниками.',
+    },
+    {
+      label: 'Yandex Maps',
+      details: 'Полезно для сравнения локального поиска, пробок и навигации.',
+    },
+    {
+      label: 'Moovit',
+      details: 'Помогает планировать общественный транспорт Белграда и пешие участки маршрута.',
+    },
+  ],
+  verificationNote:
+    'Обновлено: 2026-07-14. Доступность приложений, правила аэропорта, расписание и билеты могут меняться. Проверяйте аэропорт Белграда, городские источники и выбранное приложение.',
+  links: [
+    { label: 'Public Transport Belgrade', url: 'https://www.gsp.rs/' },
+    { label: 'Аэропорт Белграда', url: 'https://beg.aero/' },
+    { label: 'CarGo', url: 'https://appcargo.com/' },
+  ],
+  faq: [
+    {
+      question: 'Какие приложения для транспорта пригодятся в Белграде?',
+      answer:
+        'Для маршрутов можно проверить Moovit, Google Maps и местные источники. Для поездок — Yandex Go, CarGo и местные службы вроде Pink Taxi.',
+    },
+    {
+      question: 'Что подготовить для поездок в первую неделю в Сербии?',
+      answer:
+        'Подготовьте мобильный интернет, адрес жилья, приложения карт и поездок, офлайн-запас и актуальные данные общественного транспорта.',
+    },
+    {
+      question: 'Как добраться из аэропорта Белграда в центр?',
+      answer:
+        'До прилёта сравните актуальные варианты такси, приложений, трансфера и общественного транспорта. Проверьте место посадки, машину и адрес.',
+    },
+    {
+      question: 'Как пользоваться общественным транспортом в Белграде?',
+      answer:
+        'В городе работают автобусы, трамваи и другие маршруты. Правила оплаты и билетов могут меняться, поэтому сверяйтесь с актуальными источниками.',
+    },
+    {
+      question: 'Какие службы такси обычно проверяют в Сербии?',
+      answer:
+        'В Белграде часто сравнивают Yandex Go, CarGo и местные службы вроде Pink Taxi. Доступность и способы заказа могут различаться.',
+    },
+    {
+      question: 'Какие карты пригодятся в Сербии?',
+      answer:
+        'Google Maps, Yandex Maps и Moovit помогают планировать маршруты. Офлайн-карта пригодится как запасной вариант.',
+    },
+  ],
+};
+
 export const guides: Guide[] = [
   georgiaSimEn,
   georgiaEsimEn,
   enGuide('georgia', 'bank-account', 'Medium', 'Bank accounts are possible for many visitors, but requirements vary. Expect passport checks and possible proof of address, income or purpose.', ['Shortlist major banks before arrival.', 'Book time for an in-branch visit.', 'Bring printed or digital supporting documents.', 'Ask about monthly fees, card issuance and foreign transfers.', 'Activate online banking before leaving the branch.'], ['Passport', 'Phone number', 'Local address', 'Proof of income or purpose if requested'], ['Monthly account and card fees may apply.', 'International transfer fees vary widely.', 'Premium packages are not always necessary.'], ['Arriving without a local phone number.', 'Not asking about account maintenance fees.', 'Assuming rules are identical across branches.']),
   enGuide('georgia', 'rent-apartment', 'Medium', 'For first arrival, book temporary housing first, then inspect long-term apartments in person before paying a deposit.', ['Use temporary accommodation for the first week.', 'Compare neighborhoods by commute and noise.', 'Inspect heating, water pressure, internet and building access.', 'Confirm deposit, utilities and contract term in writing.', 'Avoid paying large sums before meeting the owner or agent.'], ['Passport copy may be requested', 'Deposit funds', 'Written lease or message trail'], ['Deposits are often one month, sometimes more.', 'Utilities may be separate from rent.', 'Agent fees depend on the arrangement.'], ['Signing without checking utilities.', 'Paying before seeing the apartment.', 'Ignoring winter heating quality.']),
-  enGuide('georgia', 'transport', 'High', 'Use ride-hailing for simple arrivals and a transport card or contactless payment for regular city travel where supported.', ['Install ride-hailing apps before arrival.', 'Check airport pickup zones.', 'For public transport, buy or configure the local payment method.', 'Keep small cash for backup outside central areas.'], ['Payment card', 'Phone with data', 'Transport card if needed'], ['Airport rides cost more than city trips.', 'Public transport remains the cheapest daily option.', 'Intercity marshrutka and train prices vary by route.'], ['Accepting unofficial taxi offers without agreeing price.', 'Assuming card payment works everywhere.', 'Not checking last departure times.']),
+  georgiaTransportEn,
   serbiaSimEn,
   serbiaEsimEn,
   enGuide('serbia', 'bank-account', 'Medium', 'Banking can require more paperwork in Serbia. Prepare passport, local registration details and a clear reason for opening the account.', ['Compare banks that serve non-residents.', 'Ask what documents are required before visiting.', 'Bring proof of address or stay registration if available.', 'Review account, card and transfer fees.', 'Test mobile banking and card activation.'], ['Passport', 'Local phone number', 'Address or white card if available', 'Employment, income or purpose documents if requested'], ['Maintenance fees and transfer fees vary.', 'Card issuance may take several days.', 'Some banks charge more for non-resident services.'], ['Going without an appointment when the branch is busy.', 'Not asking about non-resident restrictions.', 'Leaving before mobile banking is fully active.']),
   enGuide('serbia', 'rent-apartment', 'Medium', 'Start with short-term accommodation, then inspect apartments and clarify registration, utilities and deposit terms before committing.', ['Pick temporary accommodation near your target area.', 'View apartments in daylight if possible.', 'Ask whether the landlord can support address registration.', 'Confirm utilities, internet and building costs.', 'Put deposit and move-in terms in writing.'], ['Passport', 'Deposit funds', 'Lease or written agreement', 'Stay registration details for longer stays'], ['Deposits commonly equal one month of rent.', 'Utilities and building fees may be separate.', 'Prices vary strongly by Belgrade neighborhood.'], ['Not discussing address registration.', 'Underestimating winter utility costs.', 'Sending deposit before verifying ownership or agency details.']),
-  enGuide('serbia', 'transport', 'High', 'Belgrade is easy to navigate with buses, trams, walking and ride-hailing. Check current ticketing rules locally because systems can change.', ['Install map and ride-hailing apps.', 'Check public transport payment rules for your city.', 'Use official airport transfer or app-based rides on arrival.', 'For intercity travel, compare bus and train schedules.'], ['Phone with data', 'Payment card or local payment option', 'ID for intercity tickets when requested'], ['City transport is usually low cost.', 'Airport transfers and app rides cost more.', 'Intercity buses can be faster than trains on some routes.'], ['Using outdated ticketing advice.', 'Boarding intercity transport without checking platform changes.', 'Taking unofficial airport taxi offers.']),
+  serbiaTransportEn,
   georgiaSimTr,
   georgiaEsimTr,
   trGuide('georgia', 'bank-account', 'Medium', 'Birçok ziyaretçi için banka hesabı mümkün olabilir; pasaport kontrolü ve adres, gelir veya amaç belgesi istenebilir.', ['Gelmeden önce büyük bankaları listeleyin.', 'Şube ziyareti için zaman ayırın.', 'Destekleyici belgeleri dijital veya basılı hazırlayın.', 'Aylık ücret, kart çıkarma ve yurtdışı transfer ücretlerini sorun.', 'Şubeden ayrılmadan internet bankacılığını aktive edin.'], ['Pasaport', 'Telefon numarası', 'Yerel adres', 'İstenirse gelir veya amaç belgesi'], ['Aylık hesap ve kart ücretleri olabilir.', 'Uluslararası transfer ücretleri ciddi değişir.', 'Premium paket her zaman gerekli değildir.'], ['Yerel telefon numarası olmadan gitmek.', 'Hesap işletim ücretini sormamak.', 'Tüm şubelerde kurallar aynı sanmak.']),
   trGuide('georgia', 'rent-apartment', 'Medium', 'İlk varışta geçici konaklama ayarlayın, uzun dönem evi depozito ödemeden önce yerinde görün.', ['İlk hafta için geçici konaklama kullanın.', 'Semtleri ulaşım ve gürültüye göre karşılaştırın.', 'Isıtma, su basıncı, internet ve bina girişini kontrol edin.', 'Depozito, faturalar ve kontrat süresini yazılı netleştirin.', 'Ev sahibi veya emlakçıyla görüşmeden yüksek ödeme yapmayın.'], ['Pasaport kopyası istenebilir', 'Depozito bütçesi', 'Yazılı kira sözleşmesi veya mesaj kaydı'], ['Depozito genelde bir ay, bazen daha fazladır.', 'Faturalar kiradan ayrı olabilir.', 'Emlakçı ücreti anlaşmaya bağlıdır.'], ['Faturaları kontrol etmeden imzalamak.', 'Evi görmeden ödeme yapmak.', 'Kış ısınma kalitesini önemsememek.']),
-  trGuide('georgia', 'transport', 'High', 'Varışta uygulama taksileri pratik; şehir içinde desteklenen yerlerde ulaşım kartı veya temassız ödeme kullanın.', ['Ulaşım uygulamalarını gelmeden kurun.', 'Havalimanı araç çağırma noktalarını kontrol edin.', 'Toplu taşıma için yerel ödeme yöntemini alın veya ayarlayın.', 'Merkez dışı bölgeler için az miktar nakit tutun.'], ['Ödeme kartı', 'İnternetli telefon', 'Gerekiyorsa ulaşım kartı'], ['Havalimanı yolculukları şehir içinden pahalıdır.', 'Günlük kullanımda toplu taşıma en ucuz seçenektir.', 'Şehirler arası minibüs ve tren fiyatları rotaya göre değişir.'], ['Fiyat konuşmadan resmi olmayan taksiye binmek.', 'Her yerde kart geçtiğini varsaymak.', 'Son sefer saatlerini kontrol etmemek.']),
+  georgiaTransportTr,
   serbiaSimTr,
   serbiaEsimTr,
   trGuide('serbia', 'bank-account', 'Medium', 'Sırbistan’da bankacılık daha fazla evrak gerektirebilir. Pasaport, yerel kayıt bilgisi ve hesap açma amacınızı hazırlayın.', ['Yabancılarla çalışan bankaları karşılaştırın.', 'Şubeye gitmeden önce belge listesini sorun.', 'Varsa adres veya konaklama kayıt belgesini getirin.', 'Hesap, kart ve transfer ücretlerini inceleyin.', 'Mobil bankacılık ve kart aktivasyonunu test edin.'], ['Pasaport', 'Yerel telefon numarası', 'Varsa adres veya white card', 'İstenirse iş, gelir veya amaç belgeleri'], ['Hesap işletim ve transfer ücretleri değişir.', 'Kart basımı birkaç gün sürebilir.', 'Bazı bankalar yabancılar için daha yüksek ücret alabilir.'], ['Yoğun şubeye randevusuz gitmek.', 'Yabancı müşteri kısıtlarını sormamak.', 'Mobil bankacılık aktif olmadan ayrılmak.']),
   trGuide('serbia', 'rent-apartment', 'Medium', 'Kısa dönem konaklamayla başlayın; daireleri yerinde görün ve kayıt, faturalar, depozito şartlarını netleştirin.', ['Hedef bölgenize yakın geçici konaklama seçin.', 'Mümkünse daireyi gündüz görün.', 'Ev sahibinin adres kaydına destek verip vermediğini sorun.', 'Faturalar, internet ve bina giderlerini netleştirin.', 'Depozito ve taşınma şartlarını yazılı tutun.'], ['Pasaport', 'Depozito bütçesi', 'Kira sözleşmesi veya yazılı anlaşma', 'Uzun kalış için kayıt bilgileri'], ['Depozito çoğu zaman bir aylık kiradır.', 'Faturalar ve bina giderleri ayrı olabilir.', 'Belgrad semtlerine göre fiyatlar çok değişir.'], ['Adres kaydını konuşmamak.', 'Kış fatura maliyetini düşük tahmin etmek.', 'Mülk veya emlakçı bilgilerini doğrulamadan depozito göndermek.']),
-  trGuide('serbia', 'transport', 'High', 'Belgrad’da otobüs, tramvay, yürüyüş ve araç çağırma uygulamalarıyla ulaşım kolaydır. Bilet sistemi değişebileceği için güncel kuralları yerelde kontrol edin.', ['Harita ve araç çağırma uygulamalarını kurun.', 'Bulunduğunuz şehir için toplu taşıma ödeme kurallarını kontrol edin.', 'Varışta resmi havalimanı transferi veya uygulama aracı kullanın.', 'Şehirler arası için otobüs ve tren saatlerini karşılaştırın.'], ['İnternetli telefon', 'Ödeme kartı veya yerel ödeme seçeneği', 'Şehirler arası bilet için istenirse kimlik'], ['Şehir içi ulaşım genelde düşük maliyetlidir.', 'Havalimanı transferleri ve uygulama yolculukları daha pahalıdır.', 'Bazı rotalarda şehirler arası otobüs trenden hızlı olabilir.'], ['Eski bilet bilgisine güvenmek.', 'Peron değişikliklerini kontrol etmeden binmek.', 'Resmi olmayan havalimanı taksisine binmek.']),
+  serbiaTransportTr,
   georgiaSimRu,
   ruGuide('georgia', 'esim', 'High', 'eSIM удобна, если телефон её поддерживает и нужен интернет сразу после посадки. Для местного номера или долгого пребывания сравните её с физической SIM-картой.', ['Проверьте поддержку eSIM в телефоне.', 'Купите и установите eSIM до вылета по Wi-Fi.', 'Сохраните QR-код или инструкцию активации.', 'После посадки включите eSIM и передачу данных.', 'Проверьте карты и мессенджеры до выхода из аэропорта.'], ['Телефон с поддержкой eSIM', 'Wi-Fi для установки', 'Банковская карта', 'Инструкция от провайдера'], ['Пакеты eSIM часто стоят дороже местной SIM.', 'Некоторые eSIM дают только интернет без местного номера.', 'Срок действия может начинаться при установке или первом подключении.'], ['Покупать eSIM без проверки совместимости телефона.', 'Удалять eSIM до конца поездки.', 'Не проверять, когда начинается срок действия.']),
   ruGuide('georgia', 'bank-account', 'Medium', 'Открыть счёт возможно для многих приезжих, но требования отличаются по банку и отделению. Готовьте паспорт, местный номер и объяснение цели счёта.', ['Сравните крупные банки до визита.', 'Выделите время на посещение отделения.', 'Подготовьте паспорт, номер телефона и адрес.', 'Спросите про комиссии, карту и переводы.', 'Активируйте онлайн-банк до ухода из отделения.'], ['Паспорт', 'Местный номер телефона', 'Местный адрес', 'Документы о доходе или цели, если попросят'], ['Могут быть ежемесячные комиссии.', 'Стоимость карты и переводов отличается.', 'Премиальные пакеты не всегда нужны.'], ['Идти без местного номера.', 'Не спрашивать про комиссии.', 'Думать, что правила одинаковые во всех отделениях.']),
   ruGuide('georgia', 'rent-apartment', 'Medium', 'На первую неделю лучше взять временное жильё, а долгосрочную квартиру смотреть лично до оплаты депозита.', ['Забронируйте временное жильё на первые дни.', 'Сравните районы по транспорту и шуму.', 'Проверьте отопление, воду, интернет и вход в дом.', 'Запишите депозит, коммунальные и срок аренды.', 'Не переводите крупные суммы до просмотра и проверки владельца.'], ['Паспорт или копия паспорта', 'Деньги на депозит', 'Договор или переписка с условиями'], ['Депозит часто равен одному месяцу.', 'Коммунальные могут оплачиваться отдельно.', 'Комиссия агента зависит от ситуации.'], ['Подписывать без проверки коммунальных.', 'Платить до просмотра квартиры.', 'Не учитывать качество отопления зимой.']),
-  ruGuide('georgia', 'transport', 'High', 'Для приезда удобны приложения такси, а для регулярных поездок пригодятся транспортная карта или бесконтактная оплата там, где она доступна.', ['Установите приложения такси до приезда.', 'Проверьте зоны посадки в аэропорту.', 'Уточните способ оплаты общественного транспорта.', 'Держите немного наличных для районов вне центра.', 'Сравните варианты междугородних поездок заранее.'], ['Телефон с интернетом', 'Банковская карта', 'Транспортная карта, если нужна'], ['Поездки из аэропорта дороже городских.', 'Общественный транспорт обычно самый дешёвый.', 'Междугородние цены зависят от маршрута.'], ['Садиться в неофициальное такси без цены.', 'Думать, что карта работает везде.', 'Не проверять последние рейсы.']),
+  georgiaTransportRu,
   serbiaSimRu,
   ruGuide('serbia', 'esim', 'High', 'eSIM подходит, если нужен интернет сразу после приезда и телефон поддерживает eSIM. Для местного номера лучше сравнить с физической SIM-картой.', ['Проверьте поддержку eSIM.', 'Купите eSIM до поездки и установите по Wi-Fi.', 'Сохраните инструкцию активации.', 'После посадки включите линию eSIM.', 'Проверьте карты и мессенджеры.'], ['Телефон с поддержкой eSIM', 'Wi-Fi для установки', 'Банковская карта', 'Инструкция провайдера'], ['eSIM часто дороже местной SIM.', 'Многие eSIM дают только интернет.', 'Срок действия зависит от условий пакета.'], ['Не проверять совместимость телефона.', 'Удалять eSIM во время поездки.', 'Не уточнять срок действия.']),
   ruGuide('serbia', 'bank-account', 'Medium', 'Банк в Сербии может попросить больше документов. Подготовьте паспорт, местную регистрацию или адрес и понятную цель открытия счёта.', ['Сравните банки для нерезидентов.', 'Уточните список документов до визита.', 'Возьмите паспорт, номер телефона и адрес.', 'Спросите про обслуживание, карту и переводы.', 'Проверьте мобильный банк перед уходом.'], ['Паспорт', 'Местный номер телефона', 'Адрес или регистрация, если есть', 'Документы о доходе или цели, если попросят'], ['Комиссии отличаются по банкам.', 'Выпуск карты может занять несколько дней.', 'Для нерезидентов условия могут быть дороже.'], ['Идти без уточнения документов.', 'Не спрашивать про ограничения для нерезидентов.', 'Уходить до активации мобильного банка.']),
   ruGuide('serbia', 'rent-apartment', 'Medium', 'Начните с краткосрочного жилья, затем смотрите квартиры лично и заранее уточняйте регистрацию, коммунальные и депозит.', ['Выберите временное жильё рядом с нужным районом.', 'Смотрите квартиры при дневном свете.', 'Спросите, поможет ли владелец с регистрацией адреса.', 'Уточните коммунальные, интернет и расходы дома.', 'Запишите депозит и условия заезда.'], ['Паспорт', 'Деньги на депозит', 'Договор или письменные условия', 'Данные регистрации для долгого пребывания'], ['Депозит часто равен одному месяцу.', 'Коммунальные и расходы дома могут быть отдельно.', 'Цены сильно зависят от района Белграда.'], ['Не обсуждать регистрацию адреса.', 'Недооценить зимние коммунальные.', 'Отправлять депозит без проверки владельца.']),
-  ruGuide('serbia', 'transport', 'High', 'В Белграде удобно передвигаться автобусами, трамваями, пешком и через приложения такси. Проверяйте актуальные правила оплаты транспорта на месте.', ['Установите карты и приложения такси.', 'Проверьте правила оплаты транспорта в своём городе.', 'Из аэропорта используйте официальный трансфер или приложение.', 'Для поездок между городами сравните автобусы и поезда.', 'Держите телефон с интернетом под рукой.'], ['Телефон с интернетом', 'Банковская карта или местный способ оплаты', 'Документ для междугородних билетов, если попросят'], ['Городской транспорт обычно недорогой.', 'Аэропорт и поездки через приложения стоят дороже.', 'Автобусы иногда быстрее поездов.'], ['Пользоваться старой информацией о билетах.', 'Не проверять платформу и расписание.', 'Садиться в неофициальное такси в аэропорту.']),
+  serbiaTransportRu,
 ];
 
 export const findGuide = (language: Language, country: CountryKey, topic: TopicKey) =>
