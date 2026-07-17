@@ -19,6 +19,10 @@ export type Guide = {
   housingSources?: { label: string; details: string }[];
   housingChecks?: string[];
   locationTransportTips?: string[];
+  bankingOptions?: { label: string; details: string }[];
+  bankQuestions?: string[];
+  paymentBasics?: string[];
+  currencyTransferTips?: string[];
   steps: string[];
   documents: string[];
   costs: string[];
@@ -2115,6 +2119,420 @@ const serbiaTransportRu: Guide = {
   ],
 };
 
+const georgiaBankingEn: Guide = {
+  ...enGuide(
+    'georgia',
+    'bank-account',
+    'Medium',
+    'Foreigners can check bank account options in Georgia, but eligibility, documents and approval depend on the bank and personal situation. Ask the bank for its current requirements before applying.',
+    [
+      'Decide whether you need a local account now or only a practical way to pay and access money during your first week.',
+      'Check current account information from Bank of Georgia and TBC Bank without assuming either will accept your application.',
+      'Ask the bank which documents and in-person checks apply to your nationality, stay and intended account use.',
+      'Compare card access, mobile banking, account currencies, transfers and ongoing account conditions.',
+      'Keep a backup card and some accessible cash until any new account and card are fully working.',
+    ],
+    ['Passport or other accepted identification may be requested', 'Local or international contact details may be requested', 'Address or stay information may be requested', 'Income, tax, employment or purpose information may be requested'],
+    [
+      'Ask about account maintenance, card, cash withdrawal and transfer fees; current terms can differ by account.',
+      'Check which currencies the account supports and how the bank handles currency conversion.',
+      'Confirm card delivery or collection, activation, limits and mobile banking access before relying on the account.',
+      'Review the bank’s current terms directly and avoid choosing an account from one advertised feature alone.',
+    ],
+    [
+      'Assuming a foreign applicant is guaranteed to receive an account.',
+      'Visiting without checking the bank’s current document and appointment requirements.',
+      'Choosing an account without comparing maintenance, card, ATM and transfer conditions.',
+      'Exchanging or transferring money without reviewing the rate, fees and recipient details.',
+      'Relying on one card or leaving before mobile banking and security settings are tested.',
+    ],
+  ),
+  title: 'Georgia Bank Account Guide',
+  description: 'A practical Georgia bank account guide for foreigners, covering possible documents, bank questions, cards, cash, currency and international transfers.',
+  summary: 'Georgia banking for foreigners depends on the bank, nationality, documents and intended use. Compare current options, ask what may be required and keep backup access to money while you arrange your first-week banking basics.',
+  lastUpdated: '2026-07-15',
+  bankingOptions: [
+    { label: 'Bank of Georgia', details: 'A major local bank whose current account options can be checked. Confirm eligibility, documents, branch process and terms directly.' },
+    { label: 'TBC Bank', details: 'Another major local bank to compare. Requirements and available products can depend on the applicant and may change.' },
+    { label: 'Wise for comparison', details: 'Wise can be checked as an international money and transfer tool, not as a recommendation or a substitute for a Georgian bank account.' },
+  ],
+  bankQuestions: [
+    'Can the bank consider an application for someone with your nationality, stay status and intended account use?',
+    'Which original documents, translations, local details or supporting information may be required?',
+    'What are the current account, card, ATM, conversion and domestic or international transfer conditions?',
+    'How are the card and mobile banking activated, and what support is available if your phone or card is lost?',
+  ],
+  paymentBasics: [
+    'Cards and contactless payments may be widely usable in cities, but acceptance varies by business and location.',
+    'Keep a modest cash backup for places or situations where your card or mobile payment does not work.',
+    'Enable transaction alerts, protect PINs and verification codes, and test the official banking app before relying on it.',
+  ],
+  currencyTransferTips: [
+    'Georgia uses the Georgian lari. Check the displayed currency before approving a card payment or cash withdrawal.',
+    'Compare the bank or provider’s current exchange rate and all fees before converting money.',
+    'For international transfers, verify the recipient name, account details, currency, timing and total charges before sending.',
+    'Wise and bank transfers can be compared where available, but availability, timing and terms depend on the route and user.',
+  ],
+  verificationNote: 'Last updated: 2026-07-15. Bank eligibility, documents, products, fees and transfer availability can change. Check current details with the bank or provider directly.',
+  links: [
+    { label: 'Bank of Georgia', url: 'https://bankofgeorgia.ge/en/retail' },
+    { label: 'TBC Bank', url: 'https://tbcbank.ge/en/accounts/current-account' },
+    { label: 'Wise transfers', url: 'https://wise.com/gb/send-money/' },
+  ],
+  faq: [
+    { question: 'Can foreigners open a bank account in Georgia?', answer: 'Some banks may offer account options to foreign applicants, but requirements and decisions can depend on the bank, nationality, documents and personal situation. Confirm current eligibility directly before applying.' },
+    { question: 'Which documents are needed for a Georgia bank account?', answer: 'A passport and contact information may be requested, along with address, income, tax or purpose details in some cases. The bank should confirm its current requirements for your situation.' },
+    { question: 'Should I use cash or cards in Georgia?', answer: 'Cards may be commonly accepted, especially in cities, but payment methods vary. Keeping some accessible cash and a backup card can be useful during the first week.' },
+    { question: 'What should I check before an international transfer?', answer: 'Review the recipient details, currency, exchange rate, fees, expected timing and any intermediary charges. Banks and tools such as Wise can be compared without assuming one option suits every route.' },
+  ],
+};
+
+const serbiaBankingEn: Guide = {
+  ...enGuide(
+    'serbia',
+    'bank-account',
+    'Medium',
+    'Foreigners can ask Serbian banks about account options, but eligibility and documents depend on nationality, stay, account purpose and bank policy. Verify current requirements before applying.',
+    [
+      'Decide whether you need a Serbian account immediately or can use existing cards and cash while comparing options.',
+      'Check current information from banks such as Raiffeisen Bank Serbia, Banca Intesa and OTP banka.',
+      'Ask which requirements apply to your nationality, residence or registration details and intended account use.',
+      'Compare dinar and foreign-currency access, cards, mobile banking, transfers and ongoing conditions.',
+      'Keep backup access to money until the account, card, app and verification methods are fully active.',
+    ],
+    ['Passport or other accepted identification may be requested', 'Address, stay or registration information may be requested', 'A local phone number or other contact details may be requested', 'Income, employment, tax or account-purpose information may be requested'],
+    [
+      'Ask about account maintenance, cards, ATMs, cash services and domestic or international transfer fees.',
+      'Check whether the account supports dinars and any foreign currencies you need, plus the applicable conversion process.',
+      'Confirm application timing, card collection or delivery, activation, limits and mobile banking access.',
+      'Compare complete current terms rather than choosing from a single promotion or feature.',
+    ],
+    [
+      'Assuming every bank offers the same option to every foreign applicant.',
+      'Applying without checking current document, branch or appointment requirements.',
+      'Ignoring account, card, ATM, conversion and transfer conditions.',
+      'Sending a transfer without checking recipient data, currency, timing and total charges.',
+      'Depending on one payment method before the new card and mobile banking are tested.',
+    ],
+  ),
+  title: 'Serbia Bank Account Guide',
+  description: 'A practical Serbia bank account guide for foreigners, covering possible documents, bank questions, cards, cash, currency and international transfers.',
+  summary: 'Serbia banking for foreigners can depend on nationality, stay details, documents and the bank. Compare current options and keep backup access to money while you clarify account, card and transfer conditions.',
+  lastUpdated: '2026-07-15',
+  bankingOptions: [
+    { label: 'Raiffeisen Bank Serbia', details: 'One Serbian bank whose account information can be checked. Confirm foreign-applicant eligibility and current requirements directly.' },
+    { label: 'Banca Intesa', details: 'Another bank to compare for account, card and digital-banking conditions. Available options depend on the applicant.' },
+    { label: 'OTP banka', details: 'Its current account and service information can also be reviewed. Check documents, process and terms with the bank.' },
+    { label: 'Wise for comparison', details: 'Wise can be compared as an international transfer tool, not as a bank recommendation or guaranteed route.' },
+  ],
+  bankQuestions: [
+    'Can the bank consider your application based on nationality, stay or registration details and intended account use?',
+    'Which identification, address, registration, income, tax or supporting documents may be requested?',
+    'What are the current account, card, ATM, conversion and domestic or international transfer conditions?',
+    'When and how will the card, mobile banking, limits and account security features become active?',
+  ],
+  paymentBasics: [
+    'Cards and contactless payments may be common, but acceptance can vary by business, city and situation.',
+    'Keep some accessible dinar cash and a backup payment method during the first week.',
+    'Use official banking apps, enable alerts and protect your PIN, passwords and verification codes.',
+  ],
+  currencyTransferTips: [
+    'Serbia uses the Serbian dinar. Check the payment or withdrawal currency before confirming a transaction.',
+    'Compare current exchange rates, conversion methods and all visible fees before exchanging money.',
+    'For international transfers, verify recipient bank details, currency, transfer type, timing and possible intermediary costs.',
+    'Wise and bank transfer options can be compared where supported; availability and terms depend on the transfer route.',
+  ],
+  verificationNote: 'Last updated: 2026-07-15. Bank eligibility, registration-related requirements, products, fees and transfer availability can change. Verify current details directly.',
+  links: [
+    { label: 'Raiffeisen Serbia', url: 'https://www.raiffeisenbank.rs/sr/stanovnistvo/racuni.html' },
+    { label: 'Banca Intesa', url: 'https://www.bancaintesa.rs/en/stanovnistvo.html/platni-racuni.html' },
+    { label: 'OTP banka', url: 'https://www.otpbanka.rs/en/' },
+    { label: 'Wise transfers', url: 'https://wise.com/gb/send-money/' },
+  ],
+  faq: [
+    { question: 'Can foreigners open a bank account in Serbia?', answer: 'Some banks may consider foreign applicants, but requirements can depend on nationality, purpose of stay, registration details and bank policy. Confirm current eligibility before applying.' },
+    { question: 'Which documents are needed for a Serbia bank account?', answer: 'A passport, address or registration information and additional supporting documents may be requested. Exact requirements depend on the bank and personal situation.' },
+    { question: 'What should I check for a money transfer from Serbia?', answer: 'Check the recipient details, transfer currency, exchange rate, fees, timing and possible intermediary charges. International tools such as Wise can also be compared where available.' },
+    { question: 'Should I rely only on a new Serbian bank card?', answer: 'It is safer to keep a backup card and some accessible cash until the new card, PIN, mobile app and verification methods have all been tested.' },
+  ],
+};
+
+const georgiaBankingTr: Guide = {
+  ...trGuide(
+    'georgia',
+    'bank-account',
+    'Medium',
+    'Yabancılar Gürcistan banka hesabı seçeneklerini kontrol edebilir; ancak uygunluk, belgeler ve karar bankaya ve kişisel duruma göre değişir. Başvurmadan önce güncel şartları bankadan doğrulayın.',
+    [
+      'İlk hafta hemen yerel hesaba mı ihtiyacınız olduğunu, yoksa mevcut kart ve nakitle seçenekleri karşılaştırıp karşılaştıramayacağınızı belirleyin.',
+      'Bank of Georgia ve TBC Bank hesap bilgilerini, başvurunun kabul edileceğini varsaymadan inceleyin.',
+      'Vatandaşlık, kalış durumu ve hesap kullanım amacınıza göre hangi belge ve kontrollerin uygulanacağını sorun.',
+      'Kart, mobil bankacılık, hesap para birimleri, transferler ve devam eden hesap şartlarını karşılaştırın.',
+      'Yeni hesap ve kart tamamen çalışana kadar yedek kart ve erişilebilir bir miktar nakit bulundurun.',
+    ],
+    ['Pasaport veya kabul edilen başka bir kimlik istenebilir', 'Yerel ya da uluslararası iletişim bilgileri istenebilir', 'Adres veya kalış bilgileri istenebilir', 'Gelir, vergi, iş veya hesap amacı bilgisi istenebilir'],
+    [
+      'Hesap işletim, kart, ATM ve transfer ücretlerini sorun; şartlar hesap türüne göre değişebilir.',
+      'Hesabın hangi para birimlerini desteklediğini ve döviz dönüşümünün nasıl yapıldığını kontrol edin.',
+      'Hesaba güvenmeden önce kart teslimi, aktivasyon, limit ve mobil bankacılık erişimini doğrulayın.',
+      'Tek bir özelliğe göre karar vermeden bankanın tüm güncel şartlarını inceleyin.',
+    ],
+    [
+      'Yabancı bir başvuru sahibine hesap açılacağının garanti olduğunu düşünmek.',
+      'Güncel belge ve randevu şartlarını sormadan şubeye gitmek.',
+      'Hesap, kart, ATM ve transfer koşullarını karşılaştırmamak.',
+      'Kur, ücret ve alıcı detaylarını kontrol etmeden para çevirmek veya göndermek.',
+      'Tek karta güvenmek ya da mobil bankacılık ve güvenlik ayarlarını test etmeden ayrılmak.',
+    ],
+  ),
+  title: 'Gürcistan Banka Hesabı Rehberi',
+  description: 'Yabancılar için Gürcistan banka hesabı rehberi: istenebilecek belgeler, bankaya sorular, kart, nakit, döviz ve uluslararası para transferi.',
+  summary: 'Gürcistan’da banka hesabı açmak; bankaya, vatandaşlığa, belgelere ve kullanım amacına göre değişebilir. Güncel seçenekleri karşılaştırın, nelerin istenebileceğini sorun ve ilk hafta paranıza yedek erişim sağlayın.',
+  lastUpdated: '2026-07-15',
+  bankingOptions: [
+    { label: 'Bank of Georgia', details: 'Güncel hesap seçenekleri kontrol edilebilecek yerel bankalardan biridir. Uygunluk, belgeler, şube süreci ve şartları doğrudan doğrulayın.' },
+    { label: 'TBC Bank', details: 'Karşılaştırılabilecek başka bir yerel bankadır. Gereklilikler ve ürünler başvuru sahibine göre değişebilir.' },
+    { label: 'Karşılaştırma için Wise', details: 'Wise, Gürcistan bankası önerisi veya yerel hesabın yerine geçen bir seçenek olarak değil, uluslararası transfer aracı olarak incelenebilir.' },
+  ],
+  bankQuestions: [
+    'Vatandaşlığınız, kalış durumunuz ve kullanım amacınızla başvuru değerlendirmeye alınabilir mi?',
+    'Hangi asıl belgeler, çeviriler, yerel bilgiler veya destekleyici kayıtlar istenebilir?',
+    'Hesap, kart, ATM, döviz dönüşümü ve yerel ya da uluslararası transfer şartları nelerdir?',
+    'Kart ve mobil bankacılık nasıl etkinleşir; telefon veya kart kaybında hangi destek sunulur?',
+  ],
+  paymentBasics: [
+    'Kart ve temassız ödeme şehirlerde yaygın olabilir; ancak işletmeye ve konuma göre kabul durumu değişir.',
+    'Kartın veya mobil ödemenin çalışmadığı durumlar için erişilebilir bir miktar nakit bulundurun.',
+    'İşlem bildirimlerini açın, PIN ve doğrulama kodlarını koruyun, resmi banka uygulamasını test edin.',
+  ],
+  currencyTransferTips: [
+    'Gürcistan’ın para birimi Gürcistan larisi’dir. Kart ödemesi veya para çekme onayından önce gösterilen para birimini kontrol edin.',
+    'Para çevirmeden önce bankanın veya sağlayıcının güncel kurunu ve bütün ücretleri karşılaştırın.',
+    'Uluslararası transferde alıcı adı, hesap bilgileri, para birimi, süre ve toplam masrafı doğrulayın.',
+    'Wise ve banka transferleri mevcut oldukları rotalarda karşılaştırılabilir; kullanılabilirlik ve şartlar kişiye ve rotaya bağlıdır.',
+  ],
+  verificationNote: 'Son güncelleme: 2026-07-15. Banka uygunluğu, belgeler, ürünler, ücretler ve transfer seçenekleri değişebilir. Güncel detayları doğrudan banka veya sağlayıcıdan kontrol edin.',
+  links: [
+    { label: 'Bank of Georgia', url: 'https://bankofgeorgia.ge/en/retail' },
+    { label: 'TBC Bank', url: 'https://tbcbank.ge/en/accounts/current-account' },
+    { label: 'Wise transferleri', url: 'https://wise.com/gb/send-money/' },
+  ],
+  faq: [
+    { question: 'Gürcistan’da yabancılar banka hesabı açabilir mi?', answer: 'Bazı bankalar yabancılar için hesap seçenekleri sunabilir; ancak şartlar bankaya, vatandaşlığa, belgelere ve kişisel duruma göre değişebilir. Başvurmadan önce güncel gereklilikleri bankadan doğrulamak gerekir.' },
+    { question: 'Gürcistan’da banka hesabı açmak için hangi belgeler gerekir?', answer: 'Pasaport ve iletişim bilgileri istenebilir; bazı durumlarda adres, gelir, vergi veya kullanım amacı bilgileri de talep edilebilir. En doğru bilgi bankadan alınmalıdır.' },
+    { question: 'Gürcistan’da nakit mi kart mı kullanılır?', answer: 'Kart kullanımı özellikle şehirlerde yaygın olabilir; ancak ödeme yöntemleri işletme ve konuma göre değişir. İlk hafta için bir miktar nakit ve yedek kart faydalı olabilir.' },
+    { question: 'Gürcistan para transferinde nelere dikkat edilmeli?', answer: 'Alıcı bilgileri, para birimi, kur, ücretler, tahmini süre ve olası aracı masraflar kontrol edilmelidir. Wise gibi araçlar da uygun rotalarda karşılaştırılabilir.' },
+  ],
+};
+
+const serbiaBankingTr: Guide = {
+  ...trGuide(
+    'serbia',
+    'bank-account',
+    'Medium',
+    'Yabancılar Sırbistan banka hesabı seçeneklerini bankalara sorabilir; ancak uygunluk vatandaşlık, kalış amacı, kayıt bilgileri ve banka politikasına bağlıdır. Güncel şartları doğrulayın.',
+    [
+      'Sırbistan hesabına hemen ihtiyacınız olup olmadığını veya mevcut kart ve nakitle seçenekleri karşılaştırabileceğinizi belirleyin.',
+      'Raiffeisen Bank Serbia, Banca Intesa ve OTP banka gibi bankaların güncel bilgilerini kontrol edin.',
+      'Vatandaşlık, kalış veya kayıt bilgileri ve hesap amacınıza göre hangi şartların uygulanacağını sorun.',
+      'Dinar ve döviz erişimi, kart, mobil bankacılık, transfer ve devam eden şartları karşılaştırın.',
+      'Hesap, kart, uygulama ve doğrulama yöntemleri etkinleşene kadar paranıza yedek erişim sağlayın.',
+    ],
+    ['Pasaport veya kabul edilen başka bir kimlik istenebilir', 'Adres, kalış veya kayıt bilgileri istenebilir', 'Yerel telefon numarası ya da iletişim bilgisi istenebilir', 'Gelir, iş, vergi veya hesap amacı bilgisi istenebilir'],
+    [
+      'Hesap işletim, kart, ATM, nakit işlem ve yerel ya da uluslararası transfer ücretlerini sorun.',
+      'Hesabın dinar ve ihtiyaç duyduğunuz dövizleri destekleyip desteklemediğini, dönüşüm sürecini kontrol edin.',
+      'Başvuru süresi, kart teslimi, aktivasyon, limit ve mobil bankacılık erişimini doğrulayın.',
+      'Tek bir kampanya yerine bütün güncel hesap şartlarını karşılaştırın.',
+    ],
+    [
+      'Her bankanın her yabancı başvuru sahibine aynı seçeneği sunduğunu varsaymak.',
+      'Belge, şube veya randevu şartlarını kontrol etmeden başvurmak.',
+      'Hesap, kart, ATM, kur dönüşümü ve transfer koşullarını incelememek.',
+      'Alıcı bilgisi, para birimi, süre ve toplam masrafı kontrol etmeden transfer göndermek.',
+      'Yeni kart ve mobil bankacılık test edilmeden tek ödeme yöntemine güvenmek.',
+    ],
+  ),
+  title: 'Sırbistan Banka Hesabı Rehberi',
+  description: 'Yabancılar için Sırbistan banka hesabı rehberi: istenebilecek belgeler, bankaya sorular, kart, nakit, döviz ve uluslararası para transferi.',
+  summary: 'Sırbistan’da banka hesabı açmak vatandaşlığa, kalış bilgilerine, belgelere ve bankaya göre değişebilir. Güncel seçenekleri karşılaştırırken hesap, kart ve transfer şartlarını netleştirin ve yedek ödeme yöntemlerini koruyun.',
+  lastUpdated: '2026-07-15',
+  bankingOptions: [
+    { label: 'Raiffeisen Bank Serbia', details: 'Hesap bilgileri incelenebilecek Sırbistan bankalarından biridir. Yabancı başvuru uygunluğunu ve güncel şartları doğrudan doğrulayın.' },
+    { label: 'Banca Intesa', details: 'Hesap, kart ve dijital bankacılık şartları için karşılaştırılabilir. Seçenekler başvuru sahibine göre değişebilir.' },
+    { label: 'OTP banka', details: 'Güncel hesap ve hizmet bilgileri ayrıca incelenebilir. Belge, süreç ve şartları bankadan kontrol edin.' },
+    { label: 'Karşılaştırma için Wise', details: 'Wise bir banka önerisi veya garantili rota olarak değil, uluslararası transfer aracı olarak karşılaştırılabilir.' },
+  ],
+  bankQuestions: [
+    'Vatandaşlığınız, kalış veya kayıt bilgileriniz ve hesap amacınızla başvuru değerlendirilebilir mi?',
+    'Hangi kimlik, adres, kayıt, gelir, vergi veya destekleyici belgeler istenebilir?',
+    'Hesap, kart, ATM, döviz dönüşümü ve yerel ya da uluslararası transfer şartları nelerdir?',
+    'Kart, mobil bankacılık, limitler ve hesap güvenliği özellikleri ne zaman ve nasıl etkinleşir?',
+  ],
+  paymentBasics: [
+    'Kart ve temassız ödeme yaygın olabilir; ancak işletme, şehir ve duruma göre kabul değişebilir.',
+    'İlk hafta için erişilebilir bir miktar dinar ve yedek ödeme yöntemi bulundurun.',
+    'Yalnızca resmi banka uygulamalarını kullanın, bildirimleri açın ve PIN, parola ile kodları koruyun.',
+  ],
+  currencyTransferTips: [
+    'Sırbistan’ın para birimi Sırp dinarıdır. İşlem onayından önce ödeme veya çekim para birimini kontrol edin.',
+    'Para çevirmeden önce güncel kurları, dönüşüm yöntemini ve görünen bütün ücretleri karşılaştırın.',
+    'Uluslararası transferde alıcı banka bilgileri, para birimi, transfer türü, süre ve aracı masrafları doğrulayın.',
+    'Wise ve banka transferleri desteklenen rotalarda karşılaştırılabilir; kullanılabilirlik ve şartlar rotaya bağlıdır.',
+  ],
+  verificationNote: 'Son güncelleme: 2026-07-15. Banka uygunluğu, kayıtla ilgili şartlar, ürünler, ücretler ve transfer seçenekleri değişebilir. Güncel detayları doğrudan doğrulayın.',
+  links: [
+    { label: 'Raiffeisen Serbia', url: 'https://www.raiffeisenbank.rs/sr/stanovnistvo/racuni.html' },
+    { label: 'Banca Intesa', url: 'https://www.bancaintesa.rs/en/stanovnistvo.html/platni-racuni.html' },
+    { label: 'OTP banka', url: 'https://www.otpbanka.rs/en/' },
+    { label: 'Wise transferleri', url: 'https://wise.com/gb/send-money/' },
+  ],
+  faq: [
+    { question: 'Sırbistan’da yabancılar banka hesabı açabilir mi?', answer: 'Bazı bankalar yabancılar için hesap seçenekleri sunabilir; ancak şartlar vatandaşlık, kalış amacı, kayıt bilgileri ve bankaya göre değişebilir. Başvurmadan önce güncel gereklilikleri doğrulamak gerekir.' },
+    { question: 'Sırbistan’da banka hesabı açmak için hangi belgeler gerekir?', answer: 'Pasaport, adres veya kayıt bilgisi ve ek destekleyici belgeler istenebilir. Gereklilikler bankaya ve kişisel duruma göre değişebilir.' },
+    { question: 'Sırbistan’da para transferi için neye dikkat edilmeli?', answer: 'Transfer süresi, ücretler, kur farkı, alıcı banka bilgileri ve olası aracı masraflar kontrol edilmelidir. Wise gibi uluslararası transfer araçları da karşılaştırılabilir.' },
+    { question: 'Yeni Sırbistan banka kartına hemen güvenilebilir mi?', answer: 'Kart, PIN, mobil uygulama ve doğrulama yöntemleri test edilene kadar yedek kart ve erişilebilir bir miktar nakit bulundurmak faydalıdır.' },
+  ],
+};
+
+const georgiaBankingRu: Guide = {
+  ...ruGuide(
+    'georgia',
+    'bank-account',
+    'Medium',
+    'Иностранцы могут уточнять варианты банковского счёта в Грузии, но требования и решение зависят от банка и личной ситуации. До подачи заявки проверьте актуальные условия.',
+    [
+      'Решите, нужен ли местный счёт сразу или на первую неделю достаточно действующих карт и наличных.',
+      'Изучите актуальную информацию Bank of Georgia и TBC Bank, не считая одобрение гарантированным.',
+      'Спросите, какие документы и проверки применяются к вашему гражданству, пребыванию и цели счёта.',
+      'Сравните карты, мобильный банк, валюты счёта, переводы и постоянные условия обслуживания.',
+      'Сохраняйте запасную карту и доступные наличные, пока новый счёт и карта не заработают полностью.',
+    ],
+    ['Могут запросить паспорт или другой принимаемый документ', 'Могут запросить контактные данные', 'Могут запросить адрес или сведения о пребывании', 'Могут запросить сведения о доходе, налогах, работе или цели счёта'],
+    [
+      'Спросите про обслуживание счёта, карту, банкоматы и переводы — условия зависят от продукта.',
+      'Проверьте поддерживаемые валюты и порядок конвертации.',
+      'Уточните получение и активацию карты, лимиты и доступ к мобильному банку.',
+      'Изучите полные актуальные условия, а не только одну рекламируемую функцию.',
+    ],
+    [
+      'Считать открытие счёта иностранцу гарантированным.',
+      'Идти в отделение, не проверив документы и запись.',
+      'Не сравнивать условия счёта, карты, банкоматов и переводов.',
+      'Менять или отправлять деньги без проверки курса, комиссий и данных получателя.',
+      'Полагаться на одну карту до проверки приложения и настроек безопасности.',
+    ],
+  ),
+  title: 'Банковский счёт в Грузии',
+  description: 'Практичный гид по банковскому счёту в Грузии для иностранцев: возможные документы, вопросы банку, карты, наличные, валюта и переводы.',
+  summary: 'Открыть счёт в Грузии можно не во всех ситуациях: решение зависит от банка, гражданства, документов и цели. Сравнивайте актуальные варианты и сохраняйте запасной доступ к деньгам.',
+  lastUpdated: '2026-07-15',
+  bankingOptions: [
+    { label: 'Bank of Georgia', details: 'Один из местных банков, где можно проверить актуальные варианты. Уточняйте допуск, документы, процесс и условия напрямую.' },
+    { label: 'TBC Bank', details: 'Ещё один местный банк для сравнения. Требования и доступные продукты зависят от заявителя и могут меняться.' },
+    { label: 'Wise для сравнения', details: 'Wise можно рассматривать как инструмент международных переводов, а не как рекомендацию банка или замену грузинскому счёту.' },
+  ],
+  bankQuestions: [
+    'Может ли банк рассмотреть заявку с вашим гражданством, статусом пребывания и целью использования?',
+    'Какие оригиналы, переводы, местные сведения или подтверждающие документы могут понадобиться?',
+    'Каковы условия счёта, карты, банкоматов, конвертации и внутренних или международных переводов?',
+    'Как активируются карта и приложение и какая помощь доступна при потере телефона или карты?',
+  ],
+  paymentBasics: [
+    'Карты и бесконтактная оплата могут быть распространены в городах, но приём зависит от места.',
+    'Держите доступный запас наличных на случай, если карта или мобильная оплата не сработает.',
+    'Включите уведомления, защищайте PIN и коды и проверьте официальное приложение банка.',
+  ],
+  currencyTransferTips: [
+    'Валюта Грузии — грузинский лари. До подтверждения оплаты или снятия проверьте указанную валюту.',
+    'До обмена сравните актуальный курс банка или сервиса и все комиссии.',
+    'Для международного перевода проверьте имя, реквизиты, валюту, срок и общую стоимость.',
+    'Wise и банковские переводы можно сравнивать на доступных направлениях; условия зависят от маршрута и пользователя.',
+  ],
+  verificationNote: 'Последнее обновление: 2026-07-15. Допуск, документы, продукты, комиссии и переводы могут меняться. Проверяйте актуальные данные напрямую.',
+  links: [
+    { label: 'Bank of Georgia', url: 'https://bankofgeorgia.ge/en/retail' },
+    { label: 'TBC Bank', url: 'https://tbcbank.ge/en/accounts/current-account' },
+    { label: 'Переводы Wise', url: 'https://wise.com/gb/send-money/' },
+  ],
+  faq: [
+    { question: 'Могут ли иностранцы открыть банковский счёт в Грузии?', answer: 'Некоторые банки могут рассматривать заявки иностранцев, но требования и решение зависят от банка, гражданства, документов и личной ситуации. Сначала уточните актуальные условия.' },
+    { question: 'Какие документы нужны для счёта в Грузии?', answer: 'Могут запросить паспорт и контакты, а иногда адрес, сведения о доходе, налогах или цели счёта. Точный список сообщает банк.' },
+    { question: 'В Грузии удобнее наличные или карта?', answer: 'Карты могут широко приниматься в городах, но способы оплаты различаются. На первую неделю полезно иметь немного наличных и запасную карту.' },
+    { question: 'Что проверить перед международным переводом?', answer: 'Проверьте реквизиты получателя, валюту, курс, комиссии, срок и возможные расходы посредников. Банки и Wise можно сравнить для доступного направления.' },
+  ],
+};
+
+const serbiaBankingRu: Guide = {
+  ...ruGuide(
+    'serbia',
+    'bank-account',
+    'Medium',
+    'Иностранцы могут узнавать о банковских счетах в Сербии, но допуск и документы зависят от гражданства, пребывания, цели и политики банка. Проверяйте условия до заявки.',
+    [
+      'Решите, нужен ли сербский счёт сразу или можно временно использовать действующие карты и наличные.',
+      'Проверьте актуальную информацию Raiffeisen Bank Serbia, Banca Intesa и OTP banka.',
+      'Спросите, какие требования относятся к вашему гражданству, пребыванию, регистрации и цели счёта.',
+      'Сравните доступ к динарам и другим валютам, карты, приложение, переводы и обслуживание.',
+      'Сохраняйте запасной доступ к деньгам до полной активации счёта, карты и приложения.',
+    ],
+    ['Могут запросить паспорт или другой принимаемый документ', 'Могут запросить адрес, пребывание или регистрацию', 'Могут запросить местный номер или другие контакты', 'Могут запросить сведения о доходе, работе, налогах или цели счёта'],
+    [
+      'Спросите про обслуживание, карты, банкоматы, кассу и внутренние или международные переводы.',
+      'Проверьте доступ к динарам и нужным валютам и порядок конвертации.',
+      'Уточните сроки заявки, получение карты, активацию, лимиты и мобильный банк.',
+      'Сравнивайте полные актуальные условия, а не одну акцию.',
+    ],
+    [
+      'Считать, что все банки предлагают одинаковые варианты всем иностранцам.',
+      'Подавать заявку без проверки документов, отделения или записи.',
+      'Не изучать условия счёта, карты, банкоматов, конвертации и переводов.',
+      'Отправлять перевод без проверки реквизитов, валюты, срока и общей стоимости.',
+      'Полагаться на один способ оплаты до проверки новой карты и приложения.',
+    ],
+  ),
+  title: 'Банковский счёт в Сербии',
+  description: 'Практичный гид по банковскому счёту в Сербии для иностранцев: возможные документы, вопросы банку, карты, наличные, валюта и переводы.',
+  summary: 'Открыть счёт в Сербии можно не во всех ситуациях: условия зависят от гражданства, пребывания, документов и банка. Сравнивайте варианты и сохраняйте запасные способы оплаты.',
+  lastUpdated: '2026-07-15',
+  bankingOptions: [
+    { label: 'Raiffeisen Bank Serbia', details: 'Один из банков, где можно проверить информацию о счетах. Уточняйте допуск иностранных заявителей напрямую.' },
+    { label: 'Banca Intesa', details: 'Можно сравнить условия счёта, карты и цифрового банка. Варианты зависят от заявителя.' },
+    { label: 'OTP banka', details: 'Также можно изучить актуальные счета и услуги. Документы, процесс и условия уточняйте у банка.' },
+    { label: 'Wise для сравнения', details: 'Wise можно сравнить как инструмент международных переводов, а не как рекомендацию банка или гарантированный маршрут.' },
+  ],
+  bankQuestions: [
+    'Может ли банк рассмотреть заявку с вашим гражданством, пребыванием, регистрацией и целью счёта?',
+    'Какие документы о личности, адресе, регистрации, доходе, налогах или цели могут понадобиться?',
+    'Каковы условия счёта, карты, банкоматов, конвертации и внутренних или международных переводов?',
+    'Когда и как активируются карта, приложение, лимиты и функции безопасности?',
+  ],
+  paymentBasics: [
+    'Карты и бесконтактная оплата могут быть распространены, но приём зависит от места и ситуации.',
+    'На первую неделю держите доступный запас динаров и резервный способ оплаты.',
+    'Используйте официальные приложения, включите уведомления и защищайте PIN, пароли и коды.',
+  ],
+  currencyTransferTips: [
+    'Валюта Сербии — сербский динар. До подтверждения операции проверьте валюту оплаты или снятия.',
+    'Перед обменом сравните актуальные курсы, способ конвертации и все указанные комиссии.',
+    'Для международного перевода проверьте банковские реквизиты, валюту, тип, срок и расходы посредников.',
+    'Wise и банковские переводы можно сравнивать на поддерживаемых направлениях; условия зависят от маршрута.',
+  ],
+  verificationNote: 'Последнее обновление: 2026-07-15. Допуск, регистрационные требования, продукты, комиссии и переводы могут меняться. Проверяйте актуальные данные напрямую.',
+  links: [
+    { label: 'Raiffeisen Serbia', url: 'https://www.raiffeisenbank.rs/sr/stanovnistvo/racuni.html' },
+    { label: 'Banca Intesa', url: 'https://www.bancaintesa.rs/en/stanovnistvo.html/platni-racuni.html' },
+    { label: 'OTP banka', url: 'https://www.otpbanka.rs/en/' },
+    { label: 'Переводы Wise', url: 'https://wise.com/gb/send-money/' },
+  ],
+  faq: [
+    { question: 'Могут ли иностранцы открыть банковский счёт в Сербии?', answer: 'Некоторые банки могут рассматривать заявки иностранцев, но требования зависят от гражданства, цели пребывания, регистрации и политики банка. Проверьте актуальные условия заранее.' },
+    { question: 'Какие документы нужны для счёта в Сербии?', answer: 'Могут запросить паспорт, адрес или регистрацию и дополнительные подтверждающие документы. Точный список зависит от банка и ситуации.' },
+    { question: 'Что проверить при переводе денег из Сербии?', answer: 'Проверьте реквизиты, валюту, курс, комиссии, срок и возможные расходы посредников. Wise и банковские варианты можно сравнить там, где они доступны.' },
+    { question: 'Стоит ли сразу полагаться на новую сербскую карту?', answer: 'Сохраняйте запасную карту и доступные наличные, пока не проверите новую карту, PIN, приложение и способы подтверждения.' },
+  ],
+};
+
 const georgiaHousingEn: Guide = {
   ...enGuide(
     'georgia',
@@ -2520,32 +2938,32 @@ const serbiaHousingRu: Guide = {
 export const guides: Guide[] = [
   georgiaSimEn,
   georgiaEsimEn,
-  enGuide('georgia', 'bank-account', 'Medium', 'Bank accounts are possible for many visitors, but requirements vary. Expect passport checks and possible proof of address, income or purpose.', ['Shortlist major banks before arrival.', 'Book time for an in-branch visit.', 'Bring printed or digital supporting documents.', 'Ask about monthly fees, card issuance and foreign transfers.', 'Activate online banking before leaving the branch.'], ['Passport', 'Phone number', 'Local address', 'Proof of income or purpose if requested'], ['Monthly account and card fees may apply.', 'International transfer fees vary widely.', 'Premium packages are not always necessary.'], ['Arriving without a local phone number.', 'Not asking about account maintenance fees.', 'Assuming rules are identical across branches.']),
+  georgiaBankingEn,
   georgiaHousingEn,
   georgiaTransportEn,
   serbiaSimEn,
   serbiaEsimEn,
-  enGuide('serbia', 'bank-account', 'Medium', 'Banking can require more paperwork in Serbia. Prepare passport, local registration details and a clear reason for opening the account.', ['Compare banks that serve non-residents.', 'Ask what documents are required before visiting.', 'Bring proof of address or stay registration if available.', 'Review account, card and transfer fees.', 'Test mobile banking and card activation.'], ['Passport', 'Local phone number', 'Address or white card if available', 'Employment, income or purpose documents if requested'], ['Maintenance fees and transfer fees vary.', 'Card issuance may take several days.', 'Some banks charge more for non-resident services.'], ['Going without an appointment when the branch is busy.', 'Not asking about non-resident restrictions.', 'Leaving before mobile banking is fully active.']),
+  serbiaBankingEn,
   serbiaHousingEn,
   serbiaTransportEn,
   georgiaSimTr,
   georgiaEsimTr,
-  trGuide('georgia', 'bank-account', 'Medium', 'Birçok ziyaretçi için banka hesabı mümkün olabilir; pasaport kontrolü ve adres, gelir veya amaç belgesi istenebilir.', ['Gelmeden önce büyük bankaları listeleyin.', 'Şube ziyareti için zaman ayırın.', 'Destekleyici belgeleri dijital veya basılı hazırlayın.', 'Aylık ücret, kart çıkarma ve yurtdışı transfer ücretlerini sorun.', 'Şubeden ayrılmadan internet bankacılığını aktive edin.'], ['Pasaport', 'Telefon numarası', 'Yerel adres', 'İstenirse gelir veya amaç belgesi'], ['Aylık hesap ve kart ücretleri olabilir.', 'Uluslararası transfer ücretleri ciddi değişir.', 'Premium paket her zaman gerekli değildir.'], ['Yerel telefon numarası olmadan gitmek.', 'Hesap işletim ücretini sormamak.', 'Tüm şubelerde kurallar aynı sanmak.']),
+  georgiaBankingTr,
   georgiaHousingTr,
   georgiaTransportTr,
   serbiaSimTr,
   serbiaEsimTr,
-  trGuide('serbia', 'bank-account', 'Medium', 'Sırbistan’da bankacılık daha fazla evrak gerektirebilir. Pasaport, yerel kayıt bilgisi ve hesap açma amacınızı hazırlayın.', ['Yabancılarla çalışan bankaları karşılaştırın.', 'Şubeye gitmeden önce belge listesini sorun.', 'Varsa adres veya konaklama kayıt belgesini getirin.', 'Hesap, kart ve transfer ücretlerini inceleyin.', 'Mobil bankacılık ve kart aktivasyonunu test edin.'], ['Pasaport', 'Yerel telefon numarası', 'Varsa adres veya white card', 'İstenirse iş, gelir veya amaç belgeleri'], ['Hesap işletim ve transfer ücretleri değişir.', 'Kart basımı birkaç gün sürebilir.', 'Bazı bankalar yabancılar için daha yüksek ücret alabilir.'], ['Yoğun şubeye randevusuz gitmek.', 'Yabancı müşteri kısıtlarını sormamak.', 'Mobil bankacılık aktif olmadan ayrılmak.']),
+  serbiaBankingTr,
   serbiaHousingTr,
   serbiaTransportTr,
   georgiaSimRu,
   ruGuide('georgia', 'esim', 'High', 'eSIM удобна, если телефон её поддерживает и нужен интернет сразу после посадки. Для местного номера или долгого пребывания сравните её с физической SIM-картой.', ['Проверьте поддержку eSIM в телефоне.', 'Купите и установите eSIM до вылета по Wi-Fi.', 'Сохраните QR-код или инструкцию активации.', 'После посадки включите eSIM и передачу данных.', 'Проверьте карты и мессенджеры до выхода из аэропорта.'], ['Телефон с поддержкой eSIM', 'Wi-Fi для установки', 'Банковская карта', 'Инструкция от провайдера'], ['Пакеты eSIM часто стоят дороже местной SIM.', 'Некоторые eSIM дают только интернет без местного номера.', 'Срок действия может начинаться при установке или первом подключении.'], ['Покупать eSIM без проверки совместимости телефона.', 'Удалять eSIM до конца поездки.', 'Не проверять, когда начинается срок действия.']),
-  ruGuide('georgia', 'bank-account', 'Medium', 'Открыть счёт возможно для многих приезжих, но требования отличаются по банку и отделению. Готовьте паспорт, местный номер и объяснение цели счёта.', ['Сравните крупные банки до визита.', 'Выделите время на посещение отделения.', 'Подготовьте паспорт, номер телефона и адрес.', 'Спросите про комиссии, карту и переводы.', 'Активируйте онлайн-банк до ухода из отделения.'], ['Паспорт', 'Местный номер телефона', 'Местный адрес', 'Документы о доходе или цели, если попросят'], ['Могут быть ежемесячные комиссии.', 'Стоимость карты и переводов отличается.', 'Премиальные пакеты не всегда нужны.'], ['Идти без местного номера.', 'Не спрашивать про комиссии.', 'Думать, что правила одинаковые во всех отделениях.']),
+  georgiaBankingRu,
   georgiaHousingRu,
   georgiaTransportRu,
   serbiaSimRu,
   ruGuide('serbia', 'esim', 'High', 'eSIM подходит, если нужен интернет сразу после приезда и телефон поддерживает eSIM. Для местного номера лучше сравнить с физической SIM-картой.', ['Проверьте поддержку eSIM.', 'Купите eSIM до поездки и установите по Wi-Fi.', 'Сохраните инструкцию активации.', 'После посадки включите линию eSIM.', 'Проверьте карты и мессенджеры.'], ['Телефон с поддержкой eSIM', 'Wi-Fi для установки', 'Банковская карта', 'Инструкция провайдера'], ['eSIM часто дороже местной SIM.', 'Многие eSIM дают только интернет.', 'Срок действия зависит от условий пакета.'], ['Не проверять совместимость телефона.', 'Удалять eSIM во время поездки.', 'Не уточнять срок действия.']),
-  ruGuide('serbia', 'bank-account', 'Medium', 'Банк в Сербии может попросить больше документов. Подготовьте паспорт, местную регистрацию или адрес и понятную цель открытия счёта.', ['Сравните банки для нерезидентов.', 'Уточните список документов до визита.', 'Возьмите паспорт, номер телефона и адрес.', 'Спросите про обслуживание, карту и переводы.', 'Проверьте мобильный банк перед уходом.'], ['Паспорт', 'Местный номер телефона', 'Адрес или регистрация, если есть', 'Документы о доходе или цели, если попросят'], ['Комиссии отличаются по банкам.', 'Выпуск карты может занять несколько дней.', 'Для нерезидентов условия могут быть дороже.'], ['Идти без уточнения документов.', 'Не спрашивать про ограничения для нерезидентов.', 'Уходить до активации мобильного банка.']),
+  serbiaBankingRu,
   serbiaHousingRu,
   serbiaTransportRu,
 ];
