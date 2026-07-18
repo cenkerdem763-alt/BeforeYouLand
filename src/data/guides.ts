@@ -23,6 +23,9 @@ export type Guide = {
   bankQuestions?: string[];
   paymentBasics?: string[];
   currencyTransferTips?: string[];
+  esimBasics?: string;
+  esimPurchaseChecks?: string[];
+  esimActivationTips?: string[];
   steps: string[];
   documents: string[];
   costs: string[];
@@ -344,7 +347,7 @@ const georgiaEsimEn: Guide = {
     'georgia',
     'esim',
     'Medium',
-    'A Georgia eSIM is the easiest way to have mobile internet in Georgia immediately after landing, especially for short trips. For long stays or when you need a local phone number, compare it with a physical Georgia SIM card from a local operator.',
+    'A Georgia eSIM can be useful for mobile internet around arrival when the phone is compatible. Compare physical SIM options for longer stays, local packages or a Georgian number.',
     [
       'Confirm that your phone supports eSIM and is carrier-unlocked before buying any eSIM for Georgia.',
       'Compare travel eSIM providers by data allowance, validity, network partner, hotspot rules and whether the plan is data-only.',
@@ -366,21 +369,42 @@ const georgiaEsimEn: Guide = {
       'Not keeping airport Wi-Fi or a backup connection available for troubleshooting.',
     ],
   ),
-  title: 'Georgia eSIM guide for travelers',
+  title: 'Georgia eSIM Guide',
+  lastUpdated: '2026-07-18',
+  quickAnswer:
+    'A Georgia eSIM can be useful for mobile data before or soon after arrival when your phone is compatible. Compare it with a physical SIM if you need a Georgian number, local operator support or a longer-term package.',
   description:
-    'How to choose an eSIM for Georgia, compare it with a Georgia SIM card, avoid common mistakes and verify current provider packages.',
+    'A practical Georgia eSIM guide covering compatibility, activation, coverage, data packages and comparison with a physical SIM card.',
   summary:
-    'A Georgia eSIM is useful for instant mobile internet in Georgia without visiting a store. It is usually best for short trips and data-only needs, while a physical SIM is better if you need a local phone number.',
+    'A Georgia eSIM can provide mobile internet without visiting a store, which may help during arrival in Tbilisi or elsewhere. Check device support, coverage, package validity and activation rules before buying.',
+  esimBasics:
+    'An eSIM is a digital SIM profile installed on a compatible phone instead of a removable plastic card. It can provide mobile data through the plan’s partner network, but availability, coverage and included services depend on the provider and package.',
+  simComparison: {
+    esim: 'Can be useful for pre-arrival setup and data without visiting a store. Many travel eSIMs are data-only, so check whether calls, SMS or a Georgian number are included.',
+    physicalSim: 'Can be useful for local operator packages, a Georgian number, in-store help or longer stays. Registration and setup requirements should be checked with the operator.',
+  },
+  esimPurchaseChecks: [
+    'Confirm that the exact phone model supports eSIM, is carrier-unlocked and has space for another active line.',
+    'Check that the plan covers Georgia and the areas you expect to visit, not only the country name on the sales page.',
+    'Compare data amount, validity, speed or fair-use limits, network partner and hotspot or tethering rules.',
+    'Read when validity begins and review the current cancellation, refund and reinstallation terms before paying.',
+  ],
+  esimActivationTips: [
+    'Install the profile on stable Wi-Fi and keep the QR code or manual installation details available until it works.',
+    'Check whether the provider wants installation before departure and activation before or after arrival.',
+    'After landing, select the eSIM for mobile data and enable data roaming only if the provider instructions require it.',
+    'Keep your primary SIM available if you need verification SMS, and avoid unexpected roaming by reviewing its data settings.',
+  ],
   travelerOptions: [
     {
       label: 'Short trip',
       recommendation:
-        'A travel eSIM for Georgia is often the fastest option. Buy before departure, install on Wi-Fi and use it for maps, messaging and ride-hailing after landing.',
+        'A travel eSIM for Georgia can be a practical option. Prepare it on Wi-Fi and use it for maps, messaging and ride-hailing after landing if activation succeeds.',
     },
     {
       label: 'Long stay',
       recommendation:
-        'Use an eSIM for arrival day, then compare local Georgia SIM card packages in an official store if you need better long-term value or a local number.',
+        'Use an eSIM for arrival-day data, then compare local Georgia SIM card packages if you need a local number, store support or different long-term terms.',
     },
     {
       label: 'Heavy data user',
@@ -424,9 +448,9 @@ const georgiaEsimEn: Guide = {
   ],
   faq: [
     {
-      question: 'Is an eSIM for Georgia good for tourists?',
+      question: 'Can I use an eSIM in Georgia?',
       answer:
-        'Yes, if your phone supports eSIM and you mainly need data. A Georgia eSIM is convenient for maps, messaging and ride-hailing immediately after landing.',
+        'An eSIM can be useful for preparing mobile data before arrival when your phone is compatible. Coverage, validity and activation rules depend on the provider.',
     },
     {
       question: 'Does a Georgia eSIM include a local phone number?',
@@ -436,12 +460,17 @@ const georgiaEsimEn: Guide = {
     {
       question: 'Should I choose a Georgia eSIM or tourist SIM Georgia package?',
       answer:
-        'Choose eSIM for convenience and arrival-day data. Choose a physical tourist SIM Georgia package if you need a local number, in-store help or potentially better long-stay value.',
+        'An eSIM can be practical for short-term data. A physical SIM is also worth comparing for a local number, in-store support or longer-term packages.',
     },
     {
       question: 'Can I install my Georgia eSIM before departure?',
       answer:
         'Usually yes, but check when validity starts. Some plans begin when installed, while others begin at first network connection.',
+    },
+    {
+      question: 'What should I check before buying an eSIM for Georgia?',
+      answer:
+        'Check device compatibility, Georgia coverage, data amount, validity, hotspot rules, activation timing and the current cancellation or refund terms.',
     },
   ],
 };
@@ -581,7 +610,7 @@ const georgiaEsimTr: Guide = {
     'georgia',
     'esim',
     'Medium',
-    'Gürcistan eSIM, özellikle kısa seyahatlerde inişten hemen sonra Gürcistan mobil internet kullanmak için en pratik yoldur. Uzun kalışta veya yerel telefon numarası gerekiyorsa fiziksel Gürcistan sim kart seçenekleriyle karşılaştırın.',
+    'Gürcistan eSIM, telefon uyumluysa varış döneminde mobil internet için faydalı olabilir. Uzun kalış, yerel paket veya Gürcistan numarası için fiziksel SIM seçeneklerini de karşılaştırın.',
     [
       'Gürcistan eSIM satın almadan önce telefonunuzun eSIM desteklediğini ve operatör kilidi olmadığını kontrol edin.',
       'Seyahat eSIM sağlayıcılarını internet kotası, geçerlilik süresi, bağlı olduğu yerel ağ, hotspot kuralları ve paketin data-only olup olmadığına göre karşılaştırın.',
@@ -603,16 +632,37 @@ const georgiaEsimTr: Guide = {
       'Sorun çözmek için havalimanı Wi-Fi veya yedek bağlantı bırakmamak.',
     ],
   ),
-  title: 'Gürcistan eSIM rehberi',
+  title: 'Gürcistan eSIM Rehberi',
+  lastUpdated: '2026-07-18',
+  quickAnswer:
+    'Gürcistan eSIM, telefonunuz uyumluysa gelmeden önce veya varıştan kısa süre sonra mobil internet için faydalı olabilir. Gürcistan numarası, yerel operatör desteği ya da uzun dönem paket gerekiyorsa fiziksel SIM ile karşılaştırın.',
   description:
-    'Gürcistan eSIM seçimi, Gürcistan sim kart karşılaştırması, yaygın hatalar, seyahat tipi önerileri ve güncel paket doğrulama notları.',
+    'Gürcistan eSIM rehberi: cihaz uyumluluğu, aktivasyon, kapsama, internet paketi ve fiziksel SIM karşılaştırması için ilk hafta ipuçları.',
   summary:
-    'Gürcistan eSIM, mağazaya gitmeden hızlı Gürcistan mobil internet kullanmak isteyenler için uygundur. Kısa seyahat ve data-only ihtiyaçlarda pratiktir; yerel numara gerekiyorsa fiziksel SIM daha doğru olabilir.',
+    'Gürcistan eSIM, mağazaya gitmeden mobil internet hazırlamaya yardımcı olabilir. Tiflis veya başka bir bölgeye gitmeden önce cihaz desteğini, kapsama alanını, paket süresini ve aktivasyon şartlarını kontrol edin.',
+  esimBasics:
+    'eSIM, fiziksel kart takmak yerine uyumlu telefona dijital olarak kurulan bir SIM profilidir. Sağlayıcının bağlı olduğu ağ üzerinden mobil internet sunabilir; kapsama, hız ve dahil hizmetler pakete göre değişebilir.',
+  simComparison: {
+    esim: 'Gelmeden kurulum ve mağazaya gitmeden internet için faydalı olabilir. Birçok seyahat eSIM’i sadece internet sunar; arama, SMS ve Gürcistan numarası detaylarını kontrol edin.',
+    physicalSim: 'Yerel operatör paketleri, Gürcistan numarası, mağaza desteği veya uzun kalış için faydalı olabilir. Kayıt ve kurulum şartlarını operatörden doğrulayın.',
+  },
+  esimPurchaseChecks: [
+    'Telefon modelinin eSIM desteklediğini, operatör kilidi olmadığını ve yeni aktif hat için kapasitesi bulunduğunu doğrulayın.',
+    'Paketin Gürcistan’ı ve gideceğiniz bölgeleri kapsadığını kontrol edin; yalnızca ülke adına güvenmeyin.',
+    'İnternet miktarı, geçerlilik süresi, hız veya adil kullanım sınırı, bağlı ağ ve hotspot kurallarını karşılaştırın.',
+    'Ödeme öncesinde sürenin ne zaman başladığını ve güncel iptal, iade ve yeniden kurulum şartlarını okuyun.',
+  ],
+  esimActivationTips: [
+    'Profili stabil Wi-Fi ile kurun; çalıştığını doğrulayana kadar QR kodunu ve manuel kurulum bilgilerini saklayın.',
+    'Sağlayıcının kurulumu yolculuktan önce, aktivasyonu ise varıştan önce mi sonra mı istediğini kontrol edin.',
+    'İnişten sonra mobil veri için eSIM’i seçin ve yalnızca sağlayıcı talimatı istiyorsa data roaming’i açın.',
+    'Doğrulama SMS’leri için ana SIM’inizi erişilebilir tutun ve istenmeyen roaming’i önlemek için veri ayarlarını kontrol edin.',
+  ],
   travelerOptions: [
     {
       label: 'Kısa seyahat',
       recommendation:
-        'Gürcistan eSIM çoğu zaman en hızlı seçenektir. Yola çıkmadan satın alıp Wi-Fi üzerinden kurabilir, inişte harita, mesajlaşma ve araç çağırma uygulamaları için kullanabilirsiniz.',
+        'Gürcistan eSIM pratik bir seçenek olabilir. Wi-Fi üzerinden hazırlayıp aktivasyon başarılıysa inişte harita, mesajlaşma ve ulaşım uygulamaları için kullanabilirsiniz.',
     },
     {
       label: 'Uzun kalış',
@@ -661,9 +711,9 @@ const georgiaEsimTr: Guide = {
   ],
   faq: [
     {
-      question: 'Gürcistan eSIM turistler için iyi mi?',
+      question: 'Gürcistan’da eSIM kullanılır mı?',
       answer:
-        'Telefonunuz eSIM destekliyorsa ve temel ihtiyacınız internetse evet. Gürcistan eSIM, inişten hemen sonra harita, mesajlaşma ve ulaşım uygulamaları için pratiktir.',
+        'eSIM, cihazınız destekliyorsa Gürcistan’a gelmeden önce mobil internet hazırlamak için faydalı olabilir. Kapsama, paket süresi ve aktivasyon kuralları sağlayıcıya göre değişebilir.',
     },
     {
       question: 'Gürcistan eSIM yerel telefon numarası verir mi?',
@@ -673,12 +723,17 @@ const georgiaEsimTr: Guide = {
     {
       question: 'Gürcistan eSIM mi turist sim kart Gürcistan paketi mi?',
       answer:
-        'Kolaylık ve inişte hızlı internet için eSIM seçin. Yerel numara, mağaza desteği veya uzun kalışta daha iyi değer istiyorsanız fiziksel turist sim kart Gürcistan paketi daha uygun olabilir.',
+        'Kısa süreli kullanım için eSIM pratik olabilir. Uzun kalışta, yerel numara veya mağaza desteği gerektiğinde fiziksel SIM seçeneklerini de karşılaştırmak faydalıdır.',
     },
     {
       question: 'Gürcistan eSIM yola çıkmadan kurulabilir mi?',
       answer:
         'Genellikle kurulabilir; fakat geçerlilik süresinin ne zaman başladığını kontrol edin. Bazı paketlerde süre kurulumda, bazılarında ilk ağ bağlantısında başlar.',
+    },
+    {
+      question: 'eSIM almadan önce neye dikkat etmeliyim?',
+      answer:
+        'Telefonun eSIM desteğini, Gürcistan kapsamasını, internet miktarını, geçerlilik süresini, hotspot kurallarını, aktivasyon zamanını ve güncel iade şartlarını kontrol edin.',
     },
   ],
 };
@@ -818,7 +873,7 @@ const serbiaEsimEn: Guide = {
     'serbia',
     'esim',
     'Medium',
-    'A Serbia eSIM is convenient if you want mobile internet in Serbia before you visit a store. It is often best for short trips and data-only use, while a physical Serbia SIM card is usually better for a local phone number or longer stays.',
+    'A Serbia eSIM can be useful for mobile internet around arrival when the phone is compatible. Compare physical SIM options for longer stays, local packages or a Serbian number.',
     [
       'Confirm that your phone supports eSIM and is carrier-unlocked before buying any eSIM for Serbia.',
       'Compare travel eSIM providers by data allowance, validity, network partner, hotspot rules, refund policy and whether the plan is data-only.',
@@ -840,16 +895,37 @@ const serbiaEsimEn: Guide = {
       'Not keeping airport Wi-Fi or another backup connection for troubleshooting.',
     ],
   ),
-  title: 'Serbia eSIM guide for travelers',
+  title: 'Serbia eSIM Guide',
+  lastUpdated: '2026-07-18',
+  quickAnswer:
+    'A Serbia eSIM can be useful for mobile data before or soon after arrival when your phone is compatible. Compare it with a physical SIM if you need a Serbian number, local operator help or a longer-term package.',
   description:
-    'How to choose a Serbia eSIM or eSIM for Serbia, compare it with a Serbia SIM card, avoid common mistakes and verify current provider packages.',
+    'A practical Serbia eSIM guide covering compatibility, activation, coverage, data packages and comparison with a physical SIM card.',
   summary:
-    'A Serbia eSIM is useful for instant mobile internet in Serbia without visiting a store. It is usually best for short trips and data-only needs; choose a physical SIM if you need a local number.',
+    'A Serbia eSIM can provide mobile internet without visiting a store, which may help during arrival in Belgrade or elsewhere. Check device support, coverage, validity and activation rules before buying.',
+  esimBasics:
+    'An eSIM is a digital SIM profile installed on a compatible phone instead of a removable card. It can connect through the plan’s Serbian partner network, but coverage, speed and included services depend on the provider and package.',
+  simComparison: {
+    esim: 'Can be useful for pre-arrival setup and data without visiting a store. Many travel eSIMs are data-only, so check whether calls, SMS or a Serbian number are included.',
+    physicalSim: 'Can be useful for local operator packages, a Serbian number, in-store help or longer stays. Check registration and setup requirements with the operator.',
+  },
+  esimPurchaseChecks: [
+    'Confirm that the exact phone model supports eSIM, is carrier-unlocked and can keep another line active if needed.',
+    'Check that the plan covers Serbia and the areas you expect to visit, including routes outside Belgrade.',
+    'Compare data amount, validity, speed or fair-use limits, network partner and hotspot or tethering rules.',
+    'Read when validity begins and review the current cancellation, refund and reinstallation terms before paying.',
+  ],
+  esimActivationTips: [
+    'Install the profile on stable Wi-Fi and retain the QR code or manual details until the connection is working.',
+    'Check whether installation should happen before departure and activation before or after arrival.',
+    'After landing, select the eSIM for mobile data and enable data roaming only if the provider instructions require it.',
+    'Keep your primary SIM available for verification SMS and review its data settings to avoid unexpected roaming.',
+  ],
   travelerOptions: [
     {
       label: 'Short trip',
       recommendation:
-        'A travel eSIM for Serbia is often the quickest option. Buy before departure, install on Wi-Fi and use it for maps, messaging and ride-hailing after landing.',
+        'A travel eSIM for Serbia can be a practical option. Prepare it on Wi-Fi and use it for maps, messaging and ride-hailing after landing if activation succeeds.',
     },
     {
       label: 'Long stay',
@@ -898,9 +974,9 @@ const serbiaEsimEn: Guide = {
   ],
   faq: [
     {
-      question: 'Is an eSIM for Serbia good for tourists?',
+      question: 'Can I use an eSIM in Serbia?',
       answer:
-        'Yes, if your phone supports eSIM and you mainly need data. A Serbia eSIM is convenient for maps, messaging and ride-hailing immediately after landing.',
+        'An eSIM can be useful for preparing mobile data before arrival when your phone is compatible. Coverage, speed, validity and activation rules depend on the provider.',
     },
     {
       question: 'Does a Serbia eSIM include a local phone number?',
@@ -910,12 +986,17 @@ const serbiaEsimEn: Guide = {
     {
       question: 'Should I choose a Serbia eSIM or tourist SIM Serbia package?',
       answer:
-        'Choose eSIM for convenience and arrival-day data. Choose a physical tourist SIM Serbia package if you need a local number, in-store help or potentially better long-stay value.',
+        'An eSIM can be practical for short-term data. A physical SIM is also worth comparing for a local number, in-store support or longer-term packages.',
     },
     {
       question: 'Can I install my Serbia eSIM before departure?',
       answer:
         'Usually yes, but check when validity starts. Some plans begin when installed, while others begin at first network connection.',
+    },
+    {
+      question: 'What should I check before buying an eSIM for Serbia?',
+      answer:
+        'Check device compatibility, Serbia coverage, data amount, validity, hotspot rules, activation timing and the current cancellation or refund terms.',
     },
   ],
 };
@@ -1055,7 +1136,7 @@ const serbiaEsimTr: Guide = {
     'serbia',
     'esim',
     'Medium',
-    'Sırbistan eSIM, mağazaya gitmeden önce Sırbistan mobil internet kullanmak isteyenler için pratiktir. Kısa seyahat ve sadece internet ihtiyacında iyi bir seçenek olabilir; yerel numara veya uzun kalış için fiziksel Sırbistan sim kart genellikle daha uygundur.',
+    'Sırbistan eSIM, telefon uyumluysa varış döneminde mobil internet için faydalı olabilir. Uzun kalış, yerel paket veya Sırp numarası için fiziksel SIM seçeneklerini de karşılaştırın.',
     [
       'Sırbistan eSIM satın almadan önce telefonunuzun eSIM desteklediğini ve operatör kilidi olmadığını kontrol edin.',
       'Seyahat eSIM sağlayıcılarını internet kotası, geçerlilik süresi, bağlı olduğu yerel ağ, hotspot kuralları, iade politikası ve paketin data-only olup olmadığına göre karşılaştırın.',
@@ -1077,16 +1158,37 @@ const serbiaEsimTr: Guide = {
       'Sorun çözmek için havalimanı Wi-Fi veya yedek bağlantı bırakmamak.',
     ],
   ),
-  title: 'Sırbistan eSIM rehberi',
+  title: 'Sırbistan eSIM Rehberi',
+  lastUpdated: '2026-07-18',
+  quickAnswer:
+    'Sırbistan eSIM, telefonunuz uyumluysa gelmeden önce veya varıştan kısa süre sonra mobil internet için faydalı olabilir. Sırp numarası, yerel operatör desteği ya da uzun dönem paket gerekiyorsa fiziksel SIM ile karşılaştırın.',
   description:
-    'Sırbistan eSIM seçimi, Sırbistan sim kart karşılaştırması, yaygın hatalar, seyahat tipi önerileri ve güncel paket doğrulama notları.',
+    'Sırbistan eSIM rehberi: cihaz uyumluluğu, aktivasyon, kapsama, internet paketi ve fiziksel SIM karşılaştırması için ilk hafta ipuçları.',
   summary:
-    'Sırbistan eSIM, mağazaya gitmeden hızlı Sırbistan mobil internet kullanmak isteyenler için uygundur. Kısa seyahat ve data-only ihtiyaçlarda pratiktir; yerel numara gerekiyorsa fiziksel SIM daha doğru olabilir.',
+    'Sırbistan eSIM, mağazaya gitmeden mobil internet hazırlamaya yardımcı olabilir. Belgrad veya başka bir bölgeye gitmeden önce cihaz desteğini, kapsama alanını, paket süresini ve aktivasyon şartlarını kontrol edin.',
+  esimBasics:
+    'eSIM, fiziksel kart takmak yerine uyumlu telefona dijital olarak kurulan bir SIM profilidir. Sağlayıcının Sırbistan’daki bağlı ağı üzerinden internet sunabilir; kapsama, hız ve dahil hizmetler pakete göre değişebilir.',
+  simComparison: {
+    esim: 'Gelmeden kurulum ve mağazaya gitmeden internet için faydalı olabilir. Birçok seyahat eSIM’i sadece internet sunar; arama, SMS ve Sırp numarası detaylarını kontrol edin.',
+    physicalSim: 'Yerel operatör paketleri, Sırp numarası, mağaza desteği veya uzun kalış için faydalı olabilir. Kayıt ve kurulum şartlarını operatörden doğrulayın.',
+  },
+  esimPurchaseChecks: [
+    'Telefon modelinin eSIM desteklediğini, operatör kilidi olmadığını ve gerekirse diğer hattı aktif tutabildiğini doğrulayın.',
+    'Paketin Sırbistan’ı ve Belgrad dışındaki rotalar dahil gideceğiniz bölgeleri kapsadığını kontrol edin.',
+    'İnternet miktarı, geçerlilik süresi, hız veya adil kullanım sınırı, bağlı ağ ve hotspot kurallarını karşılaştırın.',
+    'Ödeme öncesinde sürenin ne zaman başladığını ve güncel iptal, iade ve yeniden kurulum şartlarını okuyun.',
+  ],
+  esimActivationTips: [
+    'Profili stabil Wi-Fi ile kurun; bağlantı çalışana kadar QR kodunu ve manuel kurulum bilgilerini saklayın.',
+    'Kurulumun yolculuktan önce, aktivasyonun ise varıştan önce mi sonra mı yapılacağını kontrol edin.',
+    'İnişten sonra mobil veri için eSIM’i seçin ve yalnızca sağlayıcı talimatı istiyorsa data roaming’i açın.',
+    'Doğrulama SMS’leri için ana SIM’inizi erişilebilir tutun ve istenmeyen roaming için veri ayarlarını kontrol edin.',
+  ],
   travelerOptions: [
     {
       label: 'Kısa seyahat',
       recommendation:
-        'Sırbistan eSIM çoğu zaman en hızlı seçenektir. Yola çıkmadan satın alıp Wi-Fi üzerinden kurabilir, inişte harita, mesajlaşma ve ulaşım uygulamaları için kullanabilirsiniz.',
+        'Sırbistan eSIM pratik bir seçenek olabilir. Wi-Fi üzerinden hazırlayıp aktivasyon başarılıysa inişte harita, mesajlaşma ve ulaşım uygulamaları için kullanabilirsiniz.',
     },
     {
       label: 'Uzun kalış',
@@ -1135,9 +1237,9 @@ const serbiaEsimTr: Guide = {
   ],
   faq: [
     {
-      question: 'Sırbistan eSIM turistler için iyi mi?',
+      question: 'Sırbistan’da eSIM kullanılır mı?',
       answer:
-        'Telefonunuz eSIM destekliyorsa ve temel ihtiyacınız internetse evet. Sırbistan eSIM, inişten hemen sonra harita, mesajlaşma ve ulaşım uygulamaları için pratiktir.',
+        'eSIM, cihazınız uyumluysa Sırbistan’a gelmeden önce internet hazırlamak için pratik olabilir. Kapsama, hız ve paket şartları sağlayıcıya göre değişebilir.',
     },
     {
       question: 'Sırbistan eSIM yerel telefon numarası verir mi?',
@@ -1147,13 +1249,168 @@ const serbiaEsimTr: Guide = {
     {
       question: 'Sırbistan eSIM mi turist sim kart Sırbistan paketi mi?',
       answer:
-        'Kolaylık ve inişte hızlı internet için eSIM seçin. Yerel numara, mağaza desteği veya uzun kalışta daha iyi değer istiyorsanız fiziksel turist sim kart Sırbistan paketi daha uygun olabilir.',
+        'eSIM kısa süreli kullanım ve hızlı başlangıç için pratik olabilir. Uzun kalışta, yerel numara veya mağaza desteği gerektiğinde fiziksel SIM seçeneklerini de karşılaştırmak faydalıdır.',
     },
     {
       question: 'Sırbistan eSIM yola çıkmadan kurulabilir mi?',
       answer:
         'Genellikle kurulabilir; fakat geçerlilik süresinin ne zaman başladığını kontrol edin. Bazı paketlerde süre kurulumda, bazılarında ilk ağ bağlantısında başlar.',
     },
+    {
+      question: 'Belgrad’a gitmeden önce eSIM almak mantıklı mı?',
+      answer:
+        'İlk gün internet bağlantısı için pratik olabilir. Yine de cihaz uyumluluğunu, kapsama alanını, paket süresini, internet limitini ve aktivasyon şartlarını satın almadan önce kontrol edin.',
+    },
+  ],
+};
+
+const georgiaEsimRu: Guide = {
+  ...ruGuide(
+    'georgia',
+    'esim',
+    'Medium',
+    'eSIM в Грузии может быть полезна для мобильного интернета до или сразу после приезда, если телефон совместим. Для местного номера, помощи оператора или долгого пребывания сравните её с физической SIM-картой.',
+    [
+      'До покупки проверьте поддержку eSIM в точной модели телефона и отсутствие блокировки оператора.',
+      'Сравните объём данных, срок действия, партнёрскую сеть, ограничения скорости и раздачу интернета.',
+      'Установите профиль при стабильном Wi-Fi и уточните, когда начинается срок действия пакета.',
+      'Сохраните основную SIM-карту активной, если нужны проверочные SMS из банка, авиакомпании или домашних сервисов.',
+      'После прилёта выберите eSIM для мобильных данных и проверьте соединение до выхода из аэропорта.',
+    ],
+    ['Совместимый с eSIM разблокированный телефон', 'Стабильный Wi-Fi для установки', 'Способ оплаты', 'QR-код или инструкция провайдера'],
+    [
+      'Покрытие и партнёрская сеть могут меняться — проверьте маршрут по Грузии до покупки.',
+      'Сравните объём данных, срок действия, ограничения скорости и правила раздачи интернета.',
+      'Многие туристические eSIM работают только с интернетом и не дают грузинский номер, звонки или SMS.',
+      'Прочитайте актуальные условия активации, отмены, возврата и повторной установки.',
+    ],
+    [
+      'Покупать eSIM без проверки совместимости и блокировки телефона.',
+      'Активировать пакет слишком рано, не выяснив начало срока действия.',
+      'Удалять QR-код или письмо до успешного подключения.',
+      'Считать, что пакет с интернетом включает грузинский номер или SMS.',
+      'Не оставлять Wi-Fi или другой запасной способ связи для настройки.',
+    ],
+  ),
+  title: 'eSIM в Грузии',
+  lastUpdated: '2026-07-18',
+  description: 'Практичный гид по eSIM в Грузии: совместимость, активация, покрытие, пакет данных и сравнение с физической SIM-картой.',
+  summary: 'eSIM для Грузии позволяет подготовить мобильный интернет без посещения салона. До поездки в Тбилиси или другие регионы проверьте телефон, покрытие, срок пакета и правила активации.',
+  esimBasics: 'eSIM — это цифровой профиль SIM, который устанавливается на совместимый телефон вместо пластиковой карты. Он может подключаться к партнёрской сети в Грузии, но покрытие, скорость и услуги зависят от пакета.',
+  simComparison: {
+    esim: 'Может быть полезна для настройки до приезда и интернета без посещения салона. Проверьте, включает ли пакет только данные или также грузинский номер, звонки и SMS.',
+    physicalSim: 'Может подойти для пакетов местных операторов, грузинского номера, помощи в салоне или долгого пребывания. Уточните регистрацию и настройку у оператора.',
+  },
+  esimPurchaseChecks: [
+    'Проверьте поддержку eSIM в точной модели телефона, отсутствие блокировки и возможность держать нужные линии активными.',
+    'Убедитесь, что пакет покрывает Грузию и конкретные места вашего маршрута.',
+    'Сравните объём данных, срок, ограничения скорости, партнёрскую сеть и раздачу интернета.',
+    'До оплаты прочитайте, когда начинается срок и как работают отмена, возврат и повторная установка.',
+  ],
+  esimActivationTips: [
+    'Установите профиль при стабильном Wi-Fi и храните QR-код или ручные данные до успешного подключения.',
+    'Уточните, нужно ли установить профиль до вылета, а активировать до или после прилёта.',
+    'После прилёта выберите eSIM для данных и включайте роуминг только по инструкции провайдера.',
+    'Сохраните основную SIM для проверочных SMS и проверьте её настройки, чтобы избежать нежелательного роуминга.',
+  ],
+  travelerOptions: [
+    { label: 'Короткая поездка', recommendation: 'eSIM может быть удобна для карт, сообщений и транспорта сразу после приезда, если установка и активация прошли успешно.' },
+    { label: 'Долгое пребывание', recommendation: 'Можно использовать eSIM на первые дни, а затем сравнить физические SIM-карты Magti, Silknet и Cellfie и условия местного номера.' },
+    { label: 'Много мобильного интернета', recommendation: 'Сравните общий объём данных, срок, ограничения скорости, покрытие и раздачу интернета с местными пакетами.' },
+    { label: 'Нужен местный номер', recommendation: 'Многие туристические eSIM дают только интернет. Для грузинского номера проверьте физическую SIM или условия eSIM местного оператора.' },
+  ],
+  whereToGet: [
+    { label: 'До поездки', details: 'Некоторые пользователи сравнивают международные площадки eSIM заранее. Проверьте покрытие и текущие условия до оплаты.' },
+    { label: 'Аэропорт и Wi-Fi', details: 'Стойка продаж обычно не нужна, но Wi-Fi пригодится, если после прилёта потребуется закончить настройку.' },
+    { label: 'Тбилиси или Батуми', details: 'Если eSIM не подходит, можно сравнить физические SIM-карты в официальных салонах города.' },
+    { label: 'Местные операторы', details: 'По вопросам местной eSIM, номера или помощи обратитесь напрямую в Magti, Silknet или Cellfie.' },
+  ],
+  verificationNote: 'Последнее обновление: 2026-07-18. Покрытие, пакеты, партнёрские сети и правила активации могут меняться. Проверяйте актуальные условия до покупки.',
+  links: [
+    { label: 'Magti', url: 'https://www.magticom.ge/en' },
+    { label: 'Silknet', url: 'https://silknet.com/' },
+    { label: 'Cellfie', url: 'https://cellfie.ge/' },
+  ],
+  faq: [
+    { question: 'Можно ли использовать eSIM в Грузии?', answer: 'eSIM может быть полезна для мобильного интернета до приезда, если телефон совместим. Покрытие, срок пакета и активация зависят от провайдера.' },
+    { question: 'Что выбрать в Грузии: eSIM или физическую SIM-карту?', answer: 'eSIM может быть удобна для короткой поездки и быстрого подключения. Для долгого пребывания, местного номера или помощи в салоне полезно сравнить физическую SIM-карту.' },
+    { question: 'Что проверить перед покупкой eSIM для Грузии?', answer: 'Проверьте совместимость телефона, покрытие в Грузии, объём данных, срок, раздачу интернета, момент активации и условия возврата.' },
+    { question: 'Можно ли установить eSIM до поездки в Тбилиси?', answer: 'Часто профиль можно установить заранее по Wi-Fi, но нужно проверить, начинается ли срок при покупке, установке или первом подключении.' },
+  ],
+};
+
+const serbiaEsimRu: Guide = {
+  ...ruGuide(
+    'serbia',
+    'esim',
+    'Medium',
+    'eSIM в Сербии может быть полезна для мобильного интернета до или сразу после приезда, если телефон совместим. Для сербского номера, помощи оператора или долгого пребывания сравните физическую SIM-карту.',
+    [
+      'До покупки проверьте поддержку eSIM в точной модели телефона и отсутствие блокировки оператора.',
+      'Сравните объём данных, срок, партнёрскую сеть, ограничения скорости и раздачу интернета.',
+      'Установите профиль при стабильном Wi-Fi и уточните, когда начинается срок действия.',
+      'Сохраните основную SIM активной, если нужны проверочные SMS из банка, авиакомпании или домашних сервисов.',
+      'После прилёта выберите eSIM для данных и проверьте интернет до выхода из аэропорта.',
+    ],
+    ['Совместимый с eSIM разблокированный телефон', 'Стабильный Wi-Fi для установки', 'Способ оплаты', 'QR-код или инструкция провайдера'],
+    [
+      'Покрытие и партнёрская сеть могут меняться — проверьте Белград и другие места маршрута.',
+      'Сравните объём данных, срок, ограничения скорости и правила раздачи интернета.',
+      'Многие туристические eSIM работают только с интернетом и не дают сербский номер, звонки или SMS.',
+      'Прочитайте актуальные условия активации, отмены, возврата и повторной установки.',
+    ],
+    [
+      'Покупать eSIM без проверки совместимости и блокировки телефона.',
+      'Активировать пакет слишком рано, не выяснив начало срока действия.',
+      'Удалять QR-код или письмо до успешного подключения.',
+      'Считать, что пакет с интернетом включает сербский номер или SMS.',
+      'Не оставлять Wi-Fi или другой запасной способ связи для настройки.',
+    ],
+  ),
+  title: 'eSIM в Сербии',
+  lastUpdated: '2026-07-18',
+  description: 'Практичный гид по eSIM в Сербии: совместимость, активация, покрытие, пакет данных и сравнение с физической SIM-картой.',
+  summary: 'eSIM для Сербии позволяет подготовить мобильный интернет без посещения салона. До поездки в Белград или другие регионы проверьте телефон, покрытие, срок пакета и активацию.',
+  esimBasics: 'eSIM — цифровой профиль SIM, который устанавливается на совместимый телефон вместо пластиковой карты. Он может подключаться к партнёрской сети в Сербии, но покрытие, скорость и услуги зависят от пакета.',
+  simComparison: {
+    esim: 'Может быть полезна для настройки до приезда и интернета без посещения салона. Проверьте, включает ли пакет только данные или также сербский номер, звонки и SMS.',
+    physicalSim: 'Может подойти для пакетов местных операторов, сербского номера, помощи в салоне или долгого пребывания. Уточните регистрацию и настройку у оператора.',
+  },
+  esimPurchaseChecks: [
+    'Проверьте поддержку eSIM в точной модели телефона, отсутствие блокировки и возможность держать нужные линии активными.',
+    'Убедитесь, что пакет покрывает Сербию, Белград и другие места вашего маршрута.',
+    'Сравните объём данных, срок, ограничения скорости, партнёрскую сеть и раздачу интернета.',
+    'До оплаты прочитайте, когда начинается срок и как работают отмена, возврат и повторная установка.',
+  ],
+  esimActivationTips: [
+    'Установите профиль при стабильном Wi-Fi и храните QR-код или ручные данные до успешного подключения.',
+    'Уточните, нужно ли установить профиль до вылета, а активировать до или после прилёта.',
+    'После прилёта выберите eSIM для данных и включайте роуминг только по инструкции провайдера.',
+    'Сохраните основную SIM для проверочных SMS и проверьте её настройки, чтобы избежать нежелательного роуминга.',
+  ],
+  travelerOptions: [
+    { label: 'Короткая поездка', recommendation: 'eSIM может быть удобна для карт, сообщений и транспорта сразу после приезда, если установка и активация прошли успешно.' },
+    { label: 'Долгое пребывание', recommendation: 'Можно использовать eSIM на первые дни, а затем сравнить физические SIM-карты Yettel Serbia, A1 Serbia и mts.' },
+    { label: 'Много мобильного интернета', recommendation: 'Сравните объём данных, срок, ограничения скорости, покрытие и раздачу интернета с местными пакетами.' },
+    { label: 'Нужен местный номер', recommendation: 'Многие туристические eSIM дают только интернет. Для сербского номера проверьте физическую SIM или условия eSIM местного оператора.' },
+  ],
+  whereToGet: [
+    { label: 'До поездки', details: 'Некоторые пользователи сравнивают международные площадки eSIM заранее. Проверьте покрытие и текущие условия.' },
+    { label: 'Аэропорт и Wi-Fi', details: 'Стойка продаж обычно не нужна, но Wi-Fi пригодится для завершения настройки после прилёта.' },
+    { label: 'Белград или Нови-Сад', details: 'Если eSIM не подходит, можно сравнить физические SIM-карты в официальных салонах.' },
+    { label: 'Местные операторы', details: 'По вопросам местной eSIM, сербского номера или помощи обратитесь напрямую в Yettel Serbia, A1 Serbia или mts.' },
+  ],
+  verificationNote: 'Последнее обновление: 2026-07-18. Покрытие, пакеты, партнёрские сети и правила активации могут меняться. Проверяйте актуальные условия до покупки.',
+  links: [
+    { label: 'Yettel Serbia', url: 'https://www.yettel.rs/' },
+    { label: 'A1 Serbia', url: 'https://www.a1.rs/' },
+    { label: 'mts', url: 'https://mts.rs/' },
+  ],
+  faq: [
+    { question: 'Можно ли использовать eSIM в Сербии?', answer: 'eSIM может быть полезна для интернета до приезда, если телефон совместим. Покрытие, скорость, срок и активация зависят от провайдера.' },
+    { question: 'Что выбрать в Сербии: eSIM или физическую SIM-карту?', answer: 'eSIM может быть удобна для короткой поездки и быстрого подключения. Для долгого пребывания, сербского номера или помощи в салоне сравните физическую SIM-карту.' },
+    { question: 'Что проверить перед покупкой eSIM для Сербии?', answer: 'Проверьте совместимость телефона, покрытие, объём данных, срок, раздачу интернета, момент активации и условия возврата.' },
+    { question: 'Стоит ли покупать eSIM до поездки в Белград?', answer: 'Это может быть удобно для интернета в первый день, но до покупки проверьте телефон, срок, объём данных и условия активации.' },
   ],
 };
 
@@ -2957,12 +3214,12 @@ export const guides: Guide[] = [
   serbiaHousingTr,
   serbiaTransportTr,
   georgiaSimRu,
-  ruGuide('georgia', 'esim', 'High', 'eSIM удобна, если телефон её поддерживает и нужен интернет сразу после посадки. Для местного номера или долгого пребывания сравните её с физической SIM-картой.', ['Проверьте поддержку eSIM в телефоне.', 'Купите и установите eSIM до вылета по Wi-Fi.', 'Сохраните QR-код или инструкцию активации.', 'После посадки включите eSIM и передачу данных.', 'Проверьте карты и мессенджеры до выхода из аэропорта.'], ['Телефон с поддержкой eSIM', 'Wi-Fi для установки', 'Банковская карта', 'Инструкция от провайдера'], ['Пакеты eSIM часто стоят дороже местной SIM.', 'Некоторые eSIM дают только интернет без местного номера.', 'Срок действия может начинаться при установке или первом подключении.'], ['Покупать eSIM без проверки совместимости телефона.', 'Удалять eSIM до конца поездки.', 'Не проверять, когда начинается срок действия.']),
+  georgiaEsimRu,
   georgiaBankingRu,
   georgiaHousingRu,
   georgiaTransportRu,
   serbiaSimRu,
-  ruGuide('serbia', 'esim', 'High', 'eSIM подходит, если нужен интернет сразу после приезда и телефон поддерживает eSIM. Для местного номера лучше сравнить с физической SIM-картой.', ['Проверьте поддержку eSIM.', 'Купите eSIM до поездки и установите по Wi-Fi.', 'Сохраните инструкцию активации.', 'После посадки включите линию eSIM.', 'Проверьте карты и мессенджеры.'], ['Телефон с поддержкой eSIM', 'Wi-Fi для установки', 'Банковская карта', 'Инструкция провайдера'], ['eSIM часто дороже местной SIM.', 'Многие eSIM дают только интернет.', 'Срок действия зависит от условий пакета.'], ['Не проверять совместимость телефона.', 'Удалять eSIM во время поездки.', 'Не уточнять срок действия.']),
+  serbiaEsimRu,
   serbiaBankingRu,
   serbiaHousingRu,
   serbiaTransportRu,

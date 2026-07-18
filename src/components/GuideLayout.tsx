@@ -61,6 +61,7 @@ export default function GuideLayout({ guide, country, language }: GuideLayoutPro
   const countryPath = getCountryPath(language, country);
   const isSimGuide = guide.topic === 'sim-card' || guide.topic === 'esim';
   const isPhysicalSimGuide = guide.topic === 'sim-card';
+  const isEsimGuide = guide.topic === 'esim';
   const isTransportGuide = guide.topic === 'transport';
   const isHousingGuide = guide.topic === 'rent-apartment';
   const isBankingGuide = guide.topic === 'bank-account';
@@ -121,6 +122,27 @@ export default function GuideLayout({ guide, country, language }: GuideLayoutPro
             <p className="mt-3 leading-7 text-muted">{guide.quickAnswer}</p>
           </section>
 
+          {isEsimGuide && guide.esimBasics ? (
+            <Section title={labels.whatIsEsim} icon={<Wifi className="h-5 w-5" aria-hidden="true" />}>
+              <p className="rounded-2xl bg-slate-50 p-4 leading-7 text-muted">{guide.esimBasics}</p>
+            </Section>
+          ) : null}
+
+          {isEsimGuide && guide.simComparison ? (
+            <Section title={labels.simOrEsim} icon={<Smartphone className="h-5 w-5" aria-hidden="true" />}>
+              <div className="grid gap-3 sm:grid-cols-2">
+                <div className="rounded-2xl border border-line p-4">
+                  <h3 className="font-bold">eSIM</h3>
+                  <p className="mt-2 text-sm leading-6 text-muted">{guide.simComparison.esim}</p>
+                </div>
+                <div className="rounded-2xl border border-line p-4">
+                  <h3 className="font-bold">{labels.physicalSim}</h3>
+                  <p className="mt-2 text-sm leading-6 text-muted">{guide.simComparison.physicalSim}</p>
+                </div>
+              </div>
+            </Section>
+          ) : null}
+
           {isHousingGuide && guide.housingSources ? (
             <Section title={labels.housingWhereToSearch} icon={<Building2 className="h-5 w-5" aria-hidden="true" />}>
               <div className="grid gap-3 sm:grid-cols-2">
@@ -148,7 +170,7 @@ export default function GuideLayout({ guide, country, language }: GuideLayoutPro
           ) : null}
 
           {guide.travelerOptions ? (
-            <Section title={isHousingGuide ? labels.shortVsLongHousing : isPhysicalSimGuide ? labels.simOptions : labels.bestOption} icon={<CheckCircle2 className="h-5 w-5" aria-hidden="true" />}>
+            <Section title={isEsimGuide ? labels.esimWhenUseful : isHousingGuide ? labels.shortVsLongHousing : isPhysicalSimGuide ? labels.simOptions : labels.bestOption} icon={<CheckCircle2 className="h-5 w-5" aria-hidden="true" />}>
               <div className="grid gap-3 sm:grid-cols-2">
                 {guide.travelerOptions.map((option) => (
                   <div key={option.label} className="rounded-2xl border border-line bg-slate-50 p-4">
@@ -161,7 +183,7 @@ export default function GuideLayout({ guide, country, language }: GuideLayoutPro
           ) : null}
 
           {guide.whereToGet ? (
-            <Section title={labels.whereToGet} icon={<MapPin className="h-5 w-5" aria-hidden="true" />}>
+            <Section title={isEsimGuide ? labels.esimConnectionOptions : labels.whereToGet} icon={<MapPin className="h-5 w-5" aria-hidden="true" />}>
               <div className="grid gap-3 sm:grid-cols-2">
                 {guide.whereToGet.map((place) => (
                   <div key={place.label} className="rounded-2xl border border-line p-4">
@@ -170,6 +192,26 @@ export default function GuideLayout({ guide, country, language }: GuideLayoutPro
                   </div>
                 ))}
               </div>
+            </Section>
+          ) : null}
+
+          {isEsimGuide && guide.esimPurchaseChecks ? (
+            <Section title={labels.esimPurchaseChecks} icon={<CheckCircle2 className="h-5 w-5" aria-hidden="true" />}>
+              <ul className="space-y-3 text-muted">
+                {guide.esimPurchaseChecks.map((item) => (
+                  <li key={item} className="rounded-2xl bg-slate-50 p-4 leading-7">{item}</li>
+                ))}
+              </ul>
+            </Section>
+          ) : null}
+
+          {isEsimGuide && guide.esimActivationTips ? (
+            <Section title={labels.esimActivationCompatibility} icon={<Smartphone className="h-5 w-5" aria-hidden="true" />}>
+              <ul className="space-y-3 text-muted">
+                {guide.esimActivationTips.map((item) => (
+                  <li key={item} className="rounded-2xl border border-line p-4 leading-7">{item}</li>
+                ))}
+              </ul>
             </Section>
           ) : null}
 
@@ -220,7 +262,7 @@ export default function GuideLayout({ guide, country, language }: GuideLayoutPro
           ) : null}
 
           {!isBankingGuide ? (
-            <Section title={isHousingGuide ? labels.housingFirstWeekTips : isPhysicalSimGuide ? labels.simFirstWeekTips : isTransportGuide ? labels.transportFirstWeekTips : labels.steps} icon={<ClipboardList className="h-5 w-5" aria-hidden="true" />}>
+            <Section title={isEsimGuide ? labels.esimFirstWeekTips : isHousingGuide ? labels.housingFirstWeekTips : isPhysicalSimGuide ? labels.simFirstWeekTips : isTransportGuide ? labels.transportFirstWeekTips : labels.steps} icon={<ClipboardList className="h-5 w-5" aria-hidden="true" />}>
               <ol className="space-y-3">
                 {guide.steps.map((step, index) => (
                   <li key={step} className="flex gap-3 rounded-2xl bg-slate-50 p-4 text-muted">
@@ -254,7 +296,7 @@ export default function GuideLayout({ guide, country, language }: GuideLayoutPro
             </Section>
           ) : null}
 
-          <Section title={isBankingGuide ? labels.bankingDocuments : isHousingGuide ? labels.housingPrepare : isTransportGuide ? labels.prepareBeforeArrival : labels.documents} icon={isTransportGuide ? <Luggage className="h-5 w-5" aria-hidden="true" /> : <ShieldCheck className="h-5 w-5" aria-hidden="true" />}>
+          <Section title={isEsimGuide ? labels.esimWhatYouNeed : isBankingGuide ? labels.bankingDocuments : isHousingGuide ? labels.housingPrepare : isTransportGuide ? labels.prepareBeforeArrival : labels.documents} icon={isTransportGuide ? <Luggage className="h-5 w-5" aria-hidden="true" /> : <ShieldCheck className="h-5 w-5" aria-hidden="true" />}>
             <ul className="grid gap-3 sm:grid-cols-2">
               {guide.documents.map((item) => (
                 <li key={item} className="rounded-2xl border border-line p-4 text-sm font-semibold">
@@ -309,7 +351,7 @@ export default function GuideLayout({ guide, country, language }: GuideLayoutPro
             </Section>
           ) : null}
 
-          <Section title={isBankingGuide ? labels.bankingFeesDetails : isHousingGuide ? labels.housingContractBasics : isPhysicalSimGuide ? labels.simPackageChecks : isTransportGuide ? labels.transportChecks : labels.costs} icon={<WalletCards className="h-5 w-5" aria-hidden="true" />}>
+          <Section title={isEsimGuide ? labels.esimCoveragePackage : isBankingGuide ? labels.bankingFeesDetails : isHousingGuide ? labels.housingContractBasics : isPhysicalSimGuide ? labels.simPackageChecks : isTransportGuide ? labels.transportChecks : labels.costs} icon={<WalletCards className="h-5 w-5" aria-hidden="true" />}>
             <ul className="space-y-3 text-muted">
               {guide.costs.map((item) => (
                 <li key={item} className="rounded-2xl bg-slate-50 p-4 leading-7">
@@ -368,6 +410,40 @@ export default function GuideLayout({ guide, country, language }: GuideLayoutPro
                   {
                     to: getGuidePath(language, country.content[language].slug, 'esim'),
                     label: topicLabels[language].esim,
+                  },
+                  {
+                    to: getGuidePath(language, country.content[language].slug, 'transport'),
+                    label: topicLabels[language].transport,
+                  },
+                  {
+                    to: `${countryPath}#apps-simInternet`,
+                    label: labels.usefulAppsSection,
+                  },
+                ].map((link) => (
+                  <Link
+                    key={link.to}
+                    to={link.to}
+                    className="focus-ring group flex items-center justify-between gap-3 rounded-2xl border border-line p-4 text-sm font-semibold transition hover:border-blue-600"
+                  >
+                    {link.label}
+                    <ArrowRight className="h-4 w-4 shrink-0 text-muted transition group-hover:translate-x-0.5" aria-hidden="true" />
+                  </Link>
+                ))}
+              </div>
+            </Section>
+          ) : null}
+
+          {isEsimGuide ? (
+            <Section title={labels.relatedGuides} icon={<ArrowRight className="h-5 w-5" aria-hidden="true" />}>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {[
+                  {
+                    to: countryPath,
+                    label: `${country.content[language].name} · ${labels.countryGuide}`,
+                  },
+                  {
+                    to: getGuidePath(language, country.content[language].slug, 'sim-card'),
+                    label: topicLabels[language]['sim-card'],
                   },
                   {
                     to: getGuidePath(language, country.content[language].slug, 'transport'),
