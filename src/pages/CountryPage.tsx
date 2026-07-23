@@ -5,6 +5,7 @@ import {
   AppWindow,
   CarTaxiFront,
   CheckCircle2,
+  ChevronDown,
   FileText,
   Home,
   Landmark,
@@ -50,6 +51,12 @@ const practicalInfoLabel = {
   en: 'practical tips',
   tr: 'pratik bilgi',
   ru: 'практических совета',
+} as const;
+
+const overviewHintLabel = {
+  en: 'Open a topic for a quick first-week checklist.',
+  tr: 'Kısa kontrol listesini görmek için ihtiyacınız olan başlığı açın.',
+  ru: 'Откройте нужную тему, чтобы увидеть краткий чек-лист.',
 } as const;
 
 export default function CountryPage() {
@@ -221,54 +228,87 @@ export default function CountryPage() {
         ) : null}
 
         <section className="mt-10">
-          <h2 className="text-2xl font-bold">{labels.overview}</h2>
+          <div>
+            <h2 id="arrival-essentials-title" className="text-2xl font-bold">
+              {labels.overview}
+            </h2>
+            <p className="mt-1.5 text-sm leading-6 text-muted">
+              {overviewHintLabel[language]}
+            </p>
+          </div>
           <div className="mt-5 grid gap-3 md:grid-cols-2">
             {overview.map((item) => {
               const Icon = item.icon;
               const category = checklistByKey.get(item.checklistCategory);
               const isOpen = openOverviewCategories.has(item.checklistCategory);
+              const detailsId = `overview-${country.key}-${item.checklistCategory}`;
 
               return (
-                <button
+                <article
                   key={item.checklistCategory}
-                  type="button"
-                  className="focus-ring group flex h-full flex-col rounded-xl border border-slate-200/80 bg-white p-4 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-green-600/30 hover:shadow-md"
-                  aria-expanded={isOpen}
-                  onClick={() => toggleOverviewCategory(item.checklistCategory)}
+                  className={`overflow-hidden rounded-2xl border bg-white shadow-sm transition ${
+                    isOpen
+                      ? 'border-green-600/30 shadow-md ring-1 ring-green-600/10'
+                      : 'border-slate-200/80 hover:-translate-y-0.5 hover:border-green-600/25 hover:shadow-md'
+                  }`}
                 >
-                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100 text-blue-700 transition group-hover:bg-green-50 group-hover:text-green-700">
-                    <Icon className="h-5 w-5" aria-hidden="true" />
-                  </span>
-                  <h3 className="mt-3 font-bold leading-snug">{item.label}</h3>
-                  <p className="mt-1.5 text-sm leading-5 text-muted">{item.value}</p>
-                  <span
-                    className={`mt-4 inline-flex w-fit items-center gap-2 rounded-full px-3 py-2 text-xs font-bold text-white transition ${isOpen ? 'bg-green-700' : 'bg-slate-800 group-hover:bg-green-700'}`}
+                  <button
+                    type="button"
+                    className="focus-ring group flex w-full items-center gap-3 p-4 text-left"
+                    aria-expanded={isOpen}
+                    aria-controls={detailsId}
+                    aria-label={`${item.label}: ${
+                      isOpen ? hideDetailsLabel[language] : viewDetailsLabel[language]
+                    }`}
+                    onClick={() => toggleOverviewCategory(item.checklistCategory)}
                   >
-                    {isOpen ? hideDetailsLabel[language] : viewDetailsLabel[language]}
                     <span
-                      className={`transition-transform ${isOpen ? 'rotate-90' : ''}`}
+                      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition ${
+                        isOpen
+                          ? 'bg-green-700 text-white'
+                          : 'bg-slate-100 text-blue-700 group-hover:bg-green-50 group-hover:text-green-700'
+                      }`}
+                    >
+                      <Icon className="h-5 w-5" aria-hidden="true" />
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block font-bold leading-snug text-ink">{item.label}</span>
+                      <span className="mt-1 block text-sm leading-5 text-muted">{item.value}</span>
+                    </span>
+                    <span
+                      className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border transition ${
+                        isOpen
+                          ? 'border-green-600/20 bg-green-50 text-green-700'
+                          : 'border-line bg-slate-50 text-muted group-hover:border-green-600/20 group-hover:text-green-700'
+                      }`}
                       aria-hidden="true"
                     >
-                      →
+                      <ChevronDown
+                        className={`h-4 w-4 transition-transform duration-200 ${
+                          isOpen ? 'rotate-180' : ''
+                        }`}
+                      />
                     </span>
-                  </span>
+                  </button>
                   {isOpen && category ? (
-                    <ul className="mt-4 space-y-2 border-t border-line pt-3">
-                      {category.items.map((checklistItem) => (
-                        <li
-                          key={checklistItem[language]}
-                          className="flex gap-2.5 rounded-lg bg-slate-50/90 p-3 text-sm leading-5 text-muted"
-                        >
-                          <CheckCircle2
-                            className="mt-0.5 h-5 w-5 shrink-0 text-green-700"
-                            aria-hidden="true"
-                          />
-                          <span>{checklistItem[language]}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    <div id={detailsId} className="px-4 pb-4">
+                      <ul className="space-y-2 border-t border-line pt-3">
+                        {category.items.map((checklistItem) => (
+                          <li
+                            key={checklistItem[language]}
+                            className="flex gap-2.5 rounded-xl bg-slate-50/90 p-3 text-sm leading-5 text-muted"
+                          >
+                            <CheckCircle2
+                              className="mt-0.5 h-5 w-5 shrink-0 text-green-700"
+                              aria-hidden="true"
+                            />
+                            <span>{checklistItem[language]}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   ) : null}
-                </button>
+                </article>
               );
             })}
           </div>
