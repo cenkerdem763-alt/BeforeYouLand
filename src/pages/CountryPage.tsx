@@ -18,7 +18,6 @@ import ComparisonLinkCard from '../components/ComparisonLinkCard';
 import EssentialAppsSection from '../components/EssentialAppsSection';
 import FAQSection from '../components/FAQSection';
 import LastUpdated from '../components/LastUpdated';
-import LeadCTA from '../components/LeadCTA';
 import SEO from '../components/SEO';
 import { siteConfig } from '../data/config';
 import TopicCard from '../components/TopicCard';
@@ -220,10 +219,6 @@ export default function CountryPage() {
             </div>
           </div>
         ) : null}
-
-        <div className="mt-8">
-          <LeadCTA country={country} language={language} />
-        </div>
 
         <section className="mt-10">
           <h2 className="text-2xl font-bold">{labels.overview}</h2>

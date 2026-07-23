@@ -22,7 +22,6 @@ import Badge from './Badge';
 import CTABox from './CTABox';
 import FAQSection from './FAQSection';
 import LastUpdated from './LastUpdated';
-import LeadCTA from './LeadCTA';
 import { getCountryPath, type Country } from '../data/countries';
 import type { Guide } from '../data/guides';
 import { siteConfig } from '../data/config';
@@ -612,7 +611,6 @@ export default function GuideLayout({ guide, country, language }: GuideLayoutPro
             />
           ) : null}
 
-          <LeadCTA country={country} language={language} />
         </div>
 
         <aside className="h-fit rounded-2xl border border-line bg-white p-5 shadow-soft lg:sticky lg:top-24">

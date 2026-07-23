@@ -14,7 +14,6 @@ import {
 import CountryCard from '../components/CountryCard';
 import AboutTrustSection from '../components/AboutTrustSection';
 import ComparisonLinkCard from '../components/ComparisonLinkCard';
-import LeadCTA from '../components/LeadCTA';
 import PartnerCTA from '../components/PartnerCTA';
 import Search from '../components/Search';
 import SEO from '../components/SEO';
@@ -179,9 +178,6 @@ export default function HomePage({ language }: HomePageProps) {
                 </Link>
               ))}
             </div>
-            <div className="mt-3">
-              <LeadCTA country={georgia} language={language} compact />
-            </div>
           </div>
         </div>
       </section>
@@ -222,10 +218,6 @@ export default function HomePage({ language }: HomePageProps) {
           trustPoints={copy.aboutTrust.points}
           disclaimer={copy.aboutTrust.disclaimer}
         />
-      </section>
-
-      <section className="container-shell pb-14">
-        <LeadCTA country={georgia} language={language} />
       </section>
 
       <section className="container-shell grid gap-4 pb-14 lg:grid-cols-2">
