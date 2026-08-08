@@ -5,6 +5,8 @@ import { countries, findCountryBySlug, getCountryPath } from '../data/countries'
 import {
   comparisonSlugs,
   getComparisonPath,
+  getInsurancePath,
+  insuranceSlugs,
   resolveTopicFromSlug,
   getGuidePath,
 } from '../data/routes';
@@ -20,6 +22,10 @@ const counterpart = (pathname: string, nextLanguage: Language) => {
 
   if (parts[1] === comparisonSlugs[currentLanguage]) {
     return getComparisonPath(nextLanguage);
+  }
+
+  if (parts[1] === insuranceSlugs[currentLanguage]) {
+    return getInsurancePath(nextLanguage);
   }
 
   const country = findCountryBySlug(currentLanguage, parts[1]);

@@ -5,9 +5,10 @@ import HomePage from './pages/HomePage';
 import CountryPage from './pages/CountryPage';
 import ComparisonPage from './pages/ComparisonPage';
 import GuidePage from './pages/GuidePage';
+import InsurancePage from './pages/InsurancePage';
 import NotFoundPage from './pages/NotFoundPage';
 import { languageCodes, type Language } from './data/i18n';
-import { getComparisonPath } from './data/routes';
+import { getComparisonPath, getInsurancePath } from './data/routes';
 
 function LocalizedNotFoundPage() {
   const params = useParams();
@@ -32,6 +33,13 @@ export default function App() {
               key={`comparison-${language}`}
               path={getComparisonPath(language)}
               element={<ComparisonPage language={language} />}
+            />
+          ))}
+          {languageCodes.map((language) => (
+            <Route
+              key={`insurance-${language}`}
+              path={getInsurancePath(language)}
+              element={<InsurancePage language={language} />}
             />
           ))}
           <Route path="/:language/:countrySlug" element={<CountryPage />} />

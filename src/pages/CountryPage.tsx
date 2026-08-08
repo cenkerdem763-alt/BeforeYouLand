@@ -19,6 +19,7 @@ import ComparisonLinkCard from '../components/ComparisonLinkCard';
 import EssentialAppsSection from '../components/EssentialAppsSection';
 import FAQSection from '../components/FAQSection';
 import LastUpdated from '../components/LastUpdated';
+import InsuranceBanner from '../components/InsuranceBanner';
 import SEO from '../components/SEO';
 import { siteConfig } from '../data/config';
 import TopicCard from '../components/TopicCard';
@@ -348,6 +349,8 @@ export default function CountryPage() {
         </section>
 
         <ComparisonLinkCard language={language} className="mt-8" />
+
+        <InsuranceBanner language={language} />
 
       </section>
     </div>

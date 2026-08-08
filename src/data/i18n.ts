@@ -13,8 +13,9 @@ export const ui = {
     home: {
       heroTitle: 'Your first week abroad, made simple.',
       subtitle:
-        'Simple country guides for SIM cards, internet, banking, transport, housing basics and first-week essentials.',
-      eyebrow: 'Simple country guides',
+        'Simple country guides for newcomers, expats, students and remote workers: SIM cards, mobile internet, transport, housing, banking, useful apps and first-week essentials.',
+      intro: 'Practical country guides for your first week abroad.',
+      eyebrow: 'Country guides for your first week abroad',
       searchTitle: 'Where are you going?',
       searchPlaceholder: 'Search countries',
       popularTopics: 'Popular topics',
@@ -163,6 +164,7 @@ export const ui = {
       description:
         'First Week Guide helps you understand the basics before and after you land.',
       contactTitle: 'Contact',
+      insurance: 'Travel insurance',
       disclaimer:
         'Information can change. Always verify with official providers before purchasing or applying.',
     },
@@ -171,8 +173,9 @@ export const ui = {
     home: {
       heroTitle: 'Yurt dışındaki ilk haftanı kolaylaştır.',
       subtitle:
-        'SIM kart, internet, banka, ulaşım, ev bulma ve ilk hafta ihtiyaçları için basit ülke rehberleri.',
-      eyebrow: 'Basit ülke rehberleri',
+        'Yeni gelenler, expat’lar, öğrenciler ve uzaktan çalışanlar için basit ülke rehberleri: SIM kart, mobil internet, ulaşım, ev, banka, gerekli uygulamalar ve ilk hafta ihtiyaçları.',
+      intro: 'Yurt dışındaki ilk hafta için pratik ülke rehberleri.',
+      eyebrow: 'Yurt dışındaki ilk hafta için ülke rehberleri',
       searchTitle: 'Nereye gidiyorsun?',
       searchPlaceholder: 'Ülke ara',
       popularTopics: 'Popüler konular',
@@ -321,6 +324,7 @@ export const ui = {
       description:
         'First Week Guide, gitmeden önce ve indikten sonra temel ihtiyaçlarını anlamana yardımcı olur.',
       contactTitle: 'İletişim',
+      insurance: 'Seyahat sigortası',
       disclaimer:
         'Bilgiler değişebilir. Satın almadan veya başvuru yapmadan önce her zaman resmi sağlayıcılardan doğrulayın.',
     },
@@ -329,8 +333,9 @@ export const ui = {
     home: {
       heroTitle: 'Первая неделя за границей — проще.',
       subtitle:
-        'Простые гиды по странам: SIM-карта, интернет, банк, транспорт, жильё и всё важное для первой недели.',
-      eyebrow: 'Простые гиды по странам',
+        'Простые гайды по странам для новичков, экспатов, студентов и удалённых работников: SIM-карты, мобильный интернет, транспорт, жильё, банки, полезные приложения и всё важное для первой недели.',
+      intro: 'Практичные гайды по странам для первой недели за границей.',
+      eyebrow: 'Гайды по странам для первой недели за границей',
       searchTitle: 'Куда вы едете?',
       searchPlaceholder: 'Поиск страны',
       popularTopics: 'Популярные темы',
@@ -479,6 +484,7 @@ export const ui = {
       description:
         'First Week Guide помогает разобраться с базовыми вопросами до и после приезда.',
       contactTitle: 'Контакты',
+      insurance: 'Туристическая страховка',
       disclaimer:
         'Информация может меняться. Всегда проверяйте детали у официальных провайдеров перед покупкой или заявкой.',
     },

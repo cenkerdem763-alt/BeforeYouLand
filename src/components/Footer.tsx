@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { countries, findCountryBySlug, getCountryPath } from '../data/countries';
-import { getGuidePath, topicKeys } from '../data/routes';
+import { getGuidePath, getInsurancePath, topicKeys } from '../data/routes';
 import { siteConfig } from '../data/config';
 import { languageCodes, topicLabels, ui, type Language } from '../data/i18n';
 import PartnerCTA from './PartnerCTA';
@@ -11,9 +11,13 @@ export default function Footer() {
   const language: Language =
     languageCodes.find((languageCode) => location.pathname.startsWith(`/${languageCode}`)) ?? 'en';
   const pathParts = location.pathname.split('/').filter(Boolean);
-  const isCountryPage = pathParts.length === 2;
   const currentCountry = pathParts[1] ? findCountryBySlug(language, pathParts[1]) : undefined;
+  const isCountryPage = Boolean(currentCountry && pathParts.length === 2);
   const copy = ui[language].footer;
+  const insuranceLink = {
+    to: getInsurancePath(language),
+    label: ui[language].footer.insurance,
+  };
   const footerLinks = currentCountry
     ? [
         { to: `/${language}`, label: ui[language].nav.home },
@@ -25,6 +29,7 @@ export default function Footer() {
           to: getGuidePath(language, currentCountry.content[language].slug, topic),
           label: topicLabels[language][topic],
         })),
+        insuranceLink,
       ]
     : [
         { to: `/${language}`, label: ui[language].nav.home },
@@ -32,6 +37,7 @@ export default function Footer() {
           to: getCountryPath(language, country),
           label: country.content[language].name,
         })),
+        insuranceLink,
       ];
 
   return (

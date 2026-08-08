@@ -38,6 +38,15 @@ export const comparisonSlugs: Record<Language, string> = {
 export const getComparisonPath = (language: Language) =>
   `/${language}/${comparisonSlugs[language]}`;
 
+export const insuranceSlugs: Record<Language, string> = {
+  en: 'travel-insurance',
+  tr: 'seyahat-sigortasi',
+  ru: 'turisticheskaya-strahovka',
+};
+
+export const getInsurancePath = (language: Language) =>
+  `/${language}/${insuranceSlugs[language]}`;
+
 export const getGuidePath = (
   language: Language,
   countrySlug: string,
@@ -50,6 +59,7 @@ export const resolveTopicFromSlug = (language: Language, slug: string) =>
 export const routeList = [
   ...languageCodes.map((language) => `/${language}`),
   ...languageCodes.map((language) => getComparisonPath(language)),
+  ...languageCodes.map((language) => getInsurancePath(language)),
   ...countries.flatMap((country) =>
     languageCodes.flatMap((language) => [
       getCountryPath(language, country),

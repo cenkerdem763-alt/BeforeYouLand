@@ -12,11 +12,21 @@ type SEOProps = {
   canonical: string;
   alternates?: Alternate[];
   jsonLd?: object;
+  exactTitle?: boolean;
 };
 
-export default function SEO({ title, description, canonical, alternates = [], jsonLd }: SEOProps) {
+export default function SEO({
+  title,
+  description,
+  canonical,
+  alternates = [],
+  jsonLd,
+  exactTitle = false,
+}: SEOProps) {
   const fullTitle =
-    title === siteConfig.siteName ? siteConfig.siteName : `${title} | ${siteConfig.siteName}`;
+    exactTitle || title === siteConfig.siteName
+      ? title
+      : `${title} | ${siteConfig.siteName}`;
 
   return (
     <Helmet>

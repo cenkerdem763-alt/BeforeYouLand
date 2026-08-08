@@ -28,6 +28,35 @@ type HomePageProps = {
   language: Language;
 };
 
+const homepageJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${siteConfig.baseUrl}/#website`,
+      name: siteConfig.siteName,
+      url: siteConfig.baseUrl,
+      inLanguage: [...languageCodes],
+      description:
+        'Practical country guides for your first week abroad, including SIM cards, transport, housing, banking, useful apps and first-week checklists.',
+    },
+    {
+      '@type': 'Organization',
+      '@id': `${siteConfig.baseUrl}/#organization`,
+      name: siteConfig.siteName,
+      url: siteConfig.baseUrl,
+      email: siteConfig.contact.email,
+      logo: `${siteConfig.baseUrl}/favicon.svg`,
+      sameAs: [
+        siteConfig.contact.telegramUrl,
+        'https://t.me/firstweekguide_updates',
+      ],
+      description:
+        'First Week Guide provides practical country guides for newcomers, expats, students and remote workers preparing for their first week abroad.',
+    },
+  ],
+};
+
 export default function HomePage({ language }: HomePageProps) {
   const [query, setQuery] = useState('');
   const copy = ui[language].home;
@@ -51,9 +80,11 @@ export default function HomePage({ language }: HomePageProps) {
   return (
     <>
       <SEO
-        title={siteConfig.siteName}
+        title={siteConfig.homepageTitles[language]}
         description={siteConfig.defaultDescriptions[language]}
         canonical={`${siteConfig.baseUrl}/${language}`}
+        exactTitle
+        jsonLd={homepageJsonLd}
         alternates={[
           ...languageCodes.map((alternateLanguage) => ({
             hrefLang: alternateLanguage,
@@ -73,6 +104,9 @@ export default function HomePage({ language }: HomePageProps) {
               {copy.heroTitle}
             </h1>
             <p className="mt-5 max-w-2xl text-lg leading-8 text-muted">{copy.subtitle}</p>
+            <p className="mt-3 max-w-2xl text-sm font-semibold leading-6 text-ink">
+              {copy.intro}
+            </p>
 
             <div className="mt-7 flex flex-wrap gap-2">
               {copy.trustItems.map((item) => (
